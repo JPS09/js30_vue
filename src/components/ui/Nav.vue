@@ -24,7 +24,7 @@ export default {
 
 <style scoped>
 #placeholder-div {
-  width: 100px;
+  width: 10px;
 }
 .nav-bar {
   position: sticky;
@@ -38,10 +38,14 @@ export default {
   width: 100vw;
 }
 .home-logo {
-  height: 5vh;
-  width: 5vw;
+  height: 8vh;
+  width: 8vw;
   filter: invert(36%) sepia(17%) saturate(815%) hue-rotate(89deg)
     brightness(93%) contrast(88%);
+  max-height: 30px;
+  max-width: 30px;
+  margin: 15px;
+  flex: 1;
 }
 .home-logo:hover {
   cursor: pointer;
