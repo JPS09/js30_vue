@@ -7,7 +7,7 @@
       @click="homeLink"
     />
 
-    <p>JS30 with Vue</p>
+    <p>JS30 with <span class="vue-highlight">Vue</span></p>
   </div>
 </template>
 
@@ -38,5 +38,10 @@ export default {
 }
 .home-logo:hover {
   cursor: pointer;
+}
+
+.vue-highlight {
+  color: #41674f;
+  font-weight: 800;
 }
 </style>
