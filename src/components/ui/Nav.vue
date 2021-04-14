@@ -1,5 +1,5 @@
 <template>
-  <div class="nav-box">
+  <div class="nav-bar">
     <img
       src="../../assets/house-black-silhouette-without-door.svg"
       alt="Link to Home page"
@@ -8,6 +8,7 @@
     />
 
     <p>JS30 with <span class="vue-highlight">Vue</span></p>
+    <div id="placeholder-div"></div>
   </div>
 </template>
 
@@ -22,13 +23,19 @@ export default {
 </script>
 
 <style scoped>
-.nav-box {
+#placeholder-div {
+  width: 100px;
+}
+.nav-bar {
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   background: white;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.26);
   min-height: 10vh;
+  width: 100vw;
 }
 .home-logo {
   height: 5vh;
