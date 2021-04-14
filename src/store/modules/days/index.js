@@ -260,7 +260,8 @@ export default {
           id: "d29",
           dayNumber: "Day 29",
           name: "Countdown Timer",
-          description: "Countdown Timer text Placeholder",
+          description:
+            "Thanks to JS, CSS and some clever calculations, we can help you have an idea on when to get back to work!",
           categories: ["Basics"],
           viewed: false,
         },
@@ -268,7 +269,7 @@ export default {
           id: "d30",
           dayNumber: "Day 30",
           name: "Whack a Mole",
-          description: "Whack a Mole text Placeholder",
+          description: "A little Whack a Mole game directly in the browser thanks to JS with event listening and some random numbers",
           categories: ["Fun"],
           viewed: false,
         },
