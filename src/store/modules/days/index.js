@@ -269,7 +269,8 @@ export default {
           id: "d30",
           dayNumber: "Day 30",
           name: "Whack a Mole",
-          description: "A little Whack a Mole game directly in the browser thanks to JS with event listening and some random numbers",
+          description:
+            "A little Whack a Mole game directly in the browser thanks to JS with event listening and some random numbers",
           categories: ["Fun"],
           viewed: false,
         },
