@@ -76,6 +76,7 @@ section {
 
 menu {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: flex-end;
 }
 </style>
