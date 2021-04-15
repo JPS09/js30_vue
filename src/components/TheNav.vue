@@ -2,7 +2,7 @@
   <div class="nav-bar">
     <div id="left">
       <img
-        src="../../assets/house-black-silhouette-without-door.svg"
+        src="../assets/house-black-silhouette-without-door.svg"
         alt="Link to Home page"
         class="home-logo"
         @click="homeLink"
