@@ -1,5 +1,6 @@
 <template>
   <teleport to="body">
+    <div class="backdrop"></div>
     <dialog open>
       <header>
         <slot name="header"> {{ title }}</slot>
@@ -31,20 +32,31 @@ export default {
 </script>
 
 <style scoped>
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+}
 dialog {
   position: fixed;
   top: 20vh;
-  left: 10%;
+  left: 25vw;
+  width: 50%;
   z-index: 100;
+  border-radius: 12px;
   border: none;
-  margin: 0;
-  padding: 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  border-radius: 10px;
-  width: 80%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  background-color: white;
 }
 header {
-  border-radius: 10px 10px 0 0;
+  border-radius: 12px 12px 0 0;
   width: 100%;
   height: 5vh;
   background: #35495e;
@@ -52,5 +64,18 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+}
+
+menu {
+  display: flex;
+  justify-content: flex-end;
 }
 </style>
