@@ -72,8 +72,8 @@ dialog {
 header {
   border-radius: 12px 12px 0 0;
   width: 100%;
-  height: 5vh;
-  background: #35495e;
+  height: 7vh;
+  background: #458b51;
   color: white;
   display: flex;
   align-items: center;
