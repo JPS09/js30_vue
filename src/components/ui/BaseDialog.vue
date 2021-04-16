@@ -13,8 +13,8 @@
         >
       </section>
       <menu>
-        <base-button>Yes I am sure</base-button>
-        <base-button>No I am not</base-button>
+        <base-button @click="closeDialog">Yes I am sure</base-button>
+        <base-button @click="closeDialog">No I am not</base-button>
       </menu>
     </dialog>
   </teleport>
