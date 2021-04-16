@@ -44,8 +44,8 @@ export default {
 dialog {
   position: fixed;
   top: 20vh;
-  left: 25vw;
-  width: 50%;
+  left: 10%;
+  width: 80%;
   z-index: 100;
   border-radius: 12px;
   border: none;
@@ -76,7 +76,14 @@ section {
 
 menu {
   display: flex;
-  justify-content: center;
-  align-items: flex-end;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  dialog {
+    left: calc(50% - 20rem);
+    width: 40rem;
+  }
 }
 </style>

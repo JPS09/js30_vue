@@ -18,7 +18,6 @@ button {
   min-width: 100px;
   max-width: 200px;
   cursor: pointer;
-  margin: 1rem;
   transition: all 0.2s ease-in-out;
   font-weight: 800;
 }
