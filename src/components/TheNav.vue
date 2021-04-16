@@ -57,9 +57,12 @@ export default {
   max-width: 30px;
   margin: 15px;
   flex: 1;
+  transition: filter 0.2s ease-in-out;
 }
 .home-logo:hover {
   cursor: pointer;
+  filter: invert(61%) sepia(13%) saturate(1681%) hue-rotate(101deg)
+    brightness(99%) contrast(92%);
 }
 
 .vue-highlight {
