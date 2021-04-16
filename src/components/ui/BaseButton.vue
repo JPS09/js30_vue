@@ -14,7 +14,7 @@ button {
   color: #707070;
   border-radius: 30px;
   width: 20vw;
-  height: 4vh;
+  padding: 0.5rem;
   min-width: 100px;
   max-width: 200px;
   cursor: pointer;

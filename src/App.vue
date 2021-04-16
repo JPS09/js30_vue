@@ -18,7 +18,7 @@ import TheNav from "./components/TheNav.vue";
 export default {
   data() {
     return {
-      askConfirm: true,
+      askConfirm: false,
     };
   },
   components: {
@@ -39,6 +39,7 @@ export default {
 
 body {
   margin: 0;
+  padding: 0;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

@@ -85,13 +85,15 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1rem;
+  padding: 1rem;
 }
 
 menu {
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin: 0;
+  padding: 1.5rem;
 }
 
 @media (min-width: 768px) {
