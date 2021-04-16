@@ -3,6 +3,8 @@
   <base-dialog
     title="Are you sure?"
     details="This action cannot be undone"
+    :display="askConfirm"
+    @close="closeDialog"
   ></base-dialog>
   <div id="nav">
     <router-link to="/">Home</router-link> |
@@ -14,8 +16,18 @@
 <script>
 import TheNav from "./components/TheNav.vue";
 export default {
+  data() {
+    return {
+      askConfirm: true,
+    };
+  },
   components: {
     TheNav,
+  },
+  methods: {
+    closeDialog() {
+      this.askConfirm = false;
+    },
   },
 };
 </script>

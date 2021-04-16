@@ -1,12 +1,16 @@
 <template>
   <teleport to="body">
-    <div class="backdrop"></div>
-    <dialog open>
+    <div v-if="display" class="backdrop" @click="closeDialog"></div>
+    <dialog open v-if="display">
       <header>
-        <slot name="header"> {{ title }}</slot>
+        <slot name="header">
+          <h2>{{ title }}</h2>
+        </slot>
       </header>
       <section>
-        <slot>{{ details }}</slot>
+        <slot
+          ><p>{{ details }}</p></slot
+        >
       </section>
       <menu>
         <base-button>Yes I am sure</base-button>
@@ -26,6 +30,16 @@ export default {
     details: {
       type: String,
       required: true,
+    },
+    display: {
+      type: Boolean,
+      required: true,
+    },
+  },
+  emits: ["close"],
+  methods: {
+    closeDialog() {
+      this.$emit("close");
     },
   },
 };
