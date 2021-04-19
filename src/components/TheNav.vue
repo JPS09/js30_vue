@@ -9,7 +9,9 @@
       />
     </div>
 
-    <h1 id="center">JS30 with <span class="vue-highlight">Vue</span></h1>
+    <h1 id="center">
+      JS30 with <img alt="Vue logo" id="vue-logo" src="../assets/logo.png" />
+    </h1>
   </div>
 </template>
 
@@ -51,8 +53,8 @@ export default {
 .home-logo {
   height: 8vh;
   width: 8vw;
-  filter: invert(36%) sepia(17%) saturate(815%) hue-rotate(89deg)
-    brightness(93%) contrast(88%);
+  filter: invert(61%) sepia(13%) saturate(1681%) hue-rotate(101deg)
+    brightness(99%) contrast(92%);
   max-height: 30px;
   max-width: 30px;
   margin: 15px;
@@ -61,12 +63,17 @@ export default {
 }
 .home-logo:hover {
   cursor: pointer;
-  filter: invert(61%) sepia(13%) saturate(1681%) hue-rotate(101deg)
-    brightness(99%) contrast(92%);
+  filter: invert(36%) sepia(17%) saturate(815%) hue-rotate(89deg)
+    brightness(93%) contrast(88%);
 }
 
 .vue-highlight {
   color: #41674f;
   font-weight: 800;
+}
+
+#vue-logo {
+  max-height: 40px;
+  max-width: 40px;
 }
 </style>
