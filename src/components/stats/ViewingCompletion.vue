@@ -1,12 +1,14 @@
 <template>
-  <h3>Viewing Completion</h3>
-  <div class="progress-circle" data-value="38">
-    <div class="progress-mask">
-      <div class="progress-bar"></div>
+  <base-card>
+    <h3>Viewing Completion</h3>
+    <div class="progress-circle" data-value="38">
+      <div class="progress-mask">
+        <div class="progress-bar"></div>
+      </div>
+      <div class="progress-sup50"></div>
     </div>
-    <div class="progress-sup50"></div>
-  </div>
-  <p><span class="remaining-days">30 days</span> to go</p>
+    <p><span class="remaining-days">30 days</span> to go</p>
+  </base-card>
 </template>
 
 <script>
