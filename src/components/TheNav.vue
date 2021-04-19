@@ -53,8 +53,8 @@ export default {
 .home-logo {
   height: 8vh;
   width: 8vw;
-  filter: invert(61%) sepia(13%) saturate(1681%) hue-rotate(101deg)
-    brightness(99%) contrast(92%);
+  filter: invert(63%) sepia(24%) saturate(982%) hue-rotate(101deg)
+    brightness(94%) contrast(85%);
   max-height: 30px;
   max-width: 30px;
   margin: 15px;
@@ -63,8 +63,8 @@ export default {
 }
 .home-logo:hover {
   cursor: pointer;
-  filter: invert(36%) sepia(17%) saturate(815%) hue-rotate(89deg)
-    brightness(93%) contrast(88%);
+  filter: invert(24%) sepia(49%) saturate(396%) hue-rotate(170deg)
+    brightness(91%) contrast(87%);
 }
 
 .vue-highlight {
