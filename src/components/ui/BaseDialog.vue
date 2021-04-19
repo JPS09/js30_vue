@@ -3,14 +3,10 @@
     <div v-if="display" class="backdrop" @click="closeDialog"></div>
     <dialog open v-if="display">
       <header>
-        <slot name="header">
-          <h2>{{ title }}</h2>
-        </slot>
+        <h2>{{ title }}</h2>
       </header>
       <section>
-        <slot
-          ><p>{{ details }}</p></slot
-        >
+        <p>{{ details }}</p>
       </section>
       <menu>
         <base-button @click="closeDialog">Yes I am sure</base-button>
