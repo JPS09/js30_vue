@@ -4,6 +4,7 @@ import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
 import BaseButton from "./components/ui/BaseButton.vue";
+import BaseCard from "./components/ui/BaseCard.vue";
 const app = createApp(App);
 
 const BaseDialog = defineAsyncComponent(() =>
@@ -12,4 +13,5 @@ const BaseDialog = defineAsyncComponent(() =>
 
 app.component("base-button", BaseButton);
 app.component("base-dialog", BaseDialog);
+app.component("base-card", BaseCard);
 app.use(store).use(router).mount("#app");
