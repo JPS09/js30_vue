@@ -2,7 +2,12 @@
   <base-card>
     <h3>Viewing Completion</h3>
     <!-- TO DO : Replace data-value by a computed property taken from the vuex stats store -->
-    <div class="progress-circle" data-value="80" ref="initCircle"></div>
+    <div class="progress-circle" data-value="80" ref="initCircle">
+      <div class="progress-mask">
+        <div class="progress-bar" ref="initBar"></div>
+        <div class="progress-sup50"></div>
+      </div>
+    </div>
     <p><span class="remaining-days">30 days</span> to go</p>
   </base-card>
 </template>
@@ -11,33 +16,13 @@
 export default {
   // TO DO : Add a call to init progress bar to computed when update
   mounted() {
-    this.createProgressElems();
     this.initProgressBar();
   },
   methods: {
-    createProgressElems() {
-      const progressCircle = this.$refs.initCircle;
-      if (progressCircle) {
-        while (progressCircle.firstChild) {
-          progressCircle.removeChild(progressCircle.firstChild);
-        }
-        const pMask = document.createElement("DIV");
-        const pBar = document.createElement("DIV");
-        const pSup50 = document.createElement("DIV");
-
-        pMask.className = "progress-mask";
-        pBar.className = "progress-bar";
-        pSup50.className = "progress-sup50";
-
-        pMask.appendChild(pBar);
-        pMask.appendChild(pSup50);
-        progressCircle.appendChild(pMask);
-      }
-    },
     initProgressBar() {
       const progressCircle = this.$refs.initCircle;
+      const pBar = this.$refs.initBar;
       let valeur = progressCircle.getAttribute("data-value");
-      const pBar = progressCircle.querySelector(".progress-bar");
       let angle;
       valeur = valeur ? valeur * 1 : 0;
       progressCircle.setAttribute("data-value", valeur.toFixed(1));
