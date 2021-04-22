@@ -2,7 +2,7 @@
   <div class="nav-bar">
     <div id="left">
       <img
-        src="../assets/house-black-silhouette-without-door.svg"
+        src="../assets/logos/home_button.svg"
         alt="Link to Home page"
         class="home-logo"
         @click="homeLink"
@@ -10,7 +10,8 @@
     </div>
 
     <h1 id="center">
-      JS30 with <img alt="Vue logo" id="vue-logo" src="../assets/logo.png" />
+      JS30 with
+      <img alt="Vue logo" id="vue-logo" src="../assets/logos/vuejs_logo.png" />
     </h1>
   </div>
 </template>

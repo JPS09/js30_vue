@@ -1,5 +1,11 @@
 <template>
   <div class="home">
+    <base-dialog
+      title="Are you sure?"
+      details="This action cannot be undone"
+      :display="askConfirm"
+      @close="closeDialog"
+    ></base-dialog>
     <viewing-completion></viewing-completion>
   </div>
 </template>

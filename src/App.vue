@@ -1,11 +1,5 @@
 <template>
   <the-nav></the-nav>
-  <base-dialog
-    title="Are you sure?"
-    details="This action cannot be undone"
-    :display="askConfirm"
-    @close="closeDialog"
-  ></base-dialog>
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
