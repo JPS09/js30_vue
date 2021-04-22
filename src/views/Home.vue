@@ -4,11 +4,11 @@
       title="Are you sure?"
       details="This action cannot be undone"
       :display="askConfirm"
-      @close="closeDialog"
+      @close="closeDialogConfirm"
     ></base-dialog>
     <viewing-completion></viewing-completion>
-    <base-button>Check All</base-button>
-    <base-button>Clear All</base-button>
+    <base-button @click="openDialogConfirm">Check All</base-button>
+    <base-button @click="openDialogConfirm">Clear All</base-button>
   </div>
 </template>
 
@@ -27,7 +27,10 @@ export default {
     };
   },
   methods: {
-    closeDialog() {
+    openDialogConfirm() {
+      this.askConfirm = true;
+    },
+    closeDialogConfirm() {
       this.askConfirm = false;
     },
   },
