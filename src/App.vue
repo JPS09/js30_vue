@@ -10,18 +10,8 @@
 <script>
 import TheNav from "./components/TheNav.vue";
 export default {
-  data() {
-    return {
-      askConfirm: false,
-    };
-  },
   components: {
     TheNav,
-  },
-  methods: {
-    closeDialog() {
-      this.askConfirm = false;
-    },
   },
 };
 </script>

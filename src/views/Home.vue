@@ -7,6 +7,8 @@
       @close="closeDialog"
     ></base-dialog>
     <viewing-completion></viewing-completion>
+    <base-button>Check All</base-button>
+    <base-button>Clear All</base-button>
   </div>
 </template>
 
@@ -18,6 +20,16 @@ export default {
   name: "Home",
   components: {
     ViewingCompletion,
+  },
+  data() {
+    return {
+      askConfirm: false,
+    };
+  },
+  methods: {
+    closeDialog() {
+      this.askConfirm = false;
+    },
   },
 };
 </script>
