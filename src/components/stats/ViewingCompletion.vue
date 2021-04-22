@@ -1,6 +1,6 @@
 <template>
   <base-card>
-    <h3>Viewing Completion</h3>
+    <h3 id="viewing-title">Viewing Completion</h3>
     <!-- TO DO : Replace data-value by a computed property taken from the vuex stats store -->
     <div class="progress-circle" data-value="80" ref="initCircle">
       <div class="progress-mask">
@@ -8,7 +8,7 @@
         <div class="progress-sup50"></div>
       </div>
     </div>
-    <p><span class="remaining-days">30 days</span> to go</p>
+    <p id="day-stats"><span class="remaining-days">30 days</span> to go</p>
   </base-card>
 </template>
 
@@ -112,5 +112,10 @@ export default {
 .remaining-days {
   color: #458b51;
   font-weight: 800;
+}
+
+#viewing-title,
+#day-stats {
+  padding: 1em;
 }
 </style>

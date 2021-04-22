@@ -52,14 +52,11 @@ export default {
   flex: 1;
 }
 .home-logo {
-  height: 8vh;
-  width: 8vw;
   filter: invert(63%) sepia(24%) saturate(982%) hue-rotate(101deg)
     brightness(94%) contrast(85%);
-  max-height: 30px;
-  max-width: 30px;
+  height: 30px;
+  width: 30px;
   margin: 15px;
-  flex: 1;
   transition: filter 0.2s ease-in-out;
 }
 .home-logo:hover {
