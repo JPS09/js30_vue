@@ -1,9 +1,9 @@
 <template>
   <div class="home">
     <base-dialog
-      title="Are you sure?"
-      details="This action cannot be undone"
-      :display="askConfirm"
+      dialog-title="Are you sure?"
+      dialog-details="This action cannot be undone"
+      :dialog-display="askConfirm"
       @close="closeDialogConfirm"
     ></base-dialog>
     <viewing-completion></viewing-completion>

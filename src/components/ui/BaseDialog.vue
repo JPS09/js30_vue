@@ -1,7 +1,7 @@
 <template>
   <teleport to="body">
-    <div v-if="display" class="backdrop" @click="closeDialog"></div>
-    <dialog open v-if="display">
+    <div v-if="dialogDisplay" class="backdrop" @click="closeDialog"></div>
+    <dialog open v-if="dialogDisplay">
       <header>
         <h2>{{ title }}</h2>
       </header>
@@ -19,15 +19,15 @@
 <script>
 export default {
   props: {
-    title: {
+    dialogTitle: {
       type: String,
       required: true,
     },
-    details: {
+    dialogDetails: {
       type: String,
       required: true,
     },
-    display: {
+    dialogDisplay: {
       type: Boolean,
       required: true,
     },
