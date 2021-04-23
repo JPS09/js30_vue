@@ -39,6 +39,7 @@ export default {
 .progress-circle {
   position: relative;
   font-size: 6em;
+  margin: auto;
   width: 1em;
   height: 1em;
   border-radius: 50%;

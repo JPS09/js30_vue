@@ -39,7 +39,7 @@ export default {
   position: sticky;
   top: 0;
   display: flex;
-  align-items: center;
+  align-items: baseline;
   justify-content: space-around;
   background: white;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.26);
