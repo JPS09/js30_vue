@@ -1,1 +1,5 @@
-export default {};
+export default {
+  days(state) {
+    return state.days;
+  },
+};

@@ -223,7 +223,7 @@ export default {
         {
           id: "d25",
           dayNumber: "Day 25",
-          name: "Event Capture, Propagationn Bubbling and Once",
+          name: "Event Capture, Propagation Bubbling and Once",
           description:
             "Understanding how event are handled is key to handle them",
           categories: ["Basics"],
