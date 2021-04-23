@@ -1,22 +1,22 @@
 <template>
   <div class="container">
     <ul v-if="days">
-      <side-bar-days-items
+      <side-bar-days-item
         v-for="day in days"
         :key="day.id"
         :day-number="day.dayNumber"
         :day-name="day.name"
         :day-category="day.categories[0]"
-      ></side-bar-days-items>
+      ></side-bar-days-item>
     </ul>
   </div>
 </template>
 
 <script>
-import sideBarDaysItems from "./days/SideBarDaysItem.vue";
+import sideBarDaysItem from "./days/SideBarDaysItem.vue";
 export default {
   components: {
-    sideBarDaysItems,
+    sideBarDaysItem,
   },
   computed: {
     days() {
