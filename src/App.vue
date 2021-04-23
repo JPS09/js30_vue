@@ -1,5 +1,6 @@
 <template>
   <the-nav></the-nav>
+  <the-side-bar></the-side-bar>
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
@@ -9,9 +10,11 @@
 
 <script>
 import TheNav from "./components/TheNav.vue";
+import TheSideBar from "./components/TheSideBar.vue";
 export default {
   components: {
     TheNav,
+    TheSideBar,
   },
 };
 </script>
