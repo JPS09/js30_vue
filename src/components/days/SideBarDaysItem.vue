@@ -1,7 +1,7 @@
 <template>
   <p>
-    <span class="dayNumber">{{ dayNumber }}</span
-    >{{ dayName }} <span class="dayCategory"> {{ dayCategory }}</span>
+    <span class="dayNumber">{{ dayNumber }}</span> {{ dayName }}
+    <span class="dayCategory"> {{ dayCategory }}</span>
   </p>
 </template>
 

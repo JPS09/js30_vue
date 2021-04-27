@@ -34,10 +34,12 @@ ul {
 .container {
   display: flex;
   justify-content: center;
-  overflow: scroll;
+  overflow-y: scroll;
   background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   width: 25vw;
   height: 75vh;
-  border: 5px solid yellow;
+  border: 1px solid yellow;
+  padding: 1em;
 }
 </style>
