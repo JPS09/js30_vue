@@ -27,6 +27,10 @@ export default {
 </script>
 
 <style scoped>
+ul {
+  margin: 0;
+  padding: 0;
+}
 .container {
   display: flex;
   justify-content: center;
