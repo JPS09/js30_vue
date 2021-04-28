@@ -42,4 +42,10 @@ ul {
   border: 1px solid yellow;
   padding: 1em;
 }
+
+@media (max-width: 768px) {
+  .container {
+    display: none;
+  }
+}
 </style>
