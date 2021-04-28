@@ -1,6 +1,6 @@
 <template>
   <the-nav></the-nav>
-  <div class="app-layout">
+  <div id="app-layout">
     <the-side-bar></the-side-bar>
     <router-view id="router-elements" />
   </div>
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style>
-.app-layout {
+#app-layout {
   display: flex;
 }
 
