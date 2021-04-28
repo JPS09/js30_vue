@@ -34,12 +34,11 @@ ul {
 .container {
   display: flex;
   justify-content: center;
-  overflow-y: scroll;
   background-color: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   width: 25vw;
-  height: 75vh;
-  border: 1px solid yellow;
+  height: fit-content;
+
   padding: 1em;
 }
 

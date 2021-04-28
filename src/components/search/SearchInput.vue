@@ -9,10 +9,11 @@ export default {};
 
 <style scoped>
 .input {
-  border-radius: 10px;
+  border-radius: 30px;
   border: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  padding: 0.5em;
+  padding: 0.7em;
+  width: 20em;
 }
 
 .input:focus {

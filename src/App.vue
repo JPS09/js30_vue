@@ -1,7 +1,9 @@
 <template>
   <the-nav></the-nav>
-  <the-side-bar></the-side-bar>
-  <router-view />
+  <div class="app-layout">
+    <the-side-bar></the-side-bar>
+    <router-view id="router-elements" />
+  </div>
 </template>
 
 <script>
@@ -16,6 +18,16 @@ export default {
 </script>
 
 <style>
+.app-layout {
+  display: flex;
+}
+
+#router-elements {
+  align-self: flex-start;
+  margin: 0 auto;
+  padding: 2vh;
+}
+
 * {
   box-sizing: border-box;
 }
