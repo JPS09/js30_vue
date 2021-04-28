@@ -33,12 +33,11 @@ ul {
 }
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   background-color: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-right: 2px solid rgba(112, 112, 112, 0.2);
   width: 25vw;
   height: fit-content;
-
   padding: 1em;
 }
 
