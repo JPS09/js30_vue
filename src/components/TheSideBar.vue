@@ -33,11 +33,11 @@ ul {
 }
 .container {
   display: flex;
-  justify-content: flex-start;
   background-color: white;
   border-right: 2px solid rgba(112, 112, 112, 0.2);
   width: 25vw;
   height: fit-content;
+  text-align: left;
   padding: 1em;
 }
 
