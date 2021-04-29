@@ -1,6 +1,6 @@
 <template>
   <input class="input" type="text" placeholder="Search for a day" />
-  <font-awesome-icon icon="search"></font-awesome-icon>
+  <font-awesome-icon icon="search" />
 </template>
 
 <script>
