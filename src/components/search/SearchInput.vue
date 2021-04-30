@@ -1,12 +1,30 @@
 <template>
   <div class="search-container">
-    <input class="input" type="text" placeholder="Search for a day" />
-    <font-awesome-icon icon="search" class="searchIcon" />
+    <input
+      v-model="searchData"
+      class="input"
+      type="text"
+      placeholder="Search for a day"
+      @keyup.enter="filterDays"
+    />
+    <font-awesome-icon icon="search" class="searchIcon" @click="filterDays" />
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      searchData: "",
+    };
+  },
+  methods: {
+    filterDays() {
+      //filter the list of days or send to found day
+      console.log("Fine for me");
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -20,6 +38,7 @@ export default {};
   grid-row: 1;
   grid-column: 2;
   z-index: 2;
+  cursor: pointer;
 }
 .input {
   border-radius: 30px;
