@@ -13,6 +13,7 @@ export default {
           description:
             "This exercise makes use of an array of basics DOM manipulations techniques such as event listening and conditonal CSS classes",
           category: "Essentials",
+          subCategories: ["Music", "Audio", "Fun"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -26,6 +27,7 @@ export default {
           description:
             "Creating a JS clock that updates depending on the current time by fetching it from a Date object",
           category: "Fun",
+          subCategories: ["Time", "OOP", "Info"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -38,6 +40,7 @@ export default {
           name: "CSS Variables",
           description: "Modifiying CSS variables thanks to pure JS code",
           category: "Tips",
+          subCategories: ["CSS", "Dynamic", "Info"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -51,6 +54,7 @@ export default {
           description:
             "A variety of methods to handle arrays inside JS alongside many ways of implementing them",
           category: "Essentials",
+          subCategories: ["Data Handling", "Methods", "Syntax"],
           viewed: false,
           mainDifferences: {
             js:
@@ -65,6 +69,7 @@ export default {
           description:
             "A simple exercise based on the CSS Box model and made interactive by toggling classes on click",
           category: "Essentials",
+          subCategories: ["Box Model", "Class Toggling", "Events"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -78,6 +83,7 @@ export default {
           description:
             "Simple search field made for finding a state or a city based on user input",
           category: "Essentials",
+          subCategories: ["Regex", "Events", "Search"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -91,6 +97,7 @@ export default {
           description:
             "Second Part of an exercise made to present several array handling methods and their possible syntaxes",
           category: "Essentials",
+          subCategories: ["Data Handling", "Methods", "Syntax"],
           mainDifferences: {
             js:
               "These methods are essentials to handle data and are not modified across JS frameworks ",
@@ -105,6 +112,7 @@ export default {
           description:
             "Makes use of the canvas element available in HTML5 to allow the user to draw on it",
           category: "Fun",
+          subCategories: ["Canvas", "Drawing", "Gradients"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -118,6 +126,7 @@ export default {
           description:
             "The console has many ways of diplaying messages which we have the opportunity to see here",
           category: "Tips",
+          subCategories: ["Console", "Styling", "Error Handling"],
           viewed: false,
           mainDifferences: {
             js: "These are essentials tools of JS development",
@@ -131,6 +140,7 @@ export default {
           description:
             "Using the this keyword and several flag variable to be able to check several checkboxes at once",
           category: "Tips",
+          subCategories: ["Checkboxes", "'This' Keyword", "Events"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -144,6 +154,7 @@ export default {
           description:
             "Thanks to CSS Styling and several JS functions using methods available to the video element, creating a custom player is easy",
           category: "Fun",
+          subCategories: ["Video Tag", "Video functions", "Styling"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -157,6 +168,7 @@ export default {
           description:
             "This fun little feature is based on listening to key ups events and comparing the input to a string stored in a variable",
           category: "Fun",
+          subCategories: ["Comparing data", "Event", "Easter Egg"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -170,6 +182,7 @@ export default {
           description:
             "Depending on the scroll, images are made to scroll in and out of a text article",
           category: "Fun",
+          subCategories: ["Scroll event", "Class Toggling", "CSS animation"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -183,6 +196,7 @@ export default {
           description:
             "A little explanation of the difference between referencing an existing element and copying it",
           category: "Essentials",
+          subCategories: ["Data Handling", "Data Flow", "Differences"],
           viewed: false,
           mainDifferences: {
             js:
@@ -197,6 +211,7 @@ export default {
           description:
             "LocalStorage is an alternative way of saving data between pages but also to avoid losing it when the user actualises it",
           category: "Essentials",
+          subCategories: ["Feature", "Data persistence", "Data handling"],
           viewed: false,
           mainDifferences: {
             js:
