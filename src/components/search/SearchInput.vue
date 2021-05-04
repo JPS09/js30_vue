@@ -1,5 +1,6 @@
 <template>
   <div class="search-container">
+    <font-awesome-icon icon="search" class="searchIcon" @click="filterDays" />
     <input
       v-model="searchData"
       class="input"
@@ -7,7 +8,6 @@
       placeholder="Search for a day"
       @keyup.enter="filterDays"
     />
-    <font-awesome-icon icon="search" class="searchIcon" @click="filterDays" />
   </div>
 </template>
 

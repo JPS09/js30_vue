@@ -45,6 +45,7 @@ export default {
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.26);
   min-height: 10vh;
   width: 100vw;
+  z-index: 10;
 }
 
 .nav-bar::after {
