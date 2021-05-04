@@ -227,6 +227,7 @@ export default {
           description:
             "Making a shadow that reacts dynamicaly to the mouse position on the page",
           category: "Fun",
+          subCategories: ["Dynamic Shadow", "Events", "Mouse"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -239,6 +240,7 @@ export default {
           name: "Sorting without article",
           description: "Little trick to sort elements without their articles",
           category: "Tips",
+          subCategories: ["Sorting", "Regex", "Text"],
           viewed: false,
           mainDifferences: {
             js:
@@ -253,6 +255,7 @@ export default {
           description:
             "Adding up the total duration of a selection of videos is easy with reduce",
           category: "Tips",
+          subCategories: ["Total Time", "Reduce", "Method"],
           viewed: false,
           mainDifferences: {
             js:
@@ -267,6 +270,7 @@ export default {
           description:
             "By manipulating the pixels provided by the canvas used to display the video stream, we are able to makes a variety of effects",
           category: "Fun",
+          subCategories: ["Pixels", "Large arrays", "Video effects"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -280,6 +284,7 @@ export default {
           description:
             "Speech Recognition is a built-in feature of modern web browsers which can be used for a variety of ideas",
           category: "Nav",
+          subCategories: ["Built-in", "Feature", "Modern"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -293,6 +298,7 @@ export default {
           description:
             "Geolocation is a built-in feature of modern web browsers which provide using with informations such as speed and our position relative to the north",
           category: "Nav",
+          subCategories: ["Built-in", "Feature", "Modern"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -306,6 +312,7 @@ export default {
           description:
             "Using JS and CSS, highlighting links when they are hovered is easy when we have their coordinates on the page",
           category: "Tips",
+          subCategories: ["Hightlight", "Events", "Positionning"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -319,6 +326,7 @@ export default {
           description:
             "Speech Synthesis is a built-in feature of modern web browsers which can be used for accessibility features for example",
           category: "Nav",
+          subCategories: ["Built-in", "Feature", "Modern"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -332,6 +340,7 @@ export default {
           description:
             "By taking in to account the scroll distance from the top, we can toggle a CSS class to make a nav bar sticky.",
           category: "Tips",
+          subCategories: ["CSS", "Scroll Event", "Toggling"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -345,6 +354,7 @@ export default {
           description:
             "Understanding how event are handled is key to handle them",
           category: "Essentials",
+          subCategories: ["Event Handling", "Tricky", "Capture"],
           viewed: false,
           mainDifferences: {
             js: "This concept is essential to understand how JS handle events",
@@ -356,8 +366,9 @@ export default {
           dayNumber: "Day 26",
           name: "Stripe Follow Along Nav",
           description:
-            "Stripe has a clean way to handle their dropdown menus which is what we are recreating here",
+            "Stripe has a clean way to handle their dropdown menus which is what we are reproducing here",
           category: "Tips",
+          subCategories: ["Immitation", "Dropdown", "Clean"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -371,6 +382,7 @@ export default {
           description:
             "Handling the original click position compared to the scroll distance is what makes this feature possible",
           category: "Essentials",
+          subCategories: ["Scroll", "Click Handling", "Modern"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -384,6 +396,7 @@ export default {
           description:
             "Using the height of a div to influence to playback speed of a video element depending on the cursor position is easy with JS",
           category: "Tips",
+          subCategories: ["Video", "Playback", "Cursor"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -397,6 +410,7 @@ export default {
           description:
             "Thanks to JS, CSS and some clever calculations, we can help you have an idea on when to get back to work!",
           category: "Essentials",
+          subCategories: ["Timer", "24H", "Dynamic"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
@@ -410,6 +424,7 @@ export default {
           description:
             "A little Whack a Mole game directly in the browser thanks to JS with event listening and some random numbers",
           category: "Fun",
+          subCategories: ["Game", "Moles", "Classic"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
