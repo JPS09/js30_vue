@@ -12,8 +12,8 @@ export default {
           name: "Drum Kit",
           description:
             "This exercise makes use of an array of basics DOM manipulations techniques such as event listening and conditonal CSS classes",
-          category: "Essentials",
-          subCategories: ["Music", "Audio", "Fun"],
+          category: "Fun",
+          subCategories: ["Music", "Audio", "Drums"],
           viewed: false,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
