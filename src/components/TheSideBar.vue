@@ -6,7 +6,7 @@
         :key="day.id"
         :day-number="day.dayNumber"
         :day-name="day.name"
-        :day-category="day.categories[0]"
+        :day-category="day.category"
       ></side-bar-days-item>
     </ul>
   </div>
