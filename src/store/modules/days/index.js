@@ -12,7 +12,7 @@ export default {
           name: "Drum Kit",
           description:
             "This exercise makes use of an array of basics DOM manipulations techniques such as event listening and conditonal CSS classes",
-          categories: ["Basics"],
+          category: "Essentials",
           viewed: false,
         },
         {
@@ -21,7 +21,7 @@ export default {
           name: "JS & CSS Clock",
           description:
             "Creating a JS clock that updates depending on the current time by fetching it from a Date object",
-          categories: ["Fun"],
+          category: "Fun",
           viewed: false,
         },
         {
@@ -29,7 +29,7 @@ export default {
           dayNumber: "Day 3",
           name: "CSS Variables",
           description: "Modifiying CSS variables thanks to pure JS code",
-          categories: ["Tips"],
+          category: "Tips",
           viewed: false,
         },
         {
@@ -38,7 +38,7 @@ export default {
           name: "Array Cardio Part 1",
           description:
             "A variety of methods to handle arrays inside JS alongside many ways of implementing them",
-          categories: ["Basics"],
+          category: "Essentials",
           viewed: false,
         },
         {
@@ -47,7 +47,7 @@ export default {
           name: "Flex Panel Galery",
           description:
             "A simple exercise based on the CSS Box model and made interactive by toggling classes on click",
-          categories: ["Basics"],
+          category: "Essentials",
           viewed: false,
         },
         {
@@ -56,7 +56,7 @@ export default {
           name: "Type Ahead",
           description:
             "Simple search field made for finding a state or a city based on user input",
-          categories: ["Basics"],
+          category: "Essentials",
           viewed: false,
         },
         {
@@ -65,7 +65,7 @@ export default {
           name: "Array Cardio Part 2",
           description:
             "Second Part of an exercise made to present several array handling methods and their possible syntaxes",
-          categories: ["Basics"],
+          category: "Essentials",
           viewed: false,
         },
         {
@@ -74,7 +74,7 @@ export default {
           name: "Fun with HTML5 Canvas",
           description:
             "Makes use of the canvas element available in HTML5 to allow the user to draw on it",
-          categories: ["Fun"],
+          category: "Fun",
           viewed: false,
         },
         {
@@ -83,7 +83,7 @@ export default {
           name: "Dev Tools Domination",
           description:
             "The console has many ways of diplaying messages which we have the opportunity to see here",
-          categories: ["Tips"],
+          category: "Tips",
           viewed: false,
         },
         {
@@ -92,7 +92,7 @@ export default {
           name: "Hold Shift and Check Checkboxes",
           description:
             "Using the this keyword and several flag variable to be able to check several checkboxes at once",
-          categories: ["Tips"],
+          category: "Tips",
           viewed: false,
         },
         {
@@ -101,7 +101,7 @@ export default {
           name: "Custom Video Player",
           description:
             "Thanks to CSS Styling and several JS functions using methods available to the video element, creating a custom player is easy",
-          categories: ["Fun"],
+          category: "Fun",
           viewed: false,
         },
         {
@@ -110,7 +110,7 @@ export default {
           name: "Key Sequence Detection (Konami code)",
           description:
             "This fun little feature is based on listening to key ups events and comparing the input to a string stored in a variable",
-          categories: ["Fun"],
+          category: "Fun",
           viewed: false,
         },
         {
@@ -119,7 +119,7 @@ export default {
           name: "Slide In on Scroll",
           description:
             "Depending on the scroll, images are made to scroll in and out of a text article",
-          categories: ["Fun"],
+          category: "Fun",
           viewed: false,
         },
         {
@@ -128,7 +128,7 @@ export default {
           name: "JS Reference vs Copying",
           description:
             "A little explanation of the difference between referencing an existing element and copying it",
-          categories: ["Basics"],
+          category: "Essentials",
           viewed: false,
         },
         {
@@ -137,7 +137,7 @@ export default {
           name: "LocalStorage",
           description:
             "LocalStorage is an alternative way of saving data between pages but also to avoid losing it when the user actualises it",
-          categories: ["Basics"],
+          category: "Essentials",
           viewed: false,
         },
         {
@@ -146,7 +146,7 @@ export default {
           name: "Mouse Shadow",
           description:
             "Making a shadow that reacts dynamicaly to the mouse position on the page",
-          categories: ["Fun"],
+          category: "Fun",
           viewed: false,
         },
         {
@@ -154,7 +154,7 @@ export default {
           dayNumber: "Day 17",
           name: "Sorting without article",
           description: "Little trick to sort elements without their articles",
-          categories: ["Tips"],
+          category: "Tips",
           viewed: false,
         },
         {
@@ -163,7 +163,7 @@ export default {
           name: "Adding up Time with Reduce",
           description:
             "Adding up the total duration of a selection of videos is easy with reduce",
-          categories: ["Tips"],
+          category: "Tips",
           viewed: false,
         },
         {
@@ -172,7 +172,7 @@ export default {
           name: "Webcam Fun",
           description:
             "By manipulating the pixels provided by the canvas used to display the video stream, we are able to makes a variety of effects",
-          categories: ["Fun"],
+          category: "Fun",
           viewed: false,
         },
         {
@@ -181,7 +181,7 @@ export default {
           name: "Speech Detection",
           description:
             "Speech Recognition is a built-in feature of modern web browsers which can be used for a variety of ideas",
-          categories: ["Nav"],
+          category: "Nav",
           viewed: false,
         },
         {
@@ -190,7 +190,7 @@ export default {
           name: "Geolocation",
           description:
             "Geolocation is a built-in feature of modern web browsers which provide using with informations such as speed and our position relative to the north",
-          categories: ["Nav"],
+          category: "Nav",
           viewed: false,
         },
         {
@@ -199,7 +199,7 @@ export default {
           name: "Follow Along Link Highlighter",
           description:
             "Using JS and CSS, highlighting links when they are hovered is easy when we have their coordinates on the page",
-          categories: ["Tips"],
+          category: "Tips",
           viewed: false,
         },
         {
@@ -208,7 +208,7 @@ export default {
           name: "Speech Synthesis",
           description:
             "Speech Synthesis is a built-in feature of modern web browsers which can be used for accessibility features for example",
-          categories: ["Nav"],
+          category: "Nav",
           viewed: false,
         },
         {
@@ -217,7 +217,7 @@ export default {
           name: "Sticky Nav",
           description:
             "By taking in to account the scroll distance from the top, we can toggle a CSS class to make a nav bar sticky.",
-          categories: ["Tips"],
+          category: "Tips",
           viewed: false,
         },
         {
@@ -226,7 +226,7 @@ export default {
           name: "Event Capture, Propagation Bubbling and Once",
           description:
             "Understanding how event are handled is key to handle them",
-          categories: ["Basics"],
+          category: "Essentials",
           viewed: false,
         },
         {
@@ -235,7 +235,7 @@ export default {
           name: "Stripe Follow Along Nav",
           description:
             "Stripe has a clean way to handle their dropdown menus which is what we are recreating here",
-          categories: ["Tips"],
+          category: "Tips",
           viewed: false,
         },
         {
@@ -244,7 +244,7 @@ export default {
           name: "Click and Drag",
           description:
             "Handling the original click position compared to the scroll distance is what makes this feature possible",
-          categories: ["Basics"],
+          category: "Essentials",
           viewed: false,
         },
         {
@@ -253,7 +253,7 @@ export default {
           name: "Video Speed Controller",
           description:
             "Using the height of a div to influence to playback speed of a video element depending on the cursor position is easy with JS",
-          categories: ["Tips"],
+          category: "Tips",
           viewed: false,
         },
         {
@@ -262,7 +262,7 @@ export default {
           name: "Countdown Timer",
           description:
             "Thanks to JS, CSS and some clever calculations, we can help you have an idea on when to get back to work!",
-          categories: ["Basics"],
+          category: "Essentials",
           viewed: false,
         },
         {
@@ -271,7 +271,7 @@ export default {
           name: "Whack a Mole",
           description:
             "A little Whack a Mole game directly in the browser thanks to JS with event listening and some random numbers",
-          categories: ["Fun"],
+          category: "Fun",
           viewed: false,
         },
       ],
