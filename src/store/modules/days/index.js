@@ -14,6 +14,10 @@ export default {
             "This exercise makes use of an array of basics DOM manipulations techniques such as event listening and conditonal CSS classes",
           category: "Essentials",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d2",
@@ -23,6 +27,10 @@ export default {
             "Creating a JS clock that updates depending on the current time by fetching it from a Date object",
           category: "Fun",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d3",
@@ -31,6 +39,10 @@ export default {
           description: "Modifiying CSS variables thanks to pure JS code",
           category: "Tips",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d4",
@@ -40,6 +52,11 @@ export default {
             "A variety of methods to handle arrays inside JS alongside many ways of implementing them",
           category: "Essentials",
           viewed: false,
+          mainDifferences: {
+            js:
+              "These methods are essentials to handle data and are not modified across JS frameworks ",
+            vue: "Vue doesn't change the way data is handled is JS",
+          },
         },
         {
           id: "d5",
@@ -49,6 +66,10 @@ export default {
             "A simple exercise based on the CSS Box model and made interactive by toggling classes on click",
           category: "Essentials",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d6",
@@ -58,6 +79,10 @@ export default {
             "Simple search field made for finding a state or a city based on user input",
           category: "Essentials",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d7",
@@ -66,6 +91,11 @@ export default {
           description:
             "Second Part of an exercise made to present several array handling methods and their possible syntaxes",
           category: "Essentials",
+          mainDifferences: {
+            js:
+              "These methods are essentials to handle data and are not modified across JS frameworks ",
+            vue: "Vue doesn't change the way data is handled is JS",
+          },
           viewed: false,
         },
         {
@@ -76,6 +106,10 @@ export default {
             "Makes use of the canvas element available in HTML5 to allow the user to draw on it",
           category: "Fun",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d9",
@@ -85,6 +119,10 @@ export default {
             "The console has many ways of diplaying messages which we have the opportunity to see here",
           category: "Tips",
           viewed: false,
+          mainDifferences: {
+            js: "These are essentials tools of JS development",
+            vue: "Vue doesn't change the way these tools work",
+          },
         },
         {
           id: "d10",
@@ -94,6 +132,10 @@ export default {
             "Using the this keyword and several flag variable to be able to check several checkboxes at once",
           category: "Tips",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d11",
@@ -103,6 +145,10 @@ export default {
             "Thanks to CSS Styling and several JS functions using methods available to the video element, creating a custom player is easy",
           category: "Fun",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d12",
@@ -112,6 +158,10 @@ export default {
             "This fun little feature is based on listening to key ups events and comparing the input to a string stored in a variable",
           category: "Fun",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d13",
@@ -121,6 +171,10 @@ export default {
             "Depending on the scroll, images are made to scroll in and out of a text article",
           category: "Fun",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d14",
@@ -130,6 +184,11 @@ export default {
             "A little explanation of the difference between referencing an existing element and copying it",
           category: "Essentials",
           viewed: false,
+          mainDifferences: {
+            js:
+              "Essential concept of JS which doesn't change across frameworks",
+            vue: "Vue, which is based on JS, is still bound by these concepts",
+          },
         },
         {
           id: "d15",
@@ -139,6 +198,12 @@ export default {
             "LocalStorage is an alternative way of saving data between pages but also to avoid losing it when the user actualises it",
           category: "Essentials",
           viewed: false,
+          mainDifferences: {
+            js:
+              "This Feature is built-in JS and remains the same no matter where it is used",
+            vue:
+              "This feature can also be used in frameworks like vue which doesn't change the way it works",
+          },
         },
         {
           id: "d16",
@@ -148,6 +213,10 @@ export default {
             "Making a shadow that reacts dynamicaly to the mouse position on the page",
           category: "Fun",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d17",
@@ -156,6 +225,11 @@ export default {
           description: "Little trick to sort elements without their articles",
           category: "Tips",
           viewed: false,
+          mainDifferences: {
+            js:
+              "This little trick can be used no matter where it is implemented",
+            vue: "No difference in data handling",
+          },
         },
         {
           id: "d18",
@@ -165,6 +239,11 @@ export default {
             "Adding up the total duration of a selection of videos is easy with reduce",
           category: "Tips",
           viewed: false,
+          mainDifferences: {
+            js:
+              "Reduce is a data handling method which stays the same across frameworks",
+            vue: "Data Handling methods are not modified by Vue",
+          },
         },
         {
           id: "d19",
@@ -174,6 +253,10 @@ export default {
             "By manipulating the pixels provided by the canvas used to display the video stream, we are able to makes a variety of effects",
           category: "Fun",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d20",
@@ -183,6 +266,10 @@ export default {
             "Speech Recognition is a built-in feature of modern web browsers which can be used for a variety of ideas",
           category: "Nav",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d21",
@@ -192,6 +279,10 @@ export default {
             "Geolocation is a built-in feature of modern web browsers which provide using with informations such as speed and our position relative to the north",
           category: "Nav",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d22",
@@ -201,6 +292,10 @@ export default {
             "Using JS and CSS, highlighting links when they are hovered is easy when we have their coordinates on the page",
           category: "Tips",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d23",
@@ -210,6 +305,10 @@ export default {
             "Speech Synthesis is a built-in feature of modern web browsers which can be used for accessibility features for example",
           category: "Nav",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d24",
@@ -219,6 +318,10 @@ export default {
             "By taking in to account the scroll distance from the top, we can toggle a CSS class to make a nav bar sticky.",
           category: "Tips",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d25",
@@ -228,6 +331,10 @@ export default {
             "Understanding how event are handled is key to handle them",
           category: "Essentials",
           viewed: false,
+          mainDifferences: {
+            js: "This concept is essential to understand how JS handle events",
+            vue: "At its core, vue uses this concept to handle events",
+          },
         },
         {
           id: "d26",
@@ -237,6 +344,10 @@ export default {
             "Stripe has a clean way to handle their dropdown menus which is what we are recreating here",
           category: "Tips",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d27",
@@ -246,6 +357,10 @@ export default {
             "Handling the original click position compared to the scroll distance is what makes this feature possible",
           category: "Essentials",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d28",
@@ -255,6 +370,10 @@ export default {
             "Using the height of a div to influence to playback speed of a video element depending on the cursor position is easy with JS",
           category: "Tips",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d29",
@@ -264,6 +383,10 @@ export default {
             "Thanks to JS, CSS and some clever calculations, we can help you have an idea on when to get back to work!",
           category: "Essentials",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
         {
           id: "d30",
@@ -273,6 +396,10 @@ export default {
             "A little Whack a Mole game directly in the browser thanks to JS with event listening and some random numbers",
           category: "Fun",
           viewed: false,
+          mainDifferences: {
+            js: "Event Listening: Query selector & addEventListener",
+            vue: "Event Listening: on:event=functionToExecute",
+          },
         },
       ],
     };
