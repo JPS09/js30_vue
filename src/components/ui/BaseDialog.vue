@@ -3,10 +3,10 @@
     <div v-if="dialogDisplay" class="backdrop" @click="closeDialog"></div>
     <dialog open v-if="dialogDisplay">
       <header>
-        <h2>{{ title }}</h2>
+        <h2>{{ dialogTitle }}</h2>
       </header>
       <section>
-        <p>{{ details }}</p>
+        <p>{{ dialogDetails }}</p>
       </section>
       <menu>
         <base-button @click="closeDialog">Yes I am sure</base-button>
