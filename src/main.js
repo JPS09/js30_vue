@@ -6,7 +6,7 @@ import store from "./store";
 import BaseButton from "./components/ui/BaseButton.vue";
 import BaseCard from "./components/ui/BaseCard.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faMicrophone, faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 const app = createApp(App);
@@ -15,6 +15,8 @@ const BaseDialog = defineAsyncComponent(() =>
 );
 
 library.add(faSearch);
+library.add(faMicrophone);
+
 app.component("font-awesome-icon", FontAwesomeIcon);
 
 app.component("base-button", BaseButton);

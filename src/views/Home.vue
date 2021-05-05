@@ -7,6 +7,7 @@
       @close="closeDialogConfirm"
     ></base-dialog>
     <search-input></search-input>
+    <search-button></search-button>
     <viewing-completion></viewing-completion>
     <base-button @click="openDialogConfirm">Check All</base-button>
     <base-button @click="openDialogConfirm">Clear All</base-button>
@@ -17,12 +18,14 @@
 // @ is an alias to /src
 import ViewingCompletion from "@/components/stats/ViewingCompletion.vue";
 import SearchInput from "@/components/search/SearchInput.vue";
+import SearchButton from "@/components/search/SearchButton.vue";
 
 export default {
   name: "Home",
   components: {
     ViewingCompletion,
     SearchInput,
+    SearchButton,
   },
   data() {
     return {

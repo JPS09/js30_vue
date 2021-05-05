@@ -13,9 +13,7 @@ button {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   color: #707070;
   border-radius: 30px;
-  width: 20vw;
-  padding: 0.5rem;
-  min-width: 100px;
+  padding: 0.5em 1rem;
   max-width: 200px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
