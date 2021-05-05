@@ -1,6 +1,5 @@
 <template>
   <div class="search-container">
-    <font-awesome-icon icon="search" class="searchIcon" @click="filterDays" />
     <input
       v-model="searchData"
       class="input"
@@ -8,6 +7,7 @@
       placeholder="Search for a day"
       @keyup.enter="filterDays"
     />
+    <font-awesome-icon icon="search" class="searchIcon" @click="filterDays" />
   </div>
 </template>
 
@@ -30,13 +30,14 @@ export default {
 <style scoped>
 .search-container {
   display: grid;
-  grid-template-columns: 4fr 1fr;
-  width: 20em;
+  grid-template-columns: 15em 1em;
+  width: fit-content;
 }
 
 .searchIcon {
   grid-row: 1;
-  grid-column: 2;
+  grid-column: 2/3;
+  align-self: center;
   z-index: 2;
   cursor: pointer;
 }
@@ -46,6 +47,8 @@ export default {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 0.7em;
   width: 20em;
+  grid-row: 1;
+  grid-column: 1;
 }
 
 .input:focus {
