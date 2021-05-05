@@ -1,7 +1,7 @@
 <template>
-  <base-card>
+  <base-card v-if="dialogDisplay">
     <font-awesome-icon icon="time"></font-awesome-icon>
-    <div class="container">
+    <dialog open class="container">
       <div class="outer-circle">
         <div class="middle-circle">
           <div class="inner-circle">
@@ -9,13 +9,25 @@
           </div>
         </div>
       </div>
-    </div>
+    </dialog>
     <section>
       <h6>Listening</h6>
       <p>Speech Results</p>
     </section>
   </base-card>
 </template>
+
+<script>
+export default {
+  props: {
+    dialogDisplay: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+  },
+};
+</script>
 
 <style scoped>
 .container {

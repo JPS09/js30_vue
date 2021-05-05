@@ -2,13 +2,13 @@
   <teleport to="body">
     <div v-if="dialogDisplay" class="backdrop" @click="closeDialog"></div>
     <dialog open v-if="dialogDisplay">
-      <header>
+      <header v-if="!voiceDialog">
         <h2>{{ dialogTitle }}</h2>
       </header>
       <section>
         <p>{{ dialogDetails }}</p>
       </section>
-      <menu>
+      <menu v-if='!voiceDialog'>
         <base-button @click="closeDialog">Yes I am sure</base-button>
         <base-button @click="closeDialog">No I am not</base-button>
       </menu>
@@ -30,6 +30,11 @@ export default {
     dialogDisplay: {
       type: Boolean,
       required: true,
+    },
+    voiceDialog: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   emits: ["close"],
