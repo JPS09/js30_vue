@@ -8,7 +8,7 @@
       <section>
         <p>{{ dialogDetails }}</p>
       </section>
-      <menu v-if='!voiceDialog'>
+      <menu v-if="!voiceDialog">
         <base-button @click="closeDialog">Yes I am sure</base-button>
         <base-button @click="closeDialog">No I am not</base-button>
       </menu>
