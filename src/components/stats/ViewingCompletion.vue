@@ -59,6 +59,7 @@ export default {
 .progress-circle::after {
   content: attr(data-value) "%";
   font-size: 0.15em;
+  font-weight: 700;
   height: 100%;
   display: flex;
   align-items: center;
@@ -70,7 +71,7 @@ export default {
 .progress-bar,
 .progress-sup50 {
   position: absolute;
-  border: 0.15em solid #458b51;
+  border: 0.15em solid #41b883;
   border-radius: 50%;
   width: 1em;
   height: 1em;
@@ -111,7 +112,7 @@ export default {
 }
 
 .remaining-days {
-  color: #458b51;
+  color: #41b883;
   font-weight: 800;
 }
 
