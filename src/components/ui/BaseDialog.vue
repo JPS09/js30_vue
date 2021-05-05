@@ -3,10 +3,12 @@
     <div v-if="dialogDisplay" class="backdrop" @click="closeDialog"></div>
     <dialog open v-if="dialogDisplay">
       <header v-if="!voiceDialog">
-        <h2>{{ dialogTitle }}</h2>
+        <h2>{{ dialogHeader }}</h2>
       </header>
       <section>
-        <p>{{ dialogDetails }}</p>
+        <slot>
+          <p>{{ dialogDetails }}</p>
+        </slot>
       </section>
       <menu v-if="!voiceDialog">
         <base-button @click="closeDialog">Yes I am sure</base-button>
@@ -19,9 +21,9 @@
 <script>
 export default {
   props: {
-    dialogTitle: {
+    dialogHeader: {
       type: String,
-      required: true,
+      required: false,
     },
     dialogDetails: {
       type: String,
