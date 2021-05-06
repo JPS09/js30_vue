@@ -1,13 +1,15 @@
 <template>
   <div class="home">
     <base-dialog
-      dialog-title="Are you sure?"
+      dialog-header="Are you sure?"
       dialog-details="This action cannot be undone"
       :dialog-display="askConfirm"
       @close="closeDialogConfirm"
     ></base-dialog>
-    <search-input></search-input>
-    <search-button></search-button>
+    <div class="search-elements">
+      <search-input></search-input>
+      <search-button></search-button>
+    </div>
     <viewing-completion></viewing-completion>
     <base-button @click="openDialogConfirm">Check All</base-button>
     <base-button @click="openDialogConfirm">Clear All</base-button>
@@ -42,3 +44,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.search-elements {
+  display: flex;
+  justify-content: space-around;
+}
+</style>

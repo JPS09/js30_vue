@@ -25,7 +25,8 @@ export default {
 #router-elements {
   align-self: flex-start;
   margin: 0 auto;
-  padding: 2vh;
+  padding: 1em;
+  width: 35em;
 }
 
 * {
