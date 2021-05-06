@@ -9,9 +9,7 @@
         <slot name="voiceMic"></slot>
       </section>
       <section>
-        <slot v-if="!voiceDialog">
-          <h5>{{ dialogDetails }}</h5>
-        </slot>
+        <h5 v-if="!voiceDialog">{{ dialogDetails }}</h5>
         <slot v-if="voiceDialog" name="voiceText"></slot>
       </section>
       <menu v-if="!voiceDialog">
@@ -31,7 +29,7 @@ export default {
     },
     dialogDetails: {
       type: String,
-      required: true,
+      required: false,
     },
     dialogDisplay: {
       type: Boolean,
