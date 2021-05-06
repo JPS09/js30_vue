@@ -10,7 +10,7 @@
       </section>
       <section>
         <h5 v-if="!voiceDialog">{{ dialogDetails }}</h5>
-        <slot v-if="voiceDialog" name="voiceText"></slot>
+        <slot v-else name="voiceText"></slot>
       </section>
       <menu v-if="!voiceDialog">
         <base-button @click="closeDialog">Yes I am sure</base-button>
