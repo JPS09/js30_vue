@@ -2,13 +2,17 @@
   <teleport to="body">
     <div v-if="dialogDisplay" class="backdrop" @click="closeDialog"></div>
     <dialog open v-if="dialogDisplay">
-      <header v-if="!voiceDialog">
+      <header class="header" v-if="!voiceDialog">
         <h2>{{ dialogHeader }}</h2>
       </header>
       <section>
-        <slot>
-          <p>{{ dialogDetails }}</p>
+        <slot name="voiceMic"></slot>
+      </section>
+      <section>
+        <slot v-if="!voiceDialog">
+          <h5>{{ dialogDetails }}</h5>
         </slot>
+        <slot v-if="voiceDialog" name="voiceText"></slot>
       </section>
       <menu v-if="!voiceDialog">
         <base-button @click="closeDialog">Yes I am sure</base-button>
@@ -72,7 +76,7 @@ dialog {
   overflow: hidden;
   background-color: white;
 }
-header {
+.header {
   border-radius: 12px 12px 0 0;
   width: 100%;
   height: 4em;

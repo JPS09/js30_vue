@@ -1,7 +1,7 @@
 <template>
-  <base-card v-if="dialogDisplay">
+  <base-dialog>
     <font-awesome-icon icon="time"></font-awesome-icon>
-    <dialog open class="container">
+    <template #voiceMic>
       <div class="outer-circle">
         <div class="middle-circle">
           <div class="inner-circle">
@@ -9,12 +9,12 @@
           </div>
         </div>
       </div>
-    </dialog>
-    <section>
+    </template>
+    <template #voiceText>
       <h6>Listening</h6>
       <p>Speech Results</p>
-    </section>
-  </base-card>
+    </template>
+  </base-dialog>
 </template>
 
 <script>
