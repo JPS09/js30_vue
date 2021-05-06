@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import sideBarDaysItem from "./days/SideBarDaysItem.vue";
+import SideBarDaysItem from "./days/SideBarDaysItem.vue";
 export default {
   components: {
-    sideBarDaysItem,
+    SideBarDaysItem,
   },
   computed: {
     days() {
