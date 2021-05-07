@@ -13,6 +13,11 @@
     <viewing-completion></viewing-completion>
     <base-button @click="openDialogConfirm">Check All</base-button>
     <base-button @click="openDialogConfirm">Clear All</base-button>
+    <day-card
+      day-name="test"
+      day-description=" Oh my test"
+      day-number="64"
+    ></day-card>
   </div>
 </template>
 
@@ -21,6 +26,7 @@
 import ViewingCompletion from "@/components/stats/ViewingCompletion.vue";
 import SearchInput from "@/components/search/SearchInput.vue";
 import SearchButton from "@/components/search/SearchButton.vue";
+import DayCard from "@/components/days/DaysCard.vue";
 
 export default {
   name: "Home",
@@ -28,6 +34,7 @@ export default {
     ViewingCompletion,
     SearchInput,
     SearchButton,
+    DayCard,
   },
   data() {
     return {

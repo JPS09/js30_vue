@@ -1,23 +1,23 @@
 <template>
   <base-card>
-    <h3>{{ DayNumber }}</h3>
-    <h4>{{ DayName }}</h4>
-    <p>{{ DayDescription }}</p>
+    <h3>{{ dayNumber }}</h3>
+    <h4>{{ dayName }}</h4>
+    <p>{{ dayDescription }}</p>
   </base-card>
 </template>
 
 <script>
 export default {
   props: {
-    DayNumber: {
+    dayNumber: {
       type: String,
       required: true,
     },
-    DayName: {
+    dayName: {
       type: String,
       required: true,
     },
-    DayDescription: {
+    dayDescription: {
       type: String,
       required: true,
     },
