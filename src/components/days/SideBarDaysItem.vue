@@ -1,8 +1,10 @@
 <template>
-  <p>
-    <span class="dayNumber">{{ dayNumber }}</span> {{ dayName }}
-    <span class="dayCategory"> {{ dayCategory }}</span>
-  </p>
+  <router-link to="#" class="side-bar__link">
+    <p>
+      <span class="dayNumber">{{ dayNumber }}</span> {{ dayName }}
+      <span class="dayCategory"> {{ dayCategory }}</span>
+    </p>
+  </router-link>
 </template>
 
 <script>
@@ -25,6 +27,9 @@ export default {
 </script>
 
 <style scoped>
+.side-bar__link {
+  text-decoration: none;
+}
 .dayNumber {
   font-weight: 800;
 }
