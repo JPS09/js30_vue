@@ -30,7 +30,7 @@ export default {
 <style scoped>
 .search-container {
   display: grid;
-  grid-template-columns: 15em 1em;
+  grid-template-columns: 27em 1em;
   width: fit-content;
 }
 
@@ -46,12 +46,21 @@ export default {
   border: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 0.7em;
-  width: 20em;
+  width: 34em;
   grid-row: 1;
   grid-column: 1;
 }
 
 .input:focus {
   outline: none;
+}
+
+@media (max-width: 768px) {
+  .input {
+    width: 16em;
+  }
+  .search-container {
+    grid-template-columns: 12em 1em;
+  }
 }
 </style>
