@@ -29,6 +29,16 @@ export default {
 <style scoped>
 .side-bar__link {
   text-decoration: none;
+  outline: none;
+  color: #2c3e50;
+}
+
+.side-bar__link:visited {
+  color: #41b883;
+}
+.side-bar__link:hover {
+  background-color: #41674f;
+  border-bottom: 1px solid #41674f;
 }
 .dayNumber {
   font-weight: 800;
