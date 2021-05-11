@@ -34,11 +34,17 @@ export default {
 }
 
 .side-bar__link:visited {
-  color: #41b883;
+  color: #38926a;
 }
-.side-bar__link:hover {
-  background-color: #41674f;
-  border-bottom: 1px solid #41674f;
+
+p {
+  padding: 0.5em;
+}
+
+p:hover {
+  background: #78c594;
+  border-radius: 10px;
+  color: white;
 }
 .dayNumber {
   font-weight: 800;
