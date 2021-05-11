@@ -13,6 +13,7 @@
     <viewing-completion></viewing-completion>
     <base-button @click="openDialogConfirm">Check All</base-button>
     <base-button @click="openDialogConfirm">Clear All</base-button>
+    <search-filter></search-filter>
     <day-card
       day-name="test"
       day-description=" Oh my test"
@@ -26,6 +27,7 @@
 import ViewingCompletion from "@/components/stats/ViewingCompletion.vue";
 import SearchInput from "@/components/search/SearchInput.vue";
 import SearchButton from "@/components/search/SearchButton.vue";
+import SearchFilter from "@/components/search/SearchFilter.vue";
 import DayCard from "@/components/days/DaysCard.vue";
 
 export default {
@@ -34,6 +36,7 @@ export default {
     ViewingCompletion,
     SearchInput,
     SearchButton,
+    SearchFilter,
     DayCard,
   },
   data() {
