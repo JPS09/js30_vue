@@ -112,6 +112,7 @@ export default {
   font-size: 1.5em;
   font-weight: 500;
   text-align: center;
+  color: rgb(61, 61, 61);
 }
 
 @media (min-width: 768px) {
