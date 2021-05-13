@@ -1,5 +1,5 @@
 <template>
-  <base-dialog>
+  <base-dialog :dialogDisplay="dialogDisplay" :voiceDialog="true">
     <font-awesome-icon icon="time"></font-awesome-icon>
     <template #voiceMic>
       <div class="outer-circle">
