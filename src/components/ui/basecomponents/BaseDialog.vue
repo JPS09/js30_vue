@@ -9,7 +9,9 @@
         <slot name="voiceMic"></slot>
       </section>
       <section>
-        <h5 v-if="!voiceDialog">{{ dialogDetails }}</h5>
+        <h5 class="base-dialog__details" v-if="!voiceDialog">
+          {{ dialogDetails }}
+        </h5>
         <slot v-else name="voiceText"></slot>
       </section>
       <menu v-if="!voiceDialog">
@@ -73,6 +75,7 @@ dialog {
   margin: 0;
   overflow: hidden;
   background-color: white;
+  font-family: "Roboto";
 }
 .header {
   border-radius: 12px 12px 0 0;
@@ -99,6 +102,12 @@ menu {
   align-items: center;
   margin: 0;
   padding: 1.5rem;
+}
+
+.base-dialog__details {
+  font-size: 1.5em;
+  font-weight: 500;
+  text-align: center;
 }
 
 @media (min-width: 768px) {

@@ -45,7 +45,7 @@ export default {
   data() {
     return {
       askConfirm: false,
-      openVoiceDialog: true,
+      openVoiceDialog: false,
     };
   },
   methods: {
