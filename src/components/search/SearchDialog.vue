@@ -2,9 +2,9 @@
   <base-dialog :dialogDisplay="dialogDisplay" :voiceDialog="true">
     <font-awesome-icon icon="time"></font-awesome-icon>
     <template #voiceMic>
-      <div class="outer-circle">
-        <div class="middle-circle">
-          <div class="inner-circle">
+      <div class="search-dialog__outer-circle">
+        <div class="search-dialog__middle-circle">
+          <div class="search-dialog__inner-circle">
             <font-awesome-icon icon="microphone"></font-awesome-icon>
           </div>
         </div>
@@ -30,14 +30,14 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.search-dialog__container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.outer-circle,
-.middle-circle,
-.inner-circle {
+.search-dialog__outer-circle,
+.search-dialog__middle-circle,
+.search-dialog__inner-circle {
   border-radius: 50%;
 }
 </style>

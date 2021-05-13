@@ -1,20 +1,26 @@
 <template>
   <base-card>
-    <h3 id="viewing-title">Viewing Completion</h3>
+    <h3 id="viewing-completion__viewing-title">Viewing Completion</h3>
     <!-- TO DO : Replace data-value by a computed property taken from the vuex stats store -->
-    <div class="progress-circle" data-value="80" ref="initCircle">
-      <div class="progress-mask">
-        <div class="progress-bar" ref="initBar"></div>
-        <div class="progress-sup50"></div>
+    <div
+      class="viewing-completion__progress-circle"
+      data-value="80"
+      ref="initCircle"
+    >
+      <div class="viewing-completion__progress-mask">
+        <div class="viewing-completion__progress-bar" ref="initBar"></div>
+        <div class="viewing-completion__progress-sup50"></div>
       </div>
     </div>
-    <p id="day-stats"><span class="remaining-days">30 days</span> to go</p>
+    <p id="viewing-completion__day-stats">
+      <span class="viewing-completion__remaining-days">30 days</span> to go
+    </p>
   </base-card>
 </template>
 
 <script>
 export default {
-  // TO DO : Add a call to init progress bar to computed when update
+  // TO DO : Add a call to init viewing-completion__progress bar to computed when update
   mounted() {
     this.initProgressBar();
   },
@@ -36,7 +42,7 @@ export default {
 </script>
 
 <style scoped>
-.progress-circle {
+.viewing-completion__progress-circle {
   position: relative;
   font-size: 6em;
   margin: auto;
@@ -47,7 +53,7 @@ export default {
   background-color: #fff;
 }
 
-.progress-mask {
+.viewing-completion__progress-mask {
   position: absolute;
   width: 1em;
   height: 1em;
@@ -56,7 +62,7 @@ export default {
   clip: rect(0, 1em, 1em, 0.5em);
 }
 
-.progress-circle::after {
+.viewing-completion__progress-circle::after {
   content: attr(data-value) "%";
   font-size: 0.15em;
   font-weight: 700;
@@ -68,8 +74,8 @@ export default {
   box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.5) inset;
 }
 
-.progress-bar,
-.progress-sup50 {
+.viewing-completion__progress-bar,
+.viewing-completion__progress-sup50 {
   position: absolute;
   border: 0.15em solid #41b883;
   border-radius: 50%;
@@ -78,46 +84,48 @@ export default {
   clip: rect(0, 0.5em, 1em, 0);
 }
 
-.progress-sup50 {
+.viewing-completion__progress-sup50 {
   display: none;
   clip: rect(0, 1em, 1em, 0.5em);
 }
 
-.progress-circle[data-value^="5"]:not([data-value="5"]):not([data-value^="5."])
-  .progress-mask,
-.progress-circle[data-value^="6"]:not([data-value="6"]):not([data-value^="6."])
-  .progress-mask,
-.progress-circle[data-value^="7"]:not([data-value="7"]):not([data-value^="7."])
-  .progress-mask,
-.progress-circle[data-value^="8"]:not([data-value="8"]):not([data-value^="8."])
-  .progress-mask,
-.progress-circle[data-value^="9"]:not([data-value="9"]):not([data-value^="9."])
-  .progress-mask,
-.progress-circle[data-value^="100"] .progress-mask {
+.viewing-completion__progress-circle[data-value^="5"]:not([data-value="5"]):not([data-value^="5."])
+  .viewing-completion__progress-mask,
+.viewing-completion__progress-circle[data-value^="6"]:not([data-value="6"]):not([data-value^="6."])
+  .viewing-completion__progress-mask,
+.viewing-completion__progress-circle[data-value^="7"]:not([data-value="7"]):not([data-value^="7."])
+  .viewing-completion__progress-mask,
+.viewing-completion__progress-circle[data-value^="8"]:not([data-value="8"]):not([data-value^="8."])
+  .viewing-completion__progress-mask,
+.viewing-completion__progress-circle[data-value^="9"]:not([data-value="9"]):not([data-value^="9."])
+  .viewing-completion__progress-mask,
+.viewing-completion__progress-circle[data-value^="100"]
+  .viewing-completion__progress-mask {
   clip: rect(auto, auto, auto, auto);
 }
 
-.progress-circle[data-value^="5"]:not([data-value="5"]):not([data-value^="5."])
-  .progress-sup50,
-.progress-circle[data-value^="6"]:not([data-value="6"]):not([data-value^="6."])
-  .progress-sup50,
-.progress-circle[data-value^="7"]:not([data-value="7"]):not([data-value^="7."])
-  .progress-sup50,
-.progress-circle[data-value^="8"]:not([data-value="8"]):not([data-value^="8."])
-  .progress-sup50,
-.progress-circle[data-value^="9"]:not([data-value="9"]):not([data-value^="9."])
-  .progress-sup50,
-.progress-circle[data-value^="100"] .progress-sup50 {
+.viewing-completion__progress-circle[data-value^="5"]:not([data-value="5"]):not([data-value^="5."])
+  .viewing-completion__progress-sup50,
+.viewing-completion__progress-circle[data-value^="6"]:not([data-value="6"]):not([data-value^="6."])
+  .viewing-completion__progress-sup50,
+.viewing-completion__progress-circle[data-value^="7"]:not([data-value="7"]):not([data-value^="7."])
+  .viewing-completion__progress-sup50,
+.viewing-completion__progress-circle[data-value^="8"]:not([data-value="8"]):not([data-value^="8."])
+  .viewing-completion__progress-sup50,
+.viewing-completion__progress-circle[data-value^="9"]:not([data-value="9"]):not([data-value^="9."])
+  .viewing-completion__progress-sup50,
+.viewing-completion__progress-circle[data-value^="100"]
+  .viewing-completion__progress-sup50 {
   display: block;
 }
 
-.remaining-days {
+.viewing-completion__remaining-days {
   color: #41b883;
   font-weight: 800;
 }
 
-#viewing-title,
-#day-stats {
+#viewing-completion__viewing-title,
+#viewing-completion__day-stats {
   padding: 1em;
 }
 </style>

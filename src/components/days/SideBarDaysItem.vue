@@ -1,8 +1,9 @@
 <template>
-  <router-link to="#" class="side-bar__link">
-    <p>
-      <span class="dayNumber">{{ dayNumber }}</span> {{ dayName }}
-      <span class="dayCategory"> {{ dayCategory }}</span>
+  <router-link to="#" class="side-bar-item__link">
+    <p class="side-bar-item__paragraph">
+      <span class="side-bar-item__day-number">{{ dayNumber }}</span>
+      {{ dayName }}
+      <span class="side-bar-item__day-category"> {{ dayCategory }}</span>
     </p>
   </router-link>
 </template>
@@ -27,30 +28,30 @@ export default {
 </script>
 
 <style scoped>
-.side-bar__link {
+.side-bar-item__link {
   text-decoration: none;
   outline: none;
   color: #2c3e50;
 }
 
-.side-bar__link:visited {
+.side-bar-item__link:visited {
   color: #38926a;
 }
 
-p {
+.side-bar-item__paragraph {
   padding: 0.5em;
 }
 
-p:hover {
+.side-bar-item__paragraph:hover {
   background: #78c594;
   border-radius: 10px;
   color: white;
 }
-.dayNumber {
+.side-bar-item__day-number {
   font-weight: 800;
 }
 
-.dayCategory {
+.side-bar-item__day-category {
   font-style: oblique;
 }
 </style>

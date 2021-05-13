@@ -1,5 +1,5 @@
 <template>
-  <button><slot></slot></button>
+  <button class="base-button"><slot></slot></button>
 </template>
 
 <script>
@@ -7,7 +7,7 @@ export default {};
 </script>
 
 <style scoped>
-button {
+.base-button {
   border: none;
   background: white;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -20,7 +20,7 @@ button {
   font-weight: 800;
 }
 
-button:hover {
+.base-button:hover {
   background: #41b883;
   color: white;
 }
