@@ -31,6 +31,7 @@ export default {
   text-decoration: none;
   outline: none;
   color: #2c3e50;
+  transition: color 0.2s;
 }
 
 .side-bar__link:visited {
@@ -39,6 +40,7 @@ export default {
 
 p {
   padding: 0.5em;
+  transition: all 0.2s;
 }
 
 p:hover {
