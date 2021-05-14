@@ -1,18 +1,24 @@
 <template>
   <teleport to="body">
-    <div v-if="dialogDisplay" class="backdrop" @click="closeDialog"></div>
-    <dialog open v-if="dialogDisplay">
-      <header class="header" v-if="!voiceDialog">
+    <div
+      v-if="dialogDisplay"
+      class="base-dialog__backdrop"
+      @click="closeDialog"
+    ></div>
+    <dialog class="base-dialog" open v-if="dialogDisplay">
+      <header class="base-dialog__header" v-if="!voiceDialog">
         <h2>{{ dialogHeader }}</h2>
       </header>
-      <section>
+      <section class="base-dialog__section">
         <slot name="voiceMic"></slot>
       </section>
-      <section>
-        <h5 v-if="!voiceDialog">{{ dialogDetails }}</h5>
+      <section class="base-dialog__section">
+        <h5 class="base-dialog__details" v-if="!voiceDialog">
+          {{ dialogDetails }}
+        </h5>
         <slot v-else name="voiceText"></slot>
       </section>
-      <menu v-if="!voiceDialog">
+      <menu class="base-dialog__menu" v-if="!voiceDialog">
         <base-button @click="closeDialog">Yes I am sure</base-button>
         <base-button @click="closeDialog">No I am not</base-button>
       </menu>
@@ -51,7 +57,7 @@ export default {
 </script>
 
 <style scoped>
-.backdrop {
+.base-dialog__backdrop {
   position: fixed;
   top: 0;
   left: 0;
@@ -60,7 +66,7 @@ export default {
   background-color: rgba(0, 0, 0, 0.75);
   z-index: 10;
 }
-dialog {
+.base-dialog {
   position: fixed;
   top: 20vh;
   left: 10%;
@@ -73,8 +79,9 @@ dialog {
   margin: 0;
   overflow: hidden;
   background-color: white;
+  font-family: "Roboto";
 }
-.header {
+.base-dialog__header {
   border-radius: 12px 12px 0 0;
   width: 100%;
   height: 4em;
@@ -86,19 +93,25 @@ dialog {
   padding: 1rem;
 }
 
-section {
+.base-dialog__section {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem;
 }
 
-menu {
+.base-dialog__menu {
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin: 0;
   padding: 1.5rem;
+}
+
+.base-dialog__details {
+  font-size: 1.5em;
+  font-weight: 500;
+  text-align: center;
 }
 
 @media (min-width: 768px) {

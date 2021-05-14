@@ -3,8 +3,8 @@ import App from "./App.vue";
 import "./registerServiceWorker";
 import router from "./router";
 import store from "./store";
-import BaseButton from "./components/ui/BaseButton.vue";
-import BaseCard from "./components/ui/BaseCard.vue";
+import BaseButton from "./components/ui/basecomponents/BaseButton.vue";
+import BaseCard from "./components/ui/basecomponents/BaseCard.vue";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
   faMicrophone,
@@ -15,7 +15,7 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
 const app = createApp(App);
 const BaseDialog = defineAsyncComponent(() =>
-  import("./components/ui/BaseDialog.vue")
+  import("./components/ui/basecomponents/BaseDialog.vue")
 );
 
 library.add(faSearch);

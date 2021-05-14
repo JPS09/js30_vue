@@ -1,13 +1,17 @@
 <template>
-  <div class="search-container">
+  <div class="search-input__container">
     <input
       v-model="searchData"
-      class="input"
+      class="search-input"
       type="text"
       placeholder="Search for a day"
       @keyup.enter="filterDays"
     />
-    <font-awesome-icon icon="search" class="searchIcon" @click="filterDays" />
+    <font-awesome-icon
+      icon="search"
+      class="search-input__search-icon"
+      @click="filterDays"
+    />
   </div>
 </template>
 
@@ -28,20 +32,20 @@ export default {
 </script>
 
 <style scoped>
-.search-container {
+.search-input__container {
   display: grid;
   grid-template-columns: 27em 1em;
   width: fit-content;
 }
 
-.searchIcon {
+.search-input__search-icon {
   grid-row: 1;
   grid-column: 2/3;
   align-self: center;
   z-index: 2;
   cursor: pointer;
 }
-.input {
+.search-input {
   border-radius: 30px;
   border: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -51,15 +55,15 @@ export default {
   grid-column: 1;
 }
 
-.input:focus {
+.search-input:focus {
   outline: none;
 }
 
 @media (max-width: 768px) {
-  .input {
+  .search-input {
     width: 16em;
   }
-  .search-container {
+  .search-input__container {
     grid-template-columns: 12em 1em;
   }
 }

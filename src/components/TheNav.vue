@@ -1,17 +1,21 @@
 <template>
   <div class="nav-bar">
-    <div id="left">
+    <div id="nav-bar__left">
       <img
         src="../assets/logos/home_button.svg"
         alt="Link to Home page"
-        class="home-logo"
+        class="nav-bar__home-logo"
         @click="homeLink"
       />
     </div>
 
-    <h1 id="center">
+    <h1 id="nav-bar__center">
       JS30 with
-      <img alt="Vue logo" id="vue-logo" src="../assets/logos/vuejs_logo.png" />
+      <img
+        alt="Vue logo"
+        id="nav-bar__vue-logo"
+        src="../assets/logos/vuejs_logo.png"
+      />
     </h1>
   </div>
 </template>
@@ -27,10 +31,10 @@ export default {
 </script>
 
 <style scoped>
-#center {
+#nav-bar__center {
   flex: 1;
 }
-#left {
+#nav-bar__left {
   flex: 1;
   display: flex;
   align-items: flex-start;
@@ -52,7 +56,7 @@ export default {
   content: "";
   flex: 1;
 }
-.home-logo {
+.nav-bar__home-logo {
   filter: invert(63%) sepia(24%) saturate(982%) hue-rotate(101deg)
     brightness(94%) contrast(85%);
   height: 30px;
@@ -66,12 +70,7 @@ export default {
     brightness(91%) contrast(87%);
 }
 
-.vue-highlight {
-  color: #41674f;
-  font-weight: 800;
-}
-
-#vue-logo {
+#nav-bar__vue-logo {
   max-height: 40px;
   max-width: 40px;
 }

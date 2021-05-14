@@ -6,6 +6,7 @@
       :dialog-display="askConfirm"
       @close="closeDialogConfirm"
     ></base-dialog>
+    <search-dialog :dialogDisplay="openVoiceDialog"></search-dialog>
     <div class="search-elements">
       <search-input></search-input>
       <search-button></search-button>
@@ -28,6 +29,7 @@ import ViewingCompletion from "@/components/stats/ViewingCompletion.vue";
 import SearchInput from "@/components/search/SearchInput.vue";
 import SearchButton from "@/components/search/SearchButton.vue";
 import SearchFilter from "@/components/search/SearchFilter.vue";
+import SearchDialog from "@/components/search/SearchDialog.vue";
 import DayCard from "@/components/days/DaysCard.vue";
 
 export default {
@@ -38,10 +40,12 @@ export default {
     SearchButton,
     SearchFilter,
     DayCard,
+    SearchDialog,
   },
   data() {
     return {
       askConfirm: false,
+      openVoiceDialog: false,
     };
   },
   methods: {

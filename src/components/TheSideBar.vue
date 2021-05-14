@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <ul v-if="days">
+  <div class="side-bar__container">
+    <ul v-if="days" class="side-bar__ul">
       <side-bar-days-item
         v-for="day in days"
         :key="day.id"
@@ -27,11 +27,11 @@ export default {
 </script>
 
 <style scoped>
-ul {
+.side-bar__ul {
   margin: 0;
   padding: 0;
 }
-.container {
+.side-bar__container {
   display: flex;
   background-color: white;
   border-right: 2px solid rgba(112, 112, 112, 0.2);
@@ -42,7 +42,7 @@ ul {
 }
 
 @media (max-width: 768px) {
-  .container {
+  .side-bar__container {
     display: none;
   }
 }
