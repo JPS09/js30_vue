@@ -115,8 +115,8 @@ export default {
 }
 
 @media (min-width: 768px) {
-  dialog {
-    width: 40rem;
+  .base-dialog {
+    width: 40%;
   }
 }
 </style>
