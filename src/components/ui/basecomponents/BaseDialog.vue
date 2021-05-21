@@ -13,12 +13,12 @@
       <section class="base-dialog__section">
         <slot name="voiceMic"></slot>
       </section>
-      <section class="base-dialog__section">
-        <h5 class="base-dialog__details" v-if="!voiceDialog">
+      <section class="base-dialog__section" v-if="!voiceDialog">
+        <h5 class="base-dialog__details">
           {{ dialogDetails }}
         </h5>
-        <slot v-else name="voiceText"></slot>
       </section>
+      <slot v-else name="voiceText"></slot>
       <menu class="base-dialog__menu" v-if="!voiceDialog">
         <base-button @click="closeDialog">Yes I am sure</base-button>
         <base-button @click="closeDialog">No I am not</base-button>
@@ -70,14 +70,13 @@ export default {
 .base-dialog {
   position: fixed;
   top: 20vh;
-  left: 10%;
   width: 80%;
   z-index: 100;
   border-radius: 12px;
   border: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   padding: 0;
-  margin: 0;
+  margin: 0 auto;
   overflow: hidden;
   background-color: white;
   font-family: "Roboto";
@@ -117,7 +116,6 @@ export default {
 
 @media (min-width: 768px) {
   dialog {
-    left: calc(50% - 20rem);
     width: 40rem;
   }
 }

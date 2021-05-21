@@ -23,8 +23,10 @@
       </div>
     </template>
     <template #voiceText>
-      <h6>Listening</h6>
-      <p>Speech Results</p>
+      <section class="search-dialog__text-section">
+        <h3>Listening</h3>
+        <p>Speech Results</p>
+      </section>
     </template>
   </base-dialog>
 </template>
@@ -91,5 +93,11 @@ div > div {
   width: 100%;
   display: flex;
   justify-content: right;
+}
+
+.search-dialog__text-section {
+  display: block;
+  text-align: center;
+  margin: 2em 0;
 }
 </style>
