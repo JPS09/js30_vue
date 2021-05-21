@@ -1,10 +1,11 @@
 <template>
   <base-dialog :dialogDisplay="dialogDisplay" :voiceDialog="true">
-    <template #closeIcon>
+    <template #closeIcon="slotProps">
       <div class="search-dialog__close-container">
         <font-awesome-icon
           class="search-dialog__close"
           icon="times"
+          @click="slotProps.close"
         ></font-awesome-icon>
       </div>
     </template>

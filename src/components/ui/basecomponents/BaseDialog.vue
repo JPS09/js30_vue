@@ -9,7 +9,7 @@
       <header class="base-dialog__header" v-if="!voiceDialog">
         <h2>{{ dialogHeader }}</h2>
       </header>
-      <slot v-else name="closeIcon"></slot>
+      <slot v-else name="closeIcon" :close="closeDialog"></slot>
       <section class="base-dialog__section">
         <slot name="voiceMic"></slot>
       </section>
