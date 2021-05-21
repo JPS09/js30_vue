@@ -17,6 +17,7 @@ export default {};
   max-width: 200px;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  font-family: inherit;
   font-weight: 800;
 }
 
