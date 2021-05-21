@@ -6,10 +6,13 @@
       :dialog-display="askConfirm"
       @close="closeDialogConfirm"
     ></base-dialog>
-    <search-dialog :dialogDisplay="openVoiceDialog"></search-dialog>
+    <search-dialog
+      :dialogDisplay="displayVoiceDialog"
+      @close="closeVoiceDialog"
+    ></search-dialog>
     <div class="search-elements">
       <search-input></search-input>
-      <search-button></search-button>
+      <search-button @click="openVoiceDialog"></search-button>
     </div>
     <viewing-completion></viewing-completion>
     <base-button @click="openDialogConfirm">Check All</base-button>
@@ -45,10 +48,16 @@ export default {
   data() {
     return {
       askConfirm: false,
-      openVoiceDialog: false,
+      displayVoiceDialog: false,
     };
   },
   methods: {
+    openVoiceDialog() {
+      this.displayVoiceDialog = true;
+    },
+    closeVoiceDialog() {
+      this.displayVoiceDialog = false;
+    },
     openDialogConfirm() {
       this.askConfirm = true;
     },
