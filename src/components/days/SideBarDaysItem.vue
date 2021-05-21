@@ -28,15 +28,18 @@ export default {
 </script>
 
 <style scoped>
-.side-bar-item__link {
+.side-bar-item__link,
+.side-bar-item__link:visited {
   text-decoration: none;
   outline: none;
   color: #2c3e50;
   transition: color 0.2s;
 }
 
-.side-bar-item__link:visited {
-  color: #38926a;
+.side-bar-item__paragraph:hover {
+  background: #78c594;
+  border-radius: 10px;
+  color: white;
 }
 
 .side-bar-item__paragraph {
