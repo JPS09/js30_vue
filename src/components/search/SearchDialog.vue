@@ -1,6 +1,13 @@
 <template>
   <base-dialog :dialogDisplay="dialogDisplay" :voiceDialog="true">
-    <font-awesome-icon icon="time"></font-awesome-icon>
+    <template #closeIcon>
+      <div class="search-dialog__close-container">
+        <font-awesome-icon
+          class="search-dialog__close"
+          icon="times"
+        ></font-awesome-icon>
+      </div>
+    </template>
     <template #voiceMic>
       <div class="search-dialog__container">
         <div class="search-dialog__outer-circle">
@@ -71,5 +78,18 @@ div > div {
 .search-dialog__mic {
   color: white;
   font-size: 1.5em;
+}
+
+.search-dialog__close {
+  cursor: pointer;
+  color: #2c3e50;
+  font-size: 1.5em;
+  margin: 0.5em;
+}
+
+.search-dialog__close-container {
+  width: 100%;
+  display: flex;
+  justify-content: right;
 }
 </style>
