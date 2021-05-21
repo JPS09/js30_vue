@@ -6,7 +6,10 @@
         <div class="search-dialog__outer-circle">
           <div class="search-dialog__middle-circle">
             <div class="search-dialog__inner-circle">
-              <font-awesome-icon icon="microphone"></font-awesome-icon>
+              <font-awesome-icon
+                class="search-dialog__mic"
+                icon="microphone"
+              ></font-awesome-icon>
             </div>
           </div>
         </div>
@@ -38,6 +41,7 @@ div > div {
   align-items: center;
   justify-content: center;
 }
+
 .search-dialog__outer-circle,
 .search-dialog__middle-circle,
 .search-dialog__inner-circle {
@@ -45,9 +49,9 @@ div > div {
 }
 
 .search-dialog__outer-circle {
-  background: rgba(255, 99, 71, 0.418);
-  width: 10em;
-  height: 10em;
+  background: #78c5942f;
+  width: 9em;
+  height: 9em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -56,11 +60,16 @@ div > div {
 .search-dialog__inner-circle {
   width: 5em;
   height: 5em;
-  background: turquoise;
+  background: #78c594;
 }
 .search-dialog__middle-circle {
-  width: 8em;
-  height: 8em;
-  background: rgba(210, 105, 30, 0.678);
+  width: 7em;
+  height: 7em;
+  background: #78c59481;
+}
+
+.search-dialog__mic {
+  color: white;
+  font-size: 1.5em;
 }
 </style>

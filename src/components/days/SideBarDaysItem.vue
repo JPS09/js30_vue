@@ -47,11 +47,6 @@ export default {
   transition: all 0.2s;
 }
 
-.side-bar-item__paragraph:hover {
-  background: #78c594;
-  border-radius: 10px;
-  color: white;
-}
 .side-bar-item__day-number {
   font-weight: 800;
 }
