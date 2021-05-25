@@ -25,6 +25,5 @@
   background-position: right 0.7em top 50%;
   background-size: 0.65em auto, 100%;
   padding: 0.5em 1em;
-  justify-items: left;
 }
 </style>
