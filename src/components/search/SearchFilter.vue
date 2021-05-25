@@ -10,7 +10,7 @@
 
 <style scoped>
 #search-filter__select {
-  border-radius: 30px;
+  border-radius: 10px;
   width: 150px;
   border-style: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
@@ -25,5 +25,6 @@
   background-position: right 0.7em top 50%;
   background-size: 0.65em auto, 100%;
   padding: 0.5em 1em;
+  justify-items: left;
 }
 </style>

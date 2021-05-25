@@ -15,8 +15,10 @@
       <search-button @click="openVoiceDialog"></search-button>
     </div>
     <viewing-completion></viewing-completion>
-    <base-button @click="openDialogConfirm">Check All</base-button>
-    <base-button @click="openDialogConfirm">Clear All</base-button>
+    <menu class="home-view__menu">
+      <base-button @click="openDialogConfirm">Check All</base-button>
+      <base-button @click="openDialogConfirm">Clear All</base-button>
+    </menu>
     <search-filter></search-filter>
     <day-card
       day-name="test"
@@ -71,6 +73,13 @@ export default {
 <style scoped>
 .search-elements {
   display: flex;
+  justify-content: space-between;
+}
+
+.home-view__menu {
+  display: flex;
   justify-content: space-around;
+  align-items: center;
+  padding: 0 0;
 }
 </style>
