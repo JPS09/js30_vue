@@ -34,7 +34,7 @@ export default {
 <style scoped>
 .search-input__container {
   display: grid;
-  grid-template-columns: 27em 1em;
+  grid-template-columns: 26.5em 1em;
   width: fit-content;
 }
 
