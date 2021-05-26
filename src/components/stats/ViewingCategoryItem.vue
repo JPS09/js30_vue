@@ -24,11 +24,25 @@ export default {
   align-items: center;
   justify-content: space-around;
 }
-.viewing-category-item__slot {
+.viewing-category-item__slot,
+.viewing-category-item__fill {
   width: 25em;
   background: rgba(136, 211, 155, 0.705);
-  padding: 0.5em;
+  height: 1.3em;
   border-radius: 25px;
+}
+.viewing-category-item__fill {
+  background: rgba(15, 151, 49, 0.705);
+  width: 15em;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.viewing-category-item__fill::after {
+  content: "oh";
+  color: white;
+  padding-right: 0.5em;
 }
 #viewing-category__name {
   font-weight: 500;
