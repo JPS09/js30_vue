@@ -15,6 +15,7 @@
       <search-button @click="openVoiceDialog"></search-button>
     </div>
     <viewing-completion></viewing-completion>
+    <viewing-category-completion></viewing-category-completion>
     <base-card>
       <section class="home-view__lower-section">
         <div id="home-view__select-placement">
@@ -32,6 +33,7 @@
 <script>
 // @ is an alias to /src
 import ViewingCompletion from "@/components/stats/ViewingCompletion.vue";
+import ViewingCategoryCompletion from "@/components/stats/ViewingCategoryCompletion.vue";
 import SearchInput from "@/components/search/SearchInput.vue";
 import SearchButton from "@/components/search/SearchButton.vue";
 import SearchFilter from "@/components/search/SearchFilter.vue";
@@ -41,6 +43,7 @@ export default {
   name: "Home",
   components: {
     ViewingCompletion,
+    ViewingCategoryCompletion,
     SearchInput,
     SearchButton,
     SearchFilter,
