@@ -24,11 +24,6 @@
           <base-button @click="openDialogConfirm">Check All</base-button>
           <base-button @click="openDialogConfirm">Clear All</base-button>
         </menu>
-        <day-card
-          day-name="test"
-          day-description=" Oh my test"
-          day-number="64"
-        ></day-card>
       </section>
     </base-card>
   </div>
@@ -41,7 +36,6 @@ import SearchInput from "@/components/search/SearchInput.vue";
 import SearchButton from "@/components/search/SearchButton.vue";
 import SearchFilter from "@/components/search/SearchFilter.vue";
 import SearchDialog from "@/components/search/SearchDialog.vue";
-import DayCard from "@/components/days/DaysCard.vue";
 
 export default {
   name: "Home",
@@ -50,7 +44,6 @@ export default {
     SearchInput,
     SearchButton,
     SearchFilter,
-    DayCard,
     SearchDialog,
   },
   data() {
@@ -86,7 +79,7 @@ export default {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 0;
+  padding: 1em 0;
   margin: 0;
 }
 

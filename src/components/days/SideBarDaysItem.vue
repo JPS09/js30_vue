@@ -33,7 +33,7 @@ export default {
   text-decoration: none;
   outline: none;
   color: #2c3e50;
-  transition: color 0.2s;
+  transition: color 0.2s ease-in;
 }
 
 .side-bar-item__paragraph:hover {
@@ -44,7 +44,7 @@ export default {
 
 .side-bar-item__paragraph {
   padding: 0.5em;
-  transition: all 0.2s;
+  transition: all 0.2s ease-in;
   margin: 0;
 }
 
