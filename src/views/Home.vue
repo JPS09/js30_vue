@@ -17,7 +17,9 @@
     <viewing-completion></viewing-completion>
     <base-card>
       <section class="home-view__lower-section">
-        <search-filter></search-filter>
+        <div id="home-view__select-placement">
+          <search-filter></search-filter>
+        </div>
         <menu class="home-view__menu">
           <base-button @click="openDialogConfirm">Check All</base-button>
           <base-button @click="openDialogConfirm">Clear All</base-button>
@@ -84,10 +86,18 @@ export default {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 0 0;
+  padding: 0;
+  margin: 0;
 }
 
 /* .home-view__lower-section {
   display: inline-flex;
 } */
+
+#home-view__select-placement {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 1em;
+}
 </style>

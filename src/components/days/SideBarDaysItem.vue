@@ -45,6 +45,7 @@ export default {
 .side-bar-item__paragraph {
   padding: 0.5em;
   transition: all 0.2s;
+  margin: 0;
 }
 
 .side-bar-item__day-number {
