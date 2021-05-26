@@ -15,16 +15,20 @@
       <search-button @click="openVoiceDialog"></search-button>
     </div>
     <viewing-completion></viewing-completion>
-    <menu class="home-view__menu">
-      <base-button @click="openDialogConfirm">Check All</base-button>
-      <base-button @click="openDialogConfirm">Clear All</base-button>
-    </menu>
-    <search-filter></search-filter>
-    <day-card
-      day-name="test"
-      day-description=" Oh my test"
-      day-number="64"
-    ></day-card>
+    <base-card>
+      <section class="home-view__lower-section">
+        <search-filter></search-filter>
+        <menu class="home-view__menu">
+          <base-button @click="openDialogConfirm">Check All</base-button>
+          <base-button @click="openDialogConfirm">Clear All</base-button>
+        </menu>
+        <day-card
+          day-name="test"
+          day-description=" Oh my test"
+          day-number="64"
+        ></day-card>
+      </section>
+    </base-card>
   </div>
 </template>
 
@@ -78,8 +82,12 @@ export default {
 
 .home-view__menu {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
   padding: 0 0;
 }
+
+/* .home-view__lower-section {
+  display: inline-flex;
+} */
 </style>
