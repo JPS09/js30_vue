@@ -40,7 +40,7 @@ export default {
 }
 
 .viewing-category-item__fill::after {
-  content: "oh";
+  content: "50%";
   color: white;
   padding-right: 0.5em;
 }
