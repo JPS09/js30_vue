@@ -30,7 +30,7 @@ export default {
   padding: 1em;
   width: 40em;
   display: grid;
-  grid-template-rows: 3em 20em 1fr;
+  grid-template-rows: 2em 15em 1fr;
   align-items: center;
 }
 

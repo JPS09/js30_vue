@@ -131,8 +131,4 @@ export default {
   color: #41b883;
   font-weight: 800;
 }
-
-#viewing-completion__day-stats {
-  padding: 1em;
-}
 </style>
