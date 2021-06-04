@@ -26,14 +26,14 @@ export default {
 }
 .viewing-category-item__slot,
 .viewing-category-item__fill {
-  width: 25em;
+  width: 10em;
   background: rgba(136, 211, 155, 0.705);
-  height: 1.3em;
+  height: 1em;
   border-radius: 25px;
 }
 .viewing-category-item__fill {
   background: rgba(15, 151, 49, 0.705);
-  width: 15em;
+  width: 5em;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -42,9 +42,11 @@ export default {
 .viewing-category-item__fill::after {
   content: "50%";
   color: white;
+  font-size: 0.7em;
   padding-right: 0.5em;
 }
 #viewing-category__name {
   font-weight: 500;
+  align-self: flex-end;
 }
 </style>
