@@ -28,7 +28,10 @@ export default {
   align-self: flex-start;
   margin: 0 auto;
   padding: 1em;
-  width: 35em;
+  width: 40em;
+  display: grid;
+  grid-template-rows: 2em 15em 1fr;
+  align-items: center;
 }
 
 * {

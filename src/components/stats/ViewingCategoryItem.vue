@@ -20,20 +20,23 @@ export default {
 
 <style scoped>
 .viewing-category-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.2fr 3fr;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  margin: 1.1em 0;
+  text-align: left;
 }
 .viewing-category-item__slot,
 .viewing-category-item__fill {
-  width: 25em;
+  width: 100%;
   background: rgba(136, 211, 155, 0.705);
-  height: 1.3em;
+  height: 1em;
   border-radius: 25px;
 }
 .viewing-category-item__fill {
   background: rgba(15, 151, 49, 0.705);
-  width: 15em;
+  width: 5em;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -42,9 +45,12 @@ export default {
 .viewing-category-item__fill::after {
   content: "50%";
   color: white;
+  font-size: 0.7em;
   padding-right: 0.5em;
 }
 #viewing-category__name {
   font-weight: 500;
+  align-self: flex-end;
+  margin: 0;
 }
 </style>

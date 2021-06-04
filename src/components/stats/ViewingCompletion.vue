@@ -1,25 +1,29 @@
 <template>
-  <base-card>
+  <stats-styling-Wrapper>
     <h3 id="viewing-completion__viewing-title">Viewing Completion</h3>
     <!-- TO DO : Replace data-value by a computed property taken from the vuex stats store -->
-    <div
-      class="viewing-completion__progress-circle"
-      data-value="80"
-      ref="initCircle"
-    >
-      <div class="viewing-completion__progress-mask">
-        <div class="viewing-completion__progress-bar" ref="initBar"></div>
-        <div class="viewing-completion__progress-sup50"></div>
+    <section>
+      <div
+        class="viewing-completion__progress-circle"
+        data-value="80"
+        ref="initCircle"
+      >
+        <div class="viewing-completion__progress-mask">
+          <div class="viewing-completion__progress-bar" ref="initBar"></div>
+          <div class="viewing-completion__progress-sup50"></div>
+        </div>
       </div>
-    </div>
-    <p id="viewing-completion__day-stats">
-      <span class="viewing-completion__remaining-days">30 days</span> to go
-    </p>
-  </base-card>
+      <p id="viewing-completion__day-stats">
+        <span class="viewing-completion__remaining-days">30 days</span> to go
+      </p>
+    </section>
+  </stats-styling-Wrapper>
 </template>
 
 <script>
+import StatsStylingWrapper from "./StatsStylingWrapper";
 export default {
+  components: { StatsStylingWrapper },
   // TO DO : Add a call to init viewing-completion__progress bar to computed when update
   mounted() {
     this.initProgressBar();
@@ -42,6 +46,10 @@ export default {
 </script>
 
 <style scoped>
+#viewing-completion__wrapper {
+  border-radius: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
 .viewing-completion__progress-circle {
   position: relative;
   font-size: 6em;
@@ -122,10 +130,5 @@ export default {
 .viewing-completion__remaining-days {
   color: #41b883;
   font-weight: 800;
-}
-
-#viewing-completion__viewing-title,
-#viewing-completion__day-stats {
-  padding: 1em;
 }
 </style>

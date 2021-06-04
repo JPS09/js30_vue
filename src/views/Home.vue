@@ -14,8 +14,10 @@
       <search-input></search-input>
       <search-button @click="openVoiceDialog"></search-button>
     </div>
-    <viewing-completion></viewing-completion>
-    <viewing-category-completion></viewing-category-completion>
+    <section id="viewing-stats__section">
+      <viewing-completion></viewing-completion>
+      <viewing-category-completion></viewing-category-completion>
+    </section>
     <base-card>
       <section class="home-view__lower-section">
         <div id="home-view__select-placement">
@@ -73,6 +75,11 @@ export default {
 </script>
 
 <style scoped>
+#viewing-stats__section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 .search-elements {
   display: flex;
   justify-content: space-between;
