@@ -20,14 +20,16 @@ export default {
 
 <style scoped>
 .viewing-category-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1.2fr 3fr;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 0.5em 0;
+  text-align: left;
 }
 .viewing-category-item__slot,
 .viewing-category-item__fill {
-  width: 10em;
+  width: 100%;
   background: rgba(136, 211, 155, 0.705);
   height: 1em;
   border-radius: 25px;
