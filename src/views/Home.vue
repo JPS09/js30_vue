@@ -78,6 +78,7 @@ export default {
 #viewing-stats__section {
   display: flex;
   align-items: center;
+  justify-content: space-around;
 }
 .search-elements {
   display: flex;

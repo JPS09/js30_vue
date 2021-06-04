@@ -10,5 +10,6 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   background: rgb(255, 255, 255);
   width: 18em;
+  padding: 1em;
 }
 </style>

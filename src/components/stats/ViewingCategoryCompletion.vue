@@ -20,9 +20,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-#viewing-category-completion__viewing-title {
-  padding-top: 1em;
-}
-</style>

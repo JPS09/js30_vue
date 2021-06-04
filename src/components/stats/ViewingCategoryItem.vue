@@ -23,6 +23,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  padding: 0.5em 0;
 }
 .viewing-category-item__slot,
 .viewing-category-item__fill {
@@ -48,5 +49,6 @@ export default {
 #viewing-category__name {
   font-weight: 500;
   align-self: flex-end;
+  margin: 0;
 }
 </style>
