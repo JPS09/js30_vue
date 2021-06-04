@@ -53,7 +53,7 @@ export default {
           name: "Array Cardio Part 1",
           description:
             "A variety of methods to handle arrays inside JS alongside many ways of implementing them",
-          category: "Essentials",
+          category: "Basics",
           subCategories: ["Data Handling", "Methods", "Syntax"],
           viewed: false,
           mainDifferences: {
@@ -68,7 +68,7 @@ export default {
           name: "Flex Panel Galery",
           description:
             "A simple exercise based on the CSS Box model and made interactive by toggling classes on click",
-          category: "Essentials",
+          category: "Basics",
           subCategories: ["Box Model", "Class Toggling", "Events"],
           viewed: false,
           mainDifferences: {
@@ -82,7 +82,7 @@ export default {
           name: "Type Ahead",
           description:
             "Simple search field made for finding a state or a city based on user input",
-          category: "Essentials",
+          category: "Basics",
           subCategories: ["Regex", "Events", "Search"],
           viewed: false,
           mainDifferences: {
@@ -96,7 +96,7 @@ export default {
           name: "Array Cardio Part 2",
           description:
             "Second Part of an exercise made to present several array handling methods and their possible syntaxes",
-          category: "Essentials",
+          category: "Basics",
           subCategories: ["Data Handling", "Methods", "Syntax"],
           mainDifferences: {
             js:
@@ -195,7 +195,7 @@ export default {
           name: "JS Reference vs Copying",
           description:
             "A little explanation of the difference between referencing an existing element and copying it",
-          category: "Essentials",
+          category: "Basics",
           subCategories: ["Data Handling", "Data Flow", "Differences"],
           viewed: false,
           mainDifferences: {
@@ -210,7 +210,7 @@ export default {
           name: "LocalStorage",
           description:
             "LocalStorage is an alternative way of saving data between pages but also to avoid losing it when the user actualises it",
-          category: "Essentials",
+          category: "Basics",
           subCategories: ["Feature", "Data persistence", "Data handling"],
           viewed: false,
           mainDifferences: {
@@ -353,7 +353,7 @@ export default {
           name: "Event Capture, Propagation Bubbling and Once",
           description:
             "Understanding how event are handled is key to handle them",
-          category: "Essentials",
+          category: "Basics",
           subCategories: ["Event Handling", "Tricky", "Capture"],
           viewed: false,
           mainDifferences: {
@@ -381,7 +381,7 @@ export default {
           name: "Click and Drag",
           description:
             "Handling the original click position compared to the scroll distance is what makes this feature possible",
-          category: "Essentials",
+          category: "Basics",
           subCategories: ["Scroll", "Click Handling", "Modern"],
           viewed: false,
           mainDifferences: {
@@ -409,7 +409,7 @@ export default {
           name: "Countdown Timer",
           description:
             "Thanks to JS, CSS and some clever calculations, we can help you have an idea on when to get back to work!",
-          category: "Essentials",
+          category: "Basics",
           subCategories: ["Timer", "24H", "Dynamic"],
           viewed: false,
           mainDifferences: {
