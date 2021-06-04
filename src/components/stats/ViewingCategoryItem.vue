@@ -24,7 +24,7 @@ export default {
   grid-template-columns: 1.2fr 3fr;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5em 0;
+  margin: 1.1em 0;
   text-align: left;
 }
 .viewing-category-item__slot,
