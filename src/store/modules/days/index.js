@@ -3,6 +3,7 @@ import daysGetters from "./getters.js";
 import daysActions from "./actions.js";
 
 export default {
+  namespaced: true,
   state() {
     return {
       days: [
