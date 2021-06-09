@@ -1,11 +1,13 @@
 <template>
   <div class="days">
-    <h1>{{ name }}</h1>
+    <day-details :dayName="name" :dayDescription="description"></day-details>
   </div>
 </template>
 
 <script>
+import dayDetails from "../components/days/DayDetails.vue";
 export default {
+  components: { dayDetails },
   data() {
     return {
       selectedDay: null,
@@ -18,6 +20,9 @@ export default {
     },
     name() {
       return this.selectedDay.name;
+    },
+    description() {
+      return this.selectedDay.description;
     },
   },
   methods: {
