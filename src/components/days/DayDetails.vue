@@ -2,7 +2,7 @@
   <div>
     <h3>{{ dayName }}</h3>
     <p>{{ dayDescription }}</p>
-    <p></p>
+    <p>{{ dayCategory }}</p>
   </div>
 </template>
 
@@ -14,6 +14,10 @@ export default {
       required: true,
     },
     dayDescription: {
+      type: String,
+      required: true,
+    },
+    dayCategory: {
       type: String,
       required: true,
     },

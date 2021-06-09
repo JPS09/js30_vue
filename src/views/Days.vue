@@ -1,6 +1,10 @@
 <template>
   <div class="days">
-    <day-details :dayName="name" :dayDescription="description"></day-details>
+    <day-details
+      :dayName="name"
+      :dayDescription="description"
+      :dayCategory="category"
+    ></day-details>
   </div>
 </template>
 
@@ -23,6 +27,9 @@ export default {
     },
     description() {
       return this.selectedDay.description;
+    },
+    category() {
+      return this.selectedDay.category;
     },
   },
   methods: {
