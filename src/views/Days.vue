@@ -1,7 +1,6 @@
 <template>
   <div class="days">
     <h1>{{ name }}</h1>
-    <p>Why broken?</p>
   </div>
 </template>
 
