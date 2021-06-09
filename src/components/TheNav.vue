@@ -63,6 +63,7 @@ export default {
   width: 30px;
   margin: 15px;
   transition: filter 0.2s ease-in-out;
+  cursor: pointer;
 }
 .home-logo:hover {
   cursor: pointer;
