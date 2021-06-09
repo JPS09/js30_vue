@@ -1,5 +1,5 @@
 <template>
-  <router-link to="#" class="side-bar-item__link">
+  <router-link :to="day_id" class="side-bar-item__link">
     <p class="side-bar-item__paragraph">
       <span class="side-bar-item__day-number">{{ dayNumber }}</span>
       {{ dayName }}
@@ -22,6 +22,15 @@ export default {
     dayCategory: {
       type: String,
       required: true,
+    },
+    dayId: {
+      type: Number,
+      required: true,
+    },
+  },
+  computed: {
+    day_id() {
+      return "/days/" + this.dayId;
     },
   },
 };
