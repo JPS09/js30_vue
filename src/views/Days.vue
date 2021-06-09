@@ -21,10 +21,20 @@ export default {
       return this.selectedDay.name;
     },
   },
+  methods: {
+    loadDay(day_id) {
+      this.selectedDay = this.$store.getters["days/days"].find(
+        (day) => day.id === day_id
+      );
+    },
+  },
+  watch: {
+    router_day_id(new_id) {
+      this.loadDay(new_id);
+    },
+  },
   created() {
-    this.selectedDay = this.$store.getters["days/days"].find(
-      (day) => day.id === this.day_id
-    );
+    this.loadDay(this.day_id);
   },
 };
 </script>
