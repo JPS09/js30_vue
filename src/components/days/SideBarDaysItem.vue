@@ -24,7 +24,7 @@ export default {
       required: true,
     },
     dayId: {
-      type: Number,
+      type: String,
       required: true,
     },
   },
