@@ -1,14 +1,14 @@
 <template>
   <div class="day-differences__container">
     <header id="day-differences__header">
-      <h1>Main differences</h1>
+      <h2>Main differences</h2>
     </header>
     <section class="day-differences__section">
-      <h3 class="day-differences__title">JS</h3>
+      <h4 class="day-differences__title">JS</h4>
       <p class="day-differences__details">{{ jsDifference }}</p>
     </section>
     <section class="day-differences__section">
-      <h3 class="day-differences__title">Vue</h3>
+      <h4 class="day-differences__title">Vue</h4>
       <p class="day-differences__details">{{ vueDifference }}</p>
     </section>
   </div>

@@ -28,19 +28,18 @@ export default {
 </script>
 
 <style scoped>
-.day-details__name {
+#day-details__name,
+.day-details__category {
   text-align: left;
+  margin: 0;
 }
 .day-details__infos {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1em;
+  padding: 1em;
 }
 
 .day-details__description {
   padding: 1em;
-  text-align: justify;
+  text-align: left;
   margin: 0;
 }
 </style>
