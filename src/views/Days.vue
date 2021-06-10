@@ -5,13 +5,15 @@
       :dayDescription="description"
       :dayCategory="category"
     ></day-details>
+    <day-differences></day-differences>
   </div>
 </template>
 
 <script>
-import dayDetails from "../components/days/DayDetails.vue";
+import DayDetails from "../components/days/DayDetails.vue";
+import DayDifferences from "../components/days/DayDifferences.vue";
 export default {
-  components: { dayDetails },
+  components: { DayDetails, DayDifferences },
   data() {
     return {
       selectedDay: null,
