@@ -63,6 +63,7 @@ export default {
 
 <style scoped>
 .days {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 </style>

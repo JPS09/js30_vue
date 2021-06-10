@@ -58,6 +58,6 @@ export default {
 .day-differences__details {
   margin: 0;
   padding: 0 2rem;
-  text-align: justify;
+  text-align: left;
 }
 </style>
