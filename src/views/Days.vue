@@ -60,3 +60,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.days {
+  display: flex;
+}
+</style>

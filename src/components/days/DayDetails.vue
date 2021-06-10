@@ -28,6 +28,9 @@ export default {
 </script>
 
 <style scoped>
+.day-details__name {
+  text-align: left;
+}
 .day-details__infos {
   display: flex;
   justify-content: space-between;
