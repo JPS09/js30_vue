@@ -5,7 +5,10 @@
       :dayDescription="description"
       :dayCategory="category"
     ></day-details>
-    <day-differences></day-differences>
+    <day-differences
+      :vueDifference="vueDifference"
+      :jsDifference="jsDifference"
+    ></day-differences>
   </div>
 </template>
 
@@ -21,7 +24,7 @@ export default {
   },
   props: ["day_id"],
   computed: {
-    router_day_id() {
+    routerDayId() {
       return this.day_id;
     },
     name() {
@@ -33,6 +36,12 @@ export default {
     category() {
       return this.selectedDay.category;
     },
+    jsDifference() {
+      return this.selectedDay.mainDifferences.js;
+    },
+    vueDifference() {
+      return this.selectedDay.mainDifferences.vue;
+    },
   },
   methods: {
     loadDay(day_id) {
@@ -42,7 +51,7 @@ export default {
     },
   },
   watch: {
-    router_day_id(new_id) {
+    routerDayId(new_id) {
       this.loadDay(new_id);
     },
   },

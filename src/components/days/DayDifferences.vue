@@ -5,14 +5,29 @@
     </header>
     <section class="day-differences__section">
       <h3 class="day-differences__title">JS</h3>
-      <p class="day-differences__details">Blabla le js</p>
+      <p class="day-differences__details">{{ jsDifference }}</p>
     </section>
     <section class="day-differences__section">
       <h3 class="day-differences__title">Vue</h3>
-      <p class="day-differences__details">Blabla Vue</p>
+      <p class="day-differences__details">{{ vueDifference }}</p>
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    jsDifference: {
+      type: String,
+      required: true,
+    },
+    vueDifference: {
+      type: String,
+      required: true,
+    },
+  },
+};
+</script>
 
 <style scoped>
 #day-differences__header {
