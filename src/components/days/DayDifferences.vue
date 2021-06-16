@@ -48,6 +48,7 @@ export default {
 
 .day-differences__title {
   text-align: left;
+  margin: 0.7em 0;
 }
 
 .day-differences__section {
