@@ -6,12 +6,16 @@ const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    components: {
+      home: Home,
+    },
   },
   {
     path: "/days/:day_id",
     name: "Days",
-    component: Days,
+    components: {
+      days: Days,
+    },
     props: true,
   },
   // {
