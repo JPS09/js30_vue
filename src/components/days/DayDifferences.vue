@@ -1,5 +1,5 @@
 <template>
-  <div class="day-differences__container">
+  <day-wrapper>
     <header id="day-differences__header">
       <h2>Main differences</h2>
     </header>
@@ -11,11 +11,15 @@
       <h4 class="day-differences__title">Vue</h4>
       <p class="day-differences__details">{{ vueDifference }}</p>
     </section>
-  </div>
+  </day-wrapper>
 </template>
 
 <script>
+import DayWrapper from "./DayWrapper.vue";
 export default {
+  components: {
+    DayWrapper,
+  },
   props: {
     jsDifference: {
       type: String,
@@ -31,7 +35,7 @@ export default {
 
 <style scoped>
 #day-differences__header {
-  border-radius: 12px 12px 0 0;
+  border-radius: 25px 25px 0 0;
   width: 100%;
   height: 4em;
   background: #458b51;
@@ -42,12 +46,6 @@ export default {
   padding: 2rem;
 }
 
-.day-differences__container {
-  border-radius: 12px;
-  background: white;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  padding-bottom: 1em;
-}
 .day-differences__title {
   text-align: left;
 }

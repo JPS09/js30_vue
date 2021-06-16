@@ -1,15 +1,19 @@
 <template>
-  <base-card>
+  <day-wrapper>
     <div class="day-details__infos">
       <h2 id="day-details__name">{{ dayName }}</h2>
       <h4 class="day-details__category">{{ dayCategory }}</h4>
     </div>
     <p class="day-details__description">{{ dayDescription }}</p>
-  </base-card>
+  </day-wrapper>
 </template>
 
 <script>
+import DayWrapper from "./DayWrapper.vue";
 export default {
+  components: {
+    DayWrapper,
+  },
   props: {
     dayName: {
       type: String,
