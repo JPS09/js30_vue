@@ -42,7 +42,7 @@ export default {
 }
 
 .day-details__description {
-  padding: 1em;
+  padding: 1.6em 1em;
   text-align: left;
   margin: 0;
 }
