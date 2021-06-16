@@ -75,6 +75,11 @@ export default {
 </script>
 
 <style scoped>
+.home {
+  display: grid;
+  grid-template-rows: 2em 15em 1fr;
+  align-items: center;
+}
 #viewing-stats__section {
   display: flex;
   align-items: center;

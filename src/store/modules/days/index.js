@@ -3,6 +3,7 @@ import daysGetters from "./getters.js";
 import daysActions from "./actions.js";
 
 export default {
+  namespaced: true,
   state() {
     return {
       days: [
@@ -57,8 +58,7 @@ export default {
           subCategories: ["Data Handling", "Methods", "Syntax"],
           viewed: false,
           mainDifferences: {
-            js:
-              "These methods are essentials to handle data and are not modified across JS frameworks ",
+            js: "These methods are essentials to handle data and are not modified across JS frameworks ",
             vue: "Vue doesn't change the way data is handled is JS",
           },
         },
@@ -99,8 +99,7 @@ export default {
           category: "Basics",
           subCategories: ["Data Handling", "Methods", "Syntax"],
           mainDifferences: {
-            js:
-              "These methods are essentials to handle data and are not modified across JS frameworks ",
+            js: "These methods are essentials to handle data and are not modified across JS frameworks ",
             vue: "Vue doesn't change the way data is handled is JS",
           },
           viewed: false,
@@ -199,8 +198,7 @@ export default {
           subCategories: ["Data Handling", "Data Flow", "Differences"],
           viewed: false,
           mainDifferences: {
-            js:
-              "Essential concept of JS which doesn't change across frameworks",
+            js: "Essential concept of JS which doesn't change across frameworks",
             vue: "Vue, which is based on JS, is still bound by these concepts",
           },
         },
@@ -214,10 +212,8 @@ export default {
           subCategories: ["Feature", "Data persistence", "Data handling"],
           viewed: false,
           mainDifferences: {
-            js:
-              "This Feature is built-in JS and remains the same no matter where it is used",
-            vue:
-              "This feature can also be used in frameworks like vue which doesn't change the way it works",
+            js: "This Feature is built-in JS and remains the same no matter where it is used",
+            vue: "This feature can also be used in frameworks like vue which doesn't change the way it works",
           },
         },
         {
@@ -243,8 +239,7 @@ export default {
           subCategories: ["Sorting", "Regex", "Text"],
           viewed: false,
           mainDifferences: {
-            js:
-              "This little trick can be used no matter where it is implemented",
+            js: "This little trick can be used no matter where it is implemented",
             vue: "No difference in data handling",
           },
         },
@@ -258,8 +253,7 @@ export default {
           subCategories: ["Total Time", "Reduce", "Method"],
           viewed: false,
           mainDifferences: {
-            js:
-              "Reduce is a data handling method which stays the same across frameworks",
+            js: "Reduce is a data handling method which stays the same across frameworks",
             vue: "Data Handling methods are not modified by Vue",
           },
         },

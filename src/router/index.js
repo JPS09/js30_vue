@@ -1,11 +1,22 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home.vue";
+const Home = () => import("../views/Home.vue");
+const Days = () => import("../views/Days.vue");
 
 const routes = [
   {
     path: "/",
     name: "Home",
-    component: Home,
+    components: {
+      home: Home,
+    },
+  },
+  {
+    path: "/days/:day_id",
+    name: "Days",
+    components: {
+      days: Days,
+    },
+    props: true,
   },
   // {
   //   path: "/about",

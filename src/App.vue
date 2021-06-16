@@ -2,7 +2,8 @@
   <the-nav></the-nav>
   <div id="app-layout">
     <the-side-bar></the-side-bar>
-    <router-view id="router-elements" />
+    <router-view id="router-home" name="home" />
+    <router-view id="router-days" name="days"></router-view>
   </div>
 </template>
 
@@ -24,14 +25,18 @@ export default {
   display: flex;
 }
 
-#router-elements {
+#router-home {
   align-self: flex-start;
   margin: 0 auto;
   padding: 1em;
   width: 40em;
-  display: grid;
-  grid-template-rows: 2em 15em 1fr;
-  align-items: center;
+}
+
+#router-days {
+  align-self: flex-start;
+  margin: 0 auto;
+  padding: 1em;
+  width: 50em;
 }
 
 * {
