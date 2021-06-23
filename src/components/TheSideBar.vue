@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import SideBarDaysItem from "./days/SideBarDaysItem.vue";
+import SideBarDaysItem from "./days/information_display/SideBarDaysItem.vue";
 export default {
   components: {
     SideBarDaysItem,
