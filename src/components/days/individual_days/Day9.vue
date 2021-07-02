@@ -1,0 +1,83 @@
+<template>
+  <div>
+    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+  </div>
+</template>
+
+<script>
+const dogs = [
+  { name: "Snickers", age: 2 },
+  { name: "Hugo", age: 8 },
+];
+
+// eslint-disable-next-line no-unused-vars
+function makeGreen() {
+  const p = document.querySelector("p");
+  p.style.color = "#BADA55";
+  p.style.fontSize = "50px";
+}
+
+// Regular
+console.log("I hope that this corona thing will be over by 2022");
+
+// Interpolated
+console.log("A %s is needed", "job");
+
+// Styled
+console.log(
+  "%c wow so much styling, not ugly at all",
+  "font-size: 30px; background: yellow; color: red"
+);
+
+// warning!
+console.warn("You will be warned");
+
+// Error :|
+console.error("You didn't check your code before deploying, did you?");
+
+// Info
+console.info("BFMTV isn't good for your sanity");
+
+// Testing
+console.assert(false === true, "Corona is not gone yet");
+
+// clearing
+// console.clear()
+
+// Viewing DOM Elements
+const p = document.querySelector("p");
+console.dir(p);
+
+// Grouping together
+dogs.forEach((dog) => {
+  console.groupCollapsed(`Good boy is ${dog.name}`);
+  console.log(`This is ${dog.name}`);
+  console.log(`${dog.name} is ${dog.age} human years old`);
+  console.log(`${dog.name} is ${dog.age * 7} dog years old`);
+  console.groupEnd(`Good boy is ${dog.name}`);
+});
+
+// counting
+console.count("Good boy");
+console.count("Good kitty");
+console.count("Good boy");
+console.count("Good kitty");
+console.count("Good boy");
+console.count("Good kitty");
+console.count("Good boy");
+console.count("Good kitty");
+console.count("Good boy");
+console.count("Good kitty");
+
+// timing
+console.time("fetching data");
+fetch("https://api.github.com/users/JPS09")
+  .then((data) => data.json())
+  .then((data) => {
+    console.timeEnd("fetching data");
+    console.log(data);
+  });
+
+// table
+console.table(dogs);
+</script>
