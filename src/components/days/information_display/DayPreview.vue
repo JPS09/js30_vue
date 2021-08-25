@@ -1,7 +1,7 @@
 <template>
   <div class="day-preview__container">
     <h3>Preview</h3>
-    <router-view name="day-preview"></router-view>
+    <component :is="componentId"></component>
   </div>
 </template>
 
