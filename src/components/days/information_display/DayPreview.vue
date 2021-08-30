@@ -5,6 +5,10 @@
   </div>
 </template>
 
+<script>
+export default {};
+</script>
+
 <style scoped>
 .day-preview__container {
   width: 100%;
