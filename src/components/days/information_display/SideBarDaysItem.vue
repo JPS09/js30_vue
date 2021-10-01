@@ -62,6 +62,7 @@ export default {
 }
 
 .side-bar-item__day-category {
-  font-style: oblique;
+  font-weight: 500;
+  font-style: italic;
 }
 </style>
