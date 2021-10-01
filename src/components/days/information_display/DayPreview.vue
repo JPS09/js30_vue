@@ -6,7 +6,12 @@
 </template>
 
 <script>
-export default {};
+// import { defineAsyncComponent } from "vue";
+export default {
+  // computed: {
+  //   dayComponent: defineAsyncComponent(() => import("test")),
+  // },
+};
 </script>
 
 <style scoped>
