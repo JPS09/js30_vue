@@ -38,15 +38,15 @@
     </div>
   </div>
 
-  <audio data-key="65" src="sounds/clap.wav"></audio>
-  <audio data-key="83" src="sounds/hihat.wav"></audio>
-  <audio data-key="68" src="sounds/kick.wav"></audio>
-  <audio data-key="70" src="sounds/openhat.wav"></audio>
-  <audio data-key="71" src="sounds/boom.wav"></audio>
-  <audio data-key="72" src="sounds/ride.wav"></audio>
-  <audio data-key="74" src="sounds/snare.wav"></audio>
-  <audio data-key="75" src="sounds/tom.wav"></audio>
-  <audio data-key="76" src="sounds/tink.wav"></audio>
+  <audio data-key="65" src="assets/days_assets/Day1/sounds/clap.wav"></audio>
+  <audio data-key="83" src="assets/days_assets/Day1/sounds/hihat.wav"></audio>
+  <audio data-key="68" src="assets/days_assets/Day1/sounds/kick.wav"></audio>
+  <audio data-key="70" src="assets/days_assets/Day1/sounds/openhat.wav"></audio>
+  <audio data-key="71" src="assets/days_assets/Day1/sounds/boom.wav"></audio>
+  <audio data-key="72" src="assets/days_assets/Day1/sounds/ride.wav"></audio>
+  <audio data-key="74" src="assets/days_assets/Day1/sounds/snare.wav"></audio>
+  <audio data-key="75" src="assets/days_assets/Day1/sounds/tom.wav"></audio>
+  <audio data-key="76" src="assets/days_assets/Day1/sounds/tink.wav"></audio>
 </template>
 
 <script>

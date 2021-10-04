@@ -1,6 +1,9 @@
 <template>
   <div class="player">
-    <video class="player__video viewer" src="652333414.mp4"></video>
+    <video
+      class="player__video viewer"
+      src="assets/days_assets/Day11/652333414.mp4"
+    ></video>
 
     <div class="player__controls">
       <div class="progress">

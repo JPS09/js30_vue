@@ -100,7 +100,7 @@ populateList(items, itemsList);
 <style scoped>
 html {
   box-sizing: border-box;
-  background: url("oh-la-la.jpeg") center no-repeat;
+  background: url("assets/days_assets/Day15/oh-la-la.jpeg") center no-repeat;
   background-size: cover;
   min-height: 100vh;
   display: flex;

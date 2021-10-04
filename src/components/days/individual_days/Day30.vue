@@ -137,7 +137,7 @@ h1 {
 
 .hole:after {
   display: block;
-  background: url(dirt.svg) bottom center no-repeat;
+  background: url("assets/days_assets/Day30/dirt.svg)") bottom center no-repeat;
   background-size: contain;
   content: "";
   width: 100%;
@@ -148,7 +148,7 @@ h1 {
 }
 
 .mole {
-  background: url("mole.svg") bottom center no-repeat;
+  background: url("assets/days_assets/Day30/mole.svg") bottom center no-repeat;
   background-size: 60%;
   position: absolute;
   top: 100%;

@@ -28,7 +28,7 @@
     <video class="player"></video>
     <div class="strip"></div>
 
-    <audio class="snap" src="./snap.mp3" hidden></audio>
+    <audio class="snap" src="assets/days_assets/Day19/snap.mp3" hidden></audio>
   </div>
 </template>
 
