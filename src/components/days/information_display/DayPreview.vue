@@ -9,8 +9,39 @@
 // Importing all the days in an object
 // this object has the day_id as the keys and the imports as the values.
 // Using this object values, we can dynamicaly display the corresponding components based on the router
-// import { defineAsyncComponent } from "vue";
 export default {
+  components: {
+    d1: () => import("../individual_days/Day1.vue"),
+    d2: () => import("../individual_days/Day2.vue"),
+    d3: () => import("../individual_days/Day3.vue"),
+    d4: () => import("../individual_days/Day4.vue"),
+    d5: () => import("../individual_days/Day5.vue"),
+    d6: () => import("../individual_days/Day6.vue"),
+    d7: () => import("../individual_days/Day7.vue"),
+    d8: () => import("../individual_days/Day8.vue"),
+    d9: () => import("../individual_days/Day9.vue"),
+    d10: () => import("../individual_days/Day10.vue"),
+    d11: () => import("../individual_days/Day11.vue"),
+    d12: () => import("../individual_days/Day12.vue"),
+    d13: () => import("../individual_days/Day13.vue"),
+    d14: () => import("../individual_days/Day14.vue"),
+    d15: () => import("../individual_days/Day15.vue"),
+    d16: () => import("../individual_days/Day16.vue"),
+    d17: () => import("../individual_days/Day17.vue"),
+    d18: () => import("../individual_days/Day18.vue"),
+    d19: () => import("../individual_days/Day19.vue"),
+    d20: () => import("../individual_days/Day20.vue"),
+    d21: () => import("../individual_days/Day21.vue"),
+    d22: () => import("../individual_days/Day22.vue"),
+    d23: () => import("../individual_days/Day23.vue"),
+    d24: () => import("../individual_days/Day24.vue"),
+    d25: () => import("../individual_days/Day25.vue"),
+    d26: () => import("../individual_days/Day26.vue"),
+    d27: () => import("../individual_days/Day27.vue"),
+    d28: () => import("../individual_days/Day28.vue"),
+    d29: () => import("../individual_days/Day29.vue"),
+    d30: () => import("../individual_days/Day30.vue"),
+  },
   computed: {
     // dayComponent: defineAsyncComponent(() =>
     //   import(`../individual_days/${component}.vue`)
