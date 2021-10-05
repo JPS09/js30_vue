@@ -6,11 +6,16 @@
 </template>
 
 <script>
+// Importing all the days in an object
+// this object has the day_id as the keys and the imports as the values.
+// Using this object values, we can dynamicaly display the corresponding components based on the router
 // import { defineAsyncComponent } from "vue";
 export default {
-  // computed: {
-  //   dayComponent: defineAsyncComponent(() => import("test")),
-  // },
+  computed: {
+    // dayComponent: defineAsyncComponent(() =>
+    //   import(`../individual_days/${component}.vue`)
+    // ),
+  },
 };
 </script>
 
