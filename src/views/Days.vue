@@ -9,7 +9,7 @@
       :vueDifference="vueDifference"
       :jsDifference="jsDifference"
     ></day-differences>
-    <day-preview></day-preview>
+    <day-preview :dayId="day_id"></day-preview>
   </div>
 </template>
 
