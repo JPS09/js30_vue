@@ -7,9 +7,6 @@
 
 <script>
 import { defineAsyncComponent } from "@vue/runtime-core";
-// Importing all the days in an object
-// this object has the day_id as the keys and the imports as the values.
-// Using this object values, we can dynamicaly display the corresponding components based on the router
 export default {
   props: {
     dayId: {
