@@ -9,14 +9,14 @@
       :vueDifference="vueDifference"
       :jsDifference="jsDifference"
     ></day-differences>
-    <day-preview></day-preview>
+    <day-preview :dayId="day_id"></day-preview>
   </div>
 </template>
 
 <script>
-import DayDetails from "../components/days/DayDetails.vue";
-import DayDifferences from "../components/days/DayDifferences.vue";
-import DayPreview from "../components/days/DayPreview.vue";
+import DayDetails from "../components/days/information_display/DayDetails.vue";
+import DayDifferences from "../components/days/information_display/DayDifferences.vue";
+import DayPreview from "../components/days/information_display/DayPreview.vue";
 export default {
   components: { DayDetails, DayDifferences, DayPreview },
   data() {
