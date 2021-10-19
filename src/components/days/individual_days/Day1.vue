@@ -1,5 +1,6 @@
 <template>
   <div class="keys">
+    <!-- Use v-for to generate those elements thanks to an object -->
     <div data-key="65" class="key">
       <kbd>A</kbd>
       <span class="sound">clap</span>
@@ -96,6 +97,18 @@
 </template>
 
 <script>
+// export default {
+//   methods: {
+//     tryingSound() {
+//       const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+//       const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+//       if (!audio) return; // Stop function if null
+//       audio.currentTime = 0; // Rewind to start
+//       key.classList.add("playing");
+//       audio.play();
+//     },
+//   },
+// };
 const playSound = (e) => {
   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
