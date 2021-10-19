@@ -1,6 +1,9 @@
 <template>
   <div class="keys">
-    <div v-for="audioKey in audioKeys" :key="audioKey.dataKey"></div>
+    <div v-for="audioKey in audioKeys" :key="audioKey.dataKey">
+      <kbd>{{ audioKey.kbd }}</kbd>
+      <span class="sound"></span>
+    </div>
     <!-- Use v-for to generate those elements thanks to an object -->
     <div data-key="65" class="key">
       <kbd>A</kbd>
@@ -105,54 +108,63 @@ export default {
         {
           type: "audio/wav",
           src: "../../../assets/days_assets/Day1/sounds/clap.wav",
+          name: "clap",
           dataKey: "65",
           kbd: "A",
         },
         {
           type: "audio/wav",
           src: "../../../assets/days_assets/Day1/sounds/hihat.wav",
+          name: "hihat",
           dataKey: "83",
           kbd: "S",
         },
         {
           type: "audio/wav",
           src: "../../../assets/days_assets/Day1/sounds/kick.wav",
+          name: "kick",
           dataKey: "68",
           kbd: "D",
         },
         {
           type: "audio/wav",
           src: "../../../assets/days_assets/Day1/sounds/openhat.wav",
+          name: "openhat",
           dataKey: "70",
           kbd: "F",
         },
         {
           type: "audio/wav",
           src: "../../../assets/days_assets/Day1/sounds/boom.wav",
+          name: "boom",
           dataKey: "71",
           kbd: "G",
         },
         {
           type: "audio/wav",
           src: "../../../assets/days_assets/Day1/sounds/ride.wav",
+          name: "ride",
           dataKey: "72",
           kbd: "H",
         },
         {
           type: "audio/wav",
           src: "../../../assets/days_assets/Day1/sounds/snare.wav",
+          name: "snare",
           dataKey: "74",
           kbd: "J",
         },
         {
           type: "audio/wav",
           src: "../../../assets/days_assets/Day1/sounds/tom.wav",
+          name: "tom",
           dataKey: "75",
           kbd: "K",
         },
         {
           type: "audio/wav",
           src: "../../../assets/days_assets/Day1/sounds/tink.wav",
+          name: "tink",
           dataKey: "76",
           kbd: "L",
         },
