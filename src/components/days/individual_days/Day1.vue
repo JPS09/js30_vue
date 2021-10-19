@@ -2,7 +2,7 @@
   <div class="keys">
     <div v-for="audioKey in audioKeys" :key="audioKey.dataKey">
       <kbd>{{ audioKey.kbd }}</kbd>
-      <span class="sound"></span>
+      <span class="sound">{{ audioKey.name }}</span>
     </div>
     <!-- Use v-for to generate those elements thanks to an object -->
     <div data-key="65" class="key">
