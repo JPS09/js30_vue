@@ -1,13 +1,13 @@
 <template>
   <div class="keys">
-    <div v-for="audioKey in audioKeys" :key="audioKey.dataKey">
+    <div v-for="audioKey in audioKeys" :key="audioKey.dataKey" class="key">
       <kbd>{{ audioKey.kbd }}</kbd>
       <span :data-key="audioKey.dataKey" class="sound">{{
         audioKey.name
       }}</span>
     </div>
     <!-- Use v-for to generate those elements thanks to an object -->
-    <div data-key="65" class="key">
+    <!-- <div data-key="65" class="key">
       <kbd>A</kbd>
       <span class="sound">clap</span>
     </div>
@@ -42,7 +42,7 @@
     <div data-key="76" class="key">
       <kbd>L</kbd>
       <span class="sound">tink</span>
-    </div>
+    </div> -->
   </div>
 
   <audio data-key="65">
