@@ -97,18 +97,78 @@
 </template>
 
 <script>
-// export default {
-//   methods: {
-//     tryingSound() {
-//       const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-//       const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-//       if (!audio) return; // Stop function if null
-//       audio.currentTime = 0; // Rewind to start
-//       key.classList.add("playing");
-//       audio.play();
-//     },
-//   },
-// };
+export default {
+  data() {
+    return {
+      audioKeys: [
+        {
+          type: "audio/wav",
+          src: "../../../assets/days_assets/Day1/sounds/clap.wav",
+          dataKey: "65",
+          kbd: "A"
+        },
+        {
+          type: "audio/wav",
+          src: "../../../assets/days_assets/Day1/sounds/hihat.wav",
+          dataKey: "83",
+          kbd: "S"
+        },
+        {
+          type: "audio/wav",
+          src: "../../../assets/days_assets/Day1/sounds/kick.wav",
+          dataKey: "68",
+          kbd: "D"
+        },
+        {
+          type: "audio/wav",
+          src: "../../../assets/days_assets/Day1/sounds/openhat.wav",
+          dataKey: "70",
+          kbd: "F"
+        },
+        {
+          type: "audio/wav",
+          src: "../../../assets/days_assets/Day1/sounds/boom.wav",
+          dataKey: "71",
+          kbd: "G"
+        },
+        {
+          type: "audio/wav",
+          src: "../../../assets/days_assets/Day1/sounds/ride.wav",
+          dataKey: "72",
+          kbd: "H"
+        },
+        {
+          type: "audio/wav",
+          src: "../../../assets/days_assets/Day1/sounds/snare.wav",
+          dataKey: "74",
+          kbd: "J"
+        },
+        {
+          type: "audio/wav",
+          src: "../../../assets/days_assets/Day1/sounds/tom.wav",
+          dataKey: "75",
+          kbd: "K"
+        },
+        {
+          type: "audio/wav",
+          src: "../../../assets/days_assets/Day1/sounds/tink.wav",
+          dataKey: "76",
+          kbd: "L"
+        },
+      ],
+    };
+  },
+  // methods: {
+  //   tryingSound() {
+  //     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+  //     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+  //     if (!audio) return; // Stop function if null
+  //     audio.currentTime = 0; // Rewind to start
+  //     key.classList.add("playing");
+  //     audio.play();
+  //   },
+  // },
+};
 const playSound = (e) => {
   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
