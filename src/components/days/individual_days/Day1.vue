@@ -11,6 +11,14 @@
     </div>
   </div>
 
+  <!-- <audio
+    v-for="audioKey in audioKeys"
+    :key="audioKey.dataKey"
+    :data-key="audioKey.dataKey"
+  >
+    <source :src="audioKey.src" :type="audioKey.type" />
+  </audio> -->
+
   <audio data-key="65">
     <source
       type="audio/wav"
