@@ -171,8 +171,9 @@ window.addEventListener("keydown", playSound);
 
 <style scoped>
 .keys {
-  display: flex;
-  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   min-height: 100vh;
   align-items: center;
   justify-content: center;
