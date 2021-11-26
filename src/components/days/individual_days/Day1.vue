@@ -5,6 +5,7 @@
       :key="audioKey.dataKey"
       :data-key="audioKey.dataKey"
       class="key"
+      @transitionend="removeTransition"
     >
       <kbd>{{ audioKey.kbd }}</kbd>
       <span class="sound">{{ audioKey.name }}</span>
@@ -147,16 +148,22 @@ export default {
       ],
     };
   },
-  // methods: {
-  //   tryingSound() {
-  //     const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-  //     const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-  //     if (!audio) return; // Stop function if null
-  //     audio.currentTime = 0; // Rewind to start
-  //     key.classList.add("playing");
-  //     audio.play();
-  //   },
-  // },
+  methods: {
+    // tryingSound() {
+    //   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    //   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+    //   if (!audio) return; // Stop function if null
+    //   audio.currentTime = 0; // Rewind to start
+    //   key.classList.add("playing");
+    //   audio.play();
+    // },
+    removeTransition() {
+      console.log("wow");
+      // Maybe watch is a better approach than methods
+      // if (propertyName !== "transform") return; // skip if not transform
+      // target.classList.remove("playing");
+    },
+  },
 };
 const playSound = (e) => {
   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
