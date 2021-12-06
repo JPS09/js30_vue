@@ -191,13 +191,20 @@ window.addEventListener("keydown", playSound);
   grid-template-rows: 1fr 1fr 1fr;
   min-height: 100vh;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+}
+@media (max-width: 768px) {
+  .keys {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+  }
 }
 
 .key {
   border: 0.4rem solid black;
   border-radius: 0.5rem;
-  margin: 1rem;
+  margin: 0.5rem;
   font-size: 1.5rem;
   padding: 1rem 0.5rem;
   transition: all 0.07s ease;
