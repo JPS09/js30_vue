@@ -6,7 +6,7 @@
       :data-key="audioKey.dataKey"
       :class="{ playing: audioKey.isActive }"
       class="key"
-      @keypress="tryingSound"
+      @click="tryingSound"
     >
       <kbd>{{ audioKey.kbd }}</kbd>
       <span class="sound">{{ audioKey.name }}</span>
@@ -20,7 +20,7 @@
   >
     <source :src="audioKey.src" :type="audioKey.type" />
   </audio> -->
-
+  <!-- This part is giving me trouble to implement, I will come back to it later -->
   <audio data-key="65">
     <source
       type="audio/wav"
@@ -159,10 +159,11 @@ export default {
   },
   methods: {
     tryingSound() {
-      console.log('wut')
+      console.log("wut");
       // if (!audio) return; // Stop function if null
       // audio.currentTime = 0; // Rewind to start
       this.isActive = true;
+      console.log(this.isActive);
       // audio.play();
     },
     removeTransition() {
@@ -174,6 +175,11 @@ export default {
       // Maybe watch is a better approach than methods
       // if (propertyName !== "transform") return; // skip if not transform
       // target.classList.remove("playing");
+    },
+  },
+  computed: {
+    playing() {
+      return this.isActive;
     },
   },
 };
