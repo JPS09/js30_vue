@@ -4,9 +4,9 @@
       v-for="audioKey in audioKeys"
       :key="audioKey.dataKey"
       :data-key="audioKey.dataKey"
+      :class="{ playing: audioKey.isActive }"
       class="key"
-      :class="{ active: audioKey.isActive }"
-      @transitionend="removeTransition"
+      @keypress="tryingSound"
     >
       <kbd>{{ audioKey.kbd }}</kbd>
       <span class="sound">{{ audioKey.name }}</span>
@@ -158,15 +158,17 @@ export default {
     };
   },
   methods: {
-    // tryingSound() {
-    //   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-    //   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-    //   if (!audio) return; // Stop function if null
-    //   audio.currentTime = 0; // Rewind to start
-    //   key.classList.add("playing");
-    //   audio.play();
-    // },
+    tryingSound() {
+      console.log('wut')
+      // if (!audio) return; // Stop function if null
+      // audio.currentTime = 0; // Rewind to start
+      this.isActive = true;
+      // audio.play();
+    },
     removeTransition() {
+      if (this.isActive && this.isActive === true) {
+        this.isActive = false;
+      }
       console.log("wow");
       console.log(this.isActive);
       // Maybe watch is a better approach than methods
@@ -175,23 +177,23 @@ export default {
     },
   },
 };
-const playSound = (e) => {
-  const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-  const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
-  if (!audio) return; // Stop function if null
-  audio.currentTime = 0; // Rewind to start
-  key.classList.add("playing");
-  audio.play();
-};
+// const playSound = (e) => {
+//   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+//   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+//   if (!audio) return; // Stop function if null
+//   audio.currentTime = 0; // Rewind to start
+//   key.classList.add("playing");
+//   audio.play();
+// };
 
-const removeTransition = (e) => {
-  if (e.propertyName !== "transform") return; // skip if not transform
-  e.target.classList.remove("playing");
-};
+// const removeTransition = (e) => {
+//   if (e.propertyName !== "transform") return; // skip if not transform
+//   e.target.classList.remove("playing");
+// };
 
-const keys = document.querySelectorAll(".key");
-keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
-window.addEventListener("keydown", playSound);
+// const keys = document.querySelectorAll(".key");
+// keys.forEach((key) => key.addEventListener("transitionend", removeTransition));
+// window.addEventListener("keydown", playSound);
 </script>
 
 <style scoped>
