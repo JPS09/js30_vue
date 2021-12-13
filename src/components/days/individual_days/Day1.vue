@@ -5,6 +5,7 @@
       :key="audioKey.dataKey"
       :data-key="audioKey.dataKey"
       class="key"
+      :class="{ active: audioKey.isActive }"
       @transitionend="removeTransition"
     >
       <kbd>{{ audioKey.kbd }}</kbd>
@@ -88,6 +89,7 @@ export default {
           name: "clap",
           dataKey: "65",
           kbd: "A",
+          isActive: false,
         },
         {
           type: "audio/wav",
@@ -95,6 +97,7 @@ export default {
           name: "hihat",
           dataKey: "83",
           kbd: "S",
+          isActive: false,
         },
         {
           type: "audio/wav",
@@ -102,6 +105,7 @@ export default {
           name: "kick",
           dataKey: "68",
           kbd: "D",
+          isActive: false,
         },
         {
           type: "audio/wav",
@@ -116,6 +120,7 @@ export default {
           name: "boom",
           dataKey: "71",
           kbd: "G",
+          isActive: false,
         },
         {
           type: "audio/wav",
@@ -123,6 +128,7 @@ export default {
           name: "ride",
           dataKey: "72",
           kbd: "H",
+          isActive: false,
         },
         {
           type: "audio/wav",
@@ -130,6 +136,7 @@ export default {
           name: "snare",
           dataKey: "74",
           kbd: "J",
+          isActive: false,
         },
         {
           type: "audio/wav",
@@ -137,6 +144,7 @@ export default {
           name: "tom",
           dataKey: "75",
           kbd: "K",
+          isActive: false,
         },
         {
           type: "audio/wav",
@@ -144,6 +152,7 @@ export default {
           name: "tink",
           dataKey: "76",
           kbd: "L",
+          isActive: false,
         },
       ],
     };
@@ -159,6 +168,7 @@ export default {
     // },
     removeTransition() {
       console.log("wow");
+      console.log(this.isActive);
       // Maybe watch is a better approach than methods
       // if (propertyName !== "transform") return; // skip if not transform
       // target.classList.remove("playing");
