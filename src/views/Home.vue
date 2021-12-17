@@ -80,14 +80,23 @@ export default {
   grid-template-rows: 2em 15em 1fr;
   align-items: center;
 }
+
+@media screen and (max-width: 960px) {
+  .home {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: unset;
+  }
+}
 #viewing-stats__section {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .search-elements {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .home-view__menu {

@@ -24,8 +24,15 @@ export default {
   grid-template-columns: 1.2fr 3fr;
   align-items: center;
   justify-content: space-between;
-  margin: 1.1em 0;
+  padding: 0.75em 0;
   text-align: left;
+}
+@media screen and (max-width: 960px) {
+  .viewing-category-item {
+    display: unset;
+    padding: 0.5em 0;
+    text-align: left;
+  }
 }
 .viewing-category-item__slot,
 .viewing-category-item__fill {

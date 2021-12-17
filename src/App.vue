@@ -27,18 +27,33 @@ export default {
 
 #router-home {
   align-self: flex-start;
+  justify-content: center;
   margin: 0 auto;
   padding: 1em;
-  width: 40em;
+  width: 46vw;
 }
 
 #router-days {
   align-self: flex-start;
   margin: 0 auto;
   padding: 1em;
-  width: 50em;
+  width: inherit;
 }
 
+@media screen and (max-width: 960px) {
+  #app-layout {
+    display: flex;
+    width: 100vw;
+    flex-wrap: wrap;
+  }
+  #router-home {
+    width: inherit;
+  }
+
+  #router-days {
+    width: inherit;
+  }
+}
 * {
   box-sizing: border-box;
 }

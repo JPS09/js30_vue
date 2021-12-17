@@ -183,4 +183,10 @@ export default {
   margin-top: 1em;
   grid-column: -3/-1;
 }
+
+@media screen and (max-width: 960px) {
+  .day-preview__container {
+    overflow: scroll;
+  }
+}
 </style>
