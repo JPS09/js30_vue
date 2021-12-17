@@ -20,6 +20,7 @@
   padding: 0.5em 1em;
 }
 #search-filter__select:hover {
+  transition: 0.2s ease-in-out;
   background: #41b883;
   color: white;
 }
