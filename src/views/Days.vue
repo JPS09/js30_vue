@@ -69,4 +69,10 @@ export default {
   grid-template-columns: 1fr 1fr;
   justify-items: center;
 }
+
+@media screen and (max-width: 960px) {
+  .days {
+    display: block;
+  }
+}
 </style>

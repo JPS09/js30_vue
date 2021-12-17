@@ -18,3 +18,16 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#viewing-category-completion__viewing-title {
+  padding: 0.3em;
+  margin: 0;
+}
+@media screen and (max-width: 960px) {
+  #viewing-category-completion__viewing-title {
+    margin: 0;
+    padding: 0.5em;
+  }
+}
+</style>

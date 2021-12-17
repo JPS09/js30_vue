@@ -65,7 +65,7 @@ export default {
   transition: filter 0.2s ease-in-out;
   cursor: pointer;
 }
-.home-logo:hover {
+.nav-bar__home-logo:hover {
   cursor: pointer;
   filter: invert(24%) sepia(49%) saturate(396%) hue-rotate(170deg)
     brightness(91%) contrast(87%);
