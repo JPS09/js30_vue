@@ -53,7 +53,7 @@ export default {
 @media screen and (max-width: 960px) {
   #viewing-completion__viewing-title {
     margin: 0;
-    padding: 0.3em 0;
+    padding: 0.8em 0;
   }
 }
 #viewing-completion__wrapper {
