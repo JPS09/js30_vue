@@ -81,7 +81,7 @@ export default {
   align-items: center;
 }
 
-@media screen and  (max-width: 960px) {
+@media screen and (max-width: 960px) {
   .home {
     display: inline-flex;
     flex-direction: column;
