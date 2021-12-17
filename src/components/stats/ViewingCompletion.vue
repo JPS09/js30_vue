@@ -1,6 +1,6 @@
 <template>
   <stats-styling-Wrapper>
-    <h3 id="viewing-completion__viewing-title">Viewing Completion</h3>
+    <h3 id="viewing-completion__viewing-title">Completion</h3>
     <!-- TO DO : Replace data-value by a computed property taken from the vuex stats store -->
     <section>
       <div

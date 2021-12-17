@@ -29,7 +29,7 @@ export default {
   align-self: flex-start;
   margin: 0 auto;
   padding: 1em;
-  width: inherit;
+  width: 46vw;
 }
 
 #router-days {

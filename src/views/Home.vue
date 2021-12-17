@@ -96,7 +96,7 @@ export default {
 }
 .search-elements {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .home-view__menu {
