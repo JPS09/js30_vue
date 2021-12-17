@@ -42,7 +42,7 @@ export default {
   padding: 1em;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .side-bar__container {
     display: none;
   }

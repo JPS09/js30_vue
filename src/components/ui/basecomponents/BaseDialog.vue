@@ -114,7 +114,7 @@ export default {
   text-align: center;
 }
 
-@media (min-width: 768px) {
+@media screen and (min-width: 768px) {
   .base-dialog {
     width: 40%;
   }

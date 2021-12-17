@@ -40,7 +40,7 @@ export default {
   width: inherit;
 }
 
-@media (max-width: 960px) {
+@media screen and (max-width: 960px) {
   #app-layout {
     display: flex;
     width: 100vw;
