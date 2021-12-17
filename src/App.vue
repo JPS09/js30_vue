@@ -29,16 +29,30 @@ export default {
   align-self: flex-start;
   margin: 0 auto;
   padding: 1em;
-  width: 40em;
+  width: inherit;
 }
 
 #router-days {
   align-self: flex-start;
   margin: 0 auto;
   padding: 1em;
-  width: 50em;
+  width: inherit;
 }
 
+@media (max-width: 960px) {
+  #app-layout {
+    display: flex;
+    width: 100vw;
+    flex-wrap: wrap;
+  }
+  #router-home {
+    width: inherit;
+  }
+
+  #router-days {
+    width: inherit;
+  }
+}
 * {
   box-sizing: border-box;
 }

@@ -80,6 +80,15 @@ export default {
   grid-template-rows: 2em 15em 1fr;
   align-items: center;
 }
+
+@media (max-width: 960px) {
+  .home {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: unset;
+  }
+}
 #viewing-stats__section {
   display: flex;
   align-items: center;

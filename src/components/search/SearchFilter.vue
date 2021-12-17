@@ -16,7 +16,7 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   font-family: inherit;
   font-weight: 600;
-  color: #707070;
+  color: #1d9951;
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;
