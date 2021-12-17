@@ -18,3 +18,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#viewing-category-completion__viewing-title {
+  margin: 0;
+  padding-top: 0.5em;
+}
+</style>
