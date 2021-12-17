@@ -27,6 +27,7 @@ export default {
 
 #router-home {
   align-self: flex-start;
+  justify-content: center;
   margin: 0 auto;
   padding: 1em;
   width: 46vw;

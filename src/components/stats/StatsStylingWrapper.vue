@@ -12,5 +12,11 @@
   width: 18em;
   max-height: 30em;
   padding: 0 1em;
+  margin: 0 1em;
+}
+@media (max-width: 960px) {
+  #stats-styling__wrapper {
+    margin: 0.7em;
+  }
 }
 </style>
