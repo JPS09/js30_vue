@@ -46,9 +46,20 @@ export default {
 </script>
 
 <style scoped>
+#viewing-completion__viewing-title {
+  margin: 0;
+  padding: 1em;
+}
+@media screen and (max-width: 960px) {
+  #viewing-completion__viewing-title {
+    margin: 0;
+    padding: 0.3em 0;
+  }
+}
 #viewing-completion__wrapper {
   border-radius: 25px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  margin: 0;
 }
 .viewing-completion__progress-circle {
   position: relative;

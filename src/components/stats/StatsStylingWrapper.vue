@@ -17,6 +17,7 @@
 @media screen and (max-width: 960px) {
   #stats-styling__wrapper {
     margin: 0.7em;
+    padding: 0.9em;
   }
 }
 </style>
