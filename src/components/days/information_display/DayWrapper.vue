@@ -12,4 +12,11 @@
   width: 23em;
   padding-bottom: 1em;
 }
+
+@media screen and (max-width: 960px) {
+  .day-wrapper {
+    width: 90vw;
+    margin-bottom: 0.8em;
+  }
+}
 </style>
