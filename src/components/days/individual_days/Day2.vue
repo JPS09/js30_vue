@@ -110,9 +110,12 @@ setInterval(setDate, 1000);
   z-index: -3;
 }
 
-.hand.min-hand {
-  background: rgb(145, 225, 228);
+.hand.hour-hand {
   width: 30%;
   left: 75px;
+}
+
+.hand.min-hand {
+  background: rgb(145, 225, 228);
 }
 </style>
