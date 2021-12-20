@@ -91,5 +91,18 @@ body {
   transform: rotate(90deg);
   transition: all 0.05s;
   transition-timing-function: cubic-bezier(0.42, 0, 0.09, 1.78);
+  border-radius: 30px;
+}
+
+.hand.second-hand {
+  background: rgb(211, 108, 39);
+  height: 2px;
+  z-index: -3;
+}
+
+.hand.min-hand {
+  background: rgb(145, 225, 228);
+  width: 30%;
+  left: 75px;
 }
 </style>
