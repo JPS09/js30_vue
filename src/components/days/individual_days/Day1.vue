@@ -4,8 +4,8 @@
       v-for="audioKey in audioKeys"
       :key="audioKey.dataKey"
       :data-key="audioKey.dataKey"
-      :class="{ playing: audioKey.isActive }"
       class="key"
+      :class="{ playing: audioKey.isActive }"
       @click="tryingSound"
     >
       <kbd>{{ audioKey.kbd }}</kbd>
@@ -163,15 +163,15 @@ export default {
       // if (!audio) return; // Stop function if null
       // audio.currentTime = 0; // Rewind to start
       this.isActive = true;
-      console.log(this.isActive);
+      console.log("tryingSound method");
+      this.removeTransition();
       // audio.play();
     },
     removeTransition() {
       if (this.isActive && this.isActive === true) {
+        console.log("removeTransition");
         this.isActive = false;
       }
-      console.log("wow");
-      console.log(this.isActive);
       // Maybe watch is a better approach than methods
       // if (propertyName !== "transform") return; // skip if not transform
       // target.classList.remove("playing");
@@ -179,7 +179,7 @@ export default {
   },
   computed: {
     playing() {
-      return this.isActive;
+      return this.audioKeys.isActive ? "playing" : "";
     },
   },
 };
