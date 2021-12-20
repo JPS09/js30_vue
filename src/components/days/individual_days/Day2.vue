@@ -74,7 +74,7 @@ setInterval(setDate, 1000);
 
 <style scoped>
 .bolt {
-  background: black;
+  background: rgb(121, 9, 121);
   width: 20px;
   height: 20px;
   border-radius: 100%;
