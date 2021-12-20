@@ -9,6 +9,12 @@
 </template>
 <script>
 export default {
+  methods: {
+    setSecondsTest() {
+      console.log("test");
+      // this.$refs.style.transform = `rotate(${this.seconds}deg)`;
+    },
+  },
   computed: {
     now() {
       return new Date();
@@ -22,6 +28,9 @@ export default {
     hour() {
       return (this.now.getHours / 60) * 360 + 90;
     },
+  },
+  created() {
+    this.setSecondsTest();
   },
 };
 const setSeconds = (now) => {
