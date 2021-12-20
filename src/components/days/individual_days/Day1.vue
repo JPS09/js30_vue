@@ -159,7 +159,7 @@ export default {
   },
   methods: {
     tryingSound() {
-      console.log("wut");
+      console.log("wut", this.$data);
       // if (!audio) return; // Stop function if null
       // audio.currentTime = 0; // Rewind to start
       this.isActive = true;
@@ -179,7 +179,7 @@ export default {
   },
   computed: {
     playing() {
-      return this.audioKeys.isActive ? "playing" : "";
+      return this.isActive ? "playing" : "";
     },
   },
 };
