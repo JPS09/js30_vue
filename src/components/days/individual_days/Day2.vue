@@ -4,6 +4,7 @@
       <div class="clock-face">
         <div class="hand hour-hand"></div>
         <div class="hand min-hand"></div>
+        <div class="bolt"></div>
         <div class="hand second-hand"></div>
       </div>
     </div>
@@ -72,6 +73,15 @@ setInterval(setDate, 1000);
 </script>
 
 <style scoped>
+.bolt {
+  background: black;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  position: absolute;
+  top: 49%;
+  right: 47%;
+}
 .clock {
   width: 30rem;
   height: 30rem;
