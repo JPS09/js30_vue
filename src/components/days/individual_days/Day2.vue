@@ -8,6 +8,22 @@
   </div>
 </template>
 <script>
+export default {
+  computed: {
+    now() {
+      return new Date();
+    },
+    seconds() {
+      return (this.now.getSeconds / 60) * 360 + 90;
+    },
+    minutes() {
+      return (this.now.getMinutes / 60) * 360 + 90;
+    },
+    hour() {
+      return (this.now.getHours / 60) * 360 + 90;
+    },
+  },
+};
 const setSeconds = (now) => {
   const secondHand = document.querySelector(".second-hand");
   if (secondHand) {
