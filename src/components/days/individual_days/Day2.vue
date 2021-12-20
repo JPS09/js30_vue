@@ -1,9 +1,11 @@
 <template>
-  <div class="clock">
-    <div class="clock-face">
-      <div class="hand hour-hand"></div>
-      <div class="hand min-hand"></div>
-      <div class="hand second-hand"></div>
+  <div id="background">
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand"></div>
+        <div class="hand min-hand"></div>
+        <div class="hand second-hand"></div>
+      </div>
     </div>
   </div>
 </template>
@@ -70,23 +72,6 @@ setInterval(setDate, 1000);
 </script>
 
 <style scoped>
-html {
-  background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
-  background-size: cover;
-  font-family: "helvetica neue";
-  text-align: center;
-  font-size: 10px;
-}
-
-body {
-  margin: 0;
-  font-size: 2rem;
-  display: flex;
-  flex: 1;
-  min-height: 100vh;
-  align-items: center;
-}
-
 .clock {
   width: 30rem;
   height: 30rem;
