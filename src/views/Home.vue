@@ -140,7 +140,7 @@ export default {
 }
 
 .home-view__days-container {
-  padding: 0 15px;
+  padding: 15px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
