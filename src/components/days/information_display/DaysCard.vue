@@ -1,9 +1,11 @@
 <template>
   <base-card class="days-card">
     <router-link class="days-card__link" :to="day_id">
-      <h3>{{ dayNumber }}</h3>
-      <h4>{{ dayName }}</h4>
-      <p>{{ dayCategory }}</p>
+      <div class="days-card__title">
+        <h2>{{ dayNumber }}</h2>
+        <h4>{{ dayName }}</h4>
+        <p class="days-card__category">{{ dayCategory }}</p>
+      </div>
       <ul class="days-card__sub-category-list">
         <li
           class="days-card__sub-category-list__item"
@@ -72,9 +74,20 @@ export default {
   padding: 5px;
 }
 
+
 @media screen and (max-width: 960px) {
   .days-card {
     margin: 10px 0;
+  }
+
+  .days-card__title {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .days-card__category {
+    align-self: center;
   }
 }
 .days-card__sub-category-list {
