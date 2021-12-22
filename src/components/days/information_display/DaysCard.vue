@@ -69,6 +69,13 @@ export default {
 .days-card {
   transition: all 0.2s ease-in;
   border-radius: 10px;
+  padding: 5px;
+}
+
+@media screen and (max-width: 960px) {
+  .days-card {
+    margin: 10px 0;
+  }
 }
 .days-card__sub-category-list {
   list-style: none;
