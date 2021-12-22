@@ -3,7 +3,12 @@
     <base-card class="days-card">
       <h3>{{ dayNumber }}</h3>
       <h4>{{ dayName }}</h4>
-      <p>{{ dayDescription }}</p>
+      <p>{{ dayCategory }}</p>
+      <ul>
+        <li v-for="daySubCategory in daySubCategories" :key="daySubCategory">
+          {{ daySubCategory }}
+        </li>
+      </ul>
     </base-card>
   </router-link>
 </template>
@@ -19,12 +24,16 @@ export default {
       type: String,
       required: true,
     },
-    dayDescription: {
+    dayCategory: {
       type: String,
       required: true,
     },
     dayId: {
       type: String,
+      required: true,
+    },
+    daySubCategories: {
+      type: Array,
       required: true,
     },
   },

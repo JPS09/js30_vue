@@ -33,9 +33,10 @@
       v-for="day in days"
       :key="day.id"
       :day-number="day.dayNumber"
-      :day-description="day.category"
+      :day-category="day.category"
       :day-name="day.name"
       :day-id="day.id"
+      :day-sub-categories="day.subCategories"
     ></days-card>
   </div>
 </template>
