@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="day_id">
+  <router-link class="days-card__link" :to="day_id">
     <base-card>
       <h3>{{ dayNumber }}</h3>
       <h4>{{ dayName }}</h4>
@@ -35,3 +35,12 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.days-card__link,
+.days-card__link:visited {
+  text-decoration: none;
+  outline: none;
+  color: #2c3e50;
+}
+</style>
