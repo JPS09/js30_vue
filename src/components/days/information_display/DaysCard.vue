@@ -74,7 +74,6 @@ export default {
   padding: 5px;
 }
 
-
 @media screen and (max-width: 960px) {
   .days-card {
     margin: 10px 0;
