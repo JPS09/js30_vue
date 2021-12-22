@@ -1,6 +1,6 @@
 <template>
-  <router-link class="days-card__link" :to="day_id">
-    <base-card class="days-card">
+  <base-card class="days-card">
+    <router-link class="days-card__link" :to="day_id">
       <h3>{{ dayNumber }}</h3>
       <h4>{{ dayName }}</h4>
       <p>{{ dayCategory }}</p>
@@ -13,8 +13,8 @@
           {{ daySubCategory }}
         </li>
       </ul>
-    </base-card>
-  </router-link>
+    </router-link>
+  </base-card>
 </template>
 
 <script>
@@ -56,7 +56,6 @@ export default {
   outline: none;
   color: #2c3e50;
   transition: color 0.2s ease-in;
-  height: 80%;
 }
 /* Will need to work on this hover thing for subcateogries another time */
 .days-card:hover > .days-card__sub-category-list__item {

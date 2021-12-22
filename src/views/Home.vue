@@ -18,8 +18,8 @@
       <viewing-completion></viewing-completion>
       <viewing-category-completion></viewing-category-completion>
     </section>
-    <base-card>
-      <section class="home-view__lower-section">
+    <base-card class="home-view__lower-section">
+      <section>
         <div id="home-view__select-placement">
           <search-filter></search-filter>
         </div>
@@ -96,6 +96,7 @@ export default {
 .home {
   display: grid;
   grid-template-rows: 2em 15em 1fr;
+  justify-items: center;
   align-items: center;
 }
 
@@ -111,10 +112,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  width: 100%;
 }
 .search-elements {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+   width: 100%;
 }
 
 .home-view__menu {
@@ -125,9 +128,9 @@ export default {
   margin: 0;
 }
 
-/* .home-view__lower-section {
-  display: inline-flex;
-} */
+.home-view__lower-section {
+  width: 100%;
+}
 
 #home-view__select-placement {
   display: flex;
@@ -137,9 +140,10 @@ export default {
 }
 
 .home-view__days-container {
+  padding-top: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0 5px;
+  gap: 10px;
 }
 
 @media screen and (max-width: 960px) {
