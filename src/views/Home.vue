@@ -117,7 +117,7 @@ export default {
 .search-elements {
   display: flex;
   justify-content: space-around;
-   width: 100%;
+  width: 100%;
 }
 
 .home-view__menu {
