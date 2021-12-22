@@ -4,8 +4,12 @@
       <h3>{{ dayNumber }}</h3>
       <h4>{{ dayName }}</h4>
       <p>{{ dayCategory }}</p>
-      <ul>
-        <li v-for="daySubCategory in daySubCategories" :key="daySubCategory">
+      <ul class="days-card__sub-category-list">
+        <li
+          class="days-card__sub-category-list__item"
+          v-for="daySubCategory in daySubCategories"
+          :key="daySubCategory"
+        >
           {{ daySubCategory }}
         </li>
       </ul>
@@ -53,14 +57,30 @@ export default {
   color: #2c3e50;
   transition: color 0.2s ease-in;
 }
-
+/* Will need to work on this hover thing for subcateogries another time */
+.days-card:hover > .days-card__sub-category-list__item {
+  border: 1px solid white;
+}
 .days-card:hover {
   background: #78c594;
-  border-radius: 10px;
   color: white;
 }
 
 .days-card {
   transition: all 0.2s ease-in;
+  border-radius: 10px;
+}
+.days-card__sub-category-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 0;
+}
+.days-card__sub-category-list__item {
+  background-color: #78c594;
+  color: white;
+  border-radius: 30px;
+  padding: 5px;
 }
 </style>
