@@ -29,15 +29,17 @@
         </menu>
       </section>
     </base-card>
-    <days-card
-      v-for="day in days"
-      :key="day.id"
-      :day-number="day.dayNumber"
-      :day-category="day.category"
-      :day-name="day.name"
-      :day-id="day.id"
-      :day-sub-categories="day.subCategories"
-    ></days-card>
+    <div class="home-view__days-container">
+      <days-card
+        v-for="day in days"
+        :key="day.id"
+        :day-number="day.dayNumber"
+        :day-category="day.category"
+        :day-name="day.name"
+        :day-id="day.id"
+        :day-sub-categories="day.subCategories"
+      ></days-card>
+    </div>
   </div>
 </template>
 
@@ -132,5 +134,17 @@ export default {
   justify-content: flex-end;
   width: 100%;
   padding: 1em;
+}
+
+.home-view__days-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 5px;
+}
+
+@media screen and (max-width: 960px) {
+  .home-view__days-container {
+    display: block;
+  }
 }
 </style>

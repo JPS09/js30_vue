@@ -56,6 +56,7 @@ export default {
   outline: none;
   color: #2c3e50;
   transition: color 0.2s ease-in;
+  height: 80%;
 }
 /* Will need to work on this hover thing for subcateogries another time */
 .days-card:hover > .days-card__sub-category-list__item {
