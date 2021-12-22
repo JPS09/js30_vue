@@ -1,6 +1,6 @@
 <template>
   <router-link class="days-card__link" :to="day_id">
-    <base-card>
+    <base-card class="days-card">
       <h3>{{ dayNumber }}</h3>
       <h4>{{ dayName }}</h4>
       <p>{{ dayDescription }}</p>
@@ -42,5 +42,16 @@ export default {
   text-decoration: none;
   outline: none;
   color: #2c3e50;
+  transition: color 0.2s ease-in;
+}
+
+.days-card:hover {
+  background: #78c594;
+  border-radius: 10px;
+  color: white;
+}
+
+.days-card {
+  transition: all 0.2s ease-in;
 }
 </style>
