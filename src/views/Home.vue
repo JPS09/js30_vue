@@ -28,18 +28,18 @@
           <base-button @click="openDialogConfirm">Clear All</base-button>
         </menu>
       </section>
+      <section class="home-view__days-container">
+        <days-card
+          v-for="day in days"
+          :key="day.id"
+          :day-number="day.dayNumber"
+          :day-category="day.category"
+          :day-name="day.name"
+          :day-id="day.id"
+          :day-sub-categories="day.subCategories"
+        ></days-card>
+      </section>
     </base-card>
-    <div class="home-view__days-container">
-      <days-card
-        v-for="day in days"
-        :key="day.id"
-        :day-number="day.dayNumber"
-        :day-category="day.category"
-        :day-name="day.name"
-        :day-id="day.id"
-        :day-sub-categories="day.subCategories"
-      ></days-card>
-    </div>
   </div>
 </template>
 
@@ -140,7 +140,7 @@ export default {
 }
 
 .home-view__days-container {
-  padding-top: 10px;
+  padding: 0 15px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
