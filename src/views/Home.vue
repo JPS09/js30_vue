@@ -29,6 +29,14 @@
         </menu>
       </section>
     </base-card>
+    <days-card
+      v-for="day in days"
+      :key="day.id"
+      :day-number="day.dayNumber"
+      :day-description="day.category"
+      :day-name="day.name"
+      :day-id="day.id"
+    ></days-card>
   </div>
 </template>
 
@@ -40,6 +48,7 @@ import SearchInput from "@/components/search/SearchInput.vue";
 import SearchButton from "@/components/search/SearchButton.vue";
 import SearchFilter from "@/components/search/SearchFilter.vue";
 import SearchDialog from "@/components/search/SearchDialog.vue";
+import DaysCard from "@/components/days/information_display/DaysCard.vue";
 
 export default {
   name: "Home",
@@ -50,6 +59,7 @@ export default {
     SearchButton,
     SearchFilter,
     SearchDialog,
+    DaysCard,
   },
   data() {
     return {
@@ -69,6 +79,11 @@ export default {
     },
     closeDialogConfirm() {
       this.askConfirm = false;
+    },
+  },
+  computed: {
+    days() {
+      return this.$store.getters["days/days"];
     },
   },
 };

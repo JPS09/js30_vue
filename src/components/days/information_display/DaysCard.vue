@@ -1,9 +1,11 @@
 <template>
-  <base-card>
-    <h3>{{ dayNumber }}</h3>
-    <h4>{{ dayName }}</h4>
-    <p>{{ dayDescription }}</p>
-  </base-card>
+  <router-link :to="day_id">
+    <base-card>
+      <h3>{{ dayNumber }}</h3>
+      <h4>{{ dayName }}</h4>
+      <p>{{ dayDescription }}</p>
+    </base-card>
+  </router-link>
 </template>
 
 <script>
@@ -20,6 +22,15 @@ export default {
     dayDescription: {
       type: String,
       required: true,
+    },
+    dayId: {
+      type: String,
+      required: true,
+    },
+  },
+  computed: {
+    day_id() {
+      return "/days/" + this.dayId;
     },
   },
 };
