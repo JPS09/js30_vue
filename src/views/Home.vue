@@ -18,8 +18,8 @@
       <viewing-completion></viewing-completion>
       <viewing-category-completion></viewing-category-completion>
     </section>
-    <base-card>
-      <section class="home-view__lower-section">
+    <base-card class="home-view__lower-section">
+      <section>
         <div id="home-view__select-placement">
           <search-filter></search-filter>
         </div>
@@ -27,6 +27,17 @@
           <base-button @click="openDialogConfirm">Check All</base-button>
           <base-button @click="openDialogConfirm">Clear All</base-button>
         </menu>
+      </section>
+      <section class="home-view__days-container">
+        <days-card
+          v-for="day in days"
+          :key="day.id"
+          :day-number="day.dayNumber"
+          :day-category="day.category"
+          :day-name="day.name"
+          :day-id="day.id"
+          :day-sub-categories="day.subCategories"
+        ></days-card>
       </section>
     </base-card>
   </div>
@@ -40,6 +51,7 @@ import SearchInput from "@/components/search/SearchInput.vue";
 import SearchButton from "@/components/search/SearchButton.vue";
 import SearchFilter from "@/components/search/SearchFilter.vue";
 import SearchDialog from "@/components/search/SearchDialog.vue";
+import DaysCard from "@/components/days/information_display/DaysCard.vue";
 
 export default {
   name: "Home",
@@ -50,6 +62,7 @@ export default {
     SearchButton,
     SearchFilter,
     SearchDialog,
+    DaysCard,
   },
   data() {
     return {
@@ -71,6 +84,11 @@ export default {
       this.askConfirm = false;
     },
   },
+  computed: {
+    days() {
+      return this.$store.getters["days/days"];
+    },
+  },
 };
 </script>
 
@@ -78,6 +96,7 @@ export default {
 .home {
   display: grid;
   grid-template-rows: 2em 15em 1fr;
+  justify-items: center;
   align-items: center;
 }
 
@@ -93,10 +112,12 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  width: 100%;
 }
 .search-elements {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  width: 100%;
 }
 
 .home-view__menu {
@@ -107,14 +128,27 @@ export default {
   margin: 0;
 }
 
-/* .home-view__lower-section {
-  display: inline-flex;
-} */
+.home-view__lower-section {
+  width: 100%;
+}
 
 #home-view__select-placement {
   display: flex;
   justify-content: flex-end;
   width: 100%;
   padding: 1em;
+}
+
+.home-view__days-container {
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media screen and (max-width: 960px) {
+  .home-view__days-container {
+    display: block;
+  }
 }
 </style>
