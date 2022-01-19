@@ -162,8 +162,8 @@ export default {
       console.log("wut", this.$data);
       // if (!audio) return; // Stop function if null
       // audio.currentTime = 0; // Rewind to start
-      this.isActive = true;
-      console.log("tryingSound method");
+      this.isActive = !this.isActive;
+      console.log("tryingSound method", this.$attrs);
       this.removeTransition();
       // audio.play();
     },
