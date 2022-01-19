@@ -36,8 +36,8 @@ export default {
       this.hourHand = hour;
     },
   },
-  created() {
-    setInterval(this.setHand, 1000);
+  mounted() {
+    setInterval(this.setMoment, 1000);
   },
 };
 // const setSeconds = (now) => {
