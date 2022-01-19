@@ -2,10 +2,10 @@
   <div id="background">
     <div class="clock">
       <div class="clock-face">
-        <div class="hand hour-hand" :style="setHand(hourHand)"></div>
-        <div class="hand min-hand" :style="setHand(minuteHand)"></div>
+        <div class="hand hour-hand" :style="setHand(this.hourHand)"></div>
+        <div class="hand min-hand" :style="setHand(this.minuteHand)"></div>
         <div class="bolt"></div>
-        <div class="hand second-hand" :style="setHand(secondHand)"></div>
+        <div class="hand second-hand" :style="setHand(this.secondHand)"></div>
       </div>
     </div>
   </div>
@@ -18,6 +18,9 @@ export default {
       minuteHand: 0,
       secondHand: 0,
     };
+  },
+  mounted() {
+    setInterval(this.setMoment, 1000);
   },
   methods: {
     setHand(degree) {
@@ -35,9 +38,6 @@ export default {
       const hour = (now.getHours / 60) * 360 + 90;
       this.hourHand = hour;
     },
-  },
-  mounted() {
-    setInterval(this.setMoment, 1000);
   },
 };
 // const setSeconds = (now) => {
