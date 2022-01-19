@@ -2,74 +2,78 @@
   <div id="background">
     <div class="clock">
       <div class="clock-face">
-        <div class="hand hour-hand"></div>
-        <div class="hand min-hand"></div>
+        <div class="hand hour-hand" :style="setHand(hourHand)"></div>
+        <div class="hand min-hand" :style="setHand(minuteHand)"></div>
         <div class="bolt"></div>
-        <div class="hand second-hand"></div>
+        <div class="hand second-hand" :style="setHand(secondHand)"></div>
       </div>
     </div>
   </div>
 </template>
 <script>
 export default {
-  methods: {
-    setSecondsTest() {
-      console.log("test");
-      // this.$refs.style.transform = `rotate(${this.seconds}deg)`;
-    },
+  data() {
+    return {
+      hourHand: 0,
+      minuteHand: 0,
+      secondHand: 0,
+    };
   },
-  computed: {
-    now() {
-      return new Date();
+  methods: {
+    setHand(degree) {
+      return { transform: "rotate(" + degree + "deg)" };
     },
-    seconds() {
-      return (this.now.getSeconds / 60) * 360 + 90;
-    },
-    minutes() {
-      return (this.now.getMinutes / 60) * 360 + 90;
-    },
-    hour() {
-      return (this.now.getHours / 60) * 360 + 90;
+    setMoment() {
+      const now = new Date();
+
+      const seconds = (now.getSeconds / 60) * 360 + 90;
+      this.secondHand = seconds;
+
+      const minutes = (now.getMinutes / 60) * 360 + 90;
+      this.minuteHand = minutes;
+
+      const hour = (now.getHours / 60) * 360 + 90;
+      this.hourHand = hour;
     },
   },
   created() {
-    this.setSecondsTest();
+    setInterval(this.setHand, 1000);
   },
 };
-const setSeconds = (now) => {
-  const secondHand = document.querySelector(".second-hand");
-  if (secondHand) {
-    const seconds = now.getSeconds();
-    const secondsDegrees = (seconds / 60) * 360 + 90;
-    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-  }
-};
+// const setSeconds = (now) => {
+//   const secondHand = document.querySelector(".second-hand");
+//   if (secondHand) {
+//     const seconds = now.getSeconds();
+//     const secondsDegrees = (seconds / 60) * 360 + 90;
+//     secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
+//   }
+// };
 
-const setMinutes = (now) => {
-  const minHand = document.querySelector(".min-hand");
-  if (minHand) {
-    const minutes = now.getMinutes();
-    const minutesDegrees = (minutes / 60) * 360 + 90;
-    minHand.style.transform = `rotate(${minutesDegrees}deg)`;
-  }
-};
+// const setMinutes = (now) => {
+//   const minHand = document.querySelector(".min-hand");
+//   if (minHand) {
+//     const minutes = now.getMinutes();
+//     const minutesDegrees = (minutes / 60) * 360 + 90;
+//     minHand.style.transform = `rotate(${minutesDegrees}deg)`;
+//   }
+// };
 
-const setHour = (now) => {
-  const hourHand = document.querySelector(".hour-hand");
-  if (hourHand) {
-    const hour = now.getHours();
-    const hourDegrees = (hour / 12) * 360 + 90;
-    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-  }
-};
-const setDate = () => {
-  const now = new Date();
-  setSeconds(now);
-  setMinutes(now);
-  setHour(now);
-};
+// const setHour = (now) => {
+//   const hourHand = document.querySelector(".hour-hand");
+//   if (hourHand) {
+//     const hour = now.getHours();
+//     const hourDegrees = (hour / 12) * 360 + 90;
+//     hourHand.style.transform = `rotate(${hourDegrees}deg)`;
+//   }
+// };
+// const setDate = () => {
+//   const now = new Date();
+//   setSeconds(now);
+//   setMinutes(now);
+//   setHour(now);
+// };
 
-setInterval(setDate, 1000);
+// setInterval(setDate, 1000);
 </script>
 
 <style scoped>
