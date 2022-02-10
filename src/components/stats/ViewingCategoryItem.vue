@@ -43,13 +43,15 @@ export default {
 }
 .viewing-category-item__fill {
   background: rgba(15, 151, 49, 0.705);
-  width: 5em;
+  /* Modify the value below for adjusting the fill */
+  width: 50%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
 .viewing-category-item__fill::after {
+  /* Modify the value below for adjusting the text content */
   content: "50%";
   color: white;
   font-size: 0.7em;
