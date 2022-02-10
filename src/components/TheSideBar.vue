@@ -9,6 +9,15 @@
         :day-category="day.category"
         :day-id="day.id"
       ></side-bar-days-item>
+      <!-- Test -->
+      <p
+        v-for="day in getterTest"
+        :key="day.id"
+        :day-number="day.dayNumber"
+        :day-name="day.name"
+        :day-category="day.category"
+        :day-id="day.id"
+      ></p>
     </ul>
   </div>
 </template>
@@ -22,6 +31,9 @@ export default {
   computed: {
     days() {
       return this.$store.getters["days/days"];
+    },
+    getterTest() {
+      return this.$store.getters["days/funDays"];
     },
   },
 };

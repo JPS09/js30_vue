@@ -2,26 +2,30 @@ export default {
   days(state) {
     return state.days;
   },
-  basicsDays(state) {
-    const daysElements = state.days;
+  basicsDays(_, getters) {
+    const daysElements = getters.days;
     return daysElements.filter((day) => {
       day.category === "Basics";
     });
   },
-  funDays(state) {
-    const daysElements = state.days;
-    return daysElements.filter((day) => {
+  funDays(_, getters) {
+    const daysElements = getters.days;
+    console.log("Initial", daysElements);
+    const funElements = daysElements.filter((day) => {
+      console.log("filter", day.category);
       day.category === "Fun";
     });
+    console.log("filtered", funElements);
+    return funElements;
   },
-  tipsDays(state) {
-    const daysElements = state.days;
+  tipsDays(_, getters) {
+    const daysElements = getters.days;
     return daysElements.filter((day) => {
       day.category === "Tips";
     });
   },
-  navDays(state) {
-    const daysElements = state.days;
+  navDays(_, getters) {
+    const daysElements = getters.days;
     return daysElements.filter((day) => {
       day.category === "Nav";
     });
