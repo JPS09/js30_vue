@@ -5,7 +5,7 @@
     <viewing-category-item categoryName="Tips"></viewing-category-item>
     <viewing-category-item categoryName="Fun"></viewing-category-item>
     <viewing-category-item categoryName="Nav"></viewing-category-item>
-    <h1>{{ basicStatsTest }}</h1>
+    <h1>{{ basicStats }}</h1>
   </stats-styling-wrapper>
 </template>
 
@@ -13,18 +13,16 @@
 import StatsStylingWrapper from "./StatsStylingWrapper";
 import ViewingCategoryItem from "./ViewingCategoryItem";
 export default {
-  data() {
-    return {
-      basicStatsTest: this.$store.getters["stats/basicsStats"],
-    };
-  },
   components: {
     ViewingCategoryItem,
     StatsStylingWrapper,
   },
   computed: {
     basicStats() {
-      console.log("test basics", this.$store.getters["stats/basicsStats"]);
+      console.log(
+        "Use a computed for this",
+        this.$store.getters["stats/basicsStats"]
+      );
       return this.$store.getters["stats/basicsStats"];
     },
     funStats() {
