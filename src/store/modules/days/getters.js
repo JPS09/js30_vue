@@ -4,31 +4,25 @@ export default {
   },
   basicsDays(_, getters) {
     const daysElements = getters.days;
-    return daysElements.filter((day) => {
-      day.category === "Basics";
-    });
+    const basicElements = daysElements.filter(
+      (day) => day.category === "Basics"
+    );
+    return basicElements;
   },
   funDays(_, getters) {
     const daysElements = getters.days;
-    console.log("Initial", daysElements);
-    const funElements = daysElements.filter((day) => {
-      console.log("filter", day.category);
-      day.category === "Fun";
-    });
-    console.log("filtered", funElements);
+    const funElements = daysElements.filter((day) => day.category === "Fun");
     return funElements;
   },
   tipsDays(_, getters) {
     const daysElements = getters.days;
-    return daysElements.filter((day) => {
-      day.category === "Tips";
-    });
+    const tipsElements = daysElements.filter((day) => day.category === "Tips");
+    return tipsElements;
   },
   navDays(_, getters) {
     const daysElements = getters.days;
-    return daysElements.filter((day) => {
-      day.category === "Nav";
-    });
+    const navElements = daysElements.filter((day) => day.category === "Nav");
+    return navElements;
   },
   // 1.Giving a percentage of all seen elements
   // 1.1 Need to get all of the elements
