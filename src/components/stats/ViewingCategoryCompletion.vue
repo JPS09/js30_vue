@@ -16,6 +16,20 @@ export default {
     ViewingCategoryItem,
     StatsStylingWrapper,
   },
+  computed: {
+    basicStats() {
+      return this.$store.getters["stats/basicsStats"];
+    },
+    funStats() {
+      return this.$store.getters["stats/funStats"];
+    },
+    navStats() {
+      return this.$store.getters["stats/navStats"];
+    },
+    tipsStats() {
+      return this.$store.getters["stats/tipsStats"];
+    },
+  },
 };
 </script>
 
