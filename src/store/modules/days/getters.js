@@ -1,26 +1,26 @@
 export default {
-  days(state) {
+  daysList(state) {
     return state.days;
   },
   basicsDays(_, getters) {
-    const daysElements = getters.days;
+    const daysElements = getters.daysList;
     const basicElements = daysElements.filter(
       (day) => day.category === "Basics"
     );
     return basicElements;
   },
   funDays(_, getters) {
-    const daysElements = getters.days;
+    const daysElements = getters.daysList;
     const funElements = daysElements.filter((day) => day.category === "Fun");
     return funElements;
   },
   tipsDays(_, getters) {
-    const daysElements = getters.days;
+    const daysElements = getters.daysList;
     const tipsElements = daysElements.filter((day) => day.category === "Tips");
     return tipsElements;
   },
   navDays(_, getters) {
-    const daysElements = getters.days;
+    const daysElements = getters.daysList;
     const navElements = daysElements.filter((day) => day.category === "Nav");
     return navElements;
   },

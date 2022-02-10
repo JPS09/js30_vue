@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     loadDay(day_id) {
-      this.selectedDay = this.$store.getters["days/days"].find(
+      this.selectedDay = this.$store.getters["days/daysList"].find(
         (day) => day.id === day_id
       );
     },

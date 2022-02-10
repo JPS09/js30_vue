@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     days() {
-      return this.$store.getters["days/days"];
+      return this.$store.getters["days/daysList"];
     },
   },
 };
