@@ -2,6 +2,30 @@ export default {
   days(state) {
     return state.days;
   },
+  basicsDays(state) {
+    const daysElements = state.days;
+    return daysElements.filter((day) => {
+      day.category === "Basics";
+    });
+  },
+  funDays(state) {
+    const daysElements = state.days;
+    return daysElements.filter((day) => {
+      day.category === "Fun";
+    });
+  },
+  tipsDays(state) {
+    const daysElements = state.days;
+    return daysElements.filter((day) => {
+      day.category === "Tips";
+    });
+  },
+  navDays(state) {
+    const daysElements = state.days;
+    return daysElements.filter((day) => {
+      day.category === "Nav";
+    });
+  },
   // 1.Giving a percentage of all seen elements
   // 1.1 Need to get all of the elements
   // 1.2 then filter on those element to get those who have the viewed attribute set to true
