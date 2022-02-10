@@ -1,14 +1,14 @@
 export default {
   totalStats(_, _2, _3, rootGetters) {
     let count = 0;
-    rootGetters.days.forEach((day) => (day.viewed ? (count = +1) : count));
+    rootGetters.days.forEach((day) => (day.viewed ? count++ : count));
     return count;
   },
   basicsStats(_, _2, _3, rootGetters) {
     let basicCount = 0;
     rootGetters.days.forEach((day) => {
       if (day.category === "Basics") {
-        day.viewed ? (basicCount = +1) : basicCount;
+        day.viewed ? basicCount++ : basicCount;
       }
     });
     return basicCount;
@@ -17,7 +17,7 @@ export default {
     let funCount = 0;
     rootGetters.days.forEach((day) => {
       if (day.category === "Fun") {
-        day.viewed ? (funCount = +1) : funCount;
+        day.viewed ? funCount++ : funCount;
       }
     });
     return funCount;
@@ -26,7 +26,7 @@ export default {
     let tipsCount = 0;
     rootGetters.days.forEach((day) => {
       if (day.category === "Tips") {
-        day.viewed ? (tipsCount = +1) : tipsCount;
+        day.viewed ? tipsCount++ : tipsCount;
       }
     });
     return tipsCount;
@@ -35,7 +35,7 @@ export default {
     let navCount = 0;
     rootGetters.days.forEach((day) => {
       if (day.category === "Nav") {
-        day.viewed ? (navCount = +1) : navCount;
+        day.viewed ? navCount++ : navCount;
       }
     });
     return navCount;
