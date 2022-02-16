@@ -56,7 +56,7 @@ export default {
             "A variety of methods to handle arrays inside JS alongside many ways of implementing them",
           category: "Basics",
           subCategories: ["Data Handling", "Methods", "Syntax"],
-          viewed: false,
+          viewed: true,
           mainDifferences: {
             js: "These methods are essentials to handle data and are not modified across JS frameworks ",
             vue: "Vue doesn't change the way data is handled is JS",

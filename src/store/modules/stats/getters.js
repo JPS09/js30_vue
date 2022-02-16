@@ -8,12 +8,15 @@ export default {
   },
   basicsStats(_, _2, _3, rootGetters) {
     let basicCount = 0;
+    let basicViewed = 0;
     rootGetters["days/daysList"].forEach((day) => {
       if (day.category === "Basics") {
-        day.viewed ? basicCount++ : basicCount;
+        day ? basicCount++ : basicCount;
+        day.viewed ? basicViewed++ : basicViewed;
       }
     });
-    return basicCount;
+    const basicPercentage = Math.round(basicViewed + basicCount / 100);
+    return basicPercentage;
   },
   funStats(_, _2, _3, rootGetters) {
     let funCount = 0;
