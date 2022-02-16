@@ -6,7 +6,7 @@ export default {
       count++;
       day.viewed ? viewedCount++ : viewedCount;
     });
-    const totalPercentage = Math.round(viewedCount + count / 100);
+    const totalPercentage = Math.round((viewedCount / count) * 100);
     return totalPercentage;
   },
   basicsStats(_, _2, _3, rootGetters) {
@@ -18,7 +18,7 @@ export default {
         day.viewed ? basicViewed++ : basicViewed;
       }
     });
-    const basicPercentage = Math.round(basicViewed + basicCount / 100);
+    const basicPercentage = Math.round((basicViewed / basicCount) * 100);
     return basicPercentage;
   },
   funStats(_, _2, _3, rootGetters) {
@@ -30,7 +30,7 @@ export default {
         day.viewed ? funViewed++ : funViewed;
       }
     });
-    const funPercentage = Math.round(funViewed + funCount / 100);
+    const funPercentage = Math.round((funViewed / funCount) * 100);
     return funPercentage;
   },
   tipsStats(_, _2, _3, rootGetters) {
@@ -42,7 +42,7 @@ export default {
         day.viewed ? tipsViewed++ : tipsViewed;
       }
     });
-    const tipsPercentage = Math.round(tipsViewed + tipsCount / 100);
+    const tipsPercentage = Math.round((tipsViewed / tipsCount) * 100);
     return tipsPercentage;
   },
   navStats(_, _2, _3, rootGetters) {
@@ -54,7 +54,7 @@ export default {
         day.viewed ? navViewed++ : navViewed;
       }
     });
-    const navPercentage = Math.round(navViewed + navCount / 100);
+    const navPercentage = Math.round((navViewed / navCount) * 100);
     return navPercentage;
   },
 };
