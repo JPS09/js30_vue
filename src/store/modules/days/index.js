@@ -15,7 +15,7 @@ export default {
             "This exercise makes use of an array of basics DOM manipulations techniques such as event listening and conditonal CSS classes",
           category: "Fun",
           subCategories: ["Music", "Audio", "Drums"],
-          viewed: false,
+          viewed: true,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
             vue: "Event Listening: on:event=functionToExecute",
@@ -70,7 +70,7 @@ export default {
             "A simple exercise based on the CSS Box model and made interactive by toggling classes on click",
           category: "Basics",
           subCategories: ["Box Model", "Class Toggling", "Events"],
-          viewed: false,
+          viewed: true,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
             vue: "Event Listening: on:event=functionToExecute",
@@ -84,7 +84,7 @@ export default {
             "Simple search field made for finding a state or a city based on user input",
           category: "Basics",
           subCategories: ["Regex", "Events", "Search"],
-          viewed: false,
+          viewed: true,
           mainDifferences: {
             js: "Event Listening: Query selector & addEventListener",
             vue: "Event Listening: on:event=functionToExecute",
