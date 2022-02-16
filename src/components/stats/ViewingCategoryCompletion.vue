@@ -5,7 +5,10 @@
     <viewing-category-item categoryName="Tips"></viewing-category-item>
     <viewing-category-item categoryName="Fun"></viewing-category-item>
     <viewing-category-item categoryName="Nav"></viewing-category-item>
-    <h1>{{ basicStats }}</h1>
+    <h1>Basic: {{ basicStats }}%</h1>
+    <h1>Fun: {{ funStats }}%</h1>
+    <h1>Nav: {{ navStats }}%</h1>
+    <h1>Tips: {{ tipsStats }}%</h1>
   </stats-styling-wrapper>
 </template>
 
