@@ -1,17 +1,20 @@
 export default {
   totalStats(_, _2, _3, rootGetters) {
     let count = 0;
-    rootGetters["days/daysList"].forEach((day) =>
-      day.viewed ? count++ : count
-    );
-    return count;
+    let viewedCount = 0;
+    rootGetters["days/daysList"].forEach((day) => {
+      count++;
+      day.viewed ? viewedCount++ : viewedCount;
+    });
+    const totalPercentage = Math.round(viewedCount + count / 100);
+    return totalPercentage;
   },
   basicsStats(_, _2, _3, rootGetters) {
     let basicCount = 0;
     let basicViewed = 0;
     rootGetters["days/daysList"].forEach((day) => {
       if (day.category === "Basics") {
-        day ? basicCount++ : basicCount;
+        basicCount++;
         day.viewed ? basicViewed++ : basicViewed;
       }
     });
@@ -20,29 +23,38 @@ export default {
   },
   funStats(_, _2, _3, rootGetters) {
     let funCount = 0;
+    let funViewed = 0;
     rootGetters["days/daysList"].forEach((day) => {
       if (day.category === "Fun") {
-        day.viewed ? funCount++ : funCount;
+        funCount++;
+        day.viewed ? funViewed++ : funViewed;
       }
     });
-    return funCount;
+    const funPercentage = Math.round(funViewed + funCount / 100);
+    return funPercentage;
   },
   tipsStats(_, _2, _3, rootGetters) {
     let tipsCount = 0;
+    let tipsViewed = 0;
     rootGetters["days/daysList"].forEach((day) => {
       if (day.category === "Tips") {
-        day.viewed ? tipsCount++ : tipsCount;
+        tipsCount++;
+        day.viewed ? tipsViewed++ : tipsViewed;
       }
     });
-    return tipsCount;
+    const tipsPercentage = Math.round(tipsViewed + tipsCount / 100);
+    return tipsPercentage;
   },
   navStats(_, _2, _3, rootGetters) {
     let navCount = 0;
+    let navViewed = 0;
     rootGetters["days/daysList"].forEach((day) => {
       if (day.category === "Nav") {
-        day.viewed ? navCount++ : navCount;
+        navCount++;
+        day.viewed ? navViewed++ : navViewed;
       }
     });
-    return navCount;
+    const navPercentage = Math.round(navViewed + navCount / 100);
+    return navPercentage;
   },
 };
