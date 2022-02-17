@@ -1,14 +1,22 @@
 <template>
   <stats-styling-wrapper>
     <h3 id="viewing-category-completion__viewing-title">Viewing Stats</h3>
-    <viewing-category-item categoryName="Basics"></viewing-category-item>
-    <viewing-category-item categoryName="Tips"></viewing-category-item>
-    <viewing-category-item categoryName="Fun"></viewing-category-item>
-    <viewing-category-item categoryName="Nav"></viewing-category-item>
-    <h1>Basic: {{ basicStats }}%</h1>
-    <h1>Fun: {{ funStats }}%</h1>
-    <h1>Nav: {{ navStats }}%</h1>
-    <h1>Tips: {{ tipsStats }}%</h1>
+    <viewing-category-item
+      categoryName="Basics"
+      :categoryStats="basicViewedStats"
+    ></viewing-category-item>
+    <viewing-category-item
+      categoryName="Tips"
+      :categoryStats="tipsViewedStats"
+    ></viewing-category-item>
+    <viewing-category-item
+      categoryName="Fun"
+      :categoryStats="funViewedStats"
+    ></viewing-category-item>
+    <viewing-category-item
+      categoryName="Nav"
+      :categoryStats="navViewedStats"
+    ></viewing-category-item>
   </stats-styling-wrapper>
 </template>
 
@@ -20,24 +28,33 @@ export default {
     ViewingCategoryItem,
     StatsStylingWrapper,
   },
-  computed: {
-    basicStats() {
-      console.log(
-        "Use a computed for this",
-        this.$store.getters["stats/basicsStats"]
-      );
-      return this.$store.getters["stats/basicsStats"];
-    },
-    funStats() {
-      return this.$store.getters["stats/funStats"];
-    },
-    navStats() {
-      return this.$store.getters["stats/navStats"];
-    },
-    tipsStats() {
-      return this.$store.getters["stats/tipsStats"];
-    },
+  data() {
+    return {
+      navViewedStats: this.$store.getters["stats/navStats"],
+      basicViewedStats: this.$store.getters["stats/basicsStats"],
+      tipsViewedStats: this.$store.getters["stats/tipsStats"],
+      funViewedStats: this.$store.getters["stats/funStats"],
+    };
   },
+  // created() {},
+  // computed: {
+  //   basicStats() {
+  //     console.log(
+  //       "Use a computed for this",
+  //       this.$store.getters["stats/basicsStats"]
+  //     );
+  //     return this.$store.getters["stats/basicsStats"];
+  //   },
+  //   funStats() {
+  //     return this.$store.getters["stats/funStats"];
+  //   },
+  //   navStats() {
+  //     return this.$store.getters["stats/navStats"];
+  //   },
+  //   tipsStats() {
+  //     return this.$store.getters["stats/tipsStats"];
+  //   },
+  // },
 };
 </script>
 

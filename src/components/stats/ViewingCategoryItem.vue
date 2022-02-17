@@ -14,6 +14,10 @@ export default {
       type: String,
       required: true,
     },
+    categoryStats: {
+      type: Number,
+      required: true,
+    },
   },
 };
 </script>
