@@ -3,12 +3,16 @@
     <p id="viewing-category__name">{{ categoryName }}</p>
     <div class="viewing-category-item__slot">
       <div
+        v-if="categoryStats > 0"
         class="viewing-category-item__fill"
         :style="{ width: categoryStats + '%' }"
       >
         <div class="viewing-category-item__fill__done">
           {{ categoryStats }}%
         </div>
+      </div>
+      <div class="viewing-category-item_empty" v-else-if="categoryStats === 0">
+        0%
       </div>
     </div>
   </div>
@@ -60,10 +64,16 @@ export default {
   align-items: center;
 }
 
-.viewing-category-item__fill__done {
+.viewing-category-item__fill__done,
+.viewing-category-item_empty {
   color: white;
   font-size: 0.7em;
-  padding-right: 0.5em;
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+}
+
+.viewing-category-item_empty {
+  padding-left: 0.5em;
 }
 
 #viewing-category__name {
