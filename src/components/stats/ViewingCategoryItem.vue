@@ -2,7 +2,14 @@
   <div class="viewing-category-item">
     <p id="viewing-category__name">{{ categoryName }}</p>
     <div class="viewing-category-item__slot">
-      <div class="viewing-category-item__fill"></div>
+      <div
+        class="viewing-category-item__fill"
+        :style="{ width: categoryStats + '%' }"
+      >
+        <div class="viewing-category-item__fill__done">
+          {{ categoryStats }}%
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -48,19 +55,17 @@ export default {
 .viewing-category-item__fill {
   background: rgba(15, 151, 49, 0.705);
   /* Modify the value below for adjusting the fill */
-  width: 50%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.viewing-category-item__fill::after {
-  /* Modify the value below for adjusting the text content */
-  content: "50%";
+.viewing-category-item__fill__done {
   color: white;
   font-size: 0.7em;
   padding-right: 0.5em;
 }
+
 #viewing-category__name {
   font-weight: 500;
   align-self: flex-end;
