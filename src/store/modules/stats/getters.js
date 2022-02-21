@@ -9,6 +9,13 @@ export default {
     const totalPercentage = Math.round((viewedCount / count) * 100);
     return totalPercentage;
   },
+  daysToGo(_, _2, _3, rootGetters) {
+    let count = 30;
+    rootGetters["days/daysList"].forEach((day) => {
+      day.viewed ? count-- : count;
+    });
+    return count
+  },
   basicsStats(_, _2, _3, rootGetters) {
     let basicCount = 0;
     let basicViewed = 0;

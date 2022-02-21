@@ -14,7 +14,10 @@
         </div>
       </div>
       <p id="viewing-completion__day-stats">
-        <span class="viewing-completion__remaining-days">30 days</span> to go
+        <span class="viewing-completion__remaining-days"
+          >{{ daysToGo }} days</span
+        >
+        to go
       </p>
     </section>
   </stats-styling-Wrapper>
@@ -27,6 +30,7 @@ export default {
   data() {
     return {
       totalCompletion: this.$store.getters["stats/totalStats"],
+      daysToGo: this.$store.getters["stats/daysToGo"],
     };
   },
   // TO DO : Add a call to init viewing-completion__progress bar to computed when update
