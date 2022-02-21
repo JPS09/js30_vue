@@ -20,8 +20,12 @@
       </section>
       <slot v-else name="voiceText"></slot>
       <menu class="base-dialog__menu" v-if="!voiceDialog">
-        <base-button @click="closeDialog">Yes I am sure</base-button>
-        <base-button @click="closeDialog">No I am not</base-button>
+        <base-button @click="closeDialog" id="base-dialog__confirm-button"
+          >Yes I am sure</base-button
+        >
+        <base-button @click="closeDialog" id="base-dialog__decline-button"
+          >No I am not</base-button
+        >
       </menu>
     </dialog>
   </teleport>
@@ -51,7 +55,21 @@ export default {
   emits: ["close"],
   methods: {
     closeDialog() {
+      if (this.$id === "base-dialog__confirm-button") {
+        this.$emit("accept");
+        console.log("yes");
+      } else if (this.$id === "base-dialog__decline-button") {
+        this.$emit("refuse");
+        console.log("no");
+      }
       this.$emit("close");
+    },
+    acceptChoice() {
+      console.log("yes");
+      this.$emit("accept");
+    },
+    declineChoice() {
+      this.$emit("refuse");
     },
   },
 };
