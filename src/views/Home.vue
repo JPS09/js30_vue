@@ -1,10 +1,12 @@
 <template>
   <div class="home">
+    <!-- Add an @accept function to this event by findout what to do with payload -->
     <base-dialog
       dialog-header="Are you sure?"
       dialog-details="This action cannot be undone"
       :dialog-display="askConfirm"
       @close="closeDialogConfirm"
+      @refuse="closeVoiceDialog"
     ></base-dialog>
     <search-dialog
       :dialogDisplay="displayVoiceDialog"
@@ -52,6 +54,7 @@ import SearchButton from "@/components/search/SearchButton.vue";
 import SearchFilter from "@/components/search/SearchFilter.vue";
 import SearchDialog from "@/components/search/SearchDialog.vue";
 import DaysCard from "@/components/days/information_display/DaysCard.vue";
+import { mapActions } from "vuex";
 
 export default {
   name: "Home",
@@ -83,6 +86,7 @@ export default {
     closeDialogConfirm() {
       this.askConfirm = false;
     },
+    ...mapActions(["setAllToViewed", "setAllToNotViewed"]),
   },
   computed: {
     days() {
