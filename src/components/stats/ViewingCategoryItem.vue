@@ -36,7 +36,7 @@ export default {
 <style scoped>
 .viewing-category-item {
   display: grid;
-  grid-template-columns: 1.2fr 3fr;
+  grid-template-columns: 1.2fr 3.5fr;
   align-items: center;
   justify-content: space-between;
   padding: 0.75em 0;
@@ -53,27 +53,32 @@ export default {
 .viewing-category-item__fill {
   width: 100%;
   background: rgba(136, 211, 155, 0.705);
-  height: 1em;
+  height: 1.2em;
   border-radius: 25px;
 }
 .viewing-category-item__fill {
   background: rgba(15, 151, 49, 0.705);
-  /* Modify the value below for adjusting the fill */
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
 }
 
-.viewing-category-item__fill__done,
+.viewing-category-item__fill__done {
+  color: white;
+  font-size: 75%;
+  text-align: right;
+  font-weight: 700;
+}
+
 .viewing-category-item_empty {
   color: white;
-  font-size: 0.7em;
-  margin-right: 0.5em;
-  margin-left: 0.5em;
-}
-
-.viewing-category-item_empty {
-  padding-left: 0.5em;
+  text-shadow: rgba(0, 0, 0, 0.8);
+  font-size: 100%;
+  font-weight: 700;
+  padding: 0em 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 #viewing-category__name {
