@@ -1,4 +1,15 @@
-export default {};
+export default {
+  setAllToViewed(state) {
+    state["days/daysList"].forEach((day) => {
+      day.viewed = true;
+    });
+  },
+  setAllToNotViewed(state) {
+    state["days/daysList"].forEach((day) => {
+      day.viewed = false;
+    });
+  },
+};
 // 1. One mutation for the global status of the viewed property when the user chooses to set them all to viewed
 // 1.1 Use the days getter to fetch them all
 // 1.2 Iterate on each of them and change the value of viewed property to true
