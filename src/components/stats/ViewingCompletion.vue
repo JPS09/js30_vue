@@ -5,7 +5,7 @@
     <section>
       <div
         class="viewing-completion__progress-circle"
-        data-value="80"
+        :data-value="{ totalCompletion }"
         ref="initCircle"
       >
         <div class="viewing-completion__progress-mask">
@@ -24,6 +24,11 @@
 import StatsStylingWrapper from "./StatsStylingWrapper";
 export default {
   components: { StatsStylingWrapper },
+  data() {
+    return {
+      totalCompletion: this.$store.getters["stats/totalStats"],
+    };
+  },
   // TO DO : Add a call to init viewing-completion__progress bar to computed when update
   mounted() {
     this.initProgressBar();
@@ -32,7 +37,7 @@ export default {
     initProgressBar() {
       const progressCircle = this.$refs.initCircle;
       const pBar = this.$refs.initBar;
-      let valeur = progressCircle.getAttribute("data-value");
+      let valeur = this.totalCompletion;
       let angle;
       valeur = valeur ? valeur * 1 : 0;
       progressCircle.setAttribute("data-value", valeur.toFixed(1));
