@@ -14,7 +14,7 @@ export default {
     rootGetters["days/daysList"].forEach((day) => {
       day.viewed ? count-- : count;
     });
-    return count
+    return count;
   },
   basicsStats(_, _2, _3, rootGetters) {
     let basicCount = 0;
