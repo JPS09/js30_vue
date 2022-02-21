@@ -13,11 +13,15 @@
           <div class="viewing-completion__progress-sup50"></div>
         </div>
       </div>
-      <p id="viewing-completion__day-stats">
+      <p id="viewing-completion__day-stats" v-if="daysToGo > 0">
         <span class="viewing-completion__remaining-days"
           >{{ daysToGo }} days</span
         >
+
         to go
+      </p>
+      <p id="viewing-completion__day-stats" v-else-if="daysToGo === 0">
+        <span class="viewing-completion__remaining-days__done">All done</span>
       </p>
     </section>
   </stats-styling-Wrapper>
@@ -147,7 +151,8 @@ export default {
   display: block;
 }
 
-.viewing-completion__remaining-days {
+.viewing-completion__remaining-days,
+.viewing-completion__remaining-days__done {
   color: #41b883;
   font-weight: 800;
 }
