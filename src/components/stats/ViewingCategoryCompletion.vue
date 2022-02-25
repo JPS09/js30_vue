@@ -36,25 +36,6 @@ export default {
       funViewedStats: this.$store.getters["stats/funStats"],
     };
   },
-  // created() {},
-  // computed: {
-  //   basicStats() {
-  //     console.log(
-  //       "Use a computed for this",
-  //       this.$store.getters["stats/basicsStats"]
-  //     );
-  //     return this.$store.getters["stats/basicsStats"];
-  //   },
-  //   funStats() {
-  //     return this.$store.getters["stats/funStats"];
-  //   },
-  //   navStats() {
-  //     return this.$store.getters["stats/navStats"];
-  //   },
-  //   tipsStats() {
-  //     return this.$store.getters["stats/tipsStats"];
-  //   },
-  // },
 };
 </script>
 
