@@ -26,8 +26,8 @@
           <search-filter></search-filter>
         </div>
         <menu class="home-view__menu">
-          <base-button @click="openDialogConfirm">Check All</base-button>
-          <base-button @click="openDialogConfirm">Clear All</base-button>
+          <base-button @click="checkDialogConfirm">Check All</base-button>
+          <base-button @click="clearDialogConfirm">Clear All</base-button>
         </menu>
       </section>
       <section class="home-view__days-container">
@@ -80,7 +80,10 @@ export default {
     closeVoiceDialog() {
       this.displayVoiceDialog = false;
     },
-    openDialogConfirm() {
+    checkDialogConfirm() {
+      this.askConfirm = true;
+    },
+    clearDialogConfirm() {
       this.askConfirm = true;
     },
     closeDialogConfirm() {
