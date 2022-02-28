@@ -98,9 +98,6 @@ export default {
     closeDialogConfirm() {
       this.askConfirm = false;
     },
-    checkAllDays() {
-      this.$store.commit("days/setAllTo", "viewed");
-    },
     ...mapActions("days", ["setAllTo"]),
   },
   computed: {
