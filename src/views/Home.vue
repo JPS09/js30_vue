@@ -48,6 +48,7 @@
 
 <script>
 // @ is an alias to /src
+import { mapActions } from "vuex";
 import ViewingCompletion from "@/components/stats/ViewingCompletion.vue";
 import ViewingCategoryCompletion from "@/components/stats/ViewingCategoryCompletion.vue";
 import SearchInput from "@/components/search/SearchInput.vue";
@@ -55,7 +56,6 @@ import SearchButton from "@/components/search/SearchButton.vue";
 import SearchFilter from "@/components/search/SearchFilter.vue";
 import SearchDialog from "@/components/search/SearchDialog.vue";
 import DaysCard from "@/components/days/information_display/DaysCard.vue";
-import { mapActions } from "vuex";
 
 export default {
   name: "Home",
