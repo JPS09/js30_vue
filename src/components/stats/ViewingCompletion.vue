@@ -5,7 +5,7 @@
     <section>
       <div
         class="viewing-completion__progress-circle"
-        :data-value="{ totalCompletionTest }"
+        :data-value="{ totalCompletion }"
         ref="initCircle"
       >
         <div class="viewing-completion__progress-mask">
@@ -13,14 +13,14 @@
           <div class="viewing-completion__progress-sup50"></div>
         </div>
       </div>
-      <p id="viewing-completion__day-stats" v-if="daystoGoTest > 0">
+      <p id="viewing-completion__day-stats" v-if="daysToGo > 0">
         <span class="viewing-completion__remaining-days"
-          >{{ daystoGoTest }} days</span
+          >{{ daysToGo }} days</span
         >
 
         to go
       </p>
-      <p id="viewing-completion__day-stats" v-else-if="daystoGoTest === 0">
+      <p id="viewing-completion__day-stats" v-else-if="daysToGo === 0">
         <span class="viewing-completion__remaining-days__done">All done</span>
       </p>
     </section>
@@ -31,21 +31,15 @@
 import StatsStylingWrapper from "./StatsStylingWrapper";
 export default {
   components: { StatsStylingWrapper },
-  data() {
-    return {
-      totalCompletion: this.$store.getters["stats/totalStats"],
-      daysToGo: this.$store.getters["stats/daysToGo"],
-    };
-  },
   // TO DO : Add a call to init viewing-completion__progress bar to computed when update
   mounted() {
     this.initProgressBar();
   },
   computed: {
-    totalCompletionTest() {
+    totalCompletion() {
       return this.$store.getters["stats/totalStats"];
     },
-    daystoGoTest() {
+    daysToGo() {
       return this.$store.getters["stats/daysToGo"];
     },
   },
