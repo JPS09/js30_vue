@@ -5,7 +5,7 @@
     <section>
       <div
         class="viewing-completion__progress-circle"
-        :data-value="{ totalCompletion }"
+        :data-value="{ totalCompletionTest }"
         ref="initCircle"
       >
         <div class="viewing-completion__progress-mask">
@@ -13,14 +13,14 @@
           <div class="viewing-completion__progress-sup50"></div>
         </div>
       </div>
-      <p id="viewing-completion__day-stats" v-if="daysToGo > 0">
+      <p id="viewing-completion__day-stats" v-if="daystoGoTest > 0">
         <span class="viewing-completion__remaining-days"
-          >{{ daysToGo }} days</span
+          >{{ daystoGoTest }} days</span
         >
 
         to go
       </p>
-      <p id="viewing-completion__day-stats" v-else-if="daysToGo === 0">
+      <p id="viewing-completion__day-stats" v-else-if="daystoGoTest === 0">
         <span class="viewing-completion__remaining-days__done">All done</span>
       </p>
     </section>
@@ -41,14 +41,14 @@ export default {
   mounted() {
     this.initProgressBar();
   },
-  // computed: {
-  //   totalCompletionTest() {
-  //     return this.$store.getters["stats/totalStats"];
-  //   },
-  //   daystoGoTest() {
-  //     return this.$store.getters["stats/daysToGo"];
-  //   },
-  // },
+  computed: {
+    totalCompletionTest() {
+      return this.$store.getters["stats/totalStats"];
+    },
+    daystoGoTest() {
+      return this.$store.getters["stats/daysToGo"];
+    },
+  },
   methods: {
     initProgressBar() {
       const progressCircle = this.$refs.initCircle;
