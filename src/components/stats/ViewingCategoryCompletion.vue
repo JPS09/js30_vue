@@ -28,13 +28,19 @@ export default {
     ViewingCategoryItem,
     StatsStylingWrapper,
   },
-  data() {
-    return {
-      navViewedStats: this.$store.getters["stats/navStats"],
-      basicViewedStats: this.$store.getters["stats/basicsStats"],
-      tipsViewedStats: this.$store.getters["stats/tipsStats"],
-      funViewedStats: this.$store.getters["stats/funStats"],
-    };
+  computed: {
+    navViewedStats() {
+      return this.$store.getters["stats/navStats"];
+    },
+    basicViewedStats() {
+      return this.$store.getters["stats/basicsStats"];
+    },
+    tipsViewedStats() {
+      return this.$store.getters["stats/tipsStats"];
+    },
+    funViewedStats() {
+      return this.$store.getters["stats/funStats"];
+    },
   },
 };
 </script>
