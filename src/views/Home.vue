@@ -6,6 +6,8 @@
       dialog-details="This action cannot be undone"
       :dialog-display="askConfirm"
       @close="closeDialogConfirm"
+      @check_all_days="setAllTo('viewed')"
+      @uncheck_all_days="setAllTo('not_viewed')"
       @refuse="closeDialogConfirm"
       :isCheckAll="isCheckAllBoolean"
     ></base-dialog>
@@ -96,7 +98,10 @@ export default {
     closeDialogConfirm() {
       this.askConfirm = false;
     },
-    ...mapActions(["setAllToViewed", "setAllToNotViewed"]),
+    checkAllDays() {
+      this.$store.commit("days/setAllTo", "viewed");
+    },
+    ...mapActions("days", ["setAllTo"]),
   },
   computed: {
     days() {
