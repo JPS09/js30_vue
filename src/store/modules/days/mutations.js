@@ -1,11 +1,13 @@
 export default {
   setAllToViewed(state) {
-    state["days/daysList"].forEach((day) => {
+    state["days"].forEach((day) => {
+      console.log(day.id, day.viewed);
       day.viewed = true;
+      console.log(day.id, day.viewed);
     });
   },
   setAllToNotViewed(state) {
-    state["days/daysList"].forEach((day) => {
+    state["days"].forEach((day) => {
       day.viewed = false;
     });
   },
