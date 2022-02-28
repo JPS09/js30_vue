@@ -41,6 +41,14 @@ export default {
   mounted() {
     this.initProgressBar();
   },
+  // computed: {
+  //   totalCompletionTest() {
+  //     return this.$store.getters["stats/totalStats"];
+  //   },
+  //   daystoGoTest() {
+  //     return this.$store.getters["stats/daysToGo"];
+  //   },
+  // },
   methods: {
     initProgressBar() {
       const progressCircle = this.$refs.initCircle;
@@ -52,6 +60,13 @@ export default {
       angle = (360 * valeur) / 100;
       if (pBar) {
         pBar.style.transform = `rotate(${angle}deg`;
+      }
+    },
+  },
+  watch: {
+    daysToGo(newValue, oldValue) {
+      if (newValue != oldValue) {
+        this.initProgressBar();
       }
     },
   },
