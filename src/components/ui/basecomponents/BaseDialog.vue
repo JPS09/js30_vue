@@ -60,17 +60,23 @@ export default {
       required: false,
     },
   },
-  emits: ["close", "accept", "refuse"],
+  emits: ["close", "check_all_days", "uncheck_all_days", "refuse"],
   methods: {
     closeDialog() {
       this.$emit("close");
     },
     acceptChoice() {
+      if (this.isCheckAll === true) {
+        console.info("Victory for check all");
+        this.$emit("check_all_days");
+      } else if (this.isCheckAll === false) {
+        console.info("Victory for uncheck all");
+        this.$emit("uncheck_all_days");
+      }
       console.log("yes");
-      this.$emit("accept");
     },
     declineChoice() {
-      console.log("no");
+      console.log("do nothing");
       this.$emit("refuse");
     },
   },

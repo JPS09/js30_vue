@@ -85,11 +85,13 @@ export default {
     checkDialogConfirm() {
       // same as below
       this.askConfirm = true;
+      this.isCheckAllBoolean = true;
     },
     clearDialogConfirm() {
       // Need to pass the fact that is for clearing the viewed state to the dialog
       // Maybe through a parameter or something like that (povide inject maybe also ?)
       this.askConfirm = true;
+      this.isCheckAllBoolean = false;
     },
     closeDialogConfirm() {
       this.askConfirm = false;
