@@ -67,16 +67,12 @@ export default {
     },
     acceptChoice() {
       if (this.isCheckAll === true) {
-        console.info("Victory for check all");
         this.$emit("check_all_days");
       } else if (this.isCheckAll === false) {
-        console.info("Victory for uncheck all");
         this.$emit("uncheck_all_days");
       }
-      console.log("yes");
     },
     declineChoice() {
-      console.log("do nothing");
       this.$emit("refuse");
     },
   },
