@@ -161,4 +161,10 @@ export default {
     display: block;
   }
 }
+
+@media screen and (max-width: 1080px) {
+  .home-view__lower-section {
+    margin: 0 auto;
+  }
+}
 </style>
