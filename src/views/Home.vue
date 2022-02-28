@@ -6,7 +6,8 @@
       dialog-details="This action cannot be undone"
       :dialog-display="askConfirm"
       @close="closeDialogConfirm"
-      @refuse="closeVoiceDialog"
+      @refuse="closeDialogConfirm"
+      :isCheckAll="isCheckAllBoolean"
     ></base-dialog>
     <search-dialog
       :dialogDisplay="displayVoiceDialog"
@@ -71,6 +72,7 @@ export default {
     return {
       askConfirm: false,
       displayVoiceDialog: false,
+      isCheckAllBoolean: false,
     };
   },
   methods: {

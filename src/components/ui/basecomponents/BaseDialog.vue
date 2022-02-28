@@ -55,6 +55,10 @@ export default {
       required: false,
       default: false,
     },
+    isCheckAll: {
+      type: Boolean,
+      required: false,
+    },
   },
   emits: ["close", "accept", "refuse"],
   methods: {
