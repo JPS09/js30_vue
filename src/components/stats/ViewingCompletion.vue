@@ -5,7 +5,7 @@
     <section>
       <div
         class="viewing-completion__progress-circle"
-        :data-value="{ totalCompletion }"
+        :data-value="{ ...totalCompletion }"
         ref="initCircle"
       >
         <div class="viewing-completion__progress-mask">
@@ -14,7 +14,9 @@
         </div>
       </div>
       <p id="viewing-completion__day-stats" v-if="daysToGo > 0">
-        <span class="viewing-completion__remaining-days"
+        <span
+          class="viewing-completion__remaining-days"
+          @change="this.initProgressBar()"
           >{{ daysToGo }} days</span
         >
 
@@ -47,7 +49,8 @@ export default {
     initProgressBar() {
       const progressCircle = this.$refs.initCircle;
       const pBar = this.$refs.initBar;
-      let valeur = this.totalCompletion;
+      let valeur = Math.round(this.totalCompletion);
+      console.log(progressCircle.dataset.value);
       let angle;
       valeur = valeur ? valeur * 1 : 0;
       progressCircle.setAttribute("data-value", valeur.toFixed(1));
@@ -57,13 +60,13 @@ export default {
       }
     },
   },
-  // watch: {
-  //   daysToGo(newValue, oldValue) {
-  //     if (newValue != oldValue) {
-  //       this.initProgressBar();
-  //     }
-  //   },
-  // },
+  watch: {
+    daysToGo(newValue, oldValue) {
+      if (newValue != oldValue) {
+        this.initProgressBar();
+      }
+    },
+  },
 };
 </script>
 
