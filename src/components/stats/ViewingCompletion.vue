@@ -63,13 +63,13 @@ export default {
       }
     },
   },
-  watch: {
-    daysToGo(newValue, oldValue) {
-      if (newValue != oldValue) {
-        this.initProgressBar();
-      }
-    },
-  },
+  // watch: {
+  //   daysToGo(newValue, oldValue) {
+  //     if (newValue != oldValue) {
+  //       this.initProgressBar();
+  //     }
+  //   },
+  // },
 };
 </script>
 
