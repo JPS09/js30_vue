@@ -5,7 +5,7 @@
     <section>
       <div
         class="viewing-completion__progress-circle"
-        :data-value="{ ...totalCompletion }"
+        :data-value="{ dataCompletion }"
         ref="initCircle"
       >
         <div class="viewing-completion__progress-mask">
@@ -14,9 +14,7 @@
         </div>
       </div>
       <p id="viewing-completion__day-stats" v-if="daysToGo > 0">
-        <span
-          class="viewing-completion__remaining-days"
-          @change="this.initProgressBar()"
+        <span class="viewing-completion__remaining-days"
           >{{ daysToGo }} days</span
         >
 
@@ -33,8 +31,19 @@
 import StatsStylingWrapper from "./StatsStylingWrapper";
 export default {
   components: { StatsStylingWrapper },
+  data() {
+    return {
+      dataCompletion: this.$store.getters["stats/totalStats"],
+    };
+  },
   // TO DO : Add a call to init viewing-completion__progress bar to computed when update
   mounted() {
+    this.initProgressBar();
+  },
+  onUpdated() {
+    this.initProgressBar();
+  },
+  updated() {
     this.initProgressBar();
   },
   computed: {
