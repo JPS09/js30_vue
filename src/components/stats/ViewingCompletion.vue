@@ -10,7 +10,6 @@
         :completed-steps="totalCompletion"
         start-color="#41b883"
         stop-color="#41b883"
-        :is-clockwise="false"
         >{{ totalCompletion }} %</radial-progress-bar
       >
 
