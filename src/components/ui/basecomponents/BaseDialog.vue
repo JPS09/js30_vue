@@ -20,8 +20,16 @@
       </section>
       <slot v-else name="voiceText"></slot>
       <menu class="base-dialog__menu" v-if="!voiceDialog">
-        <base-button @click="closeDialog">Yes I am sure</base-button>
-        <base-button @click="closeDialog">No I am not</base-button>
+        <base-button
+          @click="closeDialog(), acceptChoice()"
+          id="base-dialog__confirm-button"
+          >Yes I am sure</base-button
+        >
+        <base-button
+          @click="closeDialog(), declineChoice()"
+          id="base-dialog__decline-button"
+          >No I am not</base-button
+        >
       </menu>
     </dialog>
   </teleport>
@@ -47,11 +55,25 @@ export default {
       required: false,
       default: false,
     },
+    isCheckAll: {
+      type: Boolean,
+      required: false,
+    },
   },
-  emits: ["close"],
+  emits: ["close", "check_all_days", "uncheck_all_days", "refuse"],
   methods: {
     closeDialog() {
       this.$emit("close");
+    },
+    acceptChoice() {
+      if (this.isCheckAll === true) {
+        this.$emit("check_all_days");
+      } else if (this.isCheckAll === false) {
+        this.$emit("uncheck_all_days");
+      }
+    },
+    declineChoice() {
+      this.$emit("refuse");
     },
   },
 };
@@ -112,6 +134,7 @@ export default {
   font-size: 1.5em;
   font-weight: 500;
   text-align: center;
+  color: rgb(36, 36, 36);
 }
 
 @media screen and (min-width: 768px) {
