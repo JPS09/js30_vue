@@ -33,12 +33,6 @@ import RadialProgressBar from "vue3-radial-progress";
 
 export default {
   components: { StatsStylingWrapper, RadialProgressBar },
-  data() {
-    return {
-      dataCompletion: this.$store.getters["stats/totalStats"],
-    };
-  },
-
   computed: {
     totalCompletion() {
       return this.$store.getters["stats/totalStats"];
