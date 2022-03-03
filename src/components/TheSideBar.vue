@@ -21,7 +21,7 @@ export default {
   },
   computed: {
     days() {
-      return this.$store.getters["days/days"];
+      return this.$store.getters["days/daysList"];
     },
   },
 };
@@ -42,7 +42,7 @@ export default {
   padding: 1em;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1080px) {
   .side-bar__container {
     display: none;
   }

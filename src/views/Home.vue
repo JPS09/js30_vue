@@ -1,10 +1,15 @@
 <template>
   <div class="home">
+    <!-- Add an @accept function to this event by findout what to do with payload -->
     <base-dialog
       dialog-header="Are you sure?"
       dialog-details="This action cannot be undone"
       :dialog-display="askConfirm"
       @close="closeDialogConfirm"
+      @check_all_days="setAllTo('viewed')"
+      @uncheck_all_days="setAllTo('not_viewed')"
+      @refuse="closeDialogConfirm"
+      :isCheckAll="isCheckAllBoolean"
     ></base-dialog>
     <search-dialog
       :dialogDisplay="displayVoiceDialog"
@@ -24,8 +29,8 @@
           <search-filter></search-filter>
         </div>
         <menu class="home-view__menu">
-          <base-button @click="openDialogConfirm">Check All</base-button>
-          <base-button @click="openDialogConfirm">Clear All</base-button>
+          <base-button @click="checkDialogConfirm">Check All</base-button>
+          <base-button @click="clearDialogConfirm">Clear All</base-button>
         </menu>
       </section>
       <section class="home-view__days-container">
@@ -45,6 +50,7 @@
 
 <script>
 // @ is an alias to /src
+import { mapActions } from "vuex";
 import ViewingCompletion from "@/components/stats/ViewingCompletion.vue";
 import ViewingCategoryCompletion from "@/components/stats/ViewingCategoryCompletion.vue";
 import SearchInput from "@/components/search/SearchInput.vue";
@@ -68,6 +74,7 @@ export default {
     return {
       askConfirm: false,
       displayVoiceDialog: false,
+      isCheckAllBoolean: false,
     };
   },
   methods: {
@@ -77,16 +84,25 @@ export default {
     closeVoiceDialog() {
       this.displayVoiceDialog = false;
     },
-    openDialogConfirm() {
+    checkDialogConfirm() {
+      // same as below
       this.askConfirm = true;
+      this.isCheckAllBoolean = true;
+    },
+    clearDialogConfirm() {
+      // Need to pass the fact that is for clearing the viewed state to the dialog
+      // Maybe through a parameter or something like that (povide inject maybe also ?)
+      this.askConfirm = true;
+      this.isCheckAllBoolean = false;
     },
     closeDialogConfirm() {
       this.askConfirm = false;
     },
+    ...mapActions("days", ["setAllTo"]),
   },
   computed: {
     days() {
-      return this.$store.getters["days/days"];
+      return this.$store.getters["days/daysList"];
     },
   },
 };
@@ -149,6 +165,12 @@ export default {
 @media screen and (max-width: 960px) {
   .home-view__days-container {
     display: block;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .home-view__lower-section {
+    margin: 0 auto;
   }
 }
 </style>

@@ -2,7 +2,18 @@
   <div class="viewing-category-item">
     <p id="viewing-category__name">{{ categoryName }}</p>
     <div class="viewing-category-item__slot">
-      <div class="viewing-category-item__fill"></div>
+      <div
+        v-if="categoryStats > 0"
+        class="viewing-category-item__fill"
+        :style="{ width: categoryStats + '%' }"
+      >
+        <div class="viewing-category-item__fill__done">
+          {{ categoryStats }}%
+        </div>
+      </div>
+      <div class="viewing-category-item_empty" v-else-if="categoryStats === 0">
+        0%
+      </div>
     </div>
   </div>
 </template>
@@ -14,6 +25,10 @@ export default {
       type: String,
       required: true,
     },
+    categoryStats: {
+      type: Number,
+      required: true,
+    },
   },
 };
 </script>
@@ -21,7 +36,7 @@ export default {
 <style scoped>
 .viewing-category-item {
   display: grid;
-  grid-template-columns: 1.2fr 3fr;
+  grid-template-columns: 1.2fr 3.5fr;
   align-items: center;
   justify-content: space-between;
   padding: 0.75em 0;
@@ -38,23 +53,35 @@ export default {
 .viewing-category-item__fill {
   width: 100%;
   background: rgba(136, 211, 155, 0.705);
-  height: 1em;
+  height: 1.2em;
   border-radius: 25px;
 }
 .viewing-category-item__fill {
   background: rgba(15, 151, 49, 0.705);
-  width: 5em;
   display: flex;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: flex-end;
+  transition: width 5s ease-in-out;
 }
 
-.viewing-category-item__fill::after {
-  content: "50%";
+.viewing-category-item__fill__done {
   color: white;
-  font-size: 0.7em;
-  padding-right: 0.5em;
+  font-size: 75%;
+  text-align: right;
+  font-weight: 700;
 }
+
+.viewing-category-item_empty {
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.8);
+  font-size: 100%;
+  font-weight: 700;
+  padding: 0em 0.5em;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
 #viewing-category__name {
   font-weight: 500;
   align-self: flex-end;
