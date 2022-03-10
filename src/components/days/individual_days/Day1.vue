@@ -8,6 +8,7 @@
       :class="{ playing: audioKey.isActive }"
       @click="tryingSound"
     >
+      <!-- @keyup-name-of-the-key="tryingSound" -->
       <kbd>{{ audioKey.kbd }}</kbd>
       <span class="sound">{{ audioKey.name }}</span>
     </div>
@@ -158,7 +159,8 @@ export default {
     };
   },
   methods: {
-    tryingSound() {
+    tryingSound(event) {
+      console.log("event", event.currentTarget);
       console.log("wut", this.$data);
       // if (!audio) return; // Stop function if null
       // audio.currentTime = 0; // Rewind to start
