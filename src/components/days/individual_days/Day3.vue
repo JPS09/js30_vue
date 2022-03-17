@@ -36,20 +36,34 @@
     />
   </div>
 
-  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500" />
+  <img
+    :style="blurValue"
+    src="https://source.unsplash.com/7bwQXzbF6KE/800x500"
+  />
 </template>
 
 <script>
 // Arrow function -ES6- doesn't handle the this keyword the same way as the function -ES5- does.
 export default {
+  data() {
+    return {
+      blur: 90,
+      spacing: 0,
+      color: "",
+    };
+  },
   methods: {
     handleUpdate(event) {
-      console.log(event.currentTarget.name);
       const suffix = event.currentTarget.sizing || "";
       document.documentElement.style.setProperty(
         `--${event.currentTarget.name}`,
         event.currentTarget.value + suffix
       );
+    },
+  },
+  computed: {
+    blurValue() {
+      return `--blur: ${this.blur}px`;
     },
   },
 };
