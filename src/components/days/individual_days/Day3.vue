@@ -71,7 +71,7 @@ export default {
       return `--spacing: ${this.spacing}px`;
     },
     colorValue() {
-      return `--color: ${this.color}`;
+      return `--base: ${this.color}`;
     },
   },
 };
