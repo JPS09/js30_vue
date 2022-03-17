@@ -1,5 +1,5 @@
 <template>
-  <h2>Update CSS Variables with <span class="hl">JS</span></h2>
+  <h2>Update CSS Variables with <span :style="textColor">(Vue)JS</span></h2>
 
   <div class="controls">
     <label for="spacing">Spacing:</label>
@@ -7,11 +7,12 @@
       id="spacing"
       type="range"
       name="spacing"
-      min="10"
-      max="200"
-      value="10"
+      min="0"
+      max="50"
+      value="0"
       data-sizing="px"
       @change="spacingUpdate($event)"
+      @mousemove="spacingUpdate($event)"
     />
 
     <label for="blur">Blur:</label>
@@ -24,6 +25,7 @@
       value="0"
       data-sizing="px"
       @change="blurUpdate($event)"
+      @mousemove="blurUpdate($event)"
     />
 
     <label for="base">Base Color</label>
@@ -33,6 +35,7 @@
       name="base"
       value="#40b681"
       @change="colorUpdate($event)"
+      @mousemove="colorUpdate($event)"
     />
   </div>
 
@@ -62,7 +65,7 @@ export default {
       this.color = event.currentTarget.value;
     },
   },
-  // Maybe create a method that applies the changed value to the this.blur value so that the computed one can handle the change
+
   computed: {
     blurValue() {
       return `--blur: ${this.blur}px`;
@@ -73,12 +76,11 @@ export default {
     colorValue() {
       return `--base: ${this.color}`;
     },
+    textColor() {
+      return `color: ${this.color}`;
+    },
   },
 };
-
-// const inputs = document.querySelectorAll(".controls input");
-// inputs.forEach((input) => input.addEventListener("change", handleUpdate));
-// inputs.forEach((input) => input.addEventListener("mousemove", handleUpdate));
 </script>
 
 <style scoped>
