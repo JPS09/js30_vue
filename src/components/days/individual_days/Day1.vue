@@ -112,6 +112,7 @@ export default {
         return;
       }
       console.log(key.audio);
+      key.audio.type = "audio/wav";
       key.audio.currentTime = 0;
       key.isActive = true;
       key.audio.play();
