@@ -11,6 +11,7 @@
       max="200"
       value="10"
       data-sizing="px"
+      @change="handleUpdate($event)"
     />
 
     <label for="blur">Blur:</label>
@@ -22,10 +23,17 @@
       max="25"
       value="10"
       data-sizing="px"
+      @change="handleUpdate($event)"
     />
 
     <label for="base">Base Color</label>
-    <input id="base" type="color" name="base" value="#ffc600" />
+    <input
+      id="base"
+      type="color"
+      name="base"
+      value="#ffc600"
+      @change="handleUpdate($event)"
+    />
   </div>
 
   <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500" />
@@ -33,18 +41,22 @@
 
 <script>
 // Arrow function -ES6- doesn't handle the this keyword the same way as the function -ES5- does.
+export default {
+  methods: {
+    handleUpdate(event) {
+      console.log(event.currentTarget.name);
+      const suffix = event.currentTarget.sizing || "";
+      document.documentElement.style.setProperty(
+        `--${event.currentTarget.name}`,
+        this.value + suffix
+      );
+    },
+  },
+};
 
-function handleUpdate() {
-  const suffix = this.dataset.sizing || "";
-  document.documentElement.style.setProperty(
-    `--${this.name}`,
-    this.value + suffix
-  );
-}
-
-const inputs = document.querySelectorAll(".controls input");
-inputs.forEach((input) => input.addEventListener("change", handleUpdate));
-inputs.forEach((input) => input.addEventListener("mousemove", handleUpdate));
+// const inputs = document.querySelectorAll(".controls input");
+// inputs.forEach((input) => input.addEventListener("change", handleUpdate));
+// inputs.forEach((input) => input.addEventListener("mousemove", handleUpdate));
 </script>
 
 <style scoped>
