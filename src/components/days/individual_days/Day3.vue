@@ -1,5 +1,5 @@
 <template>
-  <h2>Update CSS Variables with <span class="hl">JS</span></h2>
+  <h2>Update CSS Variables with <span :style="textColor">(Vue)JS</span></h2>
 
   <div class="controls">
     <label for="spacing">Spacing:</label>
@@ -7,10 +7,12 @@
       id="spacing"
       type="range"
       name="spacing"
-      min="10"
-      max="200"
-      value="10"
+      min="0"
+      max="50"
+      value="0"
       data-sizing="px"
+      @change="spacingUpdate($event)"
+      @mousemove="spacingUpdate($event)"
     />
 
     <label for="blur">Blur:</label>
@@ -20,31 +22,65 @@
       name="blur"
       min="0"
       max="25"
-      value="10"
+      value="0"
       data-sizing="px"
+      @change="blurUpdate($event)"
+      @mousemove="blurUpdate($event)"
     />
 
     <label for="base">Base Color</label>
-    <input id="base" type="color" name="base" value="#ffc600" />
+    <input
+      id="base"
+      type="color"
+      name="base"
+      value="#40b681"
+      @change="colorUpdate($event)"
+      @mousemove="colorUpdate($event)"
+    />
   </div>
 
-  <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500" />
+  <img
+    :style="[blurValue, spacingValue, colorValue]"
+    src="https://source.unsplash.com/7bwQXzbF6KE/800x500"
+  />
 </template>
 
 <script>
-// Arrow function -ES6- doesn't handle the this keyword the same way as the function -ES5- does.
+export default {
+  data() {
+    return {
+      blur: 0,
+      spacing: 0,
+      color: "#40b681",
+    };
+  },
+  methods: {
+    blurUpdate(event) {
+      this.blur = event.currentTarget.value;
+    },
+    spacingUpdate(event) {
+      this.spacing = event.currentTarget.value;
+    },
+    colorUpdate(event) {
+      this.color = event.currentTarget.value;
+    },
+  },
 
-function handleUpdate() {
-  const suffix = this.dataset.sizing || "";
-  document.documentElement.style.setProperty(
-    `--${this.name}`,
-    this.value + suffix
-  );
-}
-
-const inputs = document.querySelectorAll(".controls input");
-inputs.forEach((input) => input.addEventListener("change", handleUpdate));
-inputs.forEach((input) => input.addEventListener("mousemove", handleUpdate));
+  computed: {
+    blurValue() {
+      return `--blur: ${this.blur}px`;
+    },
+    spacingValue() {
+      return `--spacing: ${this.spacing}px`;
+    },
+    colorValue() {
+      return `--base: ${this.color}`;
+    },
+    textColor() {
+      return `color: ${this.color}`;
+    },
+  },
+};
 </script>
 
 <style scoped>
