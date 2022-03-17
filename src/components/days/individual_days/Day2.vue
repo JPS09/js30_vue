@@ -14,66 +14,32 @@
 export default {
   data() {
     return {
-      hourHand: 0,
-      minuteHand: 0,
-      secondHand: 0,
+      hourHand: 90,
+      minuteHand: 90,
+      secondHand: 90,
     };
   },
-  mounted() {
+  created() {
     setInterval(this.setMoment, 1000);
   },
   methods: {
     setHand(degree) {
-      return { transform: "rotate(" + degree + "deg)" };
+      return { transform: `rotate(${degree}deg)` };
     },
     setMoment() {
       const now = new Date();
 
-      const seconds = (now.getSeconds / 60) * 360 + 90;
+      const seconds = (now.getSeconds() / 60) * 360 + 90;
       this.secondHand = seconds;
 
-      const minutes = (now.getMinutes / 60) * 360 + 90;
+      const minutes = (now.getMinutes() / 60) * 360 + 90;
       this.minuteHand = minutes;
 
-      const hour = (now.getHours / 60) * 360 + 90;
+      const hour = (now.getHours() / 60) * 360 + 90;
       this.hourHand = hour;
     },
   },
 };
-// const setSeconds = (now) => {
-//   const secondHand = document.querySelector(".second-hand");
-//   if (secondHand) {
-//     const seconds = now.getSeconds();
-//     const secondsDegrees = (seconds / 60) * 360 + 90;
-//     secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-//   }
-// };
-
-// const setMinutes = (now) => {
-//   const minHand = document.querySelector(".min-hand");
-//   if (minHand) {
-//     const minutes = now.getMinutes();
-//     const minutesDegrees = (minutes / 60) * 360 + 90;
-//     minHand.style.transform = `rotate(${minutesDegrees}deg)`;
-//   }
-// };
-
-// const setHour = (now) => {
-//   const hourHand = document.querySelector(".hour-hand");
-//   if (hourHand) {
-//     const hour = now.getHours();
-//     const hourDegrees = (hour / 12) * 360 + 90;
-//     hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-//   }
-// };
-// const setDate = () => {
-//   const now = new Date();
-//   setSeconds(now);
-//   setMinutes(now);
-//   setHour(now);
-// };
-
-// setInterval(setDate, 1000);
 </script>
 
 <style scoped>
@@ -83,8 +49,8 @@ export default {
   height: 20px;
   border-radius: 100%;
   position: absolute;
-  top: 49%;
-  right: 47%;
+  top: 48.5%;
+  right: 48%;
 }
 .clock {
   width: 30rem;
