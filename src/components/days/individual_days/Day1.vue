@@ -98,7 +98,6 @@ export default {
 
   methods: {
     removeTransition(e, key) {
-      console.log("uezruibgierz");
       if (e.propertyName !== "transform") {
         return;
       }
