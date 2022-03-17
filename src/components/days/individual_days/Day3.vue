@@ -48,7 +48,7 @@ export default {
       const suffix = event.currentTarget.sizing || "";
       document.documentElement.style.setProperty(
         `--${event.currentTarget.name}`,
-        this.value + suffix
+        event.currentTarget.value + suffix
       );
     },
   },
