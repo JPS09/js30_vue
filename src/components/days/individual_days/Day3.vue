@@ -11,7 +11,7 @@
       max="200"
       value="10"
       data-sizing="px"
-      @change="handleUpdate($event)"
+      @change="spacingUpdate($event)"
     />
 
     <label for="blur">Blur:</label>
@@ -21,9 +21,9 @@
       name="blur"
       min="0"
       max="25"
-      value="10"
+      value="0"
       data-sizing="px"
-      @change="handleUpdate($event)"
+      @change="blurUpdate($event)"
     />
 
     <label for="base">Base Color</label>
@@ -31,40 +31,47 @@
       id="base"
       type="color"
       name="base"
-      value="#ffc600"
-      @change="handleUpdate($event)"
+      value="#40b681"
+      @change="colorUpdate($event)"
     />
   </div>
 
   <img
-    :style="blurValue"
+    :style="[blurValue, spacingValue, colorValue]"
     src="https://source.unsplash.com/7bwQXzbF6KE/800x500"
   />
 </template>
 
 <script>
-// Arrow function -ES6- doesn't handle the this keyword the same way as the function -ES5- does.
 export default {
   data() {
     return {
-      blur: 90,
+      blur: 0,
       spacing: 0,
-      color: "",
+      color: "#40b681",
     };
   },
   methods: {
-    handleUpdate(event) {
-      const suffix = event.currentTarget.sizing || "";
-      document.documentElement.style.setProperty(
-        `--${event.currentTarget.name}`,
-        event.currentTarget.value + suffix
-      );
+    blurUpdate(event) {
+      this.blur = event.currentTarget.value;
+    },
+    spacingUpdate(event) {
+      this.spacing = event.currentTarget.value;
+    },
+    colorUpdate(event) {
+      this.color = event.currentTarget.value;
     },
   },
   // Maybe create a method that applies the changed value to the this.blur value so that the computed one can handle the change
   computed: {
     blurValue() {
       return `--blur: ${this.blur}px`;
+    },
+    spacingValue() {
+      return `--spacing: ${this.spacing}px`;
+    },
+    colorValue() {
+      return `--color: ${this.color}`;
     },
   },
 };
