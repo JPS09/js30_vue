@@ -61,6 +61,7 @@ export default {
       );
     },
   },
+  // Maybe create a method that applies the changed value to the this.blur value so that the computed one can handle the change
   computed: {
     blurValue() {
       return `--blur: ${this.blur}px`;
