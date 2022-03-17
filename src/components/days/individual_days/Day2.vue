@@ -1,67 +1,57 @@
 <template>
-  <div class="clock">
-    <div class="clock-face">
-      <div class="hand hour-hand"></div>
-      <div class="hand min-hand"></div>
-      <div class="hand second-hand"></div>
+  <div id="background">
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand hour-hand" :style="setHand(this.hourHand)"></div>
+        <div class="hand min-hand" :style="setHand(this.minuteHand)"></div>
+        <div class="bolt"></div>
+        <div class="hand second-hand" :style="setHand(this.secondHand)"></div>
+      </div>
     </div>
   </div>
 </template>
 <script>
-const setSeconds = (now) => {
-  const secondHand = document.querySelector(".second-hand");
-  if (secondHand) {
-    const seconds = now.getSeconds();
-    const secondsDegrees = (seconds / 60) * 360 + 90;
-    secondHand.style.transform = `rotate(${secondsDegrees}deg)`;
-  }
-};
+export default {
+  data() {
+    return {
+      hourHand: 90,
+      minuteHand: 90,
+      secondHand: 90,
+    };
+  },
+  created() {
+    setInterval(this.setMoment, 1000);
+  },
+  methods: {
+    setHand(degree) {
+      return { transform: `rotate(${degree}deg)` };
+    },
+    setMoment() {
+      const now = new Date();
 
-const setMinutes = (now) => {
-  const minHand = document.querySelector(".min-hand");
-  if (minHand) {
-    const minutes = now.getMinutes();
-    const minutesDegrees = (minutes / 60) * 360 + 90;
-    minHand.style.transform = `rotate(${minutesDegrees}deg)`;
-  }
-};
+      const seconds = (now.getSeconds() / 60) * 360 + 90;
+      this.secondHand = seconds;
 
-const setHour = (now) => {
-  const hourHand = document.querySelector(".hour-hand");
-  if (hourHand) {
-    const hour = now.getHours();
-    const hourDegrees = (hour / 12) * 360 + 90;
-    hourHand.style.transform = `rotate(${hourDegrees}deg)`;
-  }
-};
-const setDate = () => {
-  const now = new Date();
-  setSeconds(now);
-  setMinutes(now);
-  setHour(now);
-};
+      const minutes = (now.getMinutes() / 60) * 360 + 90;
+      this.minuteHand = minutes;
 
-setInterval(setDate, 1000);
+      const hour = (now.getHours() / 60) * 360 + 90;
+      this.hourHand = hour;
+    },
+  },
+};
 </script>
 
 <style scoped>
-html {
-  background: #018ded url(https://unsplash.it/1500/1000?image=881&blur=5);
-  background-size: cover;
-  font-family: "helvetica neue";
-  text-align: center;
-  font-size: 10px;
+.bolt {
+  background: rgb(121, 9, 121);
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  position: absolute;
+  top: 48.5%;
+  right: 48%;
 }
-
-body {
-  margin: 0;
-  font-size: 2rem;
-  display: flex;
-  flex: 1;
-  min-height: 100vh;
-  align-items: center;
-}
-
 .clock {
   width: 30rem;
   height: 30rem;
@@ -91,5 +81,21 @@ body {
   transform: rotate(90deg);
   transition: all 0.05s;
   transition-timing-function: cubic-bezier(0.42, 0, 0.09, 1.78);
+  border-radius: 30px;
+}
+
+.hand.second-hand {
+  background: rgb(211, 108, 39);
+  height: 2px;
+  z-index: -3;
+}
+
+.hand.hour-hand {
+  width: 30%;
+  left: 75px;
+}
+
+.hand.min-hand {
+  background: rgb(145, 225, 228);
 }
 </style>
