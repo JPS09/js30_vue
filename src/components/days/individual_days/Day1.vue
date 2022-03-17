@@ -6,7 +6,7 @@
       :data-key="audioKey.dataKey"
       class="key"
       :class="[audioKey.isActive ? 'playing' : '', 'key']"
-      @transition-end="removeTransition($event, audioKey)"
+      @transitionend="removeTransition($event, audioKey)"
     >
       <!-- @keyup-name-of-the-key="tryingSound" -->
       <kbd>{{ audioKey.kbd }}</kbd>
@@ -106,13 +106,13 @@ export default {
     },
     playSound(e) {
       const key = this.audioKeys.find((key) => {
+        key.audio.type = "audio/wav";
         return key.dataKey === e.keyCode;
       });
       if (!key) {
         return;
       }
       console.log(key.audio);
-      key.audio.type = "audio/wav";
       key.audio.currentTime = 0;
       key.isActive = true;
       key.audio.play();
