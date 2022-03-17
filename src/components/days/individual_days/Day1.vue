@@ -6,6 +6,7 @@
       :data-key="audioKey.dataKey"
       class="key"
       :class="[audioKey.isActive ? 'playing' : '', 'key']"
+      @click="playSound($event)"
       @transitionend="removeTransition($event, audioKey)"
     >
       <!-- @keyup-name-of-the-key="tryingSound" -->
