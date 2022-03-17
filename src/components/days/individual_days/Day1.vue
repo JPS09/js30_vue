@@ -5,78 +5,14 @@
       :key="audioKey.dataKey"
       :data-key="audioKey.dataKey"
       class="key"
-      :class="{ playing: audioKey.isActive }"
-      @click="tryingSound"
+      :class="[audioKey.isActive ? 'playing' : '', 'key']"
+      @transition-end="removeTransition($event, audioKey)"
     >
       <!-- @keyup-name-of-the-key="tryingSound" -->
       <kbd>{{ audioKey.kbd }}</kbd>
       <span class="sound">{{ audioKey.name }}</span>
     </div>
   </div>
-
-  <!-- <audio
-    v-for="audioKey in audioKeys"
-    :key="audioKey.dataKey"
-    :data-key="audioKey.dataKey"
-  >
-    <source :src="audioKey.src" :type="audioKey.type" />
-  </audio> -->
-  <!-- This part is giving me trouble to implement, I will come back to it later -->
-  <audio data-key="65">
-    <source
-      type="audio/wav"
-      src="../../../assets/days_assets/Day1/sounds/clap.wav"
-    />
-    >
-  </audio>
-  <audio data-key="83">
-    <source
-      type="audio/wav"
-      src="../../../assets/days_assets/Day1/sounds/hihat.wav"
-    />
-  </audio>
-  <audio data-key="68">
-    <source
-      type="audio/wav"
-      src="../../../assets/days_assets/Day1/sounds/kick.wav"
-    />
-  </audio>
-  <audio data-key="70">
-    <source
-      type="audio/wav"
-      src="../../../assets/days_assets/Day1/sounds/openhat.wav"
-    />
-  </audio>
-  <audio data-key="71">
-    <source
-      src="../../../assets/days_assets/Day1/sounds/boom.wav"
-      type="audio/wav"
-    />
-  </audio>
-  <audio data-key="72">
-    <source
-      src="../../../assets/days_assets/Day1/sounds/ride.wav"
-      type="audio/wav"
-    />
-  </audio>
-  <audio data-key="74">
-    <source
-      src="../../../assets/days_assets/Day1/sounds/snare.wav"
-      type="audio/wav"
-    />
-  </audio>
-  <audio data-key="75">
-    <source
-      src="../../../assets/days_assets/Day1/sounds/tom.wav"
-      type="audio/wav"
-    />
-  </audio>
-  <audio data-key="76">
-    <source
-      src="../../../assets/days_assets/Day1/sounds/tink.wav"
-      type="audio/wav"
-    />
-  </audio>
 </template>
 
 <script>
@@ -85,105 +21,109 @@ export default {
     return {
       audioKeys: [
         {
-          type: "audio/wav",
-          src: "../../../assets/days_assets/Day1/sounds/clap.wav",
+          audio: new Audio("../../../assets/days_assets/Day1/sounds/clap.wav"),
           name: "clap",
-          dataKey: "65",
+          dataKey: 65,
           kbd: "A",
           isActive: false,
         },
         {
           type: "audio/wav",
-          src: "../../../assets/days_assets/Day1/sounds/hihat.wav",
+          audio: new Audio("../../../assets/days_assets/Day1/sounds/hihat.wav"),
           name: "hihat",
-          dataKey: "83",
+          dataKey: 83,
           kbd: "S",
           isActive: false,
         },
         {
           type: "audio/wav",
-          src: "../../../assets/days_assets/Day1/sounds/kick.wav",
+          audio: new Audio("../../../assets/days_assets/Day1/sounds/kick.wav"),
           name: "kick",
-          dataKey: "68",
+          dataKey: 68,
           kbd: "D",
           isActive: false,
         },
         {
           type: "audio/wav",
-          src: "../../../assets/days_assets/Day1/sounds/openhat.wav",
+          audio: new Audio(
+            "../../../assets/days_assets/Day1/sounds/openhat.wav"
+          ),
           name: "openhat",
-          dataKey: "70",
+          dataKey: 70,
           kbd: "F",
         },
         {
           type: "audio/wav",
-          src: "../../../assets/days_assets/Day1/sounds/boom.wav",
+          audio: new Audio("../../../assets/days_assets/Day1/sounds/boom.wav"),
           name: "boom",
-          dataKey: "71",
+          dataKey: 71,
           kbd: "G",
           isActive: false,
         },
         {
           type: "audio/wav",
-          src: "../../../assets/days_assets/Day1/sounds/ride.wav",
+          audio: new Audio("../../../assets/days_assets/Day1/sounds/ride.wav"),
           name: "ride",
-          dataKey: "72",
+          dataKey: 72,
           kbd: "H",
           isActive: false,
         },
         {
           type: "audio/wav",
-          src: "../../../assets/days_assets/Day1/sounds/snare.wav",
+          audio: new Audio("../../../assets/days_assets/Day1/sounds/snare.wav"),
           name: "snare",
-          dataKey: "74",
+          dataKey: 74,
           kbd: "J",
           isActive: false,
         },
         {
           type: "audio/wav",
-          src: "../../../assets/days_assets/Day1/sounds/tom.wav",
+          audio: new Audio("../../../assets/days_assets/Day1/sounds/tom.wav"),
           name: "tom",
-          dataKey: "75",
+          dataKey: 75,
           kbd: "K",
           isActive: false,
         },
         {
           type: "audio/wav",
-          src: "../../../assets/days_assets/Day1/sounds/tink.wav",
+          audio: new Audio("../../../assets/days_assets/Day1/sounds/tink.wav"),
           name: "tink",
-          dataKey: "76",
+          dataKey: 76,
           kbd: "L",
           isActive: false,
         },
       ],
     };
   },
+
   methods: {
-    tryingSound(event) {
-      console.log("event", event.currentTarget);
-      console.log("wut", this.$data);
-      // if (!audio) return; // Stop function if null
-      // audio.currentTime = 0; // Rewind to start
-      this.isActive = !this.isActive;
-      console.log("tryingSound method", this.$attrs);
-      this.removeTransition();
-      // audio.play();
-    },
-    removeTransition() {
-      if (this.isActive && this.isActive === true) {
-        console.log("removeTransition");
-        this.isActive = false;
+    removeTransition(e, key) {
+      console.log("uezruibgierz");
+      if (e.propertyName !== "transform") {
+        return;
       }
-      // Maybe watch is a better approach than methods
-      // if (propertyName !== "transform") return; // skip if not transform
-      // target.classList.remove("playing");
+      key.isActive = false;
+    },
+    playSound(e) {
+      const key = this.audioKeys.find((key) => {
+        return key.dataKey === e.keyCode;
+      });
+      if (!key) {
+        return;
+      }
+      console.log(key.audio);
+      key.audio.currentTime = 0;
+      key.isActive = true;
+      key.audio.play();
     },
   },
-  computed: {
-    playing() {
-      return this.isActive ? "playing" : "";
-    },
+  mounted() {
+    window.addEventListener("keydown", this.playSound);
   },
+
+  // Maybe watch is a better approach than methods
+  // if (propertyName !== "transform") return; // skip if not transform
+  // target.classList.remove("playing");
 };
 // const playSound = (e) => {
 //   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
