@@ -108,3 +108,9 @@ export default {
 // Get the canvas context to draw on
 // Select the canvas
 </script>
+
+<style scoped>
+#draw {
+  width: 100%;
+}
+</style>
