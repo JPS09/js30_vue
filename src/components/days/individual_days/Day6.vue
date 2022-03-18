@@ -1,6 +1,11 @@
 <template>
   <form class="search-form">
-    <input type="text" class="search" placeholder="City or State" />
+    <input
+      type="text"
+      class="search"
+      placeholder="City or State"
+      @input="displayCities"
+    />
     <ul class="suggestions">
       <li>Filter for a city</li>
       <li>or a state</li>
@@ -18,19 +23,13 @@ export default {
     };
   },
 
-  // fetch(endpoint)
-  //   .then((response) => response.json())
-  //   .then((data) => cities.push(...data));
-
-  // const input = document.querySelector("input");
-  // input.addEventListener("input", displayCities);
   // input.value = "";
+  mounted() {
+    fetch(this.endpoint)
+      .then((response) => response.json())
+      .then((data) => this.cities.push(...data));
+  },
   methods: {
-    fetchingApi() {
-      fetch(this.endpoint)
-        .then((response) => response.json())
-        .then((data) => this.cities.push(...data));
-    },
     numberWithCommas(x) {
       // Adds commas to format the number in a pleasing way
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
