@@ -9,72 +9,75 @@
 </template>
 
 <script>
-const endpoint =
-  "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
-const cities = [];
+export default {
 
-fetch(endpoint)
-  .then((response) => response.json())
-  .then((data) => cities.push(...data));
+  const endpoint =
+    "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
+  const cities = [];
 
-const input = document.querySelector("input");
-input.addEventListener("input", displayCities);
-input.value = "";
+  fetch(endpoint)
+    .then((response) => response.json())
+    .then((data) => cities.push(...data));
 
-// Adds commas to format the number in a pleasing way
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+  const input = document.querySelector("input");
+  input.addEventListener("input", displayCities);
+  input.value = "";
 
-function displayCities() {
-  const searchTerms = this.value;
-  const results = searchFunction(searchTerms, cities);
-
-  const html = results
-    .map((place) => {
-      // Create a new Regex depending on the user input with a global and a case insensitive flags
-
-      const regex = new RegExp(searchTerms, "gi");
-
-      // Highlights part of the words that matches the search
-      const highlightCity = place.city.replace(
-        regex,
-        `<span class='hl'>${searchTerms}</span>`
-      );
-      const highlightState = place.state.replace(
-        regex,
-        `<span class='hl'>${searchTerms}</span>`
-      );
-      return `
-          <li>
-            <span class='name'>${highlightCity}, ${highlightState}</span>
-            <span class = 'population'>Pop: ${numberWithCommas(
-              place.population
-            )}</span>
-          </li>
-          `;
-    })
-    .join("");
-
-  // Switch back to initial html if empty query
-  if (searchTerms === "") {
-    listDisplay.innerHTML = `
-            <li>Filter for a city</li>
-            <li>or a state</li>`;
-  } else {
-    listDisplay.innerHTML = html;
+  // Adds commas to format the number in a pleasing way
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
-}
 
-const listDisplay = document.querySelector(".suggestions");
-function searchFunction(wordToSearch, cities) {
-  // Creates a regex based the parameters which is in fact the user input
-  const regex = new RegExp(wordToSearch, "gi");
-  // return the filtering array
-  return cities.filter((place) => {
-    // Search on the city or the state based on the above regex
-    return place.city.match(regex) || place.state.match(regex);
-  });
+  function displayCities() {
+    const searchTerms = this.value;
+    const results = searchFunction(searchTerms, cities);
+
+    const html = results
+      .map((place) => {
+        // Create a new Regex depending on the user input with a global and a case insensitive flags
+
+        const regex = new RegExp(searchTerms, "gi");
+
+        // Highlights part of the words that matches the search
+        const highlightCity = place.city.replace(
+          regex,
+          `<span class='hl'>${searchTerms}</span>`
+        );
+        const highlightState = place.state.replace(
+          regex,
+          `<span class='hl'>${searchTerms}</span>`
+        );
+        return `
+            <li>
+              <span class='name'>${highlightCity}, ${highlightState}</span>
+              <span class = 'population'>Pop: ${numberWithCommas(
+                place.population
+              )}</span>
+            </li>
+            `;
+      })
+      .join("");
+
+    // Switch back to initial html if empty query
+    if (searchTerms === "") {
+      listDisplay.innerHTML = `
+              <li>Filter for a city</li>
+              <li>or a state</li>`;
+    } else {
+      listDisplay.innerHTML = html;
+    }
+  }
+
+  const listDisplay = document.querySelector(".suggestions");
+  function searchFunction(wordToSearch, cities) {
+    // Creates a regex based the parameters which is in fact the user input
+    const regex = new RegExp(wordToSearch, "gi");
+    // return the filtering array
+    return cities.filter((place) => {
+      // Search on the city or the state based on the above regex
+      return place.city.match(regex) || place.state.match(regex);
+    });
+  }
 }
 </script>
 
