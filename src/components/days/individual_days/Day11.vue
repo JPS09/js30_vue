@@ -3,7 +3,7 @@
     <video
       class="player__video viewer"
       src="../../../assets/days_assets/Day11/652333414.mp4"
-      @click="togglePlay($event)"
+      @click="togglePlay()"
       @pause="updateButton($event)"
       @play="updateButton($event)"
       @timeupdate="progressBar($event)"
@@ -24,7 +24,7 @@
       <button
         class="player__button toggle"
         title="Toggle Play"
-        @click="togglePlay($event)"
+        @click="togglePlay()"
         ref="toggleButton"
       >
         ►
@@ -69,12 +69,10 @@ export default {
   methods: {
     // Functions Zone
 
-    togglePlay(event) {
+    togglePlay() {
       // Ternary to toggle play and pause
-      event;
       const play = this.$refs.videoElement.paused ? "play" : "pause";
       // Calling of function depending on ternary result
-      // event.currentTarget[play]();
       this.$refs.videoElement[play]();
     },
 
