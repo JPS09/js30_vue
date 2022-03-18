@@ -10,13 +10,25 @@
 
 <script>
 export default {
+  // const endpoint =
+  //   "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
+  // const cities = [];
+
+  // fetch(endpoint)
+  //   .then((response) => response.json())
+  //   .then((data) => cities.push(...data));
+
+  // const input = document.querySelector("input");
+  // input.addEventListener("input", displayCities);
+  // input.value = "";
   methods: {
     numberWithCommas(x) {
+      // Adds commas to format the number in a pleasing way
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
     displayCities() {
       const searchTerms = this.value;
-      const results = searchFunction(searchTerms, cities);
+      const results = this.searchFunction(searchTerms, cities);
 
       const html = results
         .map((place) => {
@@ -36,7 +48,7 @@ export default {
           return `
             <li>
               <span class='name'>${highlightCity}, ${highlightState}</span>
-              <span class = 'population'>Pop: ${numberWithCommas(
+              <span class = 'population'>Pop: ${this.numberWithCommas(
                 place.population
               )}</span>
             </li>
@@ -50,6 +62,7 @@ export default {
               <li>Filter for a city</li>
               <li>or a state</li>`;
       } else {
+        // const listDisplay = document.querySelector(".suggestions")
         listDisplay.innerHTML = html;
       }
     },
@@ -63,21 +76,8 @@ export default {
       });
     },
   },
-  // const endpoint =
-  //   "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
-  // const cities = [];
 
-  // fetch(endpoint)
-  //   .then((response) => response.json())
-  //   .then((data) => cities.push(...data));
 
-  // const input = document.querySelector("input");
-  // input.addEventListener("input", displayCities);
-  // input.value = "";
-
-  // Adds commas to format the number in a pleasing way
-
-  // const listDisplay = document.querySelector(".suggestions")
 };
 </script>
 
