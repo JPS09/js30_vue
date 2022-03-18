@@ -10,44 +10,30 @@
 
 <script>
 export default {
+  methods: {
+    numberWithCommas(x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+    displayCities() {
+      const searchTerms = this.value;
+      const results = searchFunction(searchTerms, cities);
 
-  const endpoint =
-    "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
-  const cities = [];
+      const html = results
+        .map((place) => {
+          // Create a new Regex depending on the user input with a global and a case insensitive flags
 
-  fetch(endpoint)
-    .then((response) => response.json())
-    .then((data) => cities.push(...data));
+          const regex = new RegExp(searchTerms, "gi");
 
-  const input = document.querySelector("input");
-  input.addEventListener("input", displayCities);
-  input.value = "";
-
-  // Adds commas to format the number in a pleasing way
-  function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-
-  function displayCities() {
-    const searchTerms = this.value;
-    const results = searchFunction(searchTerms, cities);
-
-    const html = results
-      .map((place) => {
-        // Create a new Regex depending on the user input with a global and a case insensitive flags
-
-        const regex = new RegExp(searchTerms, "gi");
-
-        // Highlights part of the words that matches the search
-        const highlightCity = place.city.replace(
-          regex,
-          `<span class='hl'>${searchTerms}</span>`
-        );
-        const highlightState = place.state.replace(
-          regex,
-          `<span class='hl'>${searchTerms}</span>`
-        );
-        return `
+          // Highlights part of the words that matches the search
+          const highlightCity = place.city.replace(
+            regex,
+            `<span class='hl'>${searchTerms}</span>`
+          );
+          const highlightState = place.state.replace(
+            regex,
+            `<span class='hl'>${searchTerms}</span>`
+          );
+          return `
             <li>
               <span class='name'>${highlightCity}, ${highlightState}</span>
               <span class = 'population'>Pop: ${numberWithCommas(
@@ -55,30 +41,44 @@ export default {
               )}</span>
             </li>
             `;
-      })
-      .join("");
+        })
+        .join("");
 
-    // Switch back to initial html if empty query
-    if (searchTerms === "") {
-      listDisplay.innerHTML = `
+      // Switch back to initial html if empty query
+      if (searchTerms === "") {
+        listDisplay.innerHTML = `
               <li>Filter for a city</li>
               <li>or a state</li>`;
-    } else {
-      listDisplay.innerHTML = html;
-    }
-  }
+      } else {
+        listDisplay.innerHTML = html;
+      }
+    },
+    searchFunction(wordToSearch, cities) {
+      // Creates a regex based the parameters which is in fact the user input
+      const regex = new RegExp(wordToSearch, "gi");
+      // return the filtering array
+      return cities.filter((place) => {
+        // Search on the city or the state based on the above regex
+        return place.city.match(regex) || place.state.match(regex);
+      });
+    },
+  },
+  // const endpoint =
+  //   "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
+  // const cities = [];
 
-  const listDisplay = document.querySelector(".suggestions");
-  function searchFunction(wordToSearch, cities) {
-    // Creates a regex based the parameters which is in fact the user input
-    const regex = new RegExp(wordToSearch, "gi");
-    // return the filtering array
-    return cities.filter((place) => {
-      // Search on the city or the state based on the above regex
-      return place.city.match(regex) || place.state.match(regex);
-    });
-  }
-}
+  // fetch(endpoint)
+  //   .then((response) => response.json())
+  //   .then((data) => cities.push(...data));
+
+  // const input = document.querySelector("input");
+  // input.addEventListener("input", displayCities);
+  // input.value = "";
+
+  // Adds commas to format the number in a pleasing way
+
+  // const listDisplay = document.querySelector(".suggestions")
+};
 </script>
 
 <style scoped>
