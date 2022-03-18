@@ -4,11 +4,14 @@
       type="text"
       class="search"
       placeholder="City or State"
-      @input="displayCities"
+      @input="displayCities()"
+      v-model.trim="searchTerms"
     />
     <ul class="suggestions">
-      <li>Filter for a city</li>
-      <li>or a state</li>
+      <li>I am a test</li>
+      <li>Me too</li>
+      <!-- <li v-if="searchTerms() === ''">Filter for a city</li>
+      <li v-if="searchTerms() === ''">or a state</li> -->
     </ul>
   </form>
 </template>
@@ -20,6 +23,7 @@ export default {
       cities: [],
       endpoint:
         "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json",
+      searchTerms: "",
     };
   },
 
@@ -35,23 +39,23 @@ export default {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
     displayCities() {
-      const searchTerms = this.value;
-      const results = this.searchFunction(searchTerms, this.cities);
+      const results = this.searchFunction(this.searchTerms, this.cities);
+      console.log(this.searchTerms);
 
-      const html = results
+      results
         .map((place) => {
           // Create a new Regex depending on the user input with a global and a case insensitive flags
 
-          const regex = new RegExp(searchTerms, "gi");
+          const regex = new RegExp(this.searchTerms, "gi");
 
           // Highlights part of the words that matches the search
           const highlightCity = place.city.replace(
             regex,
-            `<span class='hl'>${searchTerms}</span>`
+            `<span class='hl'>${this.searchTerms}</span>`
           );
           const highlightState = place.state.replace(
             regex,
-            `<span class='hl'>${searchTerms}</span>`
+            `<span class='hl'>${this.searchTerms}</span>`
           );
           return `
             <li>
@@ -65,14 +69,14 @@ export default {
         .join("");
 
       // Switch back to initial html if empty query
-      if (searchTerms === "") {
-        listDisplay.innerHTML = `
-              <li>Filter for a city</li>
-              <li>or a state</li>`;
-      } else {
-        // const listDisplay = document.querySelector(".suggestions")
-        listDisplay.innerHTML = html;
-      }
+      // if (searchTerms === "") {
+      //   listDisplay.innerHTML = `
+      //         <li>Filter for a city</li>
+      //         <li>or a state</li>`;
+      // } else {
+      //   // const listDisplay = document.querySelector(".suggestions")
+      //   listDisplay.innerHTML = html;
+      // }
     },
     searchFunction(wordToSearch, cities) {
       // Creates a regex based the parameters which is in fact the user input
