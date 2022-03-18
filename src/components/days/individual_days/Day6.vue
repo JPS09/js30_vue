@@ -9,8 +9,16 @@
     />
     <ul class="suggestions" v-if="results">
       <li v-for="result in results" :key="result">
-        <span class="name">{{ result.city }}</span>
-        <span class="name">{{ result.state }}</span>
+        <span
+          class="name"
+          :class="{
+            hl:
+              new RegExp(this.searchTerms, 'gi').test(result.city) ||
+              new RegExp(this.searchTerms, 'gi').test(result.state),
+          }"
+          >{{ result.city }} {{ result.state }}</span
+        >
+
         <span class="population"
           >Pop: {{ this.numberWithCommas(result.population) }}</span
         >
@@ -47,6 +55,13 @@ export default {
     numberWithCommas(x) {
       // Adds commas to format the number in a pleasing way
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+
+    resultDisplayFormatting(result) {
+      const regex = new RegExp(this.searchTerms, "gi");
+      const newCityStyle = result.city.replace(regex, this.searchTerms);
+      const newStateStyle = result.state.replace(regex, this.searchTerms);
+      return [newCityStyle, newStateStyle];
     },
     displayCities() {
       this.results = this.searchFunction(this.searchTerms, this.cities);
