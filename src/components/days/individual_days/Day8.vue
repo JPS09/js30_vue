@@ -4,99 +4,116 @@
     <title>HTML5 Canvas</title>
   </head>
   <body>
-    <canvas id="draw" width="800" height="800"></canvas>
+    <canvas
+      id="draw"
+      width="800"
+      height="800"
+      ref="drawingCanvas"
+      @mousemove="draw($event)"
+    ></canvas>
   </body>
 </template>
 
 <script>
-export default{
+export default {
+  data() {
+    return {
+      isDrawing: false,
+      colorHue: "",
+      strokeSize: "",
+      switchSize: false,
+      lastX: 0,
+      lastY: 0,
+    };
+  },
+  methods: {
+    stroke(event) {
+      this.isDrawing = true;
+      [this.lastX, this.lastY] = [event.offsetX, event.offsetY];
+    },
+    userDrawing(event) {
+      const ctx = this.$refs.drawingCanvas.getContext("2d");
+      // prevent this function from running if not drawing
+      if (!this.isDrawing) return;
+      console.log(event);
+      ctx.strokeStyle = `hsl(${this.hue}, 100%, 50%)`;
+      ctx.lineWidth = this.strokeSize;
 
-  const canvas = document.querySelector("#draw");
+      // Initialise the path
+      ctx.beginPath();
 
-  // Get the canvas context to draw on
-  const ctx = canvas.getContext("2d");
+      // Start from
+      ctx.moveTo(this.lastX, this.lastY);
 
-  // Set the size according to the visible screen
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+      // Go to
+      ctx.lineTo(event.offsetX, event.offsetY);
 
-  // Set the stroke style and size and rounds it up
-  ctx.strokeStyle = "#BADA55";
-  ctx.lineJoin = "round";
-  ctx.lineCap = "round";
-  ctx.lineWidth = 100;
+      // Make the stroke visible
+      ctx.stroke();
 
-  // Blend modes
-  ctx.globalCompositeOperation = "overlay";
+      // Destructuring to allow update of variables
+      [this.lastX, this.lastY] = [event.offsetX, event.offsetY];
 
-  // Is a flag to prevent drawing when the user is only hovering
-  let isDrawing = false;
+      // Allows for dynamic hue change
+      this.hue++;
+      if (this.hue >= 360) {
+        this.hue = 0;
+      }
 
-  // get the starting and end position to be able to draw
-  let lastX = 0;
-  let lastY = 0;
+      // Check if the stroke size is equal to one of the extrem to change a flag
+      if (this.strokeSize >= 100 || this.strokeSize <= 1) {
+        this.switchSize = !this.switchSize;
+      }
 
-  // variable to play with the hue of the stroke
-  let hue = 0;
-  let strokeSize = 1;
-  let switchSize = false;
+      // Increase or decrease the size depending on which extreme has been met
+      if (this.switchSize) {
+        this.strokeSize++;
+      } else {
+        this.strokeSize--;
+      }
+    },
+    handleCanvas() {
+      const ctx = this.$refs.drawingCanvas.getContext("2d");
 
-  const draw = (e) => {
-    // prevent this function from running if not drawing
-    if (!isDrawing) return;
-    console.log(e);
-    ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`;
-    ctx.lineWidth = strokeSize;
+      // Set the size according to the visible screen
+      this.$refs.drawingCanvas.width = window.innerWidth;
+      this.$refs.drawingCanvas.height = window.innerHeight;
 
-    // Initialise the path
-    ctx.beginPath();
+      // Set the stroke style and size and rounds it up
+      ctx.strokeStyle = "#BADA55";
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.lineWidth = 100;
 
-    // Start from
-    ctx.moveTo(lastX, lastY);
+      // Blend modes
+      ctx.globalCompositeOperation = "overlay";
 
-    // Go to
-    ctx.lineTo(e.offsetX, e.offsetY);
+      // Is a flag to prevent drawing when the user is only hovering
+      // let isDrawing = false;
 
-    // Make the stroke visible
-    ctx.stroke();
+      // // get the starting and end position to be able to draw
+      // let lastX = 0;
+      // let lastY = 0;
 
-    // Destructuring to allow update of variables
-    [lastX, lastY] = [e.offsetX, e.offsetY];
+      // // variable to play with the hue of the stroke
+      // let hue = 0;
+      // let strokeSize = 1;
+      // let switchSize = false;
 
-    // Allows for dynamic hue change
-    hue++;
-    if (hue >= 360) {
-      hue = 0;
-    }
+      // Change the isDrawing variable to true and updates the coordinates
 
-    // Check if the stroke size is equal to one of the extrem to change a flag
-    if (strokeSize >= 100 || strokeSize <= 1) {
-      switchSize = !switchSize;
-    }
+      // listening to the mousemove to get the positions
+      // canvas.addEventListener("mousemove", draw);
 
-    // Increase or decrease the size depending on which extreme has been met
-    if (switchSize) {
-      strokeSize++;
-    } else {
-      strokeSize--;
-    }
-  };
+      // // Do the drawing magic
+      // canvas.addEventListener("mousedown", stroke);
 
-  // Change the isDrawing variable to true and updates the coordinates
-  const stroke = (e) => {
-    isDrawing = true;
-    [lastX, lastY] = [e.offsetX, e.offsetY];
-  };
-
-  // listening to the mousemove to get the positions
-  canvas.addEventListener("mousemove", draw);
-
-  // Do the drawing magic
-  canvas.addEventListener("mousedown", stroke);
-
-  // Changing the isDrawing variable to false when click stops and when leaving the canvas
-  canvas.addEventListener("mouseup", () => (isDrawing = false));
-  canvas.addEventListener("mouseout", () => (isDrawing = false));
-}
+      // // Changing the isDrawing variable to false when click stops and when leaving the canvas
+      // canvas.addEventListener("mouseup", () => (isDrawing = false));
+      // canvas.addEventListener("mouseout", () => (isDrawing = false));
+    },
+  },
+};
+// Get the canvas context to draw on
 // Select the canvas
 </script>
