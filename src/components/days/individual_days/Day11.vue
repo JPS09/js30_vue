@@ -2,7 +2,7 @@
   <div class="player">
     <video
       class="player__video viewer"
-      src="assets/days_assets/Day11/652333414.mp4"
+      src="../../../assets/days_assets/Day11/652333414.mp4"
       @click="togglePlay($event)"
       @pause="updateButton($event)"
       @play="updateButton($event)"
