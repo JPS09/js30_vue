@@ -2,8 +2,8 @@
   <div class="panels">
     <div
       class="panel panel1"
-      :class="{ open: openToggle.toggleFirst }"
-      @click="toggleOpen"
+      :class="{ open: toggleFirst }"
+      @click="toggleFirst = !toggleFirst"
       @transitionend="toggleOpenActive"
     >
       <p>Hey</p>
@@ -12,8 +12,8 @@
     </div>
     <div
       class="panel panel2"
-      :class="{ open: openToggle.toggleSecond }"
-      @click="toggleOpen"
+      :class="{ open: toggleSecond }"
+      @click="toggleSecond = !toggleSecond"
       @transitionend="toggleOpenActive"
     >
       <p>Give</p>
@@ -22,8 +22,8 @@
     </div>
     <div
       class="panel panel3"
-      :class="{ open: openToggle.toggleThird }"
-      @click="toggleOpen"
+      :class="{ open: toggleThird }"
+      @click="toggleThird = !toggleThird"
       @transitionend="toggleOpenActive"
     >
       <p>Experience</p>
@@ -32,8 +32,8 @@
     </div>
     <div
       class="panel panel4"
-      :class="{ open: openToggle.toggleFourth }"
-      @click="toggleOpen"
+      :class="{ open: toggleFourth }"
+      @click="toggleFourth = !toggleFourth"
       @transitionend="toggleOpenActive"
     >
       <p>Give</p>
@@ -42,8 +42,8 @@
     </div>
     <div
       class="panel panel5"
-      :class="{ open: openToggle.toggleFifth }"
-      @click="toggleOpen"
+      :class="{ open: toggleFifth }"
+      @click="toggleFifth = !toggleFifth"
       @transitionend="toggleOpenActive"
     >
       <p>Life</p>
@@ -57,19 +57,18 @@
 export default {
   data() {
     return {
-      openToggle: {
-        toggleFirst: false,
-        toggleSecond: false,
-        toggleThird: false,
-        toggleFourth: false,
-        toggleFifth: false,
-      },
+      toggleFirst: false,
+      toggleSecond: false,
+      toggleThird: false,
+      toggleFourth: false,
+      toggleFifth: false,
+
       flex: false,
     };
   },
   methods: {
-    toggleOpen() {
-      console.log(this.$el);
+    toggleOpen(test) {
+      console.log(test);
       this.openToggle = !this.openToggle;
     },
 
