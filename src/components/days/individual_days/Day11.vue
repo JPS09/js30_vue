@@ -7,6 +7,7 @@
       @pause="updateButton($event)"
       @play="updateButton($event)"
       @timeupdate="progressBar($event)"
+      ref="videoElement"
     ></video>
 
     <div class="player__controls">
@@ -70,9 +71,11 @@ export default {
 
     togglePlay(event) {
       // Ternary to toggle play and pause
-      const play = event.currentTarget.paused ? "play" : "pause";
+      event;
+      // const play = event.currentTarget.paused ? "play" : "pause";
       // Calling of function depending on ternary result
-      event.currentTarget[play]();
+      // event.currentTarget[play]();
+      this.$refs.videoElement.play();
     },
 
     updateButton() {
