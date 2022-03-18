@@ -1,54 +1,9 @@
 <template>
   <div class="panels">
-    <div
-      class="panel panel1"
-      :class="{ open: toggleFirst }"
-      @click="toggleFirst = !toggleFirst"
-      @transitionend="toggleOpenActive"
-    >
-      <p>Hey</p>
-      <p>Let's</p>
-      <p>Dance</p>
-    </div>
-    <div
-      class="panel panel2"
-      :class="{ open: toggleSecond }"
-      @click="toggleSecond = !toggleSecond"
-      @transitionend="toggleOpenActive"
-    >
-      <p>Give</p>
-      <p>Take</p>
-      <p>Receive</p>
-    </div>
-    <div
-      class="panel panel3"
-      :class="{ open: toggleThird }"
-      @click="toggleThird = !toggleThird"
-      @transitionend="toggleOpenActive"
-    >
-      <p>Experience</p>
-      <p>It</p>
-      <p>Today</p>
-    </div>
-    <div
-      class="panel panel4"
-      :class="{ open: toggleFourth }"
-      @click="toggleFourth = !toggleFourth"
-      @transitionend="toggleOpenActive"
-    >
-      <p>Give</p>
-      <p>All</p>
-      <p>You can</p>
-    </div>
-    <div
-      class="panel panel5"
-      :class="{ open: toggleFifth }"
-      @click="toggleFifth = !toggleFifth"
-      @transitionend="toggleOpenActive"
-    >
-      <p>Life</p>
-      <p>In</p>
-      <p>Motion</p>
+    <div v-for="panel in panels" :key="panel.name">
+      <p>{{ panel.topWord }}</p>
+      <p>{{ panel.middleWord }}</p>
+      <p>{{ panel.bottomWord }}</p>
     </div>
   </div>
 </template>
@@ -57,13 +12,48 @@
 export default {
   data() {
     return {
-      toggleFirst: false,
-      toggleSecond: false,
-      toggleThird: false,
-      toggleFourth: false,
-      toggleFifth: false,
-
-      flex: false,
+      panels: [
+        {
+          name: "panel1",
+          topWord: "Hey",
+          middleWord: "Let's",
+          bottomWord: "Dance",
+          isOpen: false,
+          isActive: false,
+        },
+        {
+          name: "panel2",
+          topWord: "Give",
+          middleWord: "Take",
+          bottomWord: "Receive",
+          isOpen: false,
+          isActive: false,
+        },
+        {
+          name: "panel3",
+          topWord: "Experience",
+          middleWord: "It",
+          bottomWord: "Today",
+          isOpen: false,
+          isActive: false,
+        },
+        {
+          name: "panel4",
+          topWord: "Give",
+          middleWord: "All",
+          bottomWord: "You can",
+          isOpen: false,
+          isActive: false,
+        },
+        {
+          name: "panel5",
+          topWord: "Life",
+          middleWord: "In",
+          bottomWord: "Motion",
+          isOpen: false,
+          isActive: false,
+        },
+      ],
     };
   },
   methods: {
