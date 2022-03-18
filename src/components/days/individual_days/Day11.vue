@@ -15,7 +15,7 @@
         @click="scrub($event)"
         @mousedown="this.userClicking = true"
         @mouseup="this.userClicking = false"
-        @mousemove="this.userClicking && this.scrub(e)"
+        @mousemove="this.userClicking && this.scrub($event)"
         ref="progress"
       >
         <div class="progress__filled" ref="progressFilled"></div>
