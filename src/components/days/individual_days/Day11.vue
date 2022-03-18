@@ -3,13 +3,23 @@
     <video
       class="player__video viewer"
       src="assets/days_assets/Day11/652333414.mp4"
+      @click="togglePlay()"
+      @pause="updateButton()"
+      @play="updateButton()"
+      @timeupdate="progressBar()"
     ></video>
 
     <div class="player__controls">
-      <div class="progress">
+      <div class="progress" @click="scrub()">
         <div class="progress__filled"></div>
       </div>
-      <button class="player__button toggle" title="Toggle Play">►</button>
+      <button
+        class="player__button toggle"
+        title="Toggle Play"
+        @click="togglePlay()"
+      >
+        ►
+      </button>
       <input
         type="range"
         name="volume"
@@ -18,6 +28,7 @@
         max="1"
         step="0.05"
         value="1"
+        @change="handleSlide()"
       />
       <input
         type="range"
@@ -27,14 +38,60 @@
         max="2"
         step="0.1"
         value="1"
+        @change="handleSlide()"
       />
-      <button data-skip="-10" class="player__button">« 10s</button>
-      <button data-skip="25" class="player__button">25s »</button>
+      <button data-skip="-10" class="player__button" @click="skip()">
+        « 10s
+      </button>
+      <button data-skip="25" class="player__button" @click="skip()">
+        25s »
+      </button>
     </div>
   </div>
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      userClicking: false,
+    };
+  },
+  methods: {
+    // Functions Zone
+
+    togglePlay() {
+      // Ternary to toggle play and pause
+      const play = video.paused ? "play" : "pause";
+      // Calling of function depending on ternary result
+      video[play]();
+    },
+
+    updateButton() {
+      const icon = this.paused ? "►" : "❚ ❚";
+      toggleButton.textContent = icon;
+    },
+
+    skip() {
+      //Is getting the datasets from the pointing of the event listener
+      video.currentTime += parseInt(this.dataset.skip);
+    },
+
+    handleSlide() {
+      video[this.name] = this.value;
+    },
+
+    progressBar() {
+      const percent = (video.currentTime / video.duration) * 100;
+      progressFilled.style.flexBasis = `${percent}%`;
+    },
+
+    scrub(e) {
+      const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+      video.currentTime = scrubTime;
+    },
+  },
+};
 // TODO: Add a fullScreen button
 
 // Query Selector Zone
@@ -46,62 +103,34 @@ const toggleButton = player.querySelector(".toggle");
 const sliders = player.querySelectorAll(".player__slider");
 const skips = player.querySelectorAll("[data-skip]");
 
-// Functions Zone
-
-function togglePlay() {
-  // Ternary to toggle play and pause
-  const play = video.paused ? "play" : "pause";
-  // Calling of function depending on ternary result
-  video[play]();
-}
-
-function updateButton() {
-  const icon = this.paused ? "►" : "❚ ❚";
-  toggleButton.textContent = icon;
-}
-
-function skip() {
-  //Is getting the datasets from the pointing of the event listener
-  video.currentTime += parseInt(this.dataset.skip);
-}
-
-function handleSlide() {
-  video[this.name] = this.value;
-}
-
-function progressBar() {
-  const percent = (video.currentTime / video.duration) * 100;
-  progressFilled.style.flexBasis = `${percent}%`;
-}
-
-function scrub(e) {
-  const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
-  video.currentTime = scrubTime;
-}
-
 // Event Listener Zone
-video.addEventListener("click", togglePlay);
-video.addEventListener("pause", updateButton);
-video.addEventListener("play", updateButton);
-video.addEventListener("timeupdate", progressBar);
+video.addEventListener("click", this.togglePlay);
+video.addEventListener("pause", this.updateButton);
+video.addEventListener("play", this.updateButton);
+video.addEventListener("timeupdate", this.progressBar);
 
-toggleButton.addEventListener("click", togglePlay);
+toggleButton.addEventListener("click", this.togglePlay);
 
 skips.forEach((skipEl) => {
-  skipEl.addEventListener("click", skip);
+  skipEl.addEventListener("click", this.skip);
 });
 
-sliders.forEach((slider) => slider.addEventListener("change", handleSlide));
+sliders.forEach((slider) =>
+  slider.addEventListener("change", this.handleSlide)
+);
 
-progress.addEventListener("click", scrub);
+progress.addEventListener("click", this.scrub);
 
 // It checks for the flag first before running function scrub
-progress.addEventListener("mousemove", (e) => userClicking && scrub(e));
+progress.addEventListener(
+  "mousemove",
+  (e) => this.userClicking && this.scrub(e)
+);
 
 // Toggling flag
-let userClicking = false;
-progress.addEventListener("mousedown", () => (userClicking = true));
-progress.addEventListener("mouseup", () => (userClicking = false));
+// let userClicking = false;
+progress.addEventListener("mousedown", () => (this.userClicking = true));
+progress.addEventListener("mouseup", () => (this.userClicking = false));
 </script>
 <style scoped>
 html {
