@@ -1,50 +1,87 @@
 <template>
   <div class="panels">
-    <div class="panel panel1">
-      <p>Hey</p>
-      <p>Let's</p>
-      <p>Dance</p>
-    </div>
-    <div class="panel panel2">
-      <p>Give</p>
-      <p>Take</p>
-      <p>Receive</p>
-    </div>
-    <div class="panel panel3">
-      <p>Experience</p>
-      <p>It</p>
-      <p>Today</p>
-    </div>
-    <div class="panel panel4">
-      <p>Give</p>
-      <p>All</p>
-      <p>You can</p>
-    </div>
-    <div class="panel panel5">
-      <p>Life</p>
-      <p>In</p>
-      <p>Motion</p>
+    <div
+      v-for="panel in panels"
+      :key="panel.name"
+      class="panel"
+      :class="[
+        { open: panel.isOpen, 'open-active': panel.isActive },
+        panel.name,
+      ]"
+      @transitionend="toggleActive($event, panel)"
+      @click="toggleOpen(panel)"
+    >
+      <p>{{ panel.topWord }}</p>
+      <p>{{ panel.middleWord }}</p>
+      <p>{{ panel.bottomWord }}</p>
     </div>
   </div>
 </template>
 
 <script>
-const panels = document.querySelectorAll(".panel");
+export default {
+  data() {
+    return {
+      panels: [
+        {
+          name: "panel1",
+          topWord: "Hey",
+          middleWord: "Let's",
+          bottomWord: "Dance",
+          isOpen: false,
+          isActive: false,
+        },
+        {
+          name: "panel2",
+          topWord: "Give",
+          middleWord: "Take",
+          bottomWord: "Receive",
+          isOpen: false,
+          isActive: false,
+        },
+        {
+          name: "panel3",
+          topWord: "Experience",
+          middleWord: "It",
+          bottomWord: "Today",
+          isOpen: false,
+          isActive: false,
+        },
+        {
+          name: "panel4",
+          topWord: "Give",
+          middleWord: "All",
+          bottomWord: "You can",
+          isOpen: false,
+          isActive: false,
+        },
+        {
+          name: "panel5",
+          topWord: "Life",
+          middleWord: "In",
+          bottomWord: "Motion",
+          isOpen: false,
+          isActive: false,
+        },
+      ],
+    };
+  },
+  methods: {
+    toggleOpen(panel) {
+      panel.isOpen = !panel.isOpen;
+    },
+    toggleActive(event, panel) {
+      if (event.propertyName.includes("flex")) {
+        panel.isActive = !panel.isActive;
+      }
+    },
 
-function toggleOpen() {
-  this.classList.toggle("open");
-}
-
-function toggleOpenActive(e) {
-  if (e.propertyName.includes("flex")) {
-    this.classList.toggle("open-active");
-  }
-}
-
-panels.forEach((panel) => panel.addEventListener("click", toggleOpen));
-panels.forEach((panel) =>
-  panel.addEventListener("transitionend", toggleOpenActive)
-);
+    // panels.forEach((panel) => panel.addEventListener("click", toggleOpen));
+    // panels.forEach((panel) =>
+    //   panel.addEventListener("transitionend", toggleOpenActive)
+    // );
+  },
+};
 </script>
 
 <style scoped>
