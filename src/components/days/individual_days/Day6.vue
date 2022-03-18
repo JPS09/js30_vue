@@ -10,9 +10,13 @@
 
 <script>
 export default {
-  // const endpoint =
-  //   "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
-  // const cities = [];
+  data() {
+    return {
+      cities: [],
+      endpoint:
+        "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json",
+    };
+  },
 
   // fetch(endpoint)
   //   .then((response) => response.json())
@@ -22,13 +26,18 @@ export default {
   // input.addEventListener("input", displayCities);
   // input.value = "";
   methods: {
+    fetchingApi() {
+      fetch(this.endpoint)
+        .then((response) => response.json())
+        .then((data) => this.cities.push(...data));
+    },
     numberWithCommas(x) {
       // Adds commas to format the number in a pleasing way
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
     displayCities() {
       const searchTerms = this.value;
-      const results = this.searchFunction(searchTerms, cities);
+      const results = this.searchFunction(searchTerms, this.cities);
 
       const html = results
         .map((place) => {
@@ -76,8 +85,6 @@ export default {
       });
     },
   },
-
-
 };
 </script>
 
