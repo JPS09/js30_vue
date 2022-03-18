@@ -1,26 +1,51 @@
 <template>
   <div class="panels">
-    <div class="panel panel1">
+    <div
+      class="panel panel1"
+      :class="{ open: openToggle }"
+      @click="toggleOpen"
+      @transitionend="toggleOpenActive"
+    >
       <p>Hey</p>
       <p>Let's</p>
       <p>Dance</p>
     </div>
-    <div class="panel panel2">
+    <div
+      class="panel panel2"
+      :class="{ open: openToggle }"
+      @click="toggleOpen"
+      @transitionend="toggleOpenActive"
+    >
       <p>Give</p>
       <p>Take</p>
       <p>Receive</p>
     </div>
-    <div class="panel panel3">
+    <div
+      class="panel panel3"
+      :class="{ open: openToggle }"
+      @click="toggleOpen"
+      @transitionend="toggleOpenActive"
+    >
       <p>Experience</p>
       <p>It</p>
       <p>Today</p>
     </div>
-    <div class="panel panel4">
+    <div
+      class="panel panel4"
+      :class="{ open: openToggle }"
+      @click="toggleOpen"
+      @transitionend="toggleOpenActive"
+    >
       <p>Give</p>
       <p>All</p>
       <p>You can</p>
     </div>
-    <div class="panel panel5">
+    <div
+      class="panel panel5"
+      :class="{ open: openToggle }"
+      @click="toggleOpen"
+      @transitionend="toggleOpenActive"
+    >
       <p>Life</p>
       <p>In</p>
       <p>Motion</p>
@@ -29,22 +54,30 @@
 </template>
 
 <script>
-const panels = document.querySelectorAll(".panel");
+export default {
+  data() {
+    return {
+      openToggle: true,
+      flex: false,
+    };
+  },
+  methods: {
+    toggleOpen() {
+      this.openToggle = !this.openToggle;
+    },
 
-function toggleOpen() {
-  this.classList.toggle("open");
-}
+    toggleOpenActive(e) {
+      if (e.propertyName.includes("flex")) {
+        this.classList.toggle("open-active");
+      }
+    },
 
-function toggleOpenActive(e) {
-  if (e.propertyName.includes("flex")) {
-    this.classList.toggle("open-active");
-  }
-}
-
-panels.forEach((panel) => panel.addEventListener("click", toggleOpen));
-panels.forEach((panel) =>
-  panel.addEventListener("transitionend", toggleOpenActive)
-);
+    // panels.forEach((panel) => panel.addEventListener("click", toggleOpen));
+    // panels.forEach((panel) =>
+    //   panel.addEventListener("transitionend", toggleOpenActive)
+    // );
+  },
+};
 </script>
 
 <style scoped>
