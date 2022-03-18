@@ -7,11 +7,20 @@
       @input="displayCities()"
       v-model.trim="searchTerms"
     />
-    <ul class="suggestions">
-      <li>I am a test</li>
-      <li>Me too</li>
-      <!-- <li v-if="searchTerms() === ''">Filter for a city</li>
-      <li v-if="searchTerms() === ''">or a state</li> -->
+    <ul class="suggestions" v-if="results">
+      <li v-for="result in results" :key="result">
+        <span class="name">{{ result.city }}</span>
+        <span class="name">{{ result.state }}</span>
+        <span class="population"
+          >Pop: {{ this.numberWithCommas(result.population) }}</span
+        >
+      </li>
+      <!-- <li >Filter for a city</li>
+      <li >or a state</li> -->
+    </ul>
+    <ul class="suggestions" v-else>
+      <li>Filter for a city</li>
+      <li>or a state</li>
     </ul>
   </form>
 </template>
@@ -24,6 +33,7 @@ export default {
       endpoint:
         "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json",
       searchTerms: "",
+      results: "",
     };
   },
 
@@ -39,10 +49,10 @@ export default {
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
     displayCities() {
-      const results = this.searchFunction(this.searchTerms, this.cities);
-      console.log(this.searchTerms);
+      this.results = this.searchFunction(this.searchTerms, this.cities);
+      console.log(this.results);
 
-      results
+      this.results
         .map((place) => {
           // Create a new Regex depending on the user input with a global and a case insensitive flags
 
