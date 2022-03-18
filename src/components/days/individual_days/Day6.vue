@@ -1,7 +1,26 @@
 <template>
   <form class="search-form">
-    <input type="text" class="search" placeholder="City or State" />
-    <ul class="suggestions">
+    <input
+      type="text"
+      class="search"
+      placeholder="City or State"
+      @input="displayCities()"
+      v-model.trim="searchTerms"
+    />
+    <ul class="suggestions" v-if="results">
+      <li v-for="result in results" :key="result">
+        <span class="name">{{ result.city }} {{ result.state }}</span>
+        <!--  for above span :class="{
+            hl:
+              new RegExp(this.searchTerms, 'gi').test(result.city) ||
+              new RegExp(this.searchTerms, 'gi').test(result.state),
+          }" -->
+        <span class="population"
+          >Pop: {{ this.numberWithCommas(result.population) }}</span
+        >
+      </li>
+    </ul>
+    <ul class="suggestions" v-else>
       <li>Filter for a city</li>
       <li>or a state</li>
     </ul>
@@ -9,73 +28,90 @@
 </template>
 
 <script>
-const endpoint =
-  "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json";
-const cities = [];
+export default {
+  data() {
+    return {
+      cities: [],
+      endpoint:
+        "https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json",
+      searchTerms: "",
+      results: "",
+    };
+  },
 
-fetch(endpoint)
-  .then((response) => response.json())
-  .then((data) => cities.push(...data));
+  // input.value = "";
+  mounted() {
+    fetch(this.endpoint)
+      .then((response) => response.json())
+      .then((data) => this.cities.push(...data));
+  },
+  methods: {
+    numberWithCommas(x) {
+      // Adds commas to format the number in a pleasing way
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
 
-const input = document.querySelector("input");
-input.addEventListener("input", displayCities);
-input.value = "";
+    resultDisplayFormatting(result) {
+      // maybe use same kind of logic as above method to make it separate the city and country elements
+      const regex = new RegExp(this.searchTerms, "gi");
+      const newCityStyle = result.city.replace(regex, this.searchTerms);
+      const newStateStyle = result.state.replace(regex, this.searchTerms);
+      return [newCityStyle, newStateStyle];
+    },
+    displayCities() {
+      this.results = this.searchFunction(this.searchTerms, this.cities);
+      console.log(this.results);
 
-// Adds commas to format the number in a pleasing way
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+      // To delete when logic fully implemented :
 
-function displayCities() {
-  const searchTerms = this.value;
-  const results = searchFunction(searchTerms, cities);
+      // this.results
+      //   .map((place) => {
+      //     // Create a new Regex depending on the user input with a global and a case insensitive flags
 
-  const html = results
-    .map((place) => {
-      // Create a new Regex depending on the user input with a global and a case insensitive flags
+      //     const regex = new RegExp(this.searchTerms, "gi");
 
-      const regex = new RegExp(searchTerms, "gi");
+      //     // Highlights part of the words that matches the search
+      //     const highlightCity = place.city.replace(
+      //       regex,
+      //       `<span class='hl'>${this.searchTerms}</span>`
+      //     );
+      //     const highlightState = place.state.replace(
+      //       regex,
+      //       `<span class='hl'>${this.searchTerms}</span>`
+      //     );
+      //     return `
+      //       <li>
+      //         <span class='name'>${highlightCity}, ${highlightState}</span>
+      //         <span class = 'population'>Pop: ${this.numberWithCommas(
+      //           place.population
+      //         )}</span>
+      //       </li>
+      //       `;
+      //   })
+      //   .join("");
 
-      // Highlights part of the words that matches the search
-      const highlightCity = place.city.replace(
-        regex,
-        `<span class='hl'>${searchTerms}</span>`
-      );
-      const highlightState = place.state.replace(
-        regex,
-        `<span class='hl'>${searchTerms}</span>`
-      );
-      return `
-          <li>
-            <span class='name'>${highlightCity}, ${highlightState}</span>
-            <span class = 'population'>Pop: ${numberWithCommas(
-              place.population
-            )}</span>
-          </li>
-          `;
-    })
-    .join("");
-
-  // Switch back to initial html if empty query
-  if (searchTerms === "") {
-    listDisplay.innerHTML = `
-            <li>Filter for a city</li>
-            <li>or a state</li>`;
-  } else {
-    listDisplay.innerHTML = html;
-  }
-}
-
-const listDisplay = document.querySelector(".suggestions");
-function searchFunction(wordToSearch, cities) {
-  // Creates a regex based the parameters which is in fact the user input
-  const regex = new RegExp(wordToSearch, "gi");
-  // return the filtering array
-  return cities.filter((place) => {
-    // Search on the city or the state based on the above regex
-    return place.city.match(regex) || place.state.match(regex);
-  });
-}
+      // Switch back to initial html if empty query
+      // if (searchTerms === "") {
+      //   listDisplay.innerHTML = `
+      //         <li>Filter for a city</li>
+      //         <li>or a state</li>`;
+      // } else {
+      //   // const listDisplay = document.querySelector(".suggestions")
+      //   listDisplay.innerHTML = html;
+      // }
+    },
+    searchFunction(wordToSearch, cities) {
+      // Creates a regex based the parameters which is in fact the user input
+      const regex = new RegExp(wordToSearch, "gi");
+      // return the filtering array
+      const userSearchResults = cities.filter((place) => {
+        // Search on the city or the state based on the above regex
+        return place.city.match(regex) || place.state.match(regex);
+      });
+      return userSearchResults.slice(0, 5);
+    },
+  },
+};
 </script>
 
 <style scoped>
