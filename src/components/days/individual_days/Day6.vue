@@ -9,22 +9,16 @@
     />
     <ul class="suggestions" v-if="results">
       <li v-for="result in results" :key="result">
-        <span
-          class="name"
-          :class="{
+        <span class="name">{{ result.city }} {{ result.state }}</span>
+        <!--  for above span :class="{
             hl:
               new RegExp(this.searchTerms, 'gi').test(result.city) ||
               new RegExp(this.searchTerms, 'gi').test(result.state),
-          }"
-          >{{ result.city }} {{ result.state }}</span
-        >
-
+          }" -->
         <span class="population"
           >Pop: {{ this.numberWithCommas(result.population) }}</span
         >
       </li>
-      <!-- <li >Filter for a city</li>
-      <li >or a state</li> -->
     </ul>
     <ul class="suggestions" v-else>
       <li>Filter for a city</li>
@@ -58,6 +52,7 @@ export default {
     },
 
     resultDisplayFormatting(result) {
+      // maybe use same kind of logic as above method to make it separate the city and country elements
       const regex = new RegExp(this.searchTerms, "gi");
       const newCityStyle = result.city.replace(regex, this.searchTerms);
       const newStateStyle = result.state.replace(regex, this.searchTerms);
@@ -107,10 +102,11 @@ export default {
       // Creates a regex based the parameters which is in fact the user input
       const regex = new RegExp(wordToSearch, "gi");
       // return the filtering array
-      return cities.filter((place) => {
+      const userSearchResults = cities.filter((place) => {
         // Search on the city or the state based on the above regex
         return place.city.match(regex) || place.state.match(regex);
       });
+      return userSearchResults.slice(0, 5);
     },
   },
 };
