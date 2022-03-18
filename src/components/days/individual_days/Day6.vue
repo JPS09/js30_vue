@@ -62,31 +62,33 @@ export default {
       this.results = this.searchFunction(this.searchTerms, this.cities);
       console.log(this.results);
 
-      this.results
-        .map((place) => {
-          // Create a new Regex depending on the user input with a global and a case insensitive flags
+      // To delete when logic fully implemented :
 
-          const regex = new RegExp(this.searchTerms, "gi");
+      // this.results
+      //   .map((place) => {
+      //     // Create a new Regex depending on the user input with a global and a case insensitive flags
 
-          // Highlights part of the words that matches the search
-          const highlightCity = place.city.replace(
-            regex,
-            `<span class='hl'>${this.searchTerms}</span>`
-          );
-          const highlightState = place.state.replace(
-            regex,
-            `<span class='hl'>${this.searchTerms}</span>`
-          );
-          return `
-            <li>
-              <span class='name'>${highlightCity}, ${highlightState}</span>
-              <span class = 'population'>Pop: ${this.numberWithCommas(
-                place.population
-              )}</span>
-            </li>
-            `;
-        })
-        .join("");
+      //     const regex = new RegExp(this.searchTerms, "gi");
+
+      //     // Highlights part of the words that matches the search
+      //     const highlightCity = place.city.replace(
+      //       regex,
+      //       `<span class='hl'>${this.searchTerms}</span>`
+      //     );
+      //     const highlightState = place.state.replace(
+      //       regex,
+      //       `<span class='hl'>${this.searchTerms}</span>`
+      //     );
+      //     return `
+      //       <li>
+      //         <span class='name'>${highlightCity}, ${highlightState}</span>
+      //         <span class = 'population'>Pop: ${this.numberWithCommas(
+      //           place.population
+      //         )}</span>
+      //       </li>
+      //       `;
+      //   })
+      //   .join("");
 
       // Switch back to initial html if empty query
       // if (searchTerms === "") {
