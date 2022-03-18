@@ -1,6 +1,16 @@
 <template>
   <div class="panels">
-    <div v-for="panel in panels" :key="panel.name">
+    <div
+      v-for="panel in panels"
+      :key="panel.name"
+      class="panel"
+      :class="[
+        { open: panel.isOpen, 'open-active': panel.isActive },
+        panel.name,
+      ]"
+      @transitionend="toggleActive($event, panel)"
+      @click="toggleOpen(panel)"
+    >
       <p>{{ panel.topWord }}</p>
       <p>{{ panel.middleWord }}</p>
       <p>{{ panel.bottomWord }}</p>
@@ -57,14 +67,12 @@ export default {
     };
   },
   methods: {
-    toggleOpen(test) {
-      console.log(test);
-      this.openToggle = !this.openToggle;
+    toggleOpen(panel) {
+      panel.isOpen = !panel.isOpen;
     },
-
-    toggleOpenActive(e) {
-      if (e.propertyName.includes("flex")) {
-        this.classList.toggle("open-active");
+    toggleActive(event, panel) {
+      if (event.propertyName.includes("flex")) {
+        panel.isActive = !panel.isActive;
       }
     },
 
