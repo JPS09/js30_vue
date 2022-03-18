@@ -82,7 +82,9 @@ export default {
 
     skip(event) {
       //Is getting the datasets from the pointing of the event listener
-      event.currentTarget.currentTime += parseInt(this.dataset.skip);
+      event.currentTarget.currentTime += parseInt(
+        event.currentTarget.dataset.skip
+      );
     },
 
     handleSlide(event) {
