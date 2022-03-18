@@ -72,14 +72,14 @@ export default {
     togglePlay(event) {
       // Ternary to toggle play and pause
       event;
-      // const play = event.currentTarget.paused ? "play" : "pause";
+      const play = this.$refs.videoElement.paused ? "play" : "pause";
       // Calling of function depending on ternary result
       // event.currentTarget[play]();
-      this.$refs.videoElement.play();
+      this.$refs.videoElement[play]();
     },
 
     updateButton() {
-      const icon = this.paused ? "►" : "❚ ❚";
+      const icon = this.$refs.videoElement.paused ? "►" : "❚ ❚";
       this.$refs.toggleButton.textContent = icon;
     },
 
