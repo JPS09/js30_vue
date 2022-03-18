@@ -10,6 +10,10 @@
       height="800"
       ref="drawingCanvas"
       @mousemove="userDrawing($event)"
+      @click="userDrawing($event)"
+      @mousedown="userStroke($event)"
+      @mouseup="this.isDrawing = false"
+      @mouseleave="this.isDrawing = false"
     ></canvas>
   </body>
 </template>
@@ -19,7 +23,7 @@ export default {
   data() {
     return {
       isDrawing: false,
-      colorHue: "",
+      colorHue: "#458b51",
       strokeSize: "",
       switchSize: false,
       lastX: 0,
@@ -35,9 +39,12 @@ export default {
       const ctx = this.$refs.drawingCanvas.getContext("2d");
       // prevent this function from running if not drawing
       if (!this.isDrawing) return;
-      console.log(event);
-      ctx.strokeStyle = `hsl(${this.hue}, 100%, 50%)`;
       ctx.lineWidth = this.strokeSize;
+      ctx.strokeStyle = this.colorHue;
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.lineWidth = 100;
+      ctx.globalCompositeOperation = "overlay";
 
       // Initialise the path
       ctx.beginPath();
@@ -73,41 +80,25 @@ export default {
       }
     },
     handleCanvas() {
-      const ctx = this.$refs.drawingCanvas.getContext("2d");
-
       // Set the size according to the visible screen
-      this.$refs.drawingCanvas.width = window.innerWidth;
-      this.$refs.drawingCanvas.height = window.innerHeight;
-
+      // this.$refs.drawingCanvas.width = window.innerWidth;
+      // this.$refs.drawingCanvas.height = window.innerHeight;
       // Set the stroke style and size and rounds it up
-      ctx.strokeStyle = "#BADA55";
-      ctx.lineJoin = "round";
-      ctx.lineCap = "round";
-      ctx.lineWidth = 100;
-
       // Blend modes
-      ctx.globalCompositeOperation = "overlay";
-
       // Is a flag to prevent drawing when the user is only hovering
       // let isDrawing = false;
-
       // // get the starting and end position to be able to draw
       // let lastX = 0;
       // let lastY = 0;
-
       // // variable to play with the hue of the stroke
       // let hue = 0;
       // let strokeSize = 1;
       // let switchSize = false;
-
       // Change the isDrawing variable to true and updates the coordinates
-
       // listening to the mousemove to get the positions
       // canvas.addEventListener("mousemove", draw);
-
       // // Do the drawing magic
       // canvas.addEventListener("mousedown", stroke);
-
       // // Changing the isDrawing variable to false when click stops and when leaving the canvas
       // canvas.addEventListener("mouseup", () => (isDrawing = false));
       // canvas.addEventListener("mouseout", () => (isDrawing = false));
