@@ -2,7 +2,7 @@
   <div class="panels">
     <div
       class="panel panel1"
-      :class="{ open: openToggle }"
+      :class="{ open: openToggle.toggleFirst }"
       @click="toggleOpen"
       @transitionend="toggleOpenActive"
     >
@@ -12,7 +12,7 @@
     </div>
     <div
       class="panel panel2"
-      :class="{ open: openToggle }"
+      :class="{ open: openToggle.toggleSecond }"
       @click="toggleOpen"
       @transitionend="toggleOpenActive"
     >
@@ -22,7 +22,7 @@
     </div>
     <div
       class="panel panel3"
-      :class="{ open: openToggle }"
+      :class="{ open: openToggle.toggleThird }"
       @click="toggleOpen"
       @transitionend="toggleOpenActive"
     >
@@ -32,7 +32,7 @@
     </div>
     <div
       class="panel panel4"
-      :class="{ open: openToggle }"
+      :class="{ open: openToggle.toggleFourth }"
       @click="toggleOpen"
       @transitionend="toggleOpenActive"
     >
@@ -42,7 +42,7 @@
     </div>
     <div
       class="panel panel5"
-      :class="{ open: openToggle }"
+      :class="{ open: openToggle.toggleFifth }"
       @click="toggleOpen"
       @transitionend="toggleOpenActive"
     >
@@ -57,12 +57,19 @@
 export default {
   data() {
     return {
-      openToggle: true,
+      openToggle: {
+        toggleFirst: false,
+        toggleSecond: false,
+        toggleThird: false,
+        toggleFourth: false,
+        toggleFifth: false,
+      },
       flex: false,
     };
   },
   methods: {
     toggleOpen() {
+      console.log(this.$el);
       this.openToggle = !this.openToggle;
     },
 
