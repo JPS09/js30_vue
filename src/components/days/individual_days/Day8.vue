@@ -9,7 +9,7 @@
       width="800"
       height="800"
       ref="drawingCanvas"
-      @mousemove="draw($event)"
+      @mousemove="userDrawing($event)"
     ></canvas>
   </body>
 </template>
@@ -27,7 +27,7 @@ export default {
     };
   },
   methods: {
-    stroke(event) {
+    userStroke(event) {
       this.isDrawing = true;
       [this.lastX, this.lastY] = [event.offsetX, event.offsetY];
     },
