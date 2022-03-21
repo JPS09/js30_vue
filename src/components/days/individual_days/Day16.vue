@@ -1,4 +1,5 @@
 <template>
+  <h1 class="mobileWarn">Sorry, this doesn't work on mobile</h1>
   <div class="hero" ref="hero" @mousemove="dynamicShadow($event)">
     <h1 ref="h1" contenteditable>🔥WOAH!</h1>
   </div>
@@ -52,6 +53,17 @@ body {
   justify-content: center;
   align-items: center;
   color: black;
+}
+.mobileWarn {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .hero {
+    display: none;
+  }
+  .mobileWarn {
+    display: block;
+  }
 }
 
 h1 {
