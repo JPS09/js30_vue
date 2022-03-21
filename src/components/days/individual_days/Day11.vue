@@ -16,7 +16,7 @@
         @click="scrub($event)"
         @mousedown="this.userClicking = true"
         @mouseup="this.userClicking = false"
-        @mousemove="this.userClicking && this.scrub($event)"
+        @mousemove="this.userClicking === true && this.scrub($event)"
         ref="progress"
       >
         <div class="progress__filled" ref="progressFilled"></div>
@@ -91,7 +91,7 @@ export default {
     handleSlide(event) {
       console.log(event.currentTarget);
       const slider = event.currentTarget;
-      event.currentTarget[this.name] = slider.value;
+      this.$refs.videoElement[this.name] = slider.value;
     },
 
     progressBar() {
