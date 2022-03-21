@@ -1,13 +1,16 @@
 <template>
   <div>
     <ul id="bands">
-      <li v-for="band in bands" :key="band">{{ band }}</li>
+      <li v-for="band in sortedBands" :key="band">{{ band }}</li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
+  mounted() {
+    this.sortBands();
+  },
   data() {
     return {
       bands: [
@@ -29,6 +32,7 @@ export default {
     };
   },
   methods: {
+    // Need to find a way to push data into the sortedbands array in a sorted way
     sortBands() {
       this.bands.sort((a, b) => {
         this.articleBanishment(a) > this.articleBanishment(b) ? 1 : -1;
