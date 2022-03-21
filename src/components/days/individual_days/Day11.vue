@@ -91,7 +91,7 @@ export default {
     handleSlide(event) {
       console.log(event.currentTarget);
       const slider = event.currentTarget;
-      this.$refs.videoElement[this.name] = slider.value;
+      this.$refs.videoElement[event.currentTarget.name] = slider.value;
     },
 
     progressBar() {
@@ -256,7 +256,7 @@ body {
   width: 50%;
   background: #ffc600;
   flex: 0;
-  flex-basis: 50%;
+  flex-basis: 0%;
 }
 
 /* unholy css to style input type="range" */
