@@ -34,7 +34,7 @@ export default {
   methods: {
     // Need to find a way to push data into the sortedbands array in a sorted way
     sortBands() {
-      this.bands.sort((a, b) => {
+      this.sortedBands = this.bands.sort((a, b) => {
         this.articleBanishment(a) > this.articleBanishment(b) ? 1 : -1;
       });
     },
