@@ -1,45 +1,80 @@
 <template>
   <div class="inbox">
-    <div class="item">
-      <input type="checkbox" />
-      <p>This is an inbox layout.</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Check one item</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Hold down your Shift key</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Check a lower item</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Everything in between should also be set to checked</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Try to do it without any libraries</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Just regular JavaScript</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Good Luck!</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Don't forget to tweet your result!</p>
+    <div
+      :class="checkbox.class"
+      v-for="checkbox in checkboxes"
+      :key="checkbox.id"
+    >
+      <input :type="checkbox.type" />
+      <p>{{ checkbox.paragraphContent }}</p>
     </div>
   </div>
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      checkboxes: [
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "This is an inbox layout.",
+          id: 1,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "Check one item",
+          id: 2,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "Hold down your Shift key",
+          id: 3,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "Check a lower item",
+          id: 4,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent:
+            "Everything in between should also be set to checked",
+          id: 5,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "Try to do it without any libraries",
+          id: 6,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "Just regular JavaScript",
+          id: 7,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "Good Luck!",
+          id: 8,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "Don't forget to tweet your result!",
+          id: 9,
+        },
+      ],
+    };
+  },
+};
 const checkboxes = document.querySelectorAll("input[type=checkbox]");
 
 let lastChecked;
