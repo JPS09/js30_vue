@@ -60,6 +60,7 @@
 </template>
 
 <script>
+// TODO: Add a fullScreen button
 export default {
   data() {
     return {
@@ -110,45 +111,6 @@ export default {
     },
   },
 };
-// TODO: Add a fullScreen button
-
-// Query Selector Zone
-// const player = document.querySelector(".player");
-// const video = player.querySelector(".viewer");
-// const progress = player.querySelector(".progress");
-// const progressFilled = player.querySelector(".progress__filled");
-// const toggleButton = player.querySelector(".toggle");
-// const sliders = player.querySelectorAll(".player__slider");
-// const skips = player.querySelectorAll("[data-skip]");
-
-// Event Listener Zone
-// video.addEventListener("click", this.togglePlay);
-// video.addEventListener("pause", this.updateButton);
-// video.addEventListener("play", this.updateButton);
-// video.addEventListener("timeupdate", this.progressBar);
-
-// toggleButton.addEventListener("click", this.togglePlay);
-
-// skips.forEach((skipEl) => {
-//   skipEl.addEventListener("click", this.skip);
-// });
-
-// sliders.forEach((slider) =>
-//   slider.addEventListener("change", this.handleSlide)
-// );
-
-// progress.addEventListener("click", this.scrub);
-
-// It checks for the flag first before running function scrub
-// progress.addEventListener(
-//   "mousemove",
-//   (e) => this.userClicking && this.scrub(e)
-// );
-
-// Toggling flag
-// let userClicking = false;
-// progress.addEventListener("mousedown", () => (this.userClicking = true));
-// progress.addEventListener("mouseup", () => (this.userClicking = false));
 </script>
 <style scoped>
 html {
