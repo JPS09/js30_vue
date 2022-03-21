@@ -1,5 +1,5 @@
-<template >
-  <nav id="main" ref="nav" >
+<template>
+  <nav id="main" ref="nav">
     <ul>
       <li class="logo"><a href="#">LOST.</a></li>
       <li><a href="#">Home</a></li>
