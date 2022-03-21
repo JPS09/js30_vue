@@ -6,7 +6,7 @@
       @click="togglePlay()"
       @pause="updateButton($event)"
       @play="updateButton($event)"
-      @timeupdate="progressBar($event)"
+      @timeupdate="progressBar()"
       ref="videoElement"
     ></video>
 
@@ -83,26 +83,30 @@ export default {
 
     skip(event) {
       //Is getting the datasets from the pointing of the event listener
-      event.currentTarget.currentTime += parseInt(
+      this.$refs.videoElement.currentTime += parseInt(
         event.currentTarget.dataset.skip
       );
     },
 
     handleSlide(event) {
-      event.currentTarget[this.name] = this.value;
+      console.log(event.currentTarget);
+      const slider = event.currentTarget;
+      event.currentTarget[this.name] = slider.value;
     },
 
-    progressBar(event) {
+    progressBar() {
       const percent =
-        (event.currentTarget.currentTime / event.currentTarget.duration) * 100;
+        (this.$refs.videoElement.currentTime /
+          this.$refs.videoElement.duration) *
+        100;
       this.$refs.progressFilled.style.flexBasis = `${percent}%`;
     },
 
     scrub(event) {
       const scrubTime =
         (event.offsetX / this.$refs.progress.offsetWidth) *
-        event.currentTarget.duration;
-      event.currentTarget.currentTime = scrubTime;
+        this.$refs.videoElement.duration;
+      this.$refs.videoElement.currentTime = scrubTime;
     },
   },
 };
