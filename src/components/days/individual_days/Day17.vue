@@ -1,38 +1,51 @@
 <template>
   <div>
-    <ul id="bands"></ul>
+    <ul id="bands">
+      <li v-for="band in bands" :key="band">{{ band }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
-const bands = [
-  "The Plot in You",
-  "The Devil Wears Prada",
-  "Pierce the Veil",
-  "Norma Jean",
-  "The Bled",
-  "Say Anything",
-  "The Midway State",
-  "We Came as Romans",
-  "Counterparts",
-  "Oh, Sleeper",
-  "A Skylit Drive",
-  "Anywhere But Here",
-  "An Old Dog",
-];
-// Using Regex to remove articles on bands
-function articleBanishment(bandName) {
-  return bandName.replace(/^(a |the |an )/i, "").trim();
-}
+export default {
+  data() {
+    return {
+      bands: [
+        "The Plot in You",
+        "The Devil Wears Prada",
+        "Pierce the Veil",
+        "Norma Jean",
+        "The Bled",
+        "Say Anything",
+        "The Midway State",
+        "We Came as Romans",
+        "Counterparts",
+        "Oh, Sleeper",
+        "A Skylit Drive",
+        "Anywhere But Here",
+        "An Old Dog",
+      ],
+      sortedBands: [],
+    };
+  },
+  methods: {
+    sortBands() {
+      this.bands.sort((a, b) => {
+        this.articleBanishment(a) > this.articleBanishment(b) ? 1 : -1;
+      });
+    },
+    articleBanishment(bandName) {
+      // Using Regex to remove articles on bands
+      return bandName.replace(/^(a |the |an )/i, "").trim();
+    },
+  },
+};
 
 //Using the above function to sort the bands without changing them
-const sortedBands = bands.sort((a, b) =>
-  articleBanishment(a) > articleBanishment(b) ? 1 : -1
-);
 
-document.querySelector("#bands").innerHTML = sortedBands
-  .map((band) => `<li>${band}</li>`)
-  .join("");
+// document.querySelector("#bands").innerHTML = this.sortedBands
+//   .map((band) => `<li>${band}</li>`)
+//   .join("");
 </script>
 
 <style scoped>
