@@ -2,14 +2,33 @@
   <div class="player">
     <video
       class="player__video viewer"
-      src="assets/days_assets/Day11/652333414.mp4"
+      src="../../../assets/days_assets/Day11/652333414.mp4"
+      @click="togglePlay()"
+      @pause="updateButton($event)"
+      @play="updateButton($event)"
+      @timeupdate="progressBar()"
+      ref="videoElement"
     ></video>
 
     <div class="player__controls">
-      <div class="progress">
-        <div class="progress__filled"></div>
+      <div
+        class="progress"
+        @click="scrub($event)"
+        @mousedown="this.userClicking = true"
+        @mouseup="this.userClicking = false"
+        @mousemove="this.userClicking === true && this.scrub($event)"
+        ref="progress"
+      >
+        <div class="progress__filled" ref="progressFilled"></div>
       </div>
-      <button class="player__button toggle" title="Toggle Play">►</button>
+      <button
+        class="player__button toggle"
+        title="Toggle Play"
+        @click="togglePlay()"
+        ref="toggleButton"
+      >
+        ►
+      </button>
       <input
         type="range"
         name="volume"
@@ -18,6 +37,7 @@
         max="1"
         step="0.05"
         value="1"
+        @change="handleSlide($event)"
       />
       <input
         type="range"
@@ -27,81 +47,70 @@
         max="2"
         step="0.1"
         value="1"
+        @change="handleSlide($event)"
       />
-      <button data-skip="-10" class="player__button">« 10s</button>
-      <button data-skip="25" class="player__button">25s »</button>
+      <button data-skip="-10" class="player__button" @click="skip($event)">
+        « 10s
+      </button>
+      <button data-skip="25" class="player__button" @click="skip($event)">
+        25s »
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 // TODO: Add a fullScreen button
+export default {
+  data() {
+    return {
+      userClicking: false,
+    };
+  },
+  methods: {
+    // Functions Zone
 
-// Query Selector Zone
-const player = document.querySelector(".player");
-const video = player.querySelector(".viewer");
-const progress = player.querySelector(".progress");
-const progressFilled = player.querySelector(".progress__filled");
-const toggleButton = player.querySelector(".toggle");
-const sliders = player.querySelectorAll(".player__slider");
-const skips = player.querySelectorAll("[data-skip]");
+    togglePlay() {
+      // Ternary to toggle play and pause
+      const play = this.$refs.videoElement.paused ? "play" : "pause";
+      // Calling of function depending on ternary result
+      this.$refs.videoElement[play]();
+    },
 
-// Functions Zone
+    updateButton() {
+      const icon = this.$refs.videoElement.paused ? "►" : "❚ ❚";
+      this.$refs.toggleButton.textContent = icon;
+    },
 
-function togglePlay() {
-  // Ternary to toggle play and pause
-  const play = video.paused ? "play" : "pause";
-  // Calling of function depending on ternary result
-  video[play]();
-}
+    skip(event) {
+      //Is getting the datasets from the pointing of the event listener
+      this.$refs.videoElement.currentTime += parseInt(
+        event.currentTarget.dataset.skip
+      );
+    },
 
-function updateButton() {
-  const icon = this.paused ? "►" : "❚ ❚";
-  toggleButton.textContent = icon;
-}
+    handleSlide(event) {
+      console.log(event.currentTarget);
+      const slider = event.currentTarget;
+      this.$refs.videoElement[event.currentTarget.name] = slider.value;
+    },
 
-function skip() {
-  //Is getting the datasets from the pointing of the event listener
-  video.currentTime += parseInt(this.dataset.skip);
-}
+    progressBar() {
+      const percent =
+        (this.$refs.videoElement.currentTime /
+          this.$refs.videoElement.duration) *
+        100;
+      this.$refs.progressFilled.style.flexBasis = `${percent}%`;
+    },
 
-function handleSlide() {
-  video[this.name] = this.value;
-}
-
-function progressBar() {
-  const percent = (video.currentTime / video.duration) * 100;
-  progressFilled.style.flexBasis = `${percent}%`;
-}
-
-function scrub(e) {
-  const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
-  video.currentTime = scrubTime;
-}
-
-// Event Listener Zone
-video.addEventListener("click", togglePlay);
-video.addEventListener("pause", updateButton);
-video.addEventListener("play", updateButton);
-video.addEventListener("timeupdate", progressBar);
-
-toggleButton.addEventListener("click", togglePlay);
-
-skips.forEach((skipEl) => {
-  skipEl.addEventListener("click", skip);
-});
-
-sliders.forEach((slider) => slider.addEventListener("change", handleSlide));
-
-progress.addEventListener("click", scrub);
-
-// It checks for the flag first before running function scrub
-progress.addEventListener("mousemove", (e) => userClicking && scrub(e));
-
-// Toggling flag
-let userClicking = false;
-progress.addEventListener("mousedown", () => (userClicking = true));
-progress.addEventListener("mouseup", () => (userClicking = false));
+    scrub(event) {
+      const scrubTime =
+        (event.offsetX / this.$refs.progress.offsetWidth) *
+        this.$refs.videoElement.duration;
+      this.$refs.videoElement.currentTime = scrubTime;
+    },
+  },
+};
 </script>
 <style scoped>
 html {
@@ -209,7 +218,7 @@ body {
   width: 50%;
   background: #ffc600;
   flex: 0;
-  flex-basis: 50%;
+  flex-basis: 0%;
 }
 
 /* unholy css to style input type="range" */
