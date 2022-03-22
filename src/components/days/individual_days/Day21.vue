@@ -43,7 +43,7 @@
     </svg>
 
     <h1 class="speed">
-      <span class="speed-value" ref="speed-value">0</span>
+      <span class="speed-value" ref="speed-value">{{ speedValue }}</span>
       <span class="units">KM/H</span>
     </h1>
   </div>
@@ -51,13 +51,18 @@
 
 <script>
 export default {
-  mounted() {
+  data() {
+    return {
+      speedValue: 0,
+    };
+  },
+  created() {
     this.watchPosition();
   },
   methods: {
     watchPosition() {
       navigator.geolocation.watchPosition((data) => {
-        this.$refs.speedValue.textContent = data.coords.speed;
+        this.speedValue = data.coords.speed;
         this.$refs.arrow.style.transform = `rotate(${data.coords.heading}deg)`;
       }),
         (err) => {
@@ -101,11 +106,13 @@ body {
 }
 
 h1 {
-  color: white;
-  font-weight: 100;
+  color: #3caa78;
+  margin-top: 0;
+  font-weight: 400;
   font-size: 60px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .units {
