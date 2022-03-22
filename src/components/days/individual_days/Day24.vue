@@ -10,7 +10,7 @@
     </ul>
   </nav>
 
-  <div class="site-wrap" @scroll="fixNav()">
+  <div class="site-wrap" ref="body">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora
       rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem
@@ -248,6 +248,12 @@
 
 <script>
 export default {
+  mounted() {
+    window.addEventListener("scroll", this.fixNav);
+  },
+  beforeUnmount() {
+    window.deleteEventListener("scroll", this.fixNav);
+  },
   methods: {
     fixNav() {
       // When the scroll hits the top of the nav, add a class to make the nav fixed.
