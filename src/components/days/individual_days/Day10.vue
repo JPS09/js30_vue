@@ -4,8 +4,9 @@
       :class="checkbox.class"
       v-for="checkbox in checkboxes"
       :key="checkbox.id"
+      @click="checkShift($event)"
     >
-      <input :type="checkbox.type" />
+      <input :type="checkbox.type" :id="checkbox.id" />
       <p>{{ checkbox.paragraphContent }}</p>
     </div>
   </div>
@@ -72,41 +73,44 @@ export default {
           id: 9,
         },
       ],
+      inBetween: false,
+      shiftKey: false,
+      lastChecked: false,
     };
   },
+  methods: {
+    checkShift(event) {
+      // variable to store the shift key boolean value
+      this.shiftKey = event.shiftKey;
+
+      // Checking if the shiftKey is pressed and that the current checkbox is checked
+      if (this.shiftKey && this.checked) {
+        // Iterating over the checkboxes
+        // Need to translate that later
+        // checkboxes.forEach((checkbox) => {
+        //   // Check if the current checkbox is one the 'begin' or the 'end'
+        //   if (checkbox === this || checkbox === this.lastChecked) {
+        //     // Reverse the value of inBetween since it's not inBetween the start and end
+        //     this.inBetween = !this.inBetween;
+        //   }
+        //   // if the current checkbox is inBetween, check it.
+        //   if (this.inBetween) {
+        //     checkbox.checked = true;
+        //   }
+        // });
+        //TODO = Find a way to reverse this in a way that when the shift key is pressed on a checked box, it will make them all unchecked
+      }
+      this.lastChecked = this;
+    },
+  },
 };
-const checkboxes = document.querySelectorAll("input[type=checkbox]");
+// const checkboxes = document.querySelectorAll("input[type=checkbox]");
 
-let lastChecked;
+// let lastChecked;
 
-function checkShift(e) {
-  // variable to store the shift key boolean value
-  let shiftKey = e.shiftKey;
-  // Flag to help us determine if a checkbox is inBetween two checkboxes
-  let inBetween = false;
-
-  // Checking if the shiftKey is pressed and that the current checkbox is checked
-  if (shiftKey && this.checked) {
-    // Iterating over the checkboxes
-    checkboxes.forEach((checkbox) => {
-      // Check if the current checkbox is one the 'begin' or the 'end'
-      if (checkbox === this || checkbox === lastChecked) {
-        // Reverse the value of inBetween since it's not inBetween the start and end
-        inBetween = !inBetween;
-      }
-      // if the current checkbox is inBetween, check it.
-      if (inBetween) {
-        checkbox.checked = true;
-      }
-    });
-
-    //TODO = Find a way to reverse this in a way that when the shift key is pressed on a checked box, it will make them all unchecked
-  }
-  lastChecked = this;
-}
-checkboxes.forEach((checkbox) =>
-  checkbox.addEventListener("click", checkShift)
-);
+// checkboxes.forEach((checkbox) =>
+//   checkbox.addEventListener("click", checkShift)
+// );
 </script>
 
 <style scoped>
