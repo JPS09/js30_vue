@@ -32,10 +32,10 @@
   <div class="wrapper">
     <h2>LOCAL TAPAS</h2>
     <p></p>
-    <ul class="plates" ref='list'>
+    <ul class="plates" ref="list">
       <li>Loading Tapas...</li>
     </ul>
-    <form class="add-items" @submit.prevent="addItem()" ref='form'>
+    <form class="add-items" @submit.prevent="addItem()" ref="form">
       <input
         type="text"
         name="item"
@@ -50,6 +50,9 @@
 
 <script>
 export default {
+  mounted() {
+    this.populateList(this.items, this.$refs.list);
+  },
   data() {
     return {
       // Get elements from localStorage or if empty return an empty array
