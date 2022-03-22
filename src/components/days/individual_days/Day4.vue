@@ -2,9 +2,24 @@
 <template>
   <div>
     <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+    <button @click="openConsole()">Click here to open it</button>
   </div>
 </template>
 <script>
+export default {
+  created() {
+    window.dispatchEvent(
+      new KeyboardEvent("keydown", { key: "F12", bubbles: true })
+    );
+  },
+  methods: {
+    openConsole() {
+      window.dispatchEvent(
+        new KeyboardEvent("keydown", { key: "F12", bubbles: true })
+      );
+    },
+  },
+};
 // Get your shorts on - this is an array workout!
 // ## Array Cardio Day 1
 
