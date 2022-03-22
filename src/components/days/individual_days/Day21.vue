@@ -71,8 +71,6 @@ export default {
     },
   },
 };
-// const arrow = document.querySelector(".arrow");
-// const speed = document.querySelector(".speed-value");
 </script>
 
 <style scoped>
