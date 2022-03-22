@@ -43,7 +43,7 @@
     </svg>
 
     <h1 class="speed">
-      <span class="speed-value" ref="speed-value">{{ speedValue }}</span>
+      <span class="speed-value">{{ speedValue }}</span>
       <span class="units">KM/H</span>
     </h1>
   </div>
