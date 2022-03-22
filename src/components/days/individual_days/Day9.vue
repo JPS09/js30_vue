@@ -1,21 +1,25 @@
 <template>
   <div>
-    <p onClick="makeGreen()">×BREAK×DOWN×</p>
+    <p @click="makeGreen()" ref="paragraph">×BREAK×DOWN×</p>
   </div>
 </template>
 
 <script>
+export default {
+  methods: {
+    makeGreen() {
+      const p = this.$refs.paragraph;
+      p.style.color = "#BADA55";
+      p.style.fontSize = "50px";
+    },
+  },
+};
+
+// Need to find a way to make the console Appear on a click on another PR before making this work here
 const dogs = [
   { name: "Snickers", age: 2 },
   { name: "Hugo", age: 8 },
 ];
-
-// eslint-disable-next-line no-unused-vars
-function makeGreen() {
-  const p = document.querySelector("p");
-  p.style.color = "#BADA55";
-  p.style.fontSize = "50px";
-}
 
 // Regular
 console.log("I hope that this corona thing will be over by 2022");
