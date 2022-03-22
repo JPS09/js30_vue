@@ -1,5 +1,9 @@
 <template>
-  <div><p>Try typing VueJS on your keyboard</p></div>
+  <div>
+    <p>
+      Try typing VueJS on your keyboard <strong>( Only works on PC )</strong>
+    </p>
+  </div>
 </template>
 <script>
 export default {
@@ -34,20 +38,8 @@ export default {
       if (this.pressed.join("").includes(this.notTelling)) {
         // eslint-disable-next-line no-undef
         cornify_add();
-        console.log("oh");
       }
     },
   },
 };
-
-// const pressed = [];
-// const notTelling = "vuejs";
-
-// window.addEventListener("keyup", (e) => {
-//   pressed.push(e.key);
-//   pressed.splice(-notTelling.length - 1, pressed.length - notTelling.length);
-//   if (pressed.join("").includes(notTelling)) {
-//     // cornify_add();
-//   }
-// });
 </script>
