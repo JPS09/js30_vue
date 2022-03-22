@@ -61,6 +61,7 @@ export default {
   },
   methods: {
     watchPosition() {
+      console.log("running");
       navigator.geolocation.watchPosition((data) => {
         this.speedValue = data.coords.speed;
         this.$refs.arrow.style.transform = `rotate(${data.coords.heading}deg)`;
