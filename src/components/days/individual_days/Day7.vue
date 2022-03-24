@@ -1,10 +1,52 @@
 <template>
   <div>
-    <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+    <p>
+      <em
+        >Psst: have a look at the JavaScript Console by
+        <strong>pressing F12</strong></em
+      >
+      💁
+    </p>
   </div>
+  <section>
+    <button class="button" @click="togglePeople()">First Set of Data</button>
+    <button class="button" @click="toggleComments()">Second Set of Data</button>
+  </section>
+  <section>
+    <div v-if="showPeople">
+      <img
+        src="../../../assets/days_assets/Day7/screenshots/Day7_People_Array_of_Objects.png"
+        alt="Inventors List"
+        class="img-style"
+      />
+    </div>
+    <div v-if="showComments">
+      <img
+        src="../../../assets/days_assets/Day7/screenshots/Day7_Comments_Array_of_Objects.png"
+        alt="People List"
+        class="img-style"
+      />
+    </div>
+  </section>
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      showPeople: false,
+      showComments: false,
+    };
+  },
+  methods: {
+    togglePeople() {
+      this.showPeople = !this.showPeople;
+    },
+    toggleComments() {
+      this.showComments = !this.showComments;
+    },
+  },
+};
 // ## Array Cardio Day 2
 
 const people = [
@@ -82,3 +124,38 @@ const newComments = [
 
 console.log("Redux way:", { newComments });
 </script>
+<style scoped>
+.button {
+  background-color: #448950;
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+  border-radius: 20px;
+  border: 1px solid #448950;
+  padding: 10px;
+  margin: 10px;
+}
+.button:hover {
+  background-color: white;
+  color: #448950;
+}
+
+.button-details {
+  background-color: #038cbf;
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+  border-radius: 20px;
+  border: 1px solid #038cbf;
+  padding: 10px;
+  margin: 10px;
+}
+
+.button-details:hover {
+  background-color: white;
+  color: #038cbf;
+}
+.img-style {
+  border-radius: 5px;
+}
+</style>
