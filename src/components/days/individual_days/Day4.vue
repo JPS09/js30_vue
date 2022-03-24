@@ -42,10 +42,10 @@
     <section>
       <div>
         <h4>Inventors born in the 1500's</h4>
-        <button class="button-details" @click="toggleData()">
+        <button class="button-details" @click="toggleFirstS()">
           Display the result
         </button>
-        <div v-if="showData">
+        <div v-if="showFirstSection">
           <img
             src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_1500s.png"
             alt="Inventors Born in the 1500's"
@@ -55,10 +55,10 @@
       </div>
       <div>
         <h4>Inventors Full Names</h4>
-        <button class="button-details" @click="toggleData()">
+        <button class="button-details" @click="toggleSecondS()">
           Display the result
         </button>
-        <div v-if="showData">
+        <div v-if="showSecondSection">
           <img
             src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Full_name.png"
             alt="Inventors Full Names"
@@ -68,10 +68,10 @@
       </div>
       <div>
         <h4>Inventors sorted by birthdates</h4>
-        <button class="button-details" @click="toggleData()">
+        <button class="button-details" @click="toggleThirdS()">
           Display the result
         </button>
-        <div v-if="showData">
+        <div v-if="showThirdSection">
           <img
             src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Sorted_Birthdate.png"
             alt="Inventors sorted by their birthdates"
@@ -81,10 +81,10 @@
       </div>
       <div>
         <h4>Inventors Combined Lifetimes</h4>
-        <button class="button-details" @click="toggleData()">
+        <button class="button-details" @click="toggleFourthS()">
           Display the result
         </button>
-        <div v-if="showData">
+        <div v-if="showFourthSection">
           <img
             src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Combined_Lifetimes.png"
             alt="Combined Inventors lifetimes"
@@ -94,10 +94,10 @@
       </div>
       <div>
         <h4>Inventors sorted by Years Lived</h4>
-        <button class="button-details" @click="toggleData()">
+        <button class="button-details" @click="toggleFifthS()">
           Display the result
         </button>
-        <div v-if="showData">
+        <div v-if="showFifthSection">
           <img
             src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Sorted_Lived.png"
             alt="Inventors Sorted by years lived"
@@ -107,10 +107,10 @@
       </div>
       <div>
         <h4>People Sorted Alphabetically</h4>
-        <button class="button-details" @click="toggleData()">
+        <button class="button-details" @click="toggleSixthS()">
           Display the result
         </button>
-        <div v-if="showData">
+        <div v-if="showSixthSection">
           <img
             src="../../../assets/days_assets/Day4/screenshots/Day4_People_Alphabetic_Sort.png"
             alt="People sorted Alphabetically"
@@ -120,10 +120,10 @@
       </div>
       <div>
         <h4>Couting Number of Given element inside an Object</h4>
-        <button class="button-details" @click="toggleData()">
+        <button class="button-details" @click="toggleSeventhS()">
           Display the result
         </button>
-        <div v-if="showData">
+        <div v-if="showSeventhSection">
           <img
             src="../../../assets/days_assets/Day4/screenshots/Day4_Data_Count.png"
             alt="Counting number of element inside a JS Object"
@@ -141,6 +141,13 @@ export default {
       showInventors: false,
       showPeople: false,
       showData: false,
+      showFirstSection: false,
+      showSecondSection: false,
+      showThirdSection: false,
+      showFourthSection: false,
+      showFifthSection: false,
+      showSixthSection: false,
+      showSeventhSection: false,
     };
   },
   methods: {
@@ -152,6 +159,27 @@ export default {
     },
     toggleData() {
       this.showData = !this.showData;
+    },
+    toggleFirstS() {
+      this.showFirstSection = !this.showFirstSection;
+    },
+    toggleSecondS() {
+      this.showSecondSection = !this.showSecondSection;
+    },
+    toggleThirdS() {
+      this.showThirdSection = !this.showThirdSection;
+    },
+    toggleFourthS() {
+      this.showFourthSection = !this.showFourthSection;
+    },
+    toggleFifthS() {
+      this.showFifthSection = !this.showFifthSection;
+    },
+    toggleSixthS() {
+      this.showSixthSection = !this.showSixthSection;
+    },
+    toggleSeventhS() {
+      this.showSeventhSection = !this.showSeventhSection;
     },
   },
 };
