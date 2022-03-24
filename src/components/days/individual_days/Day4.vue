@@ -15,6 +15,9 @@
     <button class="button" @click="togglePeople()">
       Toggle Second Set of Data
     </button>
+    <button class="button" @click="toggleData()">
+      Toggle Last Set of Data
+    </button>
     <div v-if="showInventors">
       <img
         src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Array_of_Objects.png"
@@ -25,6 +28,13 @@
     <div v-if="showPeople">
       <img
         src="../../../assets/days_assets/Day4/screenshots/Day4_People_Array.png"
+        alt="People List"
+        class="img-style"
+      />
+    </div>
+     <div v-if="showData">
+      <img
+        src="../../../assets/days_assets/Day4/screenshots/Day4_Data_Array.png"
         alt="People List"
         class="img-style"
       />
