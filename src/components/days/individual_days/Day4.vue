@@ -9,36 +9,48 @@
       💁
     </p>
     <p>We work with some data to expriment with the console</p>
-    <button class="button" @click="toggleInventors()">
-      Toggle First Set of Data
-    </button>
-    <button class="button" @click="togglePeople()">
-      Toggle Second Set of Data
-    </button>
-    <button class="button" @click="toggleData()">
-      Toggle Last Set of Data
-    </button>
-    <div v-if="showInventors">
-      <img
-        src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Array_of_Objects.png"
-        alt="Inventors List"
-        class="img-style"
-      />
-    </div>
-    <div v-if="showPeople">
-      <img
-        src="../../../assets/days_assets/Day4/screenshots/Day4_People_Array.png"
-        alt="People List"
-        class="img-style"
-      />
-    </div>
-     <div v-if="showData">
-      <img
-        src="../../../assets/days_assets/Day4/screenshots/Day4_Data_Array.png"
-        alt="People List"
-        class="img-style"
-      />
-    </div>
+    <section>
+      <button class="button" @click="toggleInventors()">
+        First Set of Data
+      </button>
+      <button class="button" @click="togglePeople()">Second Set of Data</button>
+      <button class="button" @click="toggleData()">Last Set of Data</button>
+    </section>
+    <section>
+      <div v-if="showInventors">
+        <img
+          src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Array_of_Objects.png"
+          alt="Inventors List"
+          class="img-style"
+        />
+      </div>
+      <div v-if="showPeople">
+        <img
+          src="../../../assets/days_assets/Day4/screenshots/Day4_People_Array.png"
+          alt="People List"
+          class="img-style"
+        />
+      </div>
+      <div v-if="showData">
+        <img
+          src="../../../assets/days_assets/Day4/screenshots/Day4_Data_Array.png"
+          alt="People List"
+          class="img-style"
+        />
+      </div>
+    </section>
+    <section>
+      <div>
+       <h4>Inventors born in the 1500's</h4>
+        <div v-if="showData">
+          <img
+            src="../../../assets/days_assets/Day4/screenshots/Day4_Data_Array.png"
+            alt="People List"
+            class="img-style"
+          />
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 <script>
