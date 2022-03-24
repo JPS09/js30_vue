@@ -45,16 +45,38 @@
         class="img-style"
       />
       <p>Solution's Result</p>
-       <img
+      <img
         src="../../../assets/days_assets/Day14/screenshots/Day14_Second_Example_Result.png"
-        alt="Second Example Solution in code"
+        alt="Second Example Solution in code Part 1"
         class="img-style"
       />
-       <img
+      <img
         src="../../../assets/days_assets/Day14/screenshots/Day14_Second_Example_Result_2.png"
-        alt="Second Example Solution in code"
+        alt="Second Example Solution in code Part 2"
         class="img-style"
       />
+    </div>
+    <div>
+      <h4>Another Example with an Object</h4>
+      <h5>
+        Avoiding this behavior requires a little bit more work with object but
+        remains the same logic
+      </h5>
+      <button class="button" @click="toggleLast()">Show Result</button>
+      <div v-if="showLast">
+        <p>Solution in Code</p>
+        <img
+          src="../../../assets/days_assets/Day14/screenshots/Day14_Last_Example.png"
+          alt="Last Example Solution in Code"
+          class="img-style"
+        />
+        <p>Solution's Result</p>
+         <img
+          src="../../../assets/days_assets/Day14/screenshots/Day14_Last_Example_Solution.png"
+          alt="Last Example Solution in Code"
+          class="img-style"
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -64,6 +86,7 @@ export default {
     return {
       showFirst: false,
       showSecond: false,
+      showLast: false,
     };
   },
   methods: {
@@ -72,6 +95,9 @@ export default {
     },
     toggleSecond() {
       this.showSecond = !this.showSecond;
+    },
+    toggleLast() {
+      this.showLast = !this.showLast;
     },
   },
 };
@@ -144,7 +170,8 @@ console.log({ original: person }, { copy: newCopy });
 const spreadObject = { ...person };
 console.log({ spreaded: spreadObject });
 
-// Things to note - this is only 1 level deep - both for Arrays and Objects. lodash has a cloneDeep method, but you should think twice before using it.
+// Things to note - this is only 1 level deep - both for Arrays and Objects.
+//lodash has a cloneDeep method, but you should think twice before using it.
 const wes = {
   name: "Wes",
   age: 100,
