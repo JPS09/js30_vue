@@ -20,18 +20,21 @@
   </div>
   <div>
     <h4>Referencing an Array or an Object</h4>
-    <h5>Updating the original WILL impact the Reference</h5>
+    <h5>
+      Updating the original WILL impact the Reference ( Wes is replaced by
+      Teacher in both Arrays )
+    </h5>
     <button class="button" @click="toggleSecond()">Show Result</button>
     <div v-if="showSecond">
       <p>Code</p>
       <img
-        src="../../../assets/days_assets/Day14/screenshots/Day14_First_Example.png"
+        src="../../../assets/days_assets/Day14/screenshots/Day14_Second_Example.png"
         alt="Inventors List"
         class="img-style"
       />
       <p>Result</p>
       <img
-        src="../../../assets/days_assets/Day14/screenshots/Day14_First_Example_Proof.png"
+        src="../../../assets/days_assets/Day14/screenshots/Day14_Second_Example_Proof.png"
         alt="Inventors List"
         class="img-style"
       />
@@ -43,7 +46,7 @@ export default {
   data() {
     return {
       showFirst: false,
-      showSecond: false
+      showSecond: false,
     };
   },
   methods: {
