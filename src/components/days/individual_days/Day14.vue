@@ -29,13 +29,30 @@
       <p>Code</p>
       <img
         src="../../../assets/days_assets/Day14/screenshots/Day14_Second_Example.png"
-        alt="Inventors List"
+        alt="Second Example"
         class="img-style"
       />
       <p>Result</p>
       <img
         src="../../../assets/days_assets/Day14/screenshots/Day14_Second_Example_Proof.png"
-        alt="Inventors List"
+        alt="Second Example Proof"
+        class="img-style"
+      />
+      <p>Solution in Code</p>
+      <img
+        src="../../../assets/days_assets/Day14/screenshots/Day14_Second_Example_Solution.png"
+        alt="Second Example Solution in code"
+        class="img-style"
+      />
+      <p>Solution's Result</p>
+       <img
+        src="../../../assets/days_assets/Day14/screenshots/Day14_Second_Example_Result.png"
+        alt="Second Example Solution in code"
+        class="img-style"
+      />
+       <img
+        src="../../../assets/days_assets/Day14/screenshots/Day14_Second_Example_Result_2.png"
+        alt="Second Example Solution in code"
         class="img-style"
       />
     </div>
@@ -81,9 +98,9 @@ const team = players;
 console.log({ original: players }, { ref: team });
 
 // however what happens when we update that array?
-team[0] = "Teacher";
+// team[0] = "Teacher";
 // oh no - we have edited the original array too!
-console.log({ players });
+// console.log({ players });
 // now here is the problem!
 
 // Why? It's because that is an array reference, not an array copy. They both point to the same array!
@@ -98,7 +115,7 @@ const team2 = players.slice();
 const team3 = [].concat(players);
 // or use the new ES6 Spread
 const team4 = [...players];
-team4[2] = "wow copy";
+team4[2] = "Only the copy is affected";
 console.log({ original: players }, { copy: team4 });
 
 const team5 = Array.from(players);
