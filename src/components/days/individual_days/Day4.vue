@@ -1,22 +1,42 @@
 /* eslint-disable no-unused-vars */ /* eslint-disable no-unused-vars */
 <template>
   <div>
-    <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
-    <button @click="openConsole()">Click here to open it</button>
+    <p>
+      <em
+        >Psst: have a look at the JavaScript Console by
+        <strong>pressing F12</strong></em
+      >
+      💁
+    </p>
+    <p>We work with some data to expriment with the console</p>
+    <button @click="toggleInventors()">Toggle First Set of Data</button>
+    <div v-if="showInventors">
+      <img
+        src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Array_of_Objects.png"
+        alt="Inventors List"
+      />
+    </div>
+    <button>Toggle Second Set of Data</button>
+    <div>
+      <img
+        src="../../../assets/days_assets/Day4/screenshots/Day4_People_Array.png"
+        alt="Inventors List"
+      />
+    </div>
   </div>
 </template>
 <script>
 export default {
-  created() {
-    window.dispatchEvent(
-      new KeyboardEvent("keydown", { key: "F12", bubbles: true })
-    );
+  data() {
+    return {
+      showInventors: false,
+      showPeople: false,
+      showData: false,
+    };
   },
   methods: {
-    openConsole() {
-      window.dispatchEvent(
-        new KeyboardEvent("keydown", { key: "F12", bubbles: true })
-      );
+    toggleInventors() {
+      this.showInventors = !this.showInventors;
     },
   },
 };
@@ -187,3 +207,12 @@ const vehicles = data.reduce((obj, item) => {
 }, {}); // defining a default object
 console.table(vehicles);
 </script>
+
+<style scoped>
+.inventors-none {
+  display: none;
+}
+.people-none {
+  display: none;
+}
+</style>
