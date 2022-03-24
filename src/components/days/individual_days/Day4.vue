@@ -16,6 +16,7 @@
       <img
         src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Array_of_Objects.png"
         alt="Inventors List"
+        class="img-style"
       />
     </div>
     <button class="button" @click="togglePeople()">
@@ -25,6 +26,7 @@
       <img
         src="../../../assets/days_assets/Day4/screenshots/Day4_People_Array.png"
         alt="People List"
+        class="img-style"
       />
     </div>
   </div>
@@ -232,5 +234,8 @@ button.button {
 .button:hover {
   background-color: white;
   color: #448950;
+}
+.img-style {
+  border-radius: 5px;
 }
 </style>
