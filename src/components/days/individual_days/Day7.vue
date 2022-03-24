@@ -28,6 +28,73 @@
       />
     </div>
   </section>
+  <section>
+    <div>
+      <h4>Are Some people Grown Ups?</h4>
+      <button class="button-details" @click="toggleFirstS()">
+        Display the result
+      </button>
+      <div v-if="showFirstSection">
+        <img
+          src="../../../assets/days_assets/Day7/screenshots/Day7_People_Grown_ups.png"
+          alt="Are Some people Grown Ups?"
+          class="img-style"
+        />
+      </div>
+    </div>
+    <div>
+      <h4>Are ALL people Grown Ups?</h4>
+      <button class="button-details" @click="toggleSecondS()">
+        Display the result
+      </button>
+      <div v-if="showSecondSection">
+        <img
+          src="../../../assets/days_assets/Day7/screenshots/Day7_People_All_Grown_ups.png"
+          alt="Are ALL people Grown Ups?"
+          class="img-style"
+        />
+      </div>
+    </div>
+    <div>
+      <h4>Finding a Comment with JS</h4>
+      <button class="button-details" @click="toggleThirdS()">
+        Display the result
+      </button>
+      <div v-if="showThirdSection">
+        <img
+          src="../../../assets/days_assets/Day7/screenshots/Day7_Comments_Finding_a_Comment.png"
+          alt="Are Some people Grown Ups?"
+          class="img-style"
+        />
+      </div>
+    </div>
+    <div>
+      <h4>Finding a Comment's Index</h4>
+      <button class="button-details" @click="toggleFourthS()">
+        Display the result
+      </button>
+      <div v-if="showFourthSection">
+        <img
+          src="../../../assets/days_assets/Day7/screenshots/Day7_Comments_Finding_a_Comment_INDEX.png"
+          alt="Are Some people Grown Ups?"
+          class="img-style"
+        />
+      </div>
+    </div>
+    <div>
+      <h4>Deleting a Comment the REDUX Way</h4>
+      <button class="button-details" @click="toggleFifthS()">
+        Display the result
+      </button>
+      <div v-if="showFifthSection">
+        <img
+          src="../../../assets/days_assets/Day7/screenshots/Day7_Comments_Deleting_a_Comment_REDUX.png"
+          alt="Are Some people Grown Ups?"
+          class="img-style"
+        />
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
@@ -36,6 +103,11 @@ export default {
     return {
       showPeople: false,
       showComments: false,
+      showFirstSection: false,
+      showSecondSection: false,
+      showThirdSection: false,
+      showFourthSection: false,
+      showFifthSection: false,
     };
   },
   methods: {
@@ -44,6 +116,21 @@ export default {
     },
     toggleComments() {
       this.showComments = !this.showComments;
+    },
+    toggleFirstS() {
+      this.showFirstSection = !this.showFirstSection;
+    },
+    toggleSecondS() {
+      this.showSecondSection = !this.showSecondSection;
+    },
+    toggleThirdS() {
+      this.showThirdSection = !this.showThirdSection;
+    },
+    toggleFourthS() {
+      this.showFourthSection = !this.showFourthSection;
+    },
+    toggleFifthS() {
+      this.showFifthSection = !this.showFifthSection;
     },
   },
 };
@@ -85,12 +172,12 @@ const isGrownUpShort = people.some((person) => {
 
 // JS Boss
 
-const isAJsBoss = people.some(
+const isGrownUpBest = people.some(
   (person) => new Date().getUTCFullYear() - person.year >= 18
 );
 
 // Shows the element alongside it's value
-console.log("Are some people grown ups?", { isAJsBoss });
+console.log("Are some people grown ups?", { isGrownUpBest });
 // Array.prototype.every() // is everyone 19 or older?
 const allGrownUps = people.every(
   (person) => new Date().getUTCFullYear() - person.year >= 18
@@ -122,7 +209,7 @@ const newComments = [
   ...comments.slice(commentToDelete + 1),
 ];
 
-console.log("Redux way:", { newComments });
+console.log("Deleting an element the Redux way:", { newComments });
 </script>
 <style scoped>
 .button {
