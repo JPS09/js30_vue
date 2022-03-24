@@ -1,10 +1,188 @@
 /* eslint-disable no-unused-vars */ /* eslint-disable no-unused-vars */
 <template>
   <div>
-    <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+    <p>
+      <em
+        >Psst: have a look at the JavaScript Console by
+        <strong>pressing F12</strong></em
+      >
+      💁
+    </p>
+    <p>We work with some data to expriment with the console</p>
+    <section>
+      <button class="button" @click="toggleInventors()">
+        First Set of Data
+      </button>
+      <button class="button" @click="togglePeople()">Second Set of Data</button>
+      <button class="button" @click="toggleData()">Last Set of Data</button>
+    </section>
+    <section>
+      <div v-if="showInventors">
+        <img
+          src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Array_of_Objects.png"
+          alt="Inventors List"
+          class="img-style"
+        />
+      </div>
+      <div v-if="showPeople">
+        <img
+          src="../../../assets/days_assets/Day4/screenshots/Day4_People_Array.png"
+          alt="People List"
+          class="img-style"
+        />
+      </div>
+      <div v-if="showData">
+        <img
+          src="../../../assets/days_assets/Day4/screenshots/Day4_Data_Array.png"
+          alt="Random Data"
+          class="img-style"
+        />
+      </div>
+    </section>
+    <section>
+      <div>
+        <h4>Inventors born in the 1500's</h4>
+        <button class="button-details" @click="toggleFirstS()">
+          Display the result
+        </button>
+        <div v-if="showFirstSection">
+          <img
+            src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_1500s.png"
+            alt="Inventors Born in the 1500's"
+            class="img-style"
+          />
+        </div>
+      </div>
+      <div>
+        <h4>Inventors Full Names</h4>
+        <button class="button-details" @click="toggleSecondS()">
+          Display the result
+        </button>
+        <div v-if="showSecondSection">
+          <img
+            src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Full_name.png"
+            alt="Inventors Full Names"
+            class="img-style"
+          />
+        </div>
+      </div>
+      <div>
+        <h4>Inventors sorted by birthdates</h4>
+        <button class="button-details" @click="toggleThirdS()">
+          Display the result
+        </button>
+        <div v-if="showThirdSection">
+          <img
+            src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Sorted_Birthdate.png"
+            alt="Inventors sorted by their birthdates"
+            class="img-style"
+          />
+        </div>
+      </div>
+      <div>
+        <h4>Inventors Combined Lifetimes</h4>
+        <button class="button-details" @click="toggleFourthS()">
+          Display the result
+        </button>
+        <div v-if="showFourthSection">
+          <img
+            src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Combined_Lifetimes.png"
+            alt="Combined Inventors lifetimes"
+            class="img-style"
+          />
+        </div>
+      </div>
+      <div>
+        <h4>Inventors sorted by Years Lived</h4>
+        <button class="button-details" @click="toggleFifthS()">
+          Display the result
+        </button>
+        <div v-if="showFifthSection">
+          <img
+            src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Sorted_Lived.png"
+            alt="Inventors Sorted by years lived"
+            class="img-style"
+          />
+        </div>
+      </div>
+      <div>
+        <h4>People Sorted Alphabetically</h4>
+        <button class="button-details" @click="toggleSixthS()">
+          Display the result
+        </button>
+        <div v-if="showSixthSection">
+          <img
+            src="../../../assets/days_assets/Day4/screenshots/Day4_People_Alphabetic_Sort.png"
+            alt="People sorted Alphabetically"
+            class="img-style"
+          />
+        </div>
+      </div>
+      <div>
+        <h4>Couting Number of Given element inside an Object</h4>
+        <button class="button-details" @click="toggleSeventhS()">
+          Display the result
+        </button>
+        <div v-if="showSeventhSection">
+          <img
+            src="../../../assets/days_assets/Day4/screenshots/Day4_Data_Count.png"
+            alt="Counting number of element inside a JS Object"
+            class="img-style"
+          />
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 <script>
+export default {
+  data() {
+    return {
+      showInventors: false,
+      showPeople: false,
+      showData: false,
+      showFirstSection: false,
+      showSecondSection: false,
+      showThirdSection: false,
+      showFourthSection: false,
+      showFifthSection: false,
+      showSixthSection: false,
+      showSeventhSection: false,
+    };
+  },
+  methods: {
+    toggleInventors() {
+      this.showInventors = !this.showInventors;
+    },
+    togglePeople() {
+      this.showPeople = !this.showPeople;
+    },
+    toggleData() {
+      this.showData = !this.showData;
+    },
+    toggleFirstS() {
+      this.showFirstSection = !this.showFirstSection;
+    },
+    toggleSecondS() {
+      this.showSecondSection = !this.showSecondSection;
+    },
+    toggleThirdS() {
+      this.showThirdSection = !this.showThirdSection;
+    },
+    toggleFourthS() {
+      this.showFourthSection = !this.showFourthSection;
+    },
+    toggleFifthS() {
+      this.showFifthSection = !this.showFifthSection;
+    },
+    toggleSixthS() {
+      this.showSixthSection = !this.showSixthSection;
+    },
+    toggleSeventhS() {
+      this.showSeventhSection = !this.showSeventhSection;
+    },
+  },
+};
 // Get your shorts on - this is an array workout!
 // ## Array Cardio Day 1
 
@@ -172,3 +350,39 @@ const vehicles = data.reduce((obj, item) => {
 }, {}); // defining a default object
 console.table(vehicles);
 </script>
+
+<style scoped>
+.button {
+  background-color: #448950;
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+  border-radius: 20px;
+  border: 1px solid #448950;
+  padding: 10px;
+  margin: 10px;
+}
+.button:hover {
+  background-color: white;
+  color: #448950;
+}
+
+.button-details {
+  background-color: #038cbf;
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+  border-radius: 20px;
+  border: 1px solid #038cbf;
+  padding: 10px;
+  margin: 10px;
+}
+
+.button-details:hover {
+  background-color: white;
+  color: #038cbf;
+}
+.img-style {
+  border-radius: 5px;
+}
+</style>
