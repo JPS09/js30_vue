@@ -9,14 +9,14 @@
       💁
     </p>
     <p>We work with some data to expriment with the console</p>
-    <button @click="toggleInventors()">Toggle First Set of Data</button>
+    <a class="button" @click="toggleInventors()">Toggle First Set of Data</a>
     <div v-if="showInventors">
       <img
         src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Array_of_Objects.png"
         alt="Inventors List"
       />
     </div>
-    <button @click="togglePeople()">Toggle Second Set of Data</button>
+    <a class="button" @click="togglePeople()">Toggle Second Set of Data</a>
     <div v-if="showPeople">
       <img
         src="../../../assets/days_assets/Day4/screenshots/Day4_People_Array.png"
@@ -215,10 +215,18 @@ console.table(vehicles);
 </script>
 
 <style scoped>
-.inventors-none {
-  display: none;
+.button {
+  background-color: #448950;
+  color: white;
+  font-weight: 500;
+  font-size: 12px;
+  border-radius: 20px;
+  border: 1px solid #448950;
+  padding: 10px;
+  margin: 10px;
 }
-.people-none {
-  display: none;
+.button:hover {
+  background-color: white;
+  color: #448950;
 }
 </style>
