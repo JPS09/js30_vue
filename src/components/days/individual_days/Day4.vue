@@ -16,11 +16,11 @@
         alt="Inventors List"
       />
     </div>
-    <button>Toggle Second Set of Data</button>
-    <div>
+    <button @click="togglePeople()">Toggle Second Set of Data</button>
+    <div v-if="showPeople">
       <img
         src="../../../assets/days_assets/Day4/screenshots/Day4_People_Array.png"
-        alt="Inventors List"
+        alt="People List"
       />
     </div>
   </div>
@@ -37,6 +37,12 @@ export default {
   methods: {
     toggleInventors() {
       this.showInventors = !this.showInventors;
+    },
+    togglePeople() {
+      this.showPeople = !this.showPeople;
+    },
+    toggleData() {
+      this.showData = !this.showData;
     },
   },
 };
