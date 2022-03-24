@@ -12,6 +12,9 @@
     <button class="button" @click="toggleInventors()">
       Toggle First Set of Data
     </button>
+    <button class="button" @click="togglePeople()">
+      Toggle Second Set of Data
+    </button>
     <div v-if="showInventors">
       <img
         src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Array_of_Objects.png"
@@ -19,9 +22,6 @@
         class="img-style"
       />
     </div>
-    <button class="button" @click="togglePeople()">
-      Toggle Second Set of Data
-    </button>
     <div v-if="showPeople">
       <img
         src="../../../assets/days_assets/Day4/screenshots/Day4_People_Array.png"
