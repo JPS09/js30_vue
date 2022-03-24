@@ -34,18 +34,99 @@
       <div v-if="showData">
         <img
           src="../../../assets/days_assets/Day4/screenshots/Day4_Data_Array.png"
-          alt="People List"
+          alt="Random Data"
           class="img-style"
         />
       </div>
     </section>
     <section>
       <div>
-       <h4>Inventors born in the 1500's</h4>
+        <h4>Inventors born in the 1500's</h4>
+        <button class="button-details" @click="toggleData()">
+          Display the result
+        </button>
         <div v-if="showData">
           <img
-            src="../../../assets/days_assets/Day4/screenshots/Day4_Data_Array.png"
-            alt="People List"
+            src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_1500s.png"
+            alt="Inventors Born in the 1500's"
+            class="img-style"
+          />
+        </div>
+      </div>
+      <div>
+        <h4>Inventors Full Names</h4>
+        <button class="button-details" @click="toggleData()">
+          Display the result
+        </button>
+        <div v-if="showData">
+          <img
+            src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Full_name.png"
+            alt="Inventors Full Names"
+            class="img-style"
+          />
+        </div>
+      </div>
+      <div>
+        <h4>Inventors sorted by birthdates</h4>
+        <button class="button-details" @click="toggleData()">
+          Display the result
+        </button>
+        <div v-if="showData">
+          <img
+            src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Sorted_Birthdate.png"
+            alt="Inventors sorted by their birthdates"
+            class="img-style"
+          />
+        </div>
+      </div>
+      <div>
+        <h4>Inventors Combined Lifetimes</h4>
+        <button class="button-details" @click="toggleData()">
+          Display the result
+        </button>
+        <div v-if="showData">
+          <img
+            src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Combined_Lifetimes.png"
+            alt="Combined Inventors lifetimes"
+            class="img-style"
+          />
+        </div>
+      </div>
+      <div>
+        <h4>Inventors sorted by Years Lived</h4>
+        <button class="button-details" @click="toggleData()">
+          Display the result
+        </button>
+        <div v-if="showData">
+          <img
+            src="../../../assets/days_assets/Day4/screenshots/Day4_Inventors_Sorted_Lived.png"
+            alt="Inventors Sorted by years lived"
+            class="img-style"
+          />
+        </div>
+      </div>
+      <div>
+        <h4>People Sorted Alphabetically</h4>
+        <button class="button-details" @click="toggleData()">
+          Display the result
+        </button>
+        <div v-if="showData">
+          <img
+            src="../../../assets/days_assets/Day4/screenshots/Day4_People_Alphabetic_Sort.png"
+            alt="People sorted Alphabetically"
+            class="img-style"
+          />
+        </div>
+      </div>
+      <div>
+        <h4>Couting Number of Given element inside an Object</h4>
+        <button class="button-details" @click="toggleData()">
+          Display the result
+        </button>
+        <div v-if="showData">
+          <img
+            src="../../../assets/days_assets/Day4/screenshots/Day4_Data_Count.png"
+            alt="Counting number of element inside a JS Object"
             class="img-style"
           />
         </div>
@@ -243,7 +324,7 @@ console.table(vehicles);
 </script>
 
 <style scoped>
-button.button {
+.button {
   background-color: #448950;
   color: white;
   font-weight: 900;
@@ -256,6 +337,22 @@ button.button {
 .button:hover {
   background-color: white;
   color: #448950;
+}
+
+.button-details {
+  background-color: #038cbf;
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+  border-radius: 20px;
+  border: 1px solid #038cbf;
+  padding: 10px;
+  margin: 10px;
+}
+
+.button-details:hover {
+  background-color: white;
+  color: #038cbf;
 }
 .img-style {
   border-radius: 5px;
