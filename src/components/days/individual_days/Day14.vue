@@ -1,4 +1,60 @@
+<template>
+  <div>
+    <h4>Referencing a String (Text), numbers or Boolean</h4>
+    <h5>Updating the original doesn't impact the references</h5>
+    <button class="button" @click="toggleFirst()">Show Result</button>
+    <div v-if="showFirst">
+      <p>Code</p>
+      <img
+        src="../../../assets/days_assets/Day14/screenshots/Day14_First_Example.png"
+        alt="First Example"
+        class="img-style"
+      />
+      <p>Result</p>
+      <img
+        src="../../../assets/days_assets/Day14/screenshots/Day14_First_Example_Proof.png"
+        alt="First Example Result"
+        class="img-style"
+      />
+    </div>
+  </div>
+  <div>
+    <h4>Referencing an Array or an Object</h4>
+    <h5>Updating the original WILL impact the Reference</h5>
+    <button class="button" @click="toggleSecond()">Show Result</button>
+    <div v-if="showSecond">
+      <p>Code</p>
+      <img
+        src="../../../assets/days_assets/Day14/screenshots/Day14_First_Example.png"
+        alt="Inventors List"
+        class="img-style"
+      />
+      <p>Result</p>
+      <img
+        src="../../../assets/days_assets/Day14/screenshots/Day14_First_Example_Proof.png"
+        alt="Inventors List"
+        class="img-style"
+      />
+    </div>
+  </div>
+</template>
 <script>
+export default {
+  data() {
+    return {
+      showFirst: false,
+      showSecond: false
+    };
+  },
+  methods: {
+    toggleFirst() {
+      this.showFirst = !this.showFirst;
+    },
+    toggleSecond() {
+      this.showSecond = !this.showSecond;
+    },
+  },
+};
 // start with strings, numbers and booleans
 // Updating the original doesn't impact the reference
 let wow = "good";
@@ -12,8 +68,8 @@ let old2 = old;
 console.log({ original: old }, { ref: old2 });
 old = 120;
 console.log({ originalUpdated: old }, { ref: old2 });
-// Let's say we have an array
 
+// Let's say we have an array
 const players = ["Wes", "Sarah", "Ryan", "Poppy"];
 
 // and we want to make a copy of it.
@@ -22,13 +78,12 @@ const team = players;
 console.log({ original: players }, { ref: team });
 
 // however what happens when we update that array?
-// team[0] = "Teacher";
+team[0] = "Teacher";
 // oh no - we have edited the original array too!
+console.log({ players });
 // now here is the problem!
-// console.log({ players });
 
 // Why? It's because that is an array reference, not an array copy. They both point to the same array!
-
 // So, how do we fix this? We take a copy instead!
 
 // one way
@@ -86,3 +141,38 @@ const dev = Object.assign({}, wes);
 // eslint-disable-next-line no-unused-vars
 const dev2 = JSON.parse(JSON.stringify(wes));
 </script>
+<style scoped>
+.button {
+  background-color: #448950;
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+  border-radius: 20px;
+  border: 1px solid #448950;
+  padding: 10px;
+  margin: 10px;
+}
+.button:hover {
+  background-color: white;
+  color: #448950;
+}
+
+.button-details {
+  background-color: #038cbf;
+  color: white;
+  font-weight: 900;
+  font-size: 12px;
+  border-radius: 20px;
+  border: 1px solid #038cbf;
+  padding: 10px;
+  margin: 10px;
+}
+
+.button-details:hover {
+  background-color: white;
+  color: #038cbf;
+}
+.img-style {
+  border-radius: 5px;
+}
+</style>
