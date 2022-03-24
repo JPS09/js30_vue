@@ -71,7 +71,7 @@
           class="img-style"
         />
         <p>Solution's Result</p>
-         <img
+        <img
           src="../../../assets/days_assets/Day14/screenshots/Day14_Last_Example_Solution.png"
           alt="Last Example Solution in Code"
           class="img-style"
