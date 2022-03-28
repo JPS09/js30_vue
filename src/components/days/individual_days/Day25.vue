@@ -8,7 +8,9 @@
     </div>
   </div>
   <!-- Will only run once -->
-  <button class="no-more" @click.once="logText($event)">Once</button>
+  <button class="no-more" @click.once="logText($event)">
+    Once and Once only
+  </button>
 </template>
 
 <script>
@@ -59,5 +61,11 @@ div {
 
 .no-more {
   background: green;
+  border-radius: 10px;
+  color: white;
+  padding: 5px;
+  appearance: none;
+  margin: 5px;
+  font-weight: 800;
 }
 </style>
