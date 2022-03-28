@@ -346,13 +346,13 @@ export default {
           dayNumber: "Day 25",
           name: "Event Capture, Propagation Bubbling and Once",
           description:
-            "Understanding how event are handled is key to handle them",
+            "Understanding how event are handled is key to handle them.",
           category: "Basics",
           subCategories: ["Event Handling", "Tricky", "Capture"],
           viewed: false,
           mainDifferences: {
-            js: "This concept is essential to understand how JS handle events",
-            vue: "At its core, vue uses this concept to handle events",
+            js: "Capturing an event, preventing that event from going up to the parent and making sure that an event only run once",
+            vue: "Same principles here but with helper to apply them",
           },
         },
         {
