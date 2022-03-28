@@ -1,26 +1,32 @@
 <template>
-  <div class="one">
-    <div class="two">
-      <div class="three"></div>
+  <!--  Reverse the event firing order -->
+  <div class="one" @click.capture="logText($event)">
+    1
+    <div class="two" @click.capture="logText($event)">
+      2
+      <div class="three" @click.capture="logText($event)">3</div>
     </div>
   </div>
-
-  <button class="No more">Once</button>
+  <!-- Will only run once -->
+  <button class="no-more" @click.once="logText($event)">Once</button>
 </template>
 
 <script>
-const divs = document.querySelectorAll("div");
-const button = document.querySelector("button");
+export default {
+  methods: {
+    logText(event) {
+      console.log(event.target.classList.value);
+      event.stopPropagation(); // stop bubbling
+    },
+  },
+};
+// const divs = document.querySelectorAll("div");
+// const button = document.querySelector("button");
 
-function logText(e) {
-  console.log(this.classList.value);
-  e.stopPropagation(); // stop bubbling
-}
-
-divs.forEach(
-  (div) => div.addEventListener("click", logText, { capture: true }) // Reverse the event firing order a
-);
-button.addEventListener("click", logText, { once: true }); // Will only run once
+// divs.forEach(
+//   (div) => div.addEventListener("click", this.logText(), { capture: true })
+// );
+// button.addEventListener("click", this.logText(), { once: true });
 </script>
 
 <style scoped>
@@ -49,5 +55,9 @@ div {
 
 .three {
   background: coral;
+}
+
+.no-more {
+  background: green;
 }
 </style>
