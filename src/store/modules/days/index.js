@@ -352,7 +352,7 @@ export default {
           viewed: false,
           mainDifferences: {
             js: "Capturing an event, preventing that event from going up to the parent and making sure that an event only run once",
-            vue: "Same principles here but with helper to apply them",
+            vue: "Same principles here but with VueJS helpers to apply them",
           },
         },
         {
