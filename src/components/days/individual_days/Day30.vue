@@ -8,7 +8,7 @@
       :class="hole.class"
       v-for="hole in holes"
       :key="hole.id"
-      ref="holesy"
+      ref="holes"
     >
       <div class="mole" @click="bonk($event)"></div>
     </div>
@@ -18,7 +18,7 @@
 <script>
 export default {
   mounted() {
-    console.log(this.$refs.holesy); // Vue version tool old to use https://vuejs.org/guide/essentials/template-refs.html#refs-inside-v-for
+    console.log(this.$refs.holes); // Vue version tool old to use https://vuejs.org/guide/essentials/template-refs.html#refs-inside-v-for
   },
   data() {
     return {
