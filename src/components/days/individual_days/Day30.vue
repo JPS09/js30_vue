@@ -1,5 +1,6 @@
 <template>
-  <h1>Whack-a-mole! <span class="score" ref="score">0</span></h1>
+  <h2>Whack-a-mole!</h2>
+  <p>Your Score :<span class="score" ref="score">0</span></p>
   <button @click="startGame()">Start!</button>
 
   <div class="game">
@@ -17,9 +18,6 @@
 
 <script>
 export default {
-  mounted() {
-    console.log(this.$refs.holes); // Vue version tool old to use https://vuejs.org/guide/essentials/template-refs.html#refs-inside-v-for
-  },
   data() {
     return {
       lastHole: undefined,
@@ -84,63 +82,6 @@ export default {
     },
   },
 };
-/* eslint-disable no-unused-vars */
-// TODO : Storing all time highest scores in localStorage
-// Add a concept of levels like expert
-// const holes = document.querySelectorAll(".hole");
-// const scoreBoard = document.querySelector(".score");
-// const moles = document.querySelectorAll(".mole");
-// let lastHole;
-// let timeUp = false;
-// let score = 0;
-
-// function randHole(listHoles) {
-//   // Select a random hole index
-//   const idx = Math.floor(Math.random() * listHoles.length);
-//   const hole = listHoles[idx];
-//   // If same hole as before, rerun the function
-//   if (hole === lastHole) {
-//     console.warn("That's the same one bro");
-//     return randHole(holes);
-//   }
-//   // Stores the previous hole
-//   lastHole = hole;
-//   return hole;
-// }
-
-// function molePeep() {
-//   // Set a random time
-//   const time = randTime(200, 1000);
-//   // Set a random hole
-//   const hole = randHole(holes);
-//   // Makes the mole peep
-//   hole.classList.add("up");
-//   // With the random time reference, hides the mole
-//   setTimeout(() => {
-//     hole.classList.remove("up");
-//     if (!timeUp) molePeep();
-//   }, time);
-// }
-// // Function that reset the game
-// function startGame() {
-//   scoreBoard.textContent = 0;
-//   timeUp = false;
-//   score = 0;
-//   molePeep();
-//   //Stops the game after 10 seconds
-//   setTimeout(() => (timeUp = true), 10000);
-// }
-
-// function bonk(e) {
-//   if (!e.isTrusted) {
-//     console.warn("Cheating is not good for your health");
-//     return;
-//   }
-//   score++;
-//   this.classList.remove("up");
-//   scoreBoard.textContent = score;
-// }
-// moles.forEach((mole) => mole.addEventListener("click", bonk));
 </script>
 
 <style scoped>
