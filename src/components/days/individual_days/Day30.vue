@@ -3,22 +3,13 @@
   <button @click="startGame()">Start!</button>
 
   <div class="game">
-    <div class="hole hole1">
-      <div class="mole" @click="bonk($event)"></div>
-    </div>
-    <div class="hole hole2">
-      <div class="mole" @click="bonk($event)"></div>
-    </div>
-    <div class="hole hole3">
-      <div class="mole" @click="bonk($event)"></div>
-    </div>
-    <div class="hole hole4">
-      <div class="mole" @click="bonk($event)"></div>
-    </div>
-    <div class="hole hole5">
-      <div class="mole" @click="bonk($event)"></div>
-    </div>
-    <div class="hole hole6">
+    <div
+      class="hole"
+      :class="hole.class"
+      v-for="hole in holes"
+      :key="hole.id"
+      ref="holesy"
+    >
       <div class="mole" @click="bonk($event)"></div>
     </div>
   </div>
@@ -26,11 +17,22 @@
 
 <script>
 export default {
+  mounted() {
+    console.log(this.$refs.holesy); // Vue version tool old to use https://vuejs.org/guide/essentials/template-refs.html#refs-inside-v-for
+  },
   data() {
     return {
       lastHole: undefined,
       timeUp: false,
       score: 0,
+      holes: [
+        { class: "hole1", id: 1 },
+        { class: "hole2", id: 2 },
+        { class: "hole3", id: 3 },
+        { class: "hole4", id: 4 },
+        { class: "hole5", id: 5 },
+        { class: "hole6", id: 6 },
+      ],
     };
   },
   methods: {
@@ -44,7 +46,7 @@ export default {
       // If same hole as before, rerun the function
       if (hole === this.lastHole) {
         console.warn("That's the same one bro");
-        return this.randHole(holes);
+        return this.randHole(this.holes);
       }
       // Stores the previous hole
       this.lastHole = hole;
@@ -54,7 +56,7 @@ export default {
       // Set a random time
       const time = this.randTime(200, 1000);
       // Set a random hole
-      const hole = this.randHole(holes);
+      const hole = this.randHole(this.holes);
       // Makes the mole peep
       hole.classList.add("up");
       // With the random time reference, hides the mole
@@ -78,16 +80,16 @@ export default {
       }
       this.score++;
       this.classList.remove("up");
-      scoreBoard.textContent = this.score;
+      this.$refs.score.textContent = this.score;
     },
   },
 };
 /* eslint-disable no-unused-vars */
 // TODO : Storing all time highest scores in localStorage
 // Add a concept of levels like expert
-const holes = document.querySelectorAll(".hole");
-const scoreBoard = document.querySelector(".score");
-const moles = document.querySelectorAll(".mole");
+// const holes = document.querySelectorAll(".hole");
+// const scoreBoard = document.querySelector(".score");
+// const moles = document.querySelectorAll(".mole");
 // let lastHole;
 // let timeUp = false;
 // let score = 0;
