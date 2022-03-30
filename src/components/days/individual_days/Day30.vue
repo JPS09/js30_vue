@@ -46,7 +46,7 @@ export default {
       // If same hole as before, rerun the function
       if (hole === this.lastHole) {
         console.warn("That's the same one bro");
-        return this.randHole(this.holes);
+        return this.randHole(this.$refs.holes);
       }
       // Stores the previous hole
       this.lastHole = hole;
@@ -56,7 +56,7 @@ export default {
       // Set a random time
       const time = this.randTime(200, 1000);
       // Set a random hole
-      const hole = this.randHole(this.holes);
+      const hole = this.randHole(this.$refs.holes);
       // Makes the mole peep
       hole.classList.add("up");
       // With the random time reference, hides the mole
@@ -79,7 +79,7 @@ export default {
         return;
       }
       this.score++;
-      this.classList.remove("up");
+      e.currentTarget.classList.remove("up");
       this.$refs.score.textContent = this.score;
     },
   },
