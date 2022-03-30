@@ -4,15 +4,15 @@
   <p class="day-30__score" ref="score">0</p>
   <button @click="startGame()">Start!</button>
 
-  <div class="game">
+  <div class="day-30__game">
     <div
-      class="hole"
+      class="day-30__hole"
       :class="hole.class"
       v-for="hole in holes"
       :key="hole.id"
       ref="holes"
     >
-      <div class="mole" @click="bonk($event)"></div>
+      <div class="day-30__mole" @click="bonk($event)"></div>
     </div>
   </div>
 </template>
@@ -127,7 +127,7 @@ body {
   text-decoration-line: underline;
 }
 
-.game {
+.day-30__game {
   width: 100%;
   height: 450px;
   display: flex;
@@ -135,13 +135,13 @@ body {
   margin: 0 auto;
 }
 
-.hole {
+.day-30__hole {
   flex: 1 0 33.33%;
   overflow: hidden;
   position: relative;
 }
 
-.hole:after {
+.day-30__hole:after {
   display: block;
   background: url("../../../assets/days_assets/Day30/dirt.svg") bottom center
     no-repeat;
@@ -154,7 +154,7 @@ body {
   bottom: -30px;
 }
 
-.mole {
+.day-30__mole {
   background: url("../../../assets/days_assets/Day30/mole.svg") bottom center
     no-repeat;
   background-size: 60%;
@@ -165,7 +165,7 @@ body {
   transition: all 0.4s;
 }
 
-.hole.up .mole {
+.day-30__hole.up .day-30__mole {
   top: 0;
 }
 </style>
