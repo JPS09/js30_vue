@@ -1,91 +1,144 @@
 <template>
-  <h1>Whack-a-mole! <span class="score">0</span></h1>
-  <button onClick="startGame()">Start!</button>
+  <h1>Whack-a-mole! <span class="score" ref="score">0</span></h1>
+  <button @click="startGame()">Start!</button>
 
   <div class="game">
     <div class="hole hole1">
-      <div class="mole"></div>
+      <div class="mole" @click="bonk($event)"></div>
     </div>
     <div class="hole hole2">
-      <div class="mole"></div>
+      <div class="mole" @click="bonk($event)"></div>
     </div>
     <div class="hole hole3">
-      <div class="mole"></div>
+      <div class="mole" @click="bonk($event)"></div>
     </div>
     <div class="hole hole4">
-      <div class="mole"></div>
+      <div class="mole" @click="bonk($event)"></div>
     </div>
     <div class="hole hole5">
-      <div class="mole"></div>
+      <div class="mole" @click="bonk($event)"></div>
     </div>
     <div class="hole hole6">
-      <div class="mole"></div>
+      <div class="mole" @click="bonk($event)"></div>
     </div>
   </div>
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      lastHole: undefined,
+      timeUp: false,
+      score: 0,
+    };
+  },
+  methods: {
+    randTime(min, max) {
+      return Math.round(Math.random() * (max - min) + min);
+    },
+    randHole(listHoles) {
+      // Select a random hole index
+      const idx = Math.floor(Math.random() * listHoles.length);
+      const hole = listHoles[idx];
+      // If same hole as before, rerun the function
+      if (hole === this.lastHole) {
+        console.warn("That's the same one bro");
+        return this.randHole(holes);
+      }
+      // Stores the previous hole
+      this.lastHole = hole;
+      return hole;
+    },
+    molePeep() {
+      // Set a random time
+      const time = this.randTime(200, 1000);
+      // Set a random hole
+      const hole = this.randHole(holes);
+      // Makes the mole peep
+      hole.classList.add("up");
+      // With the random time reference, hides the mole
+      setTimeout(() => {
+        hole.classList.remove("up");
+        if (!this.timeUp) this.molePeep();
+      }, time);
+    },
+    startGame() {
+      this.$refs.score.textContent = 0;
+      this.timeUp = false;
+      this.score = 0;
+      this.molePeep();
+      //Stops the game after 10 seconds
+      setTimeout(() => (this.timeUp = true), 10000);
+    },
+    bonk(e) {
+      if (!e.isTrusted) {
+        console.warn("Cheating is not good for your health");
+        return;
+      }
+      this.score++;
+      this.classList.remove("up");
+      scoreBoard.textContent = this.score;
+    },
+  },
+};
 /* eslint-disable no-unused-vars */
 // TODO : Storing all time highest scores in localStorage
 // Add a concept of levels like expert
 const holes = document.querySelectorAll(".hole");
 const scoreBoard = document.querySelector(".score");
 const moles = document.querySelectorAll(".mole");
-let lastHole;
-let timeUp = false;
-let score = 0;
+// let lastHole;
+// let timeUp = false;
+// let score = 0;
 
-function randTime(min, max) {
-  return Math.round(Math.random() * (max - min) + min);
-}
+// function randHole(listHoles) {
+//   // Select a random hole index
+//   const idx = Math.floor(Math.random() * listHoles.length);
+//   const hole = listHoles[idx];
+//   // If same hole as before, rerun the function
+//   if (hole === lastHole) {
+//     console.warn("That's the same one bro");
+//     return randHole(holes);
+//   }
+//   // Stores the previous hole
+//   lastHole = hole;
+//   return hole;
+// }
 
-function randHole(listHoles) {
-  // Select a random hole index
-  const idx = Math.floor(Math.random() * listHoles.length);
-  const hole = listHoles[idx];
-  // If same hole as before, rerun the function
-  if (hole === lastHole) {
-    console.warn("That's the same one bro");
-    return randHole(holes);
-  }
-  // Stores the previous hole
-  lastHole = hole;
-  return hole;
-}
+// function molePeep() {
+//   // Set a random time
+//   const time = randTime(200, 1000);
+//   // Set a random hole
+//   const hole = randHole(holes);
+//   // Makes the mole peep
+//   hole.classList.add("up");
+//   // With the random time reference, hides the mole
+//   setTimeout(() => {
+//     hole.classList.remove("up");
+//     if (!timeUp) molePeep();
+//   }, time);
+// }
+// // Function that reset the game
+// function startGame() {
+//   scoreBoard.textContent = 0;
+//   timeUp = false;
+//   score = 0;
+//   molePeep();
+//   //Stops the game after 10 seconds
+//   setTimeout(() => (timeUp = true), 10000);
+// }
 
-function molePeep() {
-  // Set a random time
-  const time = randTime(200, 1000);
-  // Set a random hole
-  const hole = randHole(holes);
-  // Makes the mole peep
-  hole.classList.add("up");
-  // With the random time reference, hides the mole
-  setTimeout(() => {
-    hole.classList.remove("up");
-    if (!timeUp) molePeep();
-  }, time);
-}
-// Function that reset the game
-function startGame() {
-  scoreBoard.textContent = 0;
-  timeUp = false;
-  score = 0;
-  molePeep();
-  //Stops the game after 10 seconds
-  setTimeout(() => (timeUp = true), 10000);
-}
-
-function bonk(e) {
-  if (!e.isTrusted) {
-    console.warn("Cheating is not good for your health");
-    return;
-  }
-  score++;
-  this.classList.remove("up");
-  scoreBoard.textContent = score;
-}
-moles.forEach((mole) => mole.addEventListener("click", bonk));
+// function bonk(e) {
+//   if (!e.isTrusted) {
+//     console.warn("Cheating is not good for your health");
+//     return;
+//   }
+//   score++;
+//   this.classList.remove("up");
+//   scoreBoard.textContent = score;
+// }
+// moles.forEach((mole) => mole.addEventListener("click", bonk));
 </script>
 
 <style scoped>
