@@ -1,6 +1,7 @@
 <template>
-  <h2>Whack-a-mole!</h2>
-  <p>Your Score :<span class="score" ref="score">0</span></p>
+  <h1 class="day-30__title">Whack-a-mole!</h1>
+  <p class="day-30__paragraph__score">Your Score :</p>
+  <p class="day-30__score" ref="score">0</p>
   <button @click="startGame()">Start!</button>
 
   <div class="game">
@@ -103,23 +104,32 @@ body {
   font-family: "Amatic SC", cursive;
 }
 
-h1 {
+.day-30__title {
   text-align: center;
-  font-size: 10rem;
+  font-size: 2rem;
   line-height: 1;
   margin-bottom: 0;
 }
 
-.score {
+.day-30__score {
   background: rgba(255, 255, 255, 0.2);
+  color: #458b51;
+  font-weight: 900;
+  font-size: 1.5rem;
   padding: 0 3rem;
   line-height: 1;
   border-radius: 1rem;
 }
 
+.day-30__paragraph__score {
+  font-weight: 700;
+  font-size: 25px;
+  text-decoration-line: underline;
+}
+
 .game {
-  width: 600px;
-  height: 400px;
+  width: 100%;
+  height: 450px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
