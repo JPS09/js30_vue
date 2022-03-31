@@ -4,15 +4,35 @@
 
     <select name="voice" id="voices" @change="setVoices()">
       <option value="">Select A Voice</option>
+      <option v-for="voice in voices" :key="voice" :value="voice.name">
+        {{ voice.name }} {{ voice.lang }}
+      </option>
     </select>
 
     <label for="rate">Rate:</label>
-    <input name="rate" type="range" min="0" max="3" value="1" step="0.1" />
+    <input
+      name="rate"
+      type="range"
+      min="0"
+      max="3"
+      value="1"
+      step="0.1"
+      @change="setOption()"
+    />
 
     <label for="pitch">Pitch:</label>
 
-    <input name="pitch" type="range" min="0" max="2" step="0.1" />
-    <textarea name="text">Hello! I love JavaScript 👍</textarea>
+    <input
+      name="pitch"
+      type="range"
+      min="0"
+      max="2"
+      step="0.1"
+      @change="setOption()"
+    />
+    <textarea name="text" @change="setOption()">
+ Hello! I love JavaScript 👍</textarea
+    >
     <button id="stop" @click="toggle(false)">Stop!</button>
     <button id="speak" @click="toggle()">Speak</button>
   </div>
@@ -22,7 +42,7 @@
 export default {
   mounted() {
     this.populateVoices();
-    console.log(this.voices)
+    console.log(this.voices);
   },
   data() {
     return {
@@ -36,14 +56,14 @@ export default {
     populateVoices() {
       const voicesElements = this.getVoices();
       this.voices = voicesElements;
-      const voiceOptions = voices
-        // These can be filtered if needed
-        .map(
-          (voice) =>
-            `<option value="${voice.name}">${voice.name}(${voice.lang})</option>`
-        )
-        .join("");
-      voicesDropdown.innerHTML = voiceOptions;
+      // const voiceOptions = voices
+      //   // These can be filtered if needed
+      //   .map(
+      //     (voice) =>
+      //       `<option value="${voice.name}">${voice.name}(${voice.lang})</option>`
+      //   )
+      //   .join("");
+      // voicesDropdown.innerHTML = voiceOptions;
     },
 
     // Stop the reading and start speaking again.
@@ -69,17 +89,15 @@ export default {
 };
 const msg = new SpeechSynthesisUtterance();
 let voices = [];
-const voicesDropdown = document.querySelector('[name="voice"]');
-const options = document.querySelectorAll('[type="range"], [name="text"]');
+// const voicesDropdown = document.querySelector('[name="voice"]');
+// const options = document.querySelectorAll('[type="range"], [name="text"]');
 // const speakButton = document.querySelector("#speak");
 // const stopButton = document.querySelector("#stop");
 msg.text = document.querySelector('[name="text"]').value;
 
-// this.
-
 speechSynthesis.addEventListener("voiceschanged", this.populateVoices);
 // voicesDropdown.addEventListener("change", this.setVoice);
-options.forEach((option) => option.addEventListener("change", this.setOption));
+// options.forEach((option) => option.addEventListener("change", this.setOption));
 // speakButton.addEventListener("click", this.toggle);
 // Can also use .bind (toggle.bind(null,false))
 // stopButton.addEventListener("click", () => this.toggle(false));
