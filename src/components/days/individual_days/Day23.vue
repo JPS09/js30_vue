@@ -46,50 +46,46 @@ export default {
   },
   data() {
     return {
-      speak: window.speechSynthesis,
+      speechSynthesis: window.speechSynthesis,
       voices: [],
-      msg: "",
+      spokenMessage: new SpeechSynthesisUtterance("ça marche"),
     };
   },
 
   methods: {
     // Fetch the available voices and map it to the dropdown for user selection
     populateVoices() {
-      const voicesElements = this.speak.getVoices();
+      const voicesElements = this.speechSynthesis.getVoices();
       this.voices = voicesElements;
-      // const voiceOptions = voices
-      //   // These can be filtered if needed
-      //   .map(
-      //     (voice) =>
-      //       `<option value="${voice.name}">${voice.name}(${voice.lang})</option>`
-      //   )
-      //   .join("");
-      // voicesDropdown.innerHTML = voiceOptions;
     },
 
     // Stop the reading and start speaking again.
     toggle(startAgain = true) {
-      speechSynthesis.cancel();
+      this.speechSynthesis.cancel();
       if (startAgain) {
-        speechSynthesis.speak(msg);
+        this.speechSynthesis.speak(this.spokenMessage);
       }
     },
 
     // Applies the user selection to the Utterance
     setVoice() {
-      msg.voice = voices.find((voice) => voice.name === this.value);
+      console.warn("it selects but doesnt work");
+      this.spokenMessage.voice = this.voices.find((voice) => {
+        voice.name === this.value;
+        console.log(voice);
+      });
       this.toggle();
     },
 
     // Set the value of the listened elements to the Utterance and then run toggle
     setOption() {
-      msg[this.name] = this.value;
+      this.spokenMessage[this.name] = this.value;
       this.toggle();
     },
   },
 };
-const msg = new SpeechSynthesisUtterance();
-let voices = [];
+// const msg = new SpeechSynthesisUtterance();
+// let voices = [];
 // const voicesDropdown = document.querySelector('[name="voice"]');
 // const options = document.querySelectorAll('[type="range"], [name="text"]');
 // const speakButton = document.querySelector("#speak");
