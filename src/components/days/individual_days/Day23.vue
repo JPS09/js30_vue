@@ -2,7 +2,7 @@
   <div class="voiceinator">
     <h1>The Voiceinator 5000</h1>
 
-    <select name="voice" id="voices">
+    <select name="voice" id="voices" @change="setVoices()">
       <option value="">Select A Voice</option>
     </select>
 
@@ -13,59 +13,76 @@
 
     <input name="pitch" type="range" min="0" max="2" step="0.1" />
     <textarea name="text">Hello! I love JavaScript 👍</textarea>
-    <button id="stop">Stop!</button>
-    <button id="speak">Speak</button>
+    <button id="stop" @click="toggle(false)">Stop!</button>
+    <button id="speak" @click="toggle()">Speak</button>
   </div>
 </template>
 
 <script>
+export default {
+  mounted() {
+    this.populateVoices();
+    console.log(this.voices)
+  },
+  data() {
+    return {
+      voices: [],
+      msg: "",
+    };
+  },
+
+  methods: {
+    // Fetch the available voices and map it to the dropdown for user selection
+    populateVoices() {
+      const voicesElements = this.getVoices();
+      this.voices = voicesElements;
+      const voiceOptions = voices
+        // These can be filtered if needed
+        .map(
+          (voice) =>
+            `<option value="${voice.name}">${voice.name}(${voice.lang})</option>`
+        )
+        .join("");
+      voicesDropdown.innerHTML = voiceOptions;
+    },
+
+    // Stop the reading and start speaking again.
+    toggle(startAgain = true) {
+      speechSynthesis.cancel();
+      if (startAgain) {
+        speechSynthesis.speak(msg);
+      }
+    },
+
+    // Applies the user selection to the Utterance
+    setVoice() {
+      msg.voice = voices.find((voice) => voice.name === this.value);
+      this.toggle();
+    },
+
+    // Set the value of the listened elements to the Utterance and then run toggle
+    setOption() {
+      msg[this.name] = this.value;
+      this.toggle();
+    },
+  },
+};
 const msg = new SpeechSynthesisUtterance();
 let voices = [];
 const voicesDropdown = document.querySelector('[name="voice"]');
 const options = document.querySelectorAll('[type="range"], [name="text"]');
-const speakButton = document.querySelector("#speak");
-const stopButton = document.querySelector("#stop");
+// const speakButton = document.querySelector("#speak");
+// const stopButton = document.querySelector("#stop");
 msg.text = document.querySelector('[name="text"]').value;
 
-// Fetch the available voices and map it to the dropdown for user selection
-function populateVoices() {
-  voices = this.getVoices();
-  const voiceOptions = voices
-    // These can be filtered if needed
-    .map(
-      (voice) =>
-        `<option value="${voice.name}">${voice.name}(${voice.lang})</option>`
-    )
-    .join("");
-  voicesDropdown.innerHTML = voiceOptions;
-}
+// this.
 
-// Stop the reading and start speaking again.
-function toggle(startAgain = true) {
-  speechSynthesis.cancel();
-  if (startAgain) {
-    speechSynthesis.speak(msg);
-  }
-}
-
-// Applies the user selection to the Utterance
-function setVoice() {
-  msg.voice = voices.find((voice) => voice.name === this.value);
-  toggle();
-}
-
-// Set the value of the listened elements to the Utterance and then run toggle
-function setOption() {
-  msg[this.name] = this.value;
-  toggle();
-}
-
-speechSynthesis.addEventListener("voiceschanged", populateVoices);
-voicesDropdown.addEventListener("change", setVoice);
-options.forEach((option) => option.addEventListener("change", setOption));
-speakButton.addEventListener("click", toggle);
+speechSynthesis.addEventListener("voiceschanged", this.populateVoices);
+// voicesDropdown.addEventListener("change", this.setVoice);
+options.forEach((option) => option.addEventListener("change", this.setOption));
+// speakButton.addEventListener("click", this.toggle);
 // Can also use .bind (toggle.bind(null,false))
-stopButton.addEventListener("click", () => toggle(false));
+// stopButton.addEventListener("click", () => this.toggle(false));
 </script>
 
 <style scoped>
