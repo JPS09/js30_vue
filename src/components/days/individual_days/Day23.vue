@@ -2,7 +2,7 @@
   <div class="voiceinator">
     <h1>The Voiceinator 5000</h1>
 
-    <select name="voice" id="voices" @change="setVoices()">
+    <select name="voice" id="voices" @change="setVoice()">
       <option value="">Select A Voice</option>
       <option v-for="voice in voices" :key="voice" :value="voice.name">
         {{ voice.name }} {{ voice.lang }}
@@ -46,6 +46,7 @@ export default {
   },
   data() {
     return {
+      speak: window.speechSynthesis,
       voices: [],
       msg: "",
     };
@@ -54,7 +55,7 @@ export default {
   methods: {
     // Fetch the available voices and map it to the dropdown for user selection
     populateVoices() {
-      const voicesElements = this.getVoices();
+      const voicesElements = this.speak.getVoices();
       this.voices = voicesElements;
       // const voiceOptions = voices
       //   // These can be filtered if needed
@@ -93,9 +94,9 @@ let voices = [];
 // const options = document.querySelectorAll('[type="range"], [name="text"]');
 // const speakButton = document.querySelector("#speak");
 // const stopButton = document.querySelector("#stop");
-msg.text = document.querySelector('[name="text"]').value;
+// msg.text = document.querySelector('[name="text"]').value;
 
-speechSynthesis.addEventListener("voiceschanged", this.populateVoices);
+//speechSynthesis.addEventListener("voiceschanged", this.populateVoices);
 // voicesDropdown.addEventListener("change", this.setVoice);
 // options.forEach((option) => option.addEventListener("change", this.setOption));
 // speakButton.addEventListener("click", this.toggle);
