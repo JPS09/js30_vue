@@ -2,7 +2,12 @@
   <div class="voiceinator">
     <h1>The Voiceinator 5000</h1>
 
-    <select ref="select" name="voice" id="voices" @change="setVoice()">
+    <select
+      ref="select"
+      name="voice"
+      id="voices"
+      @change="setVoice(), toggle()"
+    >
       <option value="">Select A Voice</option>
       <option v-for="voice in voices" :key="voice" :value="voice.name">
         {{ voice.name }} {{ voice.lang }}
@@ -64,7 +69,6 @@ export default {
     toggle(startAgain = true) {
       this.speechSynthesis.cancel();
       if (startAgain) {
-        this.setVoice();
         this.spokenMessage.text = this.$refs.text.value;
         this.speechSynthesis.speak(this.spokenMessage);
       }
