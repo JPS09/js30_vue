@@ -44,13 +44,12 @@
 export default {
   mounted() {
     this.populateVoices();
-    console.log(this.$refs.text.value);
   },
   data() {
     return {
       speechSynthesis: window.speechSynthesis,
       voices: [],
-      spokenMessage: new SpeechSynthesisUtterance("Work"),
+      spokenMessage: new SpeechSynthesisUtterance(),
     };
   },
 
@@ -65,6 +64,7 @@ export default {
     toggle(startAgain = true) {
       this.speechSynthesis.cancel();
       if (startAgain) {
+        this.setVoice();
         this.spokenMessage.text = this.$refs.text.value;
         this.speechSynthesis.speak(this.spokenMessage);
       }
@@ -72,10 +72,10 @@ export default {
 
     // Applies the user selection to the Utterance
     setVoice() {
-      this.spokenMessage.voice = this.voices.find((voice) => {
-        voice.name === this.$refs.select.value;
-      });
-      this.toggle();
+      const selectV = this.$refs.select.value;
+      this.spokenMessage.voice = this.voices.find(
+        (voice) => voice.name === selectV
+      );
     },
 
     // Set the value of the listened elements to the Utterance and then run toggle
