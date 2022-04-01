@@ -11,24 +11,26 @@
 
     <label for="rate">Rate:</label>
     <input
+      ref="rate"
       name="rate"
       type="range"
       min="0"
       max="3"
       value="1"
       step="0.1"
-      @change="setOption()"
+      @change="setOption(this.$refs.rate)"
     />
 
     <label for="pitch">Pitch:</label>
 
     <input
+      ref="pitch"
       name="pitch"
       type="range"
       min="0"
       max="2"
       step="0.1"
-      @change="setOption()"
+      @change="setOption(this.$refs.pitch)"
     />
     <textarea name="text" @change="setOption()">
  Hello! I love JavaScript 👍</textarea
@@ -78,8 +80,8 @@ export default {
     },
 
     // Set the value of the listened elements to the Utterance and then run toggle
-    setOption() {
-      this.spokenMessage[this.name] = this.value;
+    setOption(option) {
+      this.spokenMessage[option.name] = option.value;
       this.toggle();
     },
   },
