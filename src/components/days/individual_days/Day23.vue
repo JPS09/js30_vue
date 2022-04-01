@@ -2,7 +2,7 @@
   <div class="voiceinator">
     <h1>The Voiceinator 5000</h1>
 
-    <select name="voice" id="voices" @change="setVoice()">
+    <select ref="select" name="voice" id="voices" @change="setVoice()">
       <option value="">Select A Voice</option>
       <option v-for="voice in voices" :key="voice" :value="voice.name">
         {{ voice.name }} {{ voice.lang }}
@@ -32,7 +32,7 @@
       step="0.1"
       @change="setOption(this.$refs.pitch)"
     />
-    <textarea name="text" @change="setOption()">
+    <textarea name="text" @change="setOption()" ref="text">
  Hello! I love JavaScript 👍</textarea
     >
     <button id="stop" @click="toggle(false)">Stop!</button>
@@ -44,13 +44,13 @@
 export default {
   mounted() {
     this.populateVoices();
-    console.log(this.voices);
+    console.log(this.$refs.text.value);
   },
   data() {
     return {
       speechSynthesis: window.speechSynthesis,
       voices: [],
-      spokenMessage: new SpeechSynthesisUtterance("ça marche"),
+      spokenMessage: new SpeechSynthesisUtterance("merde"),
     };
   },
 
@@ -71,10 +71,8 @@ export default {
 
     // Applies the user selection to the Utterance
     setVoice() {
-      console.warn("it selects but doesnt work");
       this.spokenMessage.voice = this.voices.find((voice) => {
-        voice.name === this.value;
-        console.log(voice);
+        voice.name === this.$refs.select.value;
       });
       this.toggle();
     },
