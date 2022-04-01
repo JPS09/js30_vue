@@ -65,8 +65,8 @@ export default {
     toggle(startAgain = true) {
       this.speechSynthesis.cancel();
       if (startAgain) {
-        const message = new SpeechSynthesisUtterance(this.$refs.text.value);
-        this.speechSynthesis.speak(message);
+        this.spokenMessage.text = this.$refs.text.value;
+        this.speechSynthesis.speak(this.spokenMessage);
       }
     },
 
