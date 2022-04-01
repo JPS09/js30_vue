@@ -69,12 +69,13 @@ export default {
     toggle(startAgain = true) {
       this.speechSynthesis.cancel();
       if (startAgain) {
+        // Set the spoken text
         this.spokenMessage.text = this.$refs.text.value;
         this.speechSynthesis.speak(this.spokenMessage);
       }
     },
 
-    // Applies the user selection to the Utterance
+    // Applies the user voice selection to the Utterance
     setVoice() {
       const selectV = this.$refs.select.value;
       this.spokenMessage.voice = this.voices.find(
@@ -91,20 +92,6 @@ export default {
     },
   },
 };
-// const msg = new SpeechSynthesisUtterance();
-// let voices = [];
-// const voicesDropdown = document.querySelector('[name="voice"]');
-// const options = document.querySelectorAll('[type="range"], [name="text"]');
-// const speakButton = document.querySelector("#speak");
-// const stopButton = document.querySelector("#stop");
-// msg.text = document.querySelector('[name="text"]').value;
-
-//speechSynthesis.addEventListener("voiceschanged", this.populateVoices);
-// voicesDropdown.addEventListener("change", this.setVoice);
-// options.forEach((option) => option.addEventListener("change", this.setOption));
-// speakButton.addEventListener("click", this.toggle);
-// Can also use .bind (toggle.bind(null,false))
-// stopButton.addEventListener("click", () => this.toggle(false));
 </script>
 
 <style scoped>
