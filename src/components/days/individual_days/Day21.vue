@@ -1,6 +1,7 @@
 <template>
   <div>
     <svg
+      ref="arrow"
       class="arrow"
       xmlns="http://www.w3.org/2000/svg"
       xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -42,23 +43,35 @@
     </svg>
 
     <h1 class="speed">
-      <span class="speed-value">0</span>
+      <span class="speed-value">{{ speedValue }}</span>
       <span class="units">KM/H</span>
     </h1>
   </div>
 </template>
 
 <script>
-const arrow = document.querySelector(".arrow");
-const speed = document.querySelector(".speed-value");
-
-navigator.geolocation.watchPosition((data) => {
-  speed.textContent = data.coords.speed;
-  arrow.style.transform = `rotate(${data.coords.heading}deg)`;
-}),
-  (err) => {
-    console.error(err);
-  };
+export default {
+  data() {
+    return {
+      speedValue: 0,
+    };
+  },
+  created() {
+    this.watchPosition();
+  },
+  methods: {
+    watchPosition() {
+      console.log("running");
+      navigator.geolocation.watchPosition((data) => {
+        this.speedValue = data.coords.speed;
+        this.$refs.arrow.style.transform = `rotate(${data.coords.heading}deg)`;
+      }),
+        (err) => {
+          console.error(err);
+        };
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -92,11 +105,13 @@ body {
 }
 
 h1 {
-  color: white;
-  font-weight: 100;
+  color: #3caa78;
+  margin-top: 0;
+  font-weight: 400;
   font-size: 60px;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .units {
