@@ -50,7 +50,7 @@ export default {
     return {
       speechSynthesis: window.speechSynthesis,
       voices: [],
-      spokenMessage: new SpeechSynthesisUtterance("merde"),
+      spokenMessage: new SpeechSynthesisUtterance("Work"),
     };
   },
 
@@ -65,7 +65,8 @@ export default {
     toggle(startAgain = true) {
       this.speechSynthesis.cancel();
       if (startAgain) {
-        this.speechSynthesis.speak(this.spokenMessage);
+        const message = new SpeechSynthesisUtterance(this.$refs.text.value);
+        this.speechSynthesis.speak(message);
       }
     },
 
@@ -79,7 +80,9 @@ export default {
 
     // Set the value of the listened elements to the Utterance and then run toggle
     setOption(option) {
-      this.spokenMessage[option.name] = option.value;
+      if (option) {
+        this.spokenMessage[option.name] = option.value;
+      }
       this.toggle();
     },
   },
