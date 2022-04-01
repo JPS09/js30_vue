@@ -2,70 +2,96 @@
   <div class="voiceinator">
     <h1>The Voiceinator 5000</h1>
 
-    <select name="voice" id="voices">
+    <select
+      ref="select"
+      name="voice"
+      id="voices"
+      @change="setVoice(), toggle()"
+    >
       <option value="">Select A Voice</option>
+      <option v-for="voice in voices" :key="voice" :value="voice.name">
+        {{ voice.name }} {{ voice.lang }}
+      </option>
     </select>
 
     <label for="rate">Rate:</label>
-    <input name="rate" type="range" min="0" max="3" value="1" step="0.1" />
+    <input
+      ref="rate"
+      name="rate"
+      type="range"
+      min="0"
+      max="3"
+      value="1"
+      step="0.1"
+      @change="setOption(this.$refs.rate)"
+    />
 
     <label for="pitch">Pitch:</label>
 
-    <input name="pitch" type="range" min="0" max="2" step="0.1" />
-    <textarea name="text">Hello! I love JavaScript 👍</textarea>
-    <button id="stop">Stop!</button>
-    <button id="speak">Speak</button>
+    <input
+      ref="pitch"
+      name="pitch"
+      type="range"
+      min="0"
+      max="2"
+      step="0.1"
+      @change="setOption(this.$refs.pitch)"
+    />
+    <textarea name="text" @change="setOption()" ref="text">
+ Hello! I love JavaScript 👍</textarea
+    >
+    <button id="stop" @click="toggle(false)">Stop!</button>
+    <button id="speak" @click="toggle()">Speak</button>
   </div>
 </template>
 
 <script>
-const msg = new SpeechSynthesisUtterance();
-let voices = [];
-const voicesDropdown = document.querySelector('[name="voice"]');
-const options = document.querySelectorAll('[type="range"], [name="text"]');
-const speakButton = document.querySelector("#speak");
-const stopButton = document.querySelector("#stop");
-msg.text = document.querySelector('[name="text"]').value;
+export default {
+  mounted() {
+    this.populateVoices();
+  },
+  data() {
+    return {
+      speechSynthesis: window.speechSynthesis,
+      voices: [],
+      spokenMessage: new SpeechSynthesisUtterance(),
+    };
+  },
 
-// Fetch the available voices and map it to the dropdown for user selection
-function populateVoices() {
-  voices = this.getVoices();
-  const voiceOptions = voices
-    // These can be filtered if needed
-    .map(
-      (voice) =>
-        `<option value="${voice.name}">${voice.name}(${voice.lang})</option>`
-    )
-    .join("");
-  voicesDropdown.innerHTML = voiceOptions;
-}
+  methods: {
+    // Fetch the available voices and map it to the dropdown for user selection
+    populateVoices() {
+      const voicesElements = this.speechSynthesis.getVoices();
+      this.voices = voicesElements;
+    },
 
-// Stop the reading and start speaking again.
-function toggle(startAgain = true) {
-  speechSynthesis.cancel();
-  if (startAgain) {
-    speechSynthesis.speak(msg);
-  }
-}
+    // Stop the reading and start speaking again.
+    toggle(startAgain = true) {
+      this.speechSynthesis.cancel();
+      if (startAgain) {
+        // Set the spoken text
+        this.spokenMessage.text = this.$refs.text.value;
+        this.speechSynthesis.speak(this.spokenMessage);
+      }
+    },
 
-// Applies the user selection to the Utterance
-function setVoice() {
-  msg.voice = voices.find((voice) => voice.name === this.value);
-  toggle();
-}
+    // Applies the user voice selection to the Utterance
+    setVoice() {
+      const selectV = this.$refs.select.value;
+      this.spokenMessage.voice = this.voices.find(
+        (voice) => voice.name === selectV
+      );
+    },
 
-// Set the value of the listened elements to the Utterance and then run toggle
-function setOption() {
-  msg[this.name] = this.value;
-  toggle();
-}
-
-speechSynthesis.addEventListener("voiceschanged", populateVoices);
-voicesDropdown.addEventListener("change", setVoice);
-options.forEach((option) => option.addEventListener("change", setOption));
-speakButton.addEventListener("click", toggle);
-// Can also use .bind (toggle.bind(null,false))
-stopButton.addEventListener("click", () => toggle(false));
+    // Set the value of the listened elements to the Utterance and then run toggle
+    setOption(option) {
+      if (option) {
+        this.spokenMessage[option.name] = option.value;
+      }
+      this.toggle();
+    },
+  },
+};
 </script>
 
 <style scoped>
