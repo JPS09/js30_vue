@@ -1,5 +1,5 @@
 <template>
-  <nav id="main">
+  <nav id="main" ref="nav">
     <ul>
       <li class="logo"><a href="#">LOST.</a></li>
       <li><a href="#">Home</a></li>
@@ -10,7 +10,7 @@
     </ul>
   </nav>
 
-  <div class="site-wrap">
+  <div class="site-wrap" ref="body">
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore tempora
       rerum, est autem cupiditate, corporis a qui libero ipsum delectus quidem
@@ -247,22 +247,32 @@
 </template>
 
 <script>
-const nav = document.querySelector("#main");
-const topOfNav = nav.offsetTop;
+export default {
+  mounted() {
+    window.addEventListener("scroll", this.fixNav);
+  },
+  beforeUnmount() {
+    window.deleteEventListener("scroll", this.fixNav);
+  },
+  methods: {
+    fixNav() {
+      // When the scroll hits the top of the nav, add a class to make the nav fixed.
+      // Adjust for fixed nav with padding.
+      const topOfNav = this.$refs.nav.offsetTop;
+      if (window.scrollY >= topOfNav) {
+        document.body.style.paddingTop = this.$refs.nav.offsetHeight + "px";
+        console.log("oh");
+        document.body.classList.add("fixed-nav");
+      } else {
+        document.body.style.paddingTop = 0;
+        console.log("this is a no");
+        document.body.classList.remove("fixed-nav");
+      }
+    },
+  },
+};
 
-function fixNav() {
-  // When the scroll hits the top of the nav, add a class to make the nav fixed.
-  // Adjust for fixed nav with padding.
-  if (window.scrollY >= topOfNav) {
-    document.body.style.paddingTop = nav.offsetHeight + "px";
-    document.body.classList.add("fixed-nav");
-  } else {
-    document.body.style.paddingTop = 0;
-    document.body.classList.remove("fixed-nav");
-  }
-}
-
-window.addEventListener("scroll", fixNav);
+// window.addEventListener("scroll", fixNav);
 </script>
 
 <style scoped>
