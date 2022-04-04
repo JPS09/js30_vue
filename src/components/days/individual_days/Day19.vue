@@ -1,7 +1,7 @@
 <template>
   <div class="photobooth">
     <div class="controls">
-      <button onClick="takePhoto()">Take Photo</button>
+      <button @click="takePhoto()">Take Photo</button>
       <!--       <div class="rgb">
         <label for="rmin">Red Min:</label>
         <input type="range" min=0 max=255 name="rmin">
@@ -24,138 +24,161 @@
       </div> -->
     </div>
 
-    <canvas class="photo"></canvas>
-    <video class="player"></video>
-    <div class="strip"></div>
+    <canvas class="photo" ref="canvas"></canvas>
+    <video class="player" ref="video" @canplay="paintToCanvas()"></video>
+    <div class="strip" ref="strip"></div>
 
-    <audio class="snap" src="assets/days_assets/Day19/snap.mp3" hidden></audio>
+    <audio class="snap" ref="snap" hidden>
+      <source
+        src="../../../assets/days_assets/Day19/snap.mp3"
+        type="audio/mp3"
+      />
+    </audio>
   </div>
 </template>
 
 <script>
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-undef */
-const video = document.querySelector(".player");
-const canvas = document.querySelector(".photo");
-const ctx = canvas.getContext("2d");
-const strip = document.querySelector(".strip");
-const snap = document.querySelector(".snap");
+export default {
+  data() {
+    return {
+      canvasID: undefined,
+    };
+  },
+  mounted() {
+    // Correct hook to find to avoid potential error -> before Update perhaps
+    this.getVideo();
+  },
+  beforeUnmount() {
+    this.cleanOnUnmount();
+    clearInterval(this.canvasID);
+  },
+  methods: {
+    cleanOnUnmount() {
+      const stream = this.$refs.video.srcObject;
+      const tracks = stream.getTracks();
 
-function getVideo() {
-  navigator.mediaDevices
-    .getUserMedia({ video: true, audio: false })
-    .then((localMediaStream) => {
-      console.log(localMediaStream);
+      tracks.forEach(function (track) {
+        track.stop();
+      });
 
-      // DEPRECATED
-      // video.src = window.URL.createObjectURL(localMediaStream)
+      this.$refs.video.srcObject = null;
+    },
+    getVideo() {
+      navigator.mediaDevices
+        .getUserMedia({ video: true, audio: false })
+        .then((localMediaStream) => {
+          console.log("Local Media stream", localMediaStream);
 
-      // New Syntax
-      video.srcObject = localMediaStream;
-      video.play();
-    })
-    .catch((error) => {
-      console.error("Error:", error.message);
-    });
-}
+          // DEPRECATED
+          // video.src = window.URL.createObjectURL(localMediaStream)
 
-// Adjust the canvas size to the webcam video stream and put that stream into the canvas
-function paintToCanvas() {
-  const width = video.videoWidth;
-  const height = video.videoHeight;
-  canvas.width = width;
-  canvas.height = height;
-  return setInterval(() => {
-    ctx.drawImage(video, 0, 0, width, height);
+          // New Syntax
+          this.$refs.video.srcObject = localMediaStream;
+          this.$refs.video.play();
+        })
+        .catch((error) => {
+          console.error("Error:", error.message);
+        });
+    },
 
-    // get the pixels
-    let pixels = ctx.getImageData(0, 0, width, height);
+    // Adjust the canvas size to the webcam video stream and put that stream into the canvas
+    paintToCanvas() {
+      const width = this.$refs.video.videoWidth;
+      const height = this.$refs.video.videoHeight;
+      this.$refs.canvas.width = width;
+      this.$refs.canvas.height = height;
 
-    // Red Effect
-    // pixels = redEffect(pixels);
+      this.canvasID = setInterval(() => {
+        const ctx = this.$refs.canvas.getContext("2d");
+        ctx.drawImage(this.$refs.video, 0, 0, width, height);
 
-    // Stroboscopic effect with opacity of old frames
-    pixels = rgbSplit(pixels);
-    ctx.globalAlpha = 0.1;
+        // get the pixels
+        let pixels = ctx.getImageData(0, 0, width, height);
 
-    // Green screen
-    //pixels = greenScreen(pixels)
+        // Red Effect
+        // pixels = redEffect(pixels);
 
-    // Put the pixels back
-    ctx.putImageData(pixels, 0, 0);
-  }, 16);
-}
+        // Stroboscopic effect with opacity of old frames
+        pixels = this.rgbSplit(pixels);
+        this.$refs.canvas.getContext("2d").globalAlpha = 0.1;
 
-function takePhoto() {
-  snap.currentTime = 0;
-  snap.play();
+        // Green screen
+        //pixels = greenScreen(pixels)
 
-  // Defines the format of the image
-  const data = canvas.toDataURL("image/png");
-  //Creating a clickable link for download
-  const link = document.createElement("a");
-  link.href = data;
-  // Making it downloadable
-  link.setAttribute("download", "test");
-  link.textContent = "Download your face";
-  link.innerHTML = `<img src="${data}" alt="You"/>`;
-  // Insert it below the canvas
-  strip.insertBefore(link, strip.firstChild);
-}
+        // Put the pixels back
+        ctx.putImageData(pixels, 0, 0);
+      }, 16);
+      return this.canvasID;
+    },
 
-// Red overlay
-function redEffect(pixels) {
-  for (let i = 0; i < pixels.data.length; i += 4) {
-    pixels.data[i + 0] = pixels.data[i + 0] + 100; // RED
-    pixels.data[i + 1] = pixels.data[i + 1] - 50; // GREEN
-    pixels.data[i + 2] = pixels.data[i + 2] * 0.5; // Blue
-  }
-  return pixels;
-}
+    takePhoto() {
+      this.$refs.snap.currentTime = 0;
+      this.$refs.snap.play();
 
-// RGB split
-function rgbSplit(pixels) {
-  for (let i = 0; i < pixels.data.length; i += 4) {
-    pixels.data[i - 150] = pixels.data[i + 0]; // RED
-    pixels.data[i + 200] = pixels.data[i + 1]; // GREEN
-    pixels.data[i - 350] = pixels.data[i + 2]; // Blue
-  }
-  return pixels;
-}
+      // Defines the format of the image
+      const data = this.$refs.canvas.toDataURL("image/png");
+      //Creating a clickable link for download
+      const link = document.createElement("a");
+      link.href = data;
+      // Making it downloadable
+      link.setAttribute("download", "test");
+      link.textContent = "Download your face";
+      link.innerHTML = `<img src="${data}" alt="You"/>`;
+      // Insert it below the canvas
+      this.$refs.strip.insertBefore(link, this.$refs.strip.firstChild);
+    },
 
-// Green screen effect
-function greenScreen(pixels) {
-  const levels = {};
+    // Red overlay
+    redEffect(pixels) {
+      for (let i = 0; i < pixels.data.length; i += 4) {
+        pixels.data[i + 0] = pixels.data[i + 0] + 100; // RED
+        pixels.data[i + 1] = pixels.data[i + 1] - 50; // GREEN
+        pixels.data[i + 2] = pixels.data[i + 2] * 0.5; // Blue
+      }
+      return pixels;
+    },
 
-  document.querySelectorAll(".rgb input").forEach((input) => {
-    levels[input.name] = input.value;
-  });
+    // RGB split
+    rgbSplit(pixels) {
+      for (let i = 0; i < pixels.data.length; i += 4) {
+        pixels.data[i - 150] = pixels.data[i + 0]; // RED
+        pixels.data[i + 200] = pixels.data[i + 1]; // GREEN
+        pixels.data[i - 350] = pixels.data[i + 2]; // Blue
+      }
+      return pixels;
+    },
 
-  for (i = 0; i < pixels.data.length; i = i + 4) {
-    red = pixels.data[i + 0];
-    green = pixels.data[i + 1];
-    blue = pixels.data[i + 2];
-    alpha = pixels.data[i + 3];
+    // Green screen effect
+    greenScreen(pixels) {
+      const levels = {};
 
-    if (
-      red >= levels.rmin &&
-      green >= levels.gmin &&
-      blue >= levels.bmin &&
-      red <= levels.rmax &&
-      green <= levels.gmax &&
-      blue <= levels.bmax
-    ) {
-      // take it out!
-      pixels.data[i + 3] = 0;
-    }
-  }
+      document.querySelectorAll(".rgb input").forEach((input) => {
+        levels[input.name] = input.value;
+      });
+      /* eslint-disable no-undef */
+      for (i = 0; i < pixels.data.length; i = i + 4) {
+        red = pixels.data[i + 0];
+        green = pixels.data[i + 1];
+        blue = pixels.data[i + 2];
+        alpha = pixels.data[i + 3];
 
-  return pixels;
-}
-// Get the video stream from the webcam
-getVideo();
-// When the stream is ready, execute the paintToCanvas function
-video.addEventListener("canplay", paintToCanvas);
+        if (
+          red >= levels.rmin &&
+          green >= levels.gmin &&
+          blue >= levels.bmin &&
+          red <= levels.rmax &&
+          green <= levels.gmax &&
+          blue <= levels.bmax
+        ) {
+          // take it out!
+          pixels.data[i + 3] = 0;
+        }
+      }
+
+      return pixels;
+    },
+  },
+};
 </script>
 
 <style scoped>
