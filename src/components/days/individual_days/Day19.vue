@@ -28,12 +28,12 @@
     <video class="player" ref="video" @canplay="paintToCanvas()"></video>
     <div class="strip" ref="strip"></div>
 
-    <audio
-      class="snap"
-      ref="snap"
-      src="../../../assets/days_assets/Day19/snap.mp3"
-      hidden
-    ></audio>
+    <audio class="snap" ref="snap" hidden>
+      <source
+        src="../../../assets/days_assets/Day19/snap.mp3"
+        type="audio/mp3"
+      />
+    </audio>
   </div>
 </template>
 
