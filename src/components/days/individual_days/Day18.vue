@@ -64,6 +64,17 @@
 </template>
 
 <script>
+export default {
+  data() {
+    return {
+      li: [
+        // Do that for each video then use the v-for ref to add all the datasets up (Same logic as Day30)
+        { id: 1, time: "5:43", content: "Video 1" },
+        { id: 2, time: "2:33", content: "Video 2" },
+      ],
+    };
+  },
+};
 const nodes = [...document.querySelectorAll("[data-time]")];
 const seconds = nodes
   .map((node) => node.dataset.time)
