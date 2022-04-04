@@ -27,7 +27,7 @@
       <form
         name="customForm"
         id="custom"
-        @submit.prevent="timer(parseInt($event.currentTarget.value * 60))"
+        @submit.prevent="timer($event.currentTarget.firstChild.value * 60)"
       >
         <input type="text" name="minutes" placeholder="Enter Minutes" />
       </form>
@@ -67,6 +67,9 @@ export default {
         if (secondsLeft <= 0) clearInterval(this.timerInterval);
         this.displayTimeLeft(secondsLeft);
       }, 1000);
+    },
+    test(value) {
+      console.log(value.target.firstChild.value);
     },
 
     displayTimeLeft(seconds) {
