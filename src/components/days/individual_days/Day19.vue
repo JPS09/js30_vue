@@ -50,8 +50,8 @@ export default {
     console.log(this.$refs.video);
     console.log(this.canvasID);
   },
-  onUnmount() {
-    // this.cleanOnUnmount();
+  beforeUnmount() {
+    this.cleanOnUnmount();
     console.log(this.canvasID);
     clearInterval(this.canvasID);
   },
