@@ -45,7 +45,7 @@ export default {
     };
   },
   mounted() {
-    // Somethimes emits an error due to the cavnas not being there, need to search if correct hook
+    // Correct hook to find to avoid potential error -> before Update perhaps
     this.getVideo();
   },
   beforeUnmount() {
