@@ -41,14 +41,7 @@
 export default {
   mounted() {
     this.getVideo();
-  },
-  data() {
-    return {
-      canvas: this.$refs.canvas,
-      video: this.$refs.video,
-      snapSound: this.$refs.snap,
-      strip: this.$refs.strip,
-    };
+    console.log(this.$refs.video);
   },
   methods: {
     getVideo() {
@@ -61,8 +54,8 @@ export default {
           // video.src = window.URL.createObjectURL(localMediaStream)
 
           // New Syntax
-          this.video.srcObject = localMediaStream;
-          this.video.play();
+          this.$refs.video.srcObject = localMediaStream;
+          this.$refs.video.play();
         })
         .catch((error) => {
           console.error("Error:", error.message);
@@ -71,34 +64,35 @@ export default {
 
     // Adjust the canvas size to the webcam video stream and put that stream into the canvas
     paintToCanvas() {
-      const width = this.video.videoWidth;
-      const height = this.video.videoHeight;
-      this.canvas.width = width;
-      this.canvas.height = height;
+      const width = this.$refs.video.videoWidth;
+      const height = this.$refs.video.videoHeight;
+      this.$refs.canvas.width = width;
+      this.$refs.canvas.height = height;
       return setInterval(() => {
-        this.ctx.drawImage(this.video, 0, 0, width, height);
+        const ctx = this.$refs.canvas.getContext("2d");
+        ctx.drawImage(this.$refs.video, 0, 0, width, height);
 
         // get the pixels
-        let pixels = this.ctx.getImageData(0, 0, width, height);
+        let pixels = ctx.getImageData(0, 0, width, height);
 
         // Red Effect
         // pixels = redEffect(pixels);
 
         // Stroboscopic effect with opacity of old frames
         pixels = this.rgbSplit(pixels);
-        this.ctx.globalAlpha = 0.1;
+        this.$refs.canvas.getContext("2d").globalAlpha = 0.1;
 
         // Green screen
         //pixels = greenScreen(pixels)
 
         // Put the pixels back
-        this.ctx.putImageData(pixels, 0, 0);
+        ctx.putImageData(pixels, 0, 0);
       }, 16);
     },
 
     takePhoto() {
-      this.snap.currentTime = 0;
-      this.snap.play();
+      this.$refs.snap.currentTime = 0;
+      this.$refs.snap.play();
 
       // Defines the format of the image
       const data = this.canvas.toDataURL("image/png");
@@ -110,7 +104,7 @@ export default {
       link.textContent = "Download your face";
       link.innerHTML = `<img src="${data}" alt="You"/>`;
       // Insert it below the canvas
-      this.strip.insertBefore(link, this.strip.firstChild);
+      this.$refs.strip.insertBefore(link, this.strip.firstChild);
     },
 
     // Red overlay
