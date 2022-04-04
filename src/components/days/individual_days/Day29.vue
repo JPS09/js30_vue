@@ -30,6 +30,7 @@
         @submit.prevent="timer($event.currentTarget.firstChild.value * 60)"
       >
         <input type="text" name="minutes" placeholder="Enter Minutes" />
+        <button type="submit" class="timer__button">Add Time</button>
       </form>
     </div>
     <div class="display">
