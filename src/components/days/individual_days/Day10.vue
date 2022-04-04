@@ -1,77 +1,116 @@
 <template>
   <div class="inbox">
-    <div class="item">
-      <input type="checkbox" />
-      <p>This is an inbox layout.</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Check one item</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Hold down your Shift key</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Check a lower item</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Everything in between should also be set to checked</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Try to do it without any libraries</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Just regular JavaScript</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Good Luck!</p>
-    </div>
-    <div class="item">
-      <input type="checkbox" />
-      <p>Don't forget to tweet your result!</p>
+    <div
+      :class="checkbox.class"
+      v-for="checkbox in checkboxes"
+      :key="checkbox.id"
+      @click="checkShift($event)"
+    >
+      <input :type="checkbox.type" :id="checkbox.id" />
+      <p>{{ checkbox.paragraphContent }}</p>
     </div>
   </div>
 </template>
 
 <script>
-const checkboxes = document.querySelectorAll("input[type=checkbox]");
+export default {
+  data() {
+    return {
+      checkboxes: [
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "This is an inbox layout.",
+          id: 1,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "Check one item",
+          id: 2,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "Hold down your Shift key",
+          id: 3,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "Check a lower item",
+          id: 4,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent:
+            "Everything in between should also be set to checked",
+          id: 5,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "Try to do it without any libraries",
+          id: 6,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "Just regular JavaScript",
+          id: 7,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "Good Luck!",
+          id: 8,
+        },
+        {
+          class: "item",
+          type: "checkbox",
+          paragraphContent: "Don't forget to tweet your result!",
+          id: 9,
+        },
+      ],
+      inBetween: false,
+      shiftKey: false,
+      lastChecked: false,
+    };
+  },
+  methods: {
+    checkShift(event) {
+      // variable to store the shift key boolean value
+      this.shiftKey = event.shiftKey;
 
-let lastChecked;
-
-function checkShift(e) {
-  // variable to store the shift key boolean value
-  let shiftKey = e.shiftKey;
-  // Flag to help us determine if a checkbox is inBetween two checkboxes
-  let inBetween = false;
-
-  // Checking if the shiftKey is pressed and that the current checkbox is checked
-  if (shiftKey && this.checked) {
-    // Iterating over the checkboxes
-    checkboxes.forEach((checkbox) => {
-      // Check if the current checkbox is one the 'begin' or the 'end'
-      if (checkbox === this || checkbox === lastChecked) {
-        // Reverse the value of inBetween since it's not inBetween the start and end
-        inBetween = !inBetween;
+      // Checking if the shiftKey is pressed and that the current checkbox is checked
+      if (this.shiftKey && this.checked) {
+        // Iterating over the checkboxes
+        // Need to translate that later
+        // checkboxes.forEach((checkbox) => {
+        //   // Check if the current checkbox is one the 'begin' or the 'end'
+        //   if (checkbox === this || checkbox === this.lastChecked) {
+        //     // Reverse the value of inBetween since it's not inBetween the start and end
+        //     this.inBetween = !this.inBetween;
+        //   }
+        //   // if the current checkbox is inBetween, check it.
+        //   if (this.inBetween) {
+        //     checkbox.checked = true;
+        //   }
+        // });
+        //TODO = Find a way to reverse this in a way that when the shift key is pressed on a checked box, it will make them all unchecked
       }
-      // if the current checkbox is inBetween, check it.
-      if (inBetween) {
-        checkbox.checked = true;
-      }
-    });
+      this.lastChecked = this;
+    },
+  },
+};
+// const checkboxes = document.querySelectorAll("input[type=checkbox]");
 
-    //TODO = Find a way to reverse this in a way that when the shift key is pressed on a checked box, it will make them all unchecked
-  }
-  lastChecked = this;
-}
-checkboxes.forEach((checkbox) =>
-  checkbox.addEventListener("click", checkShift)
-);
+// let lastChecked;
+
+// checkboxes.forEach((checkbox) =>
+//   checkbox.addEventListener("click", checkShift)
+// );
 </script>
 
 <style scoped>
