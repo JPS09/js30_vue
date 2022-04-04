@@ -32,69 +32,128 @@
   <div class="wrapper">
     <h2>LOCAL TAPAS</h2>
     <p></p>
-    <ul class="plates">
+    <ul class="plates" ref="list">
       <li>Loading Tapas...</li>
     </ul>
-    <form class="add-items">
-      <input type="text" name="item" placeholder="Item Name" required />
+    <form class="add-items" @submit.prevent="addItem()" ref="form">
+      <input
+        type="text"
+        name="item"
+        placeholder="Item Name"
+        required
+        ref="item"
+      />
       <input type="submit" value="+ Add Item" />
     </form>
   </div>
 </template>
 
 <script>
+export default {
+  mounted() {
+    this.populateList(this.items, this.$refs.list);
+  },
+  data() {
+    return {
+      // Get elements from localStorage or if empty return an empty array
+      items: JSON.parse(localStorage.getItem("items")) || [],
+      item: {
+        text: "",
+        checked: false,
+      },
+    };
+  },
+  methods: {
+    addItem() {
+      // add items to items array and add it to localStorage
+      const items = JSON.parse(localStorage.getItem("items")) || [];
+      const text = this.$refs.item.value;
+      const item = {
+        text,
+        checked: false,
+      };
+      items.push(item);
+      this.populateList(items, this.$refs.list);
+      // Add element to localStorage
+      localStorage.setItem("items", JSON.stringify(items));
+      // Empty the form
+      this.$refs.form.reset();
+    },
+    toggleDone(e) {
+      if (!e.target.matches("input")) return; // Skip unless input
+      const el = e.target; //Get the target
+      const elIndex = el.dataset.index; //Get the index of the clicked element
+      this.items[elIndex].checked = !this.items[elIndex].checked; // Toggle the check
+      localStorage.setItem("items", JSON.stringify(this.items)); // Pass the updated version to localStorage
+      this.populateList(this.items, this.itemsList); // Build the list
+    },
+    populateList(plates = [], platesList) {
+      // For each items, add a list item to ul list
+      platesList.innerHTML = plates
+        .map((plate, i) => {
+          return `
+            <li>
+              <input type="checkbox" data-index=${i} id='item${i}' ${
+            plate.checked ? "checked" : ""
+          }/>
+              <label for="item${i}">${plate.text}</label>
+            </li>
+          `;
+        })
+        .join("");
+    },
+  },
+};
 // TODO: Add 3 buttons and update localStoragz
 // 1 :Clear the list
 // 2: Check all elements
 // 3 :Uncheck all elements
-const addItems = document.querySelector(".add-items");
-const itemsList = document.querySelector(".plates");
-// Get elements from localStorage or if empty return an empty array
-const items = JSON.parse(localStorage.getItem("items")) || [];
+// const addItems = document.querySelector(".add-items");
+// const itemsList = document.querySelector(".plates");
 
 // add items to items array and add it to localStorage
-function addItem(e) {
-  e.preventDefault();
-  const text = this.querySelector("[name=item]").value;
-  const item = {
-    text,
-    checked: false,
-  };
-  items.push(item);
-  populateList(items, itemsList);
-  // Add element to localStorage
-  localStorage.setItem("items", JSON.stringify(items));
-  // Empty the form
-  this.reset();
-}
+// function addItem(e) {
+//   e.preventDefault();
+//   const text = this.querySelector("[name=item]").value;
+//   const item = {
+//     text,
+//     checked: false,
+//   };
+//   items.push(item);
+//   populateList(items, itemsList);
+//   // Add element to localStorage
+//   localStorage.setItem("items", JSON.stringify(items));
+//   // Empty the form
+//   this.reset();
+// }
 
-// For each items, add a list item to ul list
-function populateList(plates = [], platesList) {
-  platesList.innerHTML = plates
-    .map((plate, i) => {
-      return `
-            <li>
-              <input type="checkbox" data-index=${i} id='item${i}' ${
-        plate.checked ? "checked" : ""
-      }/>
-              <label for="item${i}">${plate.text}</label>
-            </li>
-          `;
-    })
-    .join("");
-}
+//
+// function populateList(plates = [], platesList) {
+//   platesList.innerHTML = plates
+//     .map((plate, i) => {
+//       return `
+//             <li>
+//               <input type="checkbox" data-index=${i} id='item${i}' ${
+//         plate.checked ? "checked" : ""
+//       }/>
+//               <label for="item${i}">${plate.text}</label>
+//             </li>
+//           `;
+//     })
+//     .join("");
+// }
 
-function toggleDone(e) {
-  if (!e.target.matches("input")) return; // Skip unless input
-  const el = e.target; //Get the target
-  const elIndex = el.dataset.index; //Get the index of the clicked element
-  items[elIndex].checked = !items[elIndex].checked; // Toggle the check
-  localStorage.setItem("items", JSON.stringify(items)); // Pass the updated version to localStorage
-  populateList(items, itemsList); // Build the list
-}
-addItems.addEventListener("submit", addItem);
-itemsList.addEventListener("click", toggleDone);
-populateList(items, itemsList);
+// function toggleDone(e) {
+//   if (!e.target.matches("input")) return; // Skip unless input
+//   const el = e.target; //Get the target
+//   const elIndex = el.dataset.index; //Get the index of the clicked element
+//   items[elIndex].checked = !items[elIndex].checked; // Toggle the check
+//   localStorage.setItem("items", JSON.stringify(items)); // Pass the updated version to localStorage
+//   populateList(items, itemsList); // Build the list
+// }
+// addItems.addEventListener("submit", addItem);
+// itemsList.addEventListener("click", toggleDone);
+// populateList(items, itemsList);
 </script>
 
 <style scoped>
@@ -131,6 +190,7 @@ svg {
   max-width: 350px;
   background: rgba(255, 255, 255, 0.95);
   box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
 }
 
 h2 {
