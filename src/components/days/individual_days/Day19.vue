@@ -39,13 +39,21 @@
 
 <script>
 export default {
+  data() {
+    return {
+      canvasID: undefined,
+    };
+  },
   mounted() {
     // Somethimes emits an error due to the cavnas not being there, need to search if correct hook
     this.getVideo();
     console.log(this.$refs.video);
+    console.log(this.canvasID);
   },
   onUnmount() {
-    this.cleanOnUnmount();
+    // this.cleanOnUnmount();
+    console.log(this.canvasID);
+    clearInterval(this.canvasID);
   },
   methods: {
     cleanOnUnmount() {
@@ -82,7 +90,8 @@ export default {
       const height = this.$refs.video.videoHeight;
       this.$refs.canvas.width = width;
       this.$refs.canvas.height = height;
-      return setInterval(() => {
+
+      this.canvasID = setInterval(() => {
         const ctx = this.$refs.canvas.getContext("2d");
         ctx.drawImage(this.$refs.video, 0, 0, width, height);
 
@@ -102,6 +111,7 @@ export default {
         // Put the pixels back
         ctx.putImageData(pixels, 0, 0);
       }, 16);
+      return this.canvasID;
     },
 
     takePhoto() {
