@@ -1,7 +1,7 @@
 <template>
   <div class="photobooth">
     <div class="controls">
-      <button onClick="takePhoto()">Take Photo</button>
+      <button @click="takePhoto()">Take Photo</button>
       <!--       <div class="rgb">
         <label for="rmin">Red Min:</label>
         <input type="range" min=0 max=255 name="rmin">
@@ -26,12 +26,12 @@
 
     <canvas class="photo" ref="canvas"></canvas>
     <video class="player" ref="video" @canplay="paintToCanvas()"></video>
-    <div class="strip" ref="snap"></div>
+    <div class="strip" ref="strip"></div>
 
     <audio
       class="snap"
       ref="snap"
-      src="assets/days_assets/Day19/snap.mp3"
+      src="../../../assets/days_assets/Day19/snap.mp3"
       hidden
     ></audio>
   </div>
@@ -40,10 +40,24 @@
 <script>
 export default {
   mounted() {
+    // Somethimes emits an error due to the cavnas not being there, need to search if correct hook
     this.getVideo();
     console.log(this.$refs.video);
   },
+  onUnmount() {
+    this.cleanOnUnmount();
+  },
   methods: {
+    cleanOnUnmount() {
+      const stream = this.$refs.video.srcObject;
+      const tracks = stream.getTracks();
+
+      tracks.forEach(function (track) {
+        track.stop();
+      });
+
+      this.$refs.video.srcObject = null;
+    },
     getVideo() {
       navigator.mediaDevices
         .getUserMedia({ video: true, audio: false })
@@ -95,7 +109,7 @@ export default {
       this.$refs.snap.play();
 
       // Defines the format of the image
-      const data = this.canvas.toDataURL("image/png");
+      const data = this.$refs.canvas.toDataURL("image/png");
       //Creating a clickable link for download
       const link = document.createElement("a");
       link.href = data;
@@ -104,7 +118,7 @@ export default {
       link.textContent = "Download your face";
       link.innerHTML = `<img src="${data}" alt="You"/>`;
       // Insert it below the canvas
-      this.$refs.strip.insertBefore(link, this.strip.firstChild);
+      this.$refs.strip.insertBefore(link, this.$refs.strip.firstChild);
     },
 
     // Red overlay
