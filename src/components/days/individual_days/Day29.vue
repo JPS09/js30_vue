@@ -1,85 +1,113 @@
 <template>
   <div class="timer">
     <div class="timer__controls">
-      <button data-time="20" class="timer__button">20 Secs</button>
-      <button data-time="300" class="timer__button">Work 5</button>
-      <button data-time="900" class="timer__button">Quick 15</button>
-      <button data-time="1200" class="timer__button">Snack 20</button>
-      <button data-time="3600" class="timer__button">Lunch Break</button>
-      <form name="customForm" id="custom">
+      <button data-time="20" class="timer__button" @click="startTimer($event)">
+        20 Secs
+      </button>
+      <button data-time="300" class="timer__button" @click="startTimer($event)">
+        Work 5
+      </button>
+      <button data-time="900" class="timer__button" @click="startTimer($event)">
+        Quick 15
+      </button>
+      <button
+        data-time="1200"
+        class="timer__button"
+        @click="startTimer($event)"
+      >
+        Snack 20
+      </button>
+      <button
+        data-time="3600"
+        class="timer__button"
+        @click="startTimer($event)"
+      >
+        Lunch Break
+      </button>
+      <form
+        name="customForm"
+        id="custom"
+        @submit.prevent="timer($event.currentTarget.firstChild.value * 60)"
+      >
         <input type="text" name="minutes" placeholder="Enter Minutes" />
+        <button type="submit" class="timer__button">Add Time</button>
       </form>
     </div>
     <div class="display">
-      <h1 class="display__time-left"></h1>
-      <p class="display__end-time"></p>
+      <h1 class="display__time-left" ref="clock"></h1>
+      <p class="display__end-time" ref="endclock"></p>
     </div>
   </div>
 </template>
 
 <script>
-const clock = document.querySelector(".display__time-left");
-const endClock = document.querySelector(".display__end-time");
-const buttons = document.querySelectorAll("[data-time]");
-let timerInterval;
+export default {
+  beforeUnmount() {
+    clearInterval(this.timerInterval);
+    document.title = "js30_vue";
+  },
+  data() {
+    return {
+      timerInterval: 0,
+    };
+  },
+  methods: {
+    timer(seconds) {
+      // Clears timers before launching a new one
+      clearInterval(this.timerInterval);
+      const now = Date.now();
+      const then = now + seconds * 1000;
+      // Calls the function to display when to get back
+      this.displayEndTime(then);
+      // Displays the remaining time immediatly and not after one second
+      this.displayTimeLeft(seconds);
+      this.timerInterval = setInterval(() => {
+        // Substract one second every second
+        const secondsLeft = Math.round((then - Date.now()) / 1000);
+        // When reaching 0, clears the interval
+        if (secondsLeft <= 0) clearInterval(this.timerInterval);
+        this.displayTimeLeft(secondsLeft);
+      }, 1000);
+    },
+    test(value) {
+      console.log(value.target.firstChild.value);
+    },
 
-function timer(seconds) {
-  // Clears timers before launching a new one
-  clearInterval(timerInterval);
-  const now = Date.now();
-  const then = now + seconds * 1000;
-  // Calls the function to display when to get back
-  displayEndTime(then);
-  // Displays the remaining time immediatly and not after one second
-  displayTimeLeft(seconds);
-  timerInterval = setInterval(() => {
-    // Substract one second every second
-    const secondsLeft = Math.round((then - Date.now()) / 1000);
-    // When reaching 0, clears the interval
-    if (secondsLeft <= 0) clearInterval(timerInterval);
-    displayTimeLeft(secondsLeft);
-  }, 1000);
-}
+    displayTimeLeft(seconds) {
+      const minutes = Math.floor(seconds / 60);
+      const remainderSeconds = seconds % 60;
+      const display = `${minutes}:${
+        remainderSeconds < 10 ? "0" : ""
+      }${remainderSeconds}`;
+      this.$refs.clock.textContent = display;
+      document.title = `${display} left`;
+    },
 
-function displayTimeLeft(seconds) {
-  const minutes = Math.floor(seconds / 60);
-  const remainderSeconds = seconds % 60;
-  const display = `${minutes}:${
-    remainderSeconds < 10 ? "0" : ""
-  }${remainderSeconds}`;
-  clock.textContent = display;
-  document.title = display;
-}
+    displayEndTime(timeStamp) {
+      const end = new Date(timeStamp);
+      const hour = end.getHours();
+      const minutes = end.getMinutes();
+      // Works for european clocks
+      this.$refs.endclock.textContent = `Your work awaits you at ${hour}:${
+        minutes < 10 ? "0" : ""
+      }${minutes}`;
+      // For the people that uses 12h clocks
+      // endClock.textContent = `Your work awaits you at ${
+      //   hour > 12 ? hour - 12 : hour
+      // }:${minutes}`;
+    },
 
-function displayEndTime(timeStamp) {
-  const end = new Date(timeStamp);
-  const hour = end.getHours();
-  const minutes = end.getMinutes();
-  // Works for european clocks
-  endClock.textContent = `Your work awaits you at ${hour}:${
-    minutes < 10 ? "0" : ""
-  }${minutes}`;
-  // For the people that uses 12h clocks
-  // endClock.textContent = `Your work awaits you at ${
-  //   hour > 12 ? hour - 12 : hour
-  // }:${minutes}`;
-}
-
-function startTimer() {
-  const seconds = parseInt(this.dataset.time);
-  timer(seconds);
-}
-buttons.forEach((button) => button.addEventListener("click", startTimer));
-document.customForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-  const mins = this.minutes.value * 60;
-  timer(mins);
-  this.reset();
-});
+    startTimer(event) {
+      const time = event.currentTarget.dataset.time;
+      const seconds = parseInt(time);
+      this.timer(seconds);
+    },
+  },
+};
 </script>
 
 <style scoped>
-html {
+.timer {
   box-sizing: border-box;
   font-size: 10px;
   background: #8e24aa;
