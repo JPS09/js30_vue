@@ -24,7 +24,11 @@
       >
         Lunch Break
       </button>
-      <form name="customForm" id="custom" @submit.prevent="bliblablou">
+      <form
+        name="customForm"
+        id="custom"
+        @submit.prevent="timer(parseInt($event.currentTarget.value * 60))"
+      >
         <input type="text" name="minutes" placeholder="Enter Minutes" />
       </form>
     </div>
@@ -38,7 +42,8 @@
 <script>
 export default {
   beforeUnmount() {
-    clearInterval(this.timerInteval);
+    clearInterval(this.timerInterval);
+    document.title = "js30_vue";
   },
   data() {
     return {
@@ -71,7 +76,7 @@ export default {
         remainderSeconds < 10 ? "0" : ""
       }${remainderSeconds}`;
       this.$refs.clock.textContent = display;
-      document.title = display;
+      document.title = `${display} left`;
     },
 
     displayEndTime(timeStamp) {
@@ -156,7 +161,7 @@ export default {
 </script>
 
 <style scoped>
-html {
+.timer {
   box-sizing: border-box;
   font-size: 10px;
   background: #8e24aa;
