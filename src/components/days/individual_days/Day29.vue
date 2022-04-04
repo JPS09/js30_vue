@@ -37,9 +37,12 @@
 
 <script>
 export default {
+  beforeUnmount() {
+    clearInterval(this.timerInteval);
+  },
   data() {
     return {
-      timerInteval: 0,
+      timerInterval: 0,
     };
   },
   methods: {
