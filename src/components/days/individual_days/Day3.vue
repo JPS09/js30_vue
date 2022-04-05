@@ -1,5 +1,7 @@
 <template>
-  <h2>Update CSS Variables with <span :style="textColor">(Vue)JS</span></h2>
+  <h2 class="day3_header">
+    Update CSS Variables with <span :style="textColor">(Vue)JS</span>
+  </h2>
 
   <div class="controls">
     <label for="spacing">Spacing:</label>
@@ -28,7 +30,7 @@
       @mousemove="blurUpdate($event)"
     />
 
-    <label for="base">Base Color</label>
+    <label for="base">Base Color : </label>
     <input
       id="base"
       type="color"
@@ -40,6 +42,7 @@
   </div>
 
   <img
+    class="day3_img"
     :style="[blurValue, spacingValue, colorValue]"
     src="https://source.unsplash.com/7bwQXzbF6KE/800x500"
   />
@@ -115,9 +118,21 @@ body {
 
 .controls {
   margin-bottom: 50px;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
 }
 
 input {
   width: 100px;
+}
+#base {
+  margin-left: 10px;
+}
+.day3_img,
+.day3_header {
+  width: 95%;
 }
 </style>
