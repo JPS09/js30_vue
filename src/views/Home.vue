@@ -42,6 +42,7 @@
           :day-name="day.name"
           :day-id="day.id"
           :day-sub-categories="day.subCategories"
+          :day-viewed="day.viewed"
         ></days-card>
       </section>
     </base-card>
