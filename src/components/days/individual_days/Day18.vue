@@ -1,8 +1,13 @@
 <template>
   <div>
     <ul class="videos">
-      <li v-for="item in listItems" :key="item.id" :data-time="item.time">
-        {{ item.content }}
+      <li
+        v-for="item in listItems"
+        :key="item.id"
+        :data-time="item.time"
+        class="item"
+      >
+        <strong>{{ item.content }}</strong> -> {{ item.time }} minutes
       </li>
     </ul>
   </div>
@@ -99,3 +104,18 @@ export default {
 };
 // const nodes = [...document.querySelectorAll("[data-time]")];
 </script>
+
+<style scoped>
+.videos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.item {
+  list-style: none;
+  border: 1px solid black;
+  padding: 10px;
+  margin: 5px;
+}
+</style>
