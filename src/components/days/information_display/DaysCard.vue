@@ -2,7 +2,13 @@
   <base-card class="days-card">
     <router-link class="days-card__link" :to="day_id">
       <div class="days-card__title">
-        <h2>{{ dayNumber }}</h2>
+        <div class="days-card__title__infos">
+          <h2 class="days-card__title__infos_header">{{ dayNumber }}</h2>
+          <p v-if="dayViewed" class="days-card__title__infos_text_viewed">
+            Viewed
+          </p>
+          <p v-else class="days-card__title__infos_text">Not viewed</p>
+        </div>
         <h4>{{ dayName }}</h4>
         <p class="days-card__category">{{ dayCategory }}</p>
       </div>
@@ -40,6 +46,10 @@ export default {
     },
     daySubCategories: {
       type: Array,
+      required: true,
+    },
+    dayViewed: {
+      type: Boolean,
       required: true,
     },
   },
@@ -101,5 +111,25 @@ export default {
   color: white;
   border-radius: 30px;
   padding: 5px;
+}
+.days-card__title__infos {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.days-card__title__infos_header,
+.days-card__title__infos_text,
+.days-card__title__infos_text_viewed {
+  margin-bottom: 0;
+}
+
+.days-card__title__infos_text {
+  font-weight: 500;
+  font-style: italic;
+}
+.days-card__title__infos_text_viewed {
+  font-weight: 500;
+  font-style: italic;
+  color: #78c594;
 }
 </style>
