@@ -1,5 +1,9 @@
 <template>
   <div>
+    <p>
+      {{ this.totalTime.hour }} hours {{ this.totalTime.minutes }} minutes and
+      {{ this.totalTime.seconds }} seconds in total
+    </p>
     <ul class="videos">
       <li
         v-for="item in listItems"
@@ -15,6 +19,9 @@
 
 <script>
 export default {
+  mounted() {
+    this.timeReducing();
+  },
   data() {
     return {
       listItems: [
@@ -78,12 +85,13 @@ export default {
         { id: 57, time: "1:56", content: "Video 57" },
         { id: 58, time: "4:04", content: "Video 58" },
       ],
+      totalTime: { hour: 0, minutes: 0, seconds: 0 },
     };
   },
   methods: {
     timeReducing() {
       const seconds = this.listItems
-        .map((node) => node.dataset.time)
+        .map((node) => node.time)
         .map((timeCode) => {
           const [mins, secs] = timeCode.split(":").map(parseFloat);
           return mins * 60 + secs;
@@ -94,9 +102,12 @@ export default {
 
       const hours = Math.floor(secondLeft / 3600);
       secondLeft = secondLeft % 3600;
+      this.totalTime.hour = hours;
 
       const mins = Math.floor(secondLeft / 60);
       secondLeft = secondLeft % 60;
+      this.totalTime.minutes = mins;
+      this.totalTime.seconds = secondLeft;
 
       console.info({ hours }, { mins }, { secondLeft });
     },
