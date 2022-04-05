@@ -119,9 +119,12 @@ export default {
 <style scoped>
 .videos {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  padding: 0;
+  max-width: 500px;
+  margin: 0 auto;
 }
 .item {
   list-style: none;
