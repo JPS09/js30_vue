@@ -107,13 +107,6 @@ export default {
 </script>
 
 <style scoped>
-.timer {
-  box-sizing: border-box;
-  font-size: 10px;
-  background: #8e24aa;
-  background: linear-gradient(45deg, #42a5f5 0%, #478ed1 50%, #0d47a1 100%);
-}
-
 *,
 *:before,
 *:after {
@@ -128,7 +121,7 @@ body {
 
 .display__time-left {
   font-weight: 100;
-  font-size: 20rem;
+  font-size: 10rem;
   margin: 0;
   color: white;
   text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.05);
@@ -138,10 +131,17 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 10px;
+  background: #8e24aa;
+  background: linear-gradient(45deg, #42a5f5 0%, #478ed1 50%, #0d47a1 100%);
 }
 
 .timer__controls {
   display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .timer__controls > * {
@@ -156,7 +156,7 @@ body {
 .timer__controls input {
   flex: 1;
   border: 0;
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .timer__button {
@@ -164,7 +164,7 @@ body {
   border: 0;
   cursor: pointer;
   color: white;
-  font-size: 2rem;
+  font-size: 1rem;
   text-transform: uppercase;
   background: rgba(0, 0, 0, 0.1);
   border-bottom: 3px solid rgba(0, 0, 0, 0.2);
@@ -181,6 +181,7 @@ body {
 
 .display {
   flex: 1;
+  font-size: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -188,7 +189,7 @@ body {
 }
 
 .display__end-time {
-  font-size: 4rem;
+  font-size: 2rem;
   color: white;
 }
 </style>
