@@ -1,5 +1,5 @@
 # Javascript30 with VueJS
-
+You can see the deployed version [here](https://js30-vue.web.app/)
 ## Goal of this project
 
 The main goal of this project was to **gather all exercises** made available by Wes Bos through his [JavaScript30 Days Challenge](https://javascript30.com/) **in a single place.**
