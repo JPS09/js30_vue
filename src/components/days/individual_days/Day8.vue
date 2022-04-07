@@ -4,6 +4,7 @@
     <title>HTML5 Canvas</title>
   </head>
   <body>
+    <p class="mobile">Doesn't work on mobile</p>
     <canvas
       id="draw"
       width="800"
@@ -112,5 +113,13 @@ export default {
 <style scoped>
 #draw {
   width: 100%;
+}
+.mobile {
+  display: none;
+}
+@media screen and (max-width: 960px) {
+  .mobile {
+    display: block;
+  }
 }
 </style>

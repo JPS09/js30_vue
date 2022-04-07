@@ -384,5 +384,6 @@ console.table(vehicles);
 }
 .img-style {
   border-radius: 5px;
+  width: 90%;
 }
 </style>

@@ -100,7 +100,8 @@ body {
 
 .panels {
   min-height: 100vh;
-  overflow: hidden;
+  max-width: 100%;
+  overflow: scroll;
   display: flex;
 }
 
@@ -143,7 +144,7 @@ body {
 .panel > * {
   display: flex;
   margin: 0;
-  width: 100%;
+  width: 75%;
   transition: transform 0.5s;
   justify-content: center;
   flex: 1 0 auto;
@@ -167,15 +168,15 @@ body {
   text-transform: uppercase;
   font-family: "Amatic SC", cursive;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.72), 0 0 14px rgba(0, 0, 0, 0.45);
-  font-size: 2em;
+  font-size: 1em;
 }
 
 .panel p:nth-child(2) {
-  font-size: 4em;
+  font-size: 25px;
 }
 
 .panel.open {
   flex: 5;
-  font-size: 40px;
+  font-size: 30px;
 }
 </style>

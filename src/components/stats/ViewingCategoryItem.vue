@@ -61,7 +61,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  transition: width 5s ease-in-out;
+  transition: width 2s ease-in-out;
 }
 
 .viewing-category-item__fill__done {

@@ -49,13 +49,13 @@ export default {
   height: 20px;
   border-radius: 100%;
   position: absolute;
-  top: 48.5%;
-  right: 48%;
+  top: 47%;
+  right: 45%;
 }
 .clock {
-  width: 30rem;
-  height: 30rem;
-  border: 20px solid white;
+  width: 20em;
+  height: 20em;
+  border: 12px solid white;
   border-radius: 50%;
   margin: 50px auto;
   position: relative;
@@ -92,7 +92,7 @@ export default {
 
 .hand.hour-hand {
   width: 30%;
-  left: 75px;
+  left: 45px;
 }
 
 .hand.min-hand {
