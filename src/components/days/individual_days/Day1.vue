@@ -142,7 +142,7 @@ export default {
   },
   methods: {
     removeTransition(e) {
-      console.log(e)
+      console.log(e);
       if (e.propertyName !== "transform") return; // skip if not transform
       e.target.classList.remove("playing");
     },
