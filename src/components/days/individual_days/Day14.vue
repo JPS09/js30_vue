@@ -221,5 +221,6 @@ const dev2 = JSON.parse(JSON.stringify(wes));
 }
 .img-style {
   border-radius: 5px;
+  width: 95%;
 }
 </style>
