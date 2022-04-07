@@ -244,5 +244,6 @@ console.log("Deleting an element the Redux way:", { newComments });
 }
 .img-style {
   border-radius: 5px;
+  width: 90%;
 }
 </style>

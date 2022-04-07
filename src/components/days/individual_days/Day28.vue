@@ -50,7 +50,7 @@ body {
 }
 
 .wrapper {
-  width: 850px;
+  width: 100%;
   display: flex;
 }
 
@@ -65,6 +65,7 @@ video {
   align-items: flex-start;
   margin: 10px;
   border-radius: 50px;
+  width: 100px;
   box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
@@ -76,8 +77,13 @@ video {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 0.5rem;
   padding: 2px;
   color: white;
   height: 16.3%;
+}
+
+.flex {
+  width: 90%;
 }
 </style>
