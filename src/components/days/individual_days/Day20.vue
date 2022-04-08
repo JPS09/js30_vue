@@ -51,40 +51,6 @@ export default {
     },
   },
 };
-// /* eslint-disable no-undef */
-// // Allows for use across browser, first one is Firefox, second one is Chrome
-// // window.SpeechRecognition =
-// //   window.SpeechRecognition || window.webkitSpeechRecognition;
-
-// //Creating an instance of SpeechRecognition
-// const recognition = new SpeechRecognition();
-// // Allows us to get the result immediately instead of waiting for the end of the audio input
-// recognition.interimResults = true;
-
-// // Create a paragraph to be displayed in the DOM
-// let p = document.createElement("p");
-// const words = document.querySelector(".words");
-// words.appendChild(p);
-
-// //When the results are available, dig into the event to get the first one and change the paragraph content according to it
-// recognition.addEventListener("result", (e) => {
-//   const transcript = Array.from(e.results)
-//     .map((result) => result[0])
-//     .map((result) => result.transcript)
-//     .join("");
-//   p.textContent = transcript;
-
-//   // When the user starts speaking again create a new paragraph instead of rewriting the existing one
-//   if (e.results[0].isFinal) {
-//     p = document.createElement("p");
-//     words.appendChild(p);
-//   }
-// });
-// //Start on page load
-// recognition.start();
-
-// // When the previous detection end, start the recognition again
-// recognition.addEventListener("end", recognition.start);
 </script>
 
 <style>
