@@ -24,7 +24,6 @@ The following days are still being worked on :
 - Day 13
 - Day 15
 - Day 17
-- Day 20
 - Day 21
 - Day 22
 - Day 24
