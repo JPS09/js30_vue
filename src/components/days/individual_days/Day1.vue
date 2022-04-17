@@ -5,6 +5,7 @@
       :key="audioKey.dataKey"
       :data-key="audioKey.dataKey"
       class="key"
+      @click="clickSound($event)"
       @transitionend="removeTransition($event)"
     >
       <kbd>{{ audioKey.kbd }}</kbd>
@@ -154,6 +155,16 @@ export default {
     playSound(e) {
       const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
       const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
+      if (!audio) return; // Stop function if null
+      audio.currentTime = 0; // Rewind to start
+      key.classList.add("playing");
+      audio.play();
+    },
+    clickSound(event) {
+      const audio = document.querySelector(
+        `audio[data-key="${event.currentTarget.dataset.key}"]`
+      );
+      const key = event.currentTarget;
       if (!audio) return; // Stop function if null
       audio.currentTime = 0; // Rewind to start
       key.classList.add("playing");
