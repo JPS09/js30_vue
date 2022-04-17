@@ -204,6 +204,7 @@ export default {
   background: rgba(0, 0, 0, 0.4);
   text-shadow: 0 0 0.5rem black;
   justify-self: center;
+  user-select: none;
 }
 
 .playing {
