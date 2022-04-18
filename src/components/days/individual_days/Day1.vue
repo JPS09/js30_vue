@@ -182,6 +182,7 @@ export default {
   min-height: 100vh;
   align-items: center;
   justify-content: space-between;
+  user-select: none;
 }
 @media (max-width: 768px) {
   .keys {
@@ -216,6 +217,7 @@ export default {
 kbd {
   display: block;
   font-size: 4rem;
+  user-select: none;
 }
 
 .sound {
@@ -223,5 +225,6 @@ kbd {
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   color: #ffc600;
+  user-select: none;
 }
 </style>
